@@ -17,7 +17,7 @@ import { storeState } from '../../../redux/store';
 
 
 interface Props {
-  selectedOptions: SelectedOptionType
+  selectedOptions: any
 }
 
 const PaymentForm = ({ selectedOptions }:Props) => {

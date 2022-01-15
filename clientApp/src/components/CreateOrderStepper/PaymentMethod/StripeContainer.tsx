@@ -3,14 +3,14 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js'
 import PaymentForm from './PaymentForm';
 import './StripeContainer.scss';
-import { SelectedOptionType } from '../../../pages/DashBoard/Order/CreateOrder/createOrder';
+// import { SelectedOptionType } from '../../../pages/DashBoard/Order/CreateOrder/createOrder';
 
 const PUBLIC_KEY = 'pk_test_51KDrBrGxy8KyVn0kErBbNTcBxXzZ0MUFsLsM5ufta0diL4kNzxiyffQt9R9at2EJ6wfZyu15mY9VNfCAiEQmuuij006kcZMyOM'
 
 const stripePromise = loadStripe(PUBLIC_KEY)
 
 interface Props {
-  selectedOptions: SelectedOptionType
+  selectedOptions: any
 }
 
 const StripeContainer = ({ selectedOptions }: Props) => {
