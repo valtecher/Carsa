@@ -5,7 +5,7 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import { orderSteps } from './orderSteps'
-import StepperButtons from '../StepperButtons/StepperButtons';
+import StepperButtons from '../stepperbuttons/StepperButtons';
 import  { handleRender } from '../../../../components/createOrderStepper/OptionRenderer/OptionRenderer'
 import { CarConfigurationType } from '../../../../interfaces/models/carConfiguration'
 import { PackageType, Package } from '../../../../interfaces/models/package'
