@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "14.17.6",
+    "npm": "6.14.15"
+  },
   "scripts": {
+    "heroku-postbuild" : "cd clientApp && npm install && npm run build",
     "dev": "tsnd --respawn index.ts",
     "migrate": "npx sequelize-cli db:migrate",
     "undo-migration": "npx sequelize-cli db:migrate:undo",
@@ -51,5 +56,6 @@
     "@types/puppeteer": "^5.4.4",
     "@types/uuid": "^8.3.1",
     "faker": "^5.5.3"
-  }
+  }, 
+  "proxy": "http://localhost:3000"
 }

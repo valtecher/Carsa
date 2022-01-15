@@ -1,7 +1,7 @@
 import {Request, Response, NextFunction} from 'express'
 import {StatusCodes} from 'http-status-codes'
 import {JsonWebTokenError} from 'jsonwebtoken'
-
+require('dotenv').config()
 const jwt = require('jsonwebtoken')
 
 export const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
