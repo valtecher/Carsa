@@ -32,6 +32,7 @@
     "react-slick": "^0.28.1",
     "react-spinners-kit": "^1.9.1",
     "react-stripe": "^0.1.0",
+    "react-test-renderer": "^17.0.2",
     "reactjs-percentage-circle": "^1.0.0",
     "recharts": "^2.1.6",
     "redux": "^4.1.1",
