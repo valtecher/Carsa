@@ -39,7 +39,7 @@ function App() {
                     <ProtectedRoute exact path="/dashboard/payments" component={PaymentDashBoard}/>
                     <ProtectedRoute exact path="/report" component={ReportMainPage}/>
                     <Route exact path='/report/:id' component={CreateReport}/>
-                    <Route exact path='/dashboard/createorder' component={CreateOrder}/>
+                    {/* <Route exact path='/dashboard/createorder' component={CreateOrder}/> */}
                     <Route exact path="/" render={() => <Redirect to="/home"/>}/>
                 </Switch>
             </Router>
