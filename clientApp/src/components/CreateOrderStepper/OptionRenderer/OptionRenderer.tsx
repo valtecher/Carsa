@@ -5,10 +5,10 @@ import ConfigurationCreator from '../LinkCreation/ConfigurationCreator';
 import { CarConfigurationType } from '../../../interfaces/models/carConfiguration';
 import { Package } from '../../../interfaces/models/package';
 import StripeContainer from '../PaymentMethod/StripeContainer';
-import { SelectedOptionType } from '../../../pages/DashBoard/Order/CreateOrder/createOrder';
+// import { SelectedOptionType } from '../../../pages/DashBoard/Order/CreateOrder/createOrder';
 
 
-export const handleRender = (activeStep:number, next: (answer: CarConfigurationType | Package  | null) => any, orderCreated: SelectedOptionType) => {
+export const handleRender = (activeStep:number, next: (answer: CarConfigurationType | Package  | null) => any, orderCreated: any) => {
 
     
   switch(activeStep){
