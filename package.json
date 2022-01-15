@@ -55,6 +55,7 @@
     "@types/multer": "^1.4.7",
     "@types/node": "^16.11.10",
     "@types/puppeteer": "^5.4.4",
+    "@types/react-dom": "^17.0.11",
     "@types/react-router-dom": "^5.3.2",
     "@types/react-slick": "^0.23.8",
     "@types/uuid": "^8.3.1",
