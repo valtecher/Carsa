@@ -3,10 +3,9 @@ import AcceptTerms from '../AcceptTerms/AcceptTerms';
 import ChoosePackagePackage from '../Step1/StepperChoosePackage'
 import ConfigurationCreator from '../LinkCreation/ConfigurationCreator';
 import { CarConfigurationType } from '../../../interfaces/models/carConfiguration';
-import { Package, PackageType } from '../../../interfaces/models/package';
+import { Package } from '../../../interfaces/models/package';
 import StripeContainer from '../PaymentMethod/StripeContainer';
-import { CarType } from '../../../interfaces/models/car';
-import { SelectedOptionType } from '../../../pages/DashBoard/Order/CreateOrder/CreateOrder';
+import { SelectedOptionType } from '../../../pages/DashBoard/Order/CreateOrder/createOrder';
 
 
 export const handleRender = (activeStep:number, next: (answer: CarConfigurationType | Package  | null) => any, orderCreated: SelectedOptionType) => {

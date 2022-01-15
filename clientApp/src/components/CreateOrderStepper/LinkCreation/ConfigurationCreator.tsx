@@ -3,7 +3,7 @@ import './ConfigurationCreator.scss'
 import Paper from '../../shared/Papper/Papper';
 import TextField from '@mui/material/TextField';
 import Carousel from '../../carousel/Carousel'
-import CarSpecPresentation from '../../../components/carSpecsPresentation/CarSpecPresentation';
+import CarSpecPresentation from '../../carSpecsPresentation/CarSpecPresentation';
 import { MetroSpinner } from 'react-spinners-kit'
 import { Package, PackageType } from '../../../interfaces/models/package';
 import { scrapperApi } from '../../../services/scrapper/scrapperApi'
@@ -13,7 +13,7 @@ import { CarConfigurationType } from '../../../interfaces/models/carConfiguratio
 import { CarBrandType } from '../../../interfaces/models/carBrand';
 import CustomSelect from '../../shared/select/CustomSelect';
 import { typeMock, fuelTypeMock, gearboxTypeMock, driveTypeMock } from '../../../utils/constants/carMock'
-import RangeSelect from '../../../components/shared/rangeSelect/RangeSelect'
+import RangeSelect from '../../shared/rangeSelect/RangeSelect'
 import LocationInput from '../../shared/locationInput/LocationInput';
 
 

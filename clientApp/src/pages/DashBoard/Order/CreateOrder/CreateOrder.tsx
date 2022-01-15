@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import './CreateOrder.scss'
+import './createOrder.scss'
 import SideMenu from '../../../../components/sideMenu/SideMenu'
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-import { orderSteps } from './OrderSteps'
+import { orderSteps } from './orderSteps'
 import StepperButtons from '../StepperButtons/StepperButtons';
 import  { handleRender } from '../../../../components/createOrderStepper/OptionRenderer/OptionRenderer'
 import { CarConfigurationType } from '../../../../interfaces/models/carConfiguration'
