@@ -1,0 +1,6 @@
+paths:
+  /api/reports:
+    put:
+      summary: Retrieve a list of all reports.
+      tags:
+        - Reports

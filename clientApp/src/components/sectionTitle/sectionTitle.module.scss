@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Druk";
+  src: url("/fonts/Druk.woff") format("woff")
+}
+
+.wrapper {
+  width: 100%;
+  margin-bottom: 5rem;
+  text-align: center;
+  letter-spacing: .2rem;
+
+  .title {
+    color: white;
+    font-family: "Druk", sans-serif;
+    font-size: 6rem;
+  }
+}

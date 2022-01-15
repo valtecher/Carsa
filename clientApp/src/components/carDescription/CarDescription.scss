@@ -1,0 +1,83 @@
+// @import url('../../sass/variables.scss');
+
+.CarDescriptionWrapper{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #6CBACF;
+  &-info{
+    width: 100%; 
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-around;
+    align-items: flex-start;
+    &-item{
+      width: 45%;
+
+      &-btn{
+        width: 150px;
+        height: 35px;
+        border: 1px solid #fff;
+        color: #fff;
+        background-color: transparent;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 20px;
+        margin: 10px;
+        &:hover{
+          background-color: rgba(190, 190, 190, 0.2);
+        }
+      }
+
+      &-header{
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+        display: flex;
+        align-items: center;
+        letter-spacing: -0.015em;
+      }
+
+      &-body{
+        display: flex;
+        flex-wrap: wrap;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 21px;
+        &-keyPair{
+          text-transform: capitalize;
+          width: 45%;
+          margin: 5px;
+
+
+        }
+      }
+    }
+  }
+
+  &-equipment{
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+      &-item{
+        &-body{ 
+          width: 20%;
+          display: flex;
+          flex-wrap: wrap;
+          &-keyPair{
+            text-transform: capitalize;
+            font-size: 18px;
+            
+
+            margin: 5px;
+          }
+        }
+      }
+  }
+
+}

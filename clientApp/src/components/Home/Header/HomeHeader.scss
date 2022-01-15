@@ -1,0 +1,26 @@
+.homeheader {
+  position: absolute;
+  width: 100%;
+  margin: 0 auto;
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  &-logo{
+    img{
+      width: 200px;
+
+    }
+  }
+
+  &-wrapper{
+    a{
+      text-decoration: none;
+      color: #000;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+}

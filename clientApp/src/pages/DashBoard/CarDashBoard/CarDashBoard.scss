@@ -1,0 +1,110 @@
+.dashBoardInfo{ 
+  &-wrapper{
+    &-body{
+      margin-top: 5px;
+      &-carName { 
+        font-size: 26px;
+        font-weight: 700;
+      }
+
+      &-part {
+        margin-top: 20px;
+       
+        &-header{
+          font-size: 20px;
+          margin-bottom: 20px;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+      
+       
+        
+        &-body {
+          margin: 0 auto;
+          max-width: 950px;
+
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          &-header {
+            font-size: 26px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-top: 30px;
+            
+            width: 100%;
+          }
+          &-item{
+            display: flex;
+            flex-basis: 50%;
+
+            &-key {
+              font-weight: 500;
+              text-transform: uppercase;
+            }
+            &-value {
+              font-weight: 300;
+            }
+            p{
+              margin: 2px;
+              font-size: 14px;
+              display: inline-block;
+            }
+          }
+          &-subView{
+            width: 100%;
+            // margin: 5px;
+            // padding: 5px;
+            border-radius: 10px;
+            // background-color: #fff;
+            // -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+            // -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+            // box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+          }
+
+          &-detailed {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            flex-wrap: wrap;
+            p{
+              margin-top: 10px;
+            }
+            &-item{
+              padding: 10px;
+              margin: 10px;
+              border-radius: 20px;
+              min-height: 200px;
+              max-height: 400px;
+              width: 370px;
+              -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+              -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+              box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+              &-reportHeader{
+                text-transform: uppercase;
+                font-size: 18px;
+                font-weight: 700;
+              }
+              &-reportId{
+                font-size: 12px;
+                font-weight: 400;
+                color: grey;
+              }
+              &-reportDetails{
+                font-size: 16px;
+              }
+              &-reportScore{
+                margin: 0 auto;
+                text-transform: capitalize;
+                font-size: 20px;
+              }
+              
+            }
+          }
+        }
+      }
+    }
+  }
+}

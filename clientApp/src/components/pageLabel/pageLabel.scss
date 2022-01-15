@@ -1,0 +1,23 @@
+@import '../../sass/variables.scss';
+
+.title{
+  width: 75px;
+  height: 150px;
+  white-space: nowrap;
+  border-radius: 20px;
+  background-color: $turquoise;
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+  p {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 34px;
+    transform: rotate(270deg);
+    
+  }
+}

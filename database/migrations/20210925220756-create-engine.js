@@ -1,0 +1,40 @@
+'use strict'
+module.exports = {
+    up: async (queryInterface, Sequelize) => {
+        await queryInterface.createTable('Engine', {
+            id: {
+                type: Sequelize.UUID,
+                defaultValue: Sequelize.UUIDV4,
+                primaryKey: true,
+                allowNull: false
+            },
+            name: {
+                type: Sequelize.STRING,
+                allowNull: false
+            },
+            volume: {
+                type: Sequelize.FLOAT,
+                allowNull: true
+            },
+            power: {
+                type: Sequelize.INTEGER,
+                allowNull: false
+            },
+            fuel_type: {
+                type: Sequelize.STRING,
+                allowNull: false
+            },
+            created_at: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            updated_at: {
+                allowNull: false,
+                type: Sequelize.DATE
+            }
+        })
+    },
+    down: async (queryInterface, Sequelize) => {
+        await queryInterface.dropTable('Engine')
+    }
+}

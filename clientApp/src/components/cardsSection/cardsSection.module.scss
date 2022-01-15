@@ -1,0 +1,14 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  row-gap: 2rem;
+
+
+  width: 95%;
+  height: 1000px;
+  margin: auto auto 20rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  background-color: darkgoldenrod;
+}

@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap');
+
+$circle-diametr: 15.4rem;
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 50rem;
+	height: 67rem;
+	margin: 10rem auto 0;
+
+	background-color: hsla(219, 40, 25, 0.75);
+	border-radius: 20px;
+	text-align: center;
+
+	.formLabel {
+		margin-top: 10rem;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 6.4rem;
+		color: white;
+		font-weight: 700;
+	}
+
+	&::before {
+		content: 'Bitok';
+		height: $circle-diametr;
+		width: $circle-diametr;
+		border-radius: 50%;
+		background-color: hsl(193, 51, 62);
+
+		font-family: 'Mr Dafoe', cursive;
+		text-align: center;
+		line-height: 15rem;
+		font-size: 5rem;
+		color: black;
+
+		position: absolute;
+		z-index: 1;
+		top: -$circle-diametr / 2;
+		left: calc(50% - 7.7rem); // 50% - circle-diametr / 2
+	}
+}

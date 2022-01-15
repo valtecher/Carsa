@@ -1,0 +1,30 @@
+@import '../../sass/variables.scss';
+
+.filterWrapper {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 120px;
+  min-height: 60px;
+  background-color: $cardSpecial;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &-filter {
+    margin-top: 15px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: transparent;
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3 ease-in-out;
+    &:hover{
+      background-color: rgba(190,190,190, 0.5);
+    }
+  }
+}

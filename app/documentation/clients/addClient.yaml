@@ -1,0 +1,6 @@
+paths:
+  /api/clients:
+    post:
+      summary: Retrieve a location with specified id (if any).
+      tags:
+        - Clients

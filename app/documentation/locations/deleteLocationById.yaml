@@ -1,0 +1,6 @@
+paths:
+  /api/locations/{id}:
+    delete:
+      summary: Permanently delete the location with specified id (if any).
+      tags:
+        - Locations

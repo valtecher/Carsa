@@ -1,0 +1,6 @@
+paths:
+  /api/orders/{id}:
+    delete:
+      summary: Retrieve a list of all orders.
+      tags:
+        - Orders

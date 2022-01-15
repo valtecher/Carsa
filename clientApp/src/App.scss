@@ -1,0 +1,18 @@
+@import "./sass/variables.scss";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%; // from now 1rem === 10px
+}
+
+body {
+  font-size: 1.6rem; // we set default font size value to the 16px as it was
+  background-color: $backgroundColor;
+  box-sizing: border-box;
+}

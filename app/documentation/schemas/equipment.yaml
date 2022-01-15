@@ -1,0 +1,13 @@
+components:
+  schemas:
+    Equipment:
+      properties:
+        id:
+          type: string
+          example: 69f07a31-18eb-4a9c-b70d-dfbeab5b76e4
+        name:
+          type: string
+          example: Climate control
+      required:
+        - id
+        - name

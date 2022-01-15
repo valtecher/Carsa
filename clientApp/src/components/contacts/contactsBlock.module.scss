@@ -1,0 +1,11 @@
+.contacts-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-items: center;
+	grid-row-gap: 20px;
+	grid-column-gap: 20px;
+
+	width: 65%;
+	height: 25rem;
+	margin: auto;
+}

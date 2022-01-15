@@ -1,0 +1,64 @@
+.rangeSelect{
+  margin: 5px;
+  background-color: lightblue;
+  width: 175px;
+  height: 80px;
+  border-radius: 20px;
+  flex-direction: column;
+  position: relative;
+  text-transform: capitalize;
+  
+  &-label{
+    width: 100%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: -0.015em;
+    color: #fff;
+    margin-left: 5px;
+    padding-top: 10px;
+    margin-bottom: 0;;
+  }
+
+  &-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &-input {
+    text-align: center;
+    background-color: #fff;
+    border: 0;
+    height: 30px;
+    width: 70px;
+    border-radius: 20px;
+    margin-top: 7px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 5px;
+  }
+  &-delimeter {
+    width: 10px;
+    margin-top: 7px;
+    height: 2px;
+    background-color: #fff;
+  }
+}
+
+.disabled{ 
+  background-color: lightgrey;
+}
+
+.visible {
+  opacity: 100%;
+  display: block;
+}
+
+.hidden {
+  opacity: 0;
+  display: none;
+}

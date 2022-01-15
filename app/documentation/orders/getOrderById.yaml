@@ -1,0 +1,6 @@
+paths:
+  /api/orders/{id}:
+    get:
+      summary: Retrieve a list of all orders.
+      tags:
+        - Orders

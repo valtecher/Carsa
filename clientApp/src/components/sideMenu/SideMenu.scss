@@ -1,0 +1,38 @@
+
+.sideMenu-wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 100vh;
+  color: white;
+  background-color: rgb(55, 61, 84);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 20vh;
+  &-tab{
+    width: 125px;
+    text-align: center;
+    margin-left: 10px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    font-size: 20px;
+    line-height: 30px;
+    cursor: pointer;
+    a {
+      color: white;
+      text-decoration: none;
+
+    }
+
+  }
+}
+
+.selected{
+  width: 125px;
+  height: 30px;
+  background-color: rgb(125, 128, 246);
+  border-radius: 20px;
+}
+// 245, 248, 251

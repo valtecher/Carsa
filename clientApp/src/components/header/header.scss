@@ -1,0 +1,30 @@
+.header-wrapper {
+  position: absolute;
+  top: 20px;
+  left: 15%;
+  z-index: 3;
+
+  &-link{
+    font-size: 18px;
+    margin: 10px;
+    text-decoration: none;
+    color: #fff;
+    transition: 1.3s ease-in-out;
+    &:hover{
+      margin-top: 2px;
+      animation: border_anim 0.3s linear forwards;
+      border-bottom: 0.3px solid #fff;
+    }
+  }
+
+  
+}
+
+@keyframes border_anim {
+	0%{
+		width: 0%;
+	}
+	100%{
+		width: 100%;
+	}
+}

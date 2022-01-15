@@ -1,0 +1,14 @@
+.dashBoardcard-wrapper-body{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  &-payemntSum{
+    margin-top: 10px;
+    p{
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+  }
+}
+
+
