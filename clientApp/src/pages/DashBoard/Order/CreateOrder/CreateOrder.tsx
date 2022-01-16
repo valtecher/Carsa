@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import AcceptTerms from '../../../../components/CreateOrderStepper/AcceptTerms/AcceptTerms'
+import AcceptTerms from '../../../../components/CreateOrderStepper/AcceptTerms/AcceptTerms'
 import StepperChoosePackage from '../../../../components/CreateOrderStepper/Step1/StepperChoosePackage';
 import ConfigurationCreator from '../../../../components/CreateOrderStepper/LinkCreation/ConfigurationCreator';
 import StripeContainer from '../../../../components/CreateOrderStepper/PaymentMethod/StripeContainer';
@@ -8,8 +8,6 @@ import SideMenu from '../../../../components/sideMenu/SideMenu'
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-// import { orderSteps } from './orderSteps'
-// import  { handleRender } from '../../../../components/createOrderStepper/OptionRenderer/OptionRenderer'
 import { CarConfigurationType } from '../../../../interfaces/models/carConfiguration'
 import { PackageType, Package } from '../../../../interfaces/models/package'
 import { CarType } from '../../../../interfaces/models/car';
@@ -38,8 +36,7 @@ const handleRender = (activeStep:number, next: (answer: CarConfigurationType | P
         )
     case 2:
       return(
-        <div></div>
-          // <AcceptTerms next={next}/>
+          <AcceptTerms next={next}/>
       )
     case 3: 
         return(  
