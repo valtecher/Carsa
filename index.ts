@@ -5,12 +5,13 @@ require('dotenv').config()
 
 const PORT = process.env.PORT
 const corsMiddleware = require('./app/middlewares/cors')
+const path = require('path');
 const router = require('./app/routes')
 const passport = require("./app/auth/passport")
 const app = express()
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static("./client/build"))
+    app.use(express.static(path.join(__dirname, "./clientApp/build")))
 }
 
 app.use(express.json())
@@ -31,7 +32,7 @@ app.use(router)
 
 
 app.get("*", (req:any, res:any)=>{
-    res.sendFile('./client/build/index.html')
+    res.sendFile(path.join( __dirname, './clientApp/build/index.html'))
 })
 
 db.sequelize.sync().then(() => {
