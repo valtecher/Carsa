@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import StepperChoosePackage from '../../../../components/CreateOrderStepper/Step1/StepperChoosePackage';
 import ConfigurationCreator from '../../../../components/CreateOrderStepper/LinkCreation/ConfigurationCreator';
 import StripeContainer from '../../../../components/CreateOrderStepper/PaymentMethod/StripeContainer';
-import './createOrder.scss'
+import './CreateOrder.scss'
 import SideMenu from '../../../../components/sideMenu/SideMenu'
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
