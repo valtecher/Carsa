@@ -1,3 +1,4 @@
+// @ts-ignore
 import express from 'express'
 import db from './database/models'
 require('dotenv').config()
