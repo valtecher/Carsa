@@ -55,7 +55,7 @@
     width: 25%;
     line-height: 30px;
     height: 30px;
-    background-color: #fff;
+
     border-radius: 20px;
     text-align: center;
     margin-top: 7px;
@@ -69,7 +69,7 @@
     &-dropDown{
       overflow: scroll;
       position: absolute;
-      top: 45px;
+
       height: 80px;
       width: 100%;
       border-radius: 15px;
@@ -93,4 +93,8 @@
 .hidden {
   opacity: 0;
   display: none;
+}
+
+.locationCustomSelect{
+  height: 30px;
 }

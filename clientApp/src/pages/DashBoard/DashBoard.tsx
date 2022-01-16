@@ -69,7 +69,7 @@ const DashBoard = () => {
       <SideMenu/>
       <div className='dashboard-wrapper-nav'>
         <div className='dashboard-wrapper-nav-button' onClick={()=> { history.push('/dashboard/createOrder') }}>Create order</div>
-        <div className='dashboard-wrapper-nav-button' onClick={()=> { history.push('/account') }}>Edit Account</div>
+        {/* <div className='dashboard-wrapper-nav-button' onClick={()=> { history.push('/account') }}>Edit Account</div> */}
       </div>
       <div className='dashboard-wrapper-quickInfo'>
       <Paper size='m'>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import './locationInput.scss'
 import { rangeMock  } from '../../../utils/constants/rangeMock';
+import CustomSelect from '../CustomSelect/CustomSelect';
 
 interface Props {
   title: string,
@@ -30,16 +31,8 @@ const LocationInput = ({title, handleLocationChange, location, range, handleRang
        <div className='locationInput-label'>{title}</div>
        <div className='locationInput-group'>
         <input className='locationInput-display' onChange={handleLocationChange} value={location} placeholder='Location...'></input>
-        <div className='locationInput-range' onClick={handleClick}>{ range? range : 'Range'  } <ArrowDropDownIcon fontSize='large' />
-         <div  className={`${isShown?'visible ': 'hidden'} locationInput-range-dropDown`}>
-            { rangeMock.map((option:{id:number, name:string}) => {
-              return(
-                <div key={option.id} onClick={()=>{
-                  handleRangeOptionClick(option)
-                }} className='customSelect-options-item'>{option.name}</div>
-              )
-            }) }
-         </div>
+        <div className='locationInput-range' onClick={handleClick}>
+         <CustomSelect className='locationCustomSelect'  options={rangeMock || []}  title='CarBrand' filterOptions={range} setFilterOptions={handleRangeChange} ></CustomSelect>
          </div>
        
 

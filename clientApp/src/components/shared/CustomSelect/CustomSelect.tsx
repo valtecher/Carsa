@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './CustomSelect.scss';
-
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 interface Props{
   options: Array<Option>
@@ -17,7 +20,7 @@ interface Option{
   name: string
 }
 
-const CustomSelect  = ({className, disabled = false, title, options, setFilterOptions, filterOptions}:Props) => {
+const CustomSelect  = ({className = '', disabled = false, title, options, setFilterOptions, filterOptions}:Props) => {
 
   const [isShown, setIsShown] = useState(false)
   const [ value, setValue ] = useState({id: -1, name: 'Select one...'});
@@ -32,7 +35,7 @@ const CustomSelect  = ({className, disabled = false, title, options, setFilterOp
     }
   }
 
-  const hanleOptionClick = (option:Option) => {
+  const handleOptionClick = (option:Option) => {
     setValue(option)
     if(setFilterOptions){
       setFilterOptions({...filterOptions, [title]: option.name})
@@ -40,21 +43,25 @@ const CustomSelect  = ({className, disabled = false, title, options, setFilterOp
     setIsShown(false)
   }
 
-  console.log(isShown)
   return(
     <div className={`customSelect ${ className }`}>
-      <div className='customSelect-label'>{title}</div>
-      <div className='customSelect-display' onClick={handleClick}>{value.name}</div>
-      <div className={`${isShown?'visible ': 'hidden'}customSelect-options`}>
-        {options.map((option:{id:string, name:string})=> {
-          return(
-            <div key={option.id} onClick={()=>{
-              hanleOptionClick(option)
-            }} className='customSelect-options-item'>{option.name}</div>
-          )
-        })}
-
-      </div>
+        <FormControl variant="standard" fullWidth>
+        <InputLabel id="demo-simple-select-label">{ title }</InputLabel>
+        <Select
+          name={ title }
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={value.name}
+          label={title}
+          disabled={disabled}
+        >
+         { options.map((option:any) => {
+           return(
+            <MenuItem onClick={() => {  handleOptionClick(option)}} key={option.id} value={option.name}>{ option.name }</MenuItem>
+           )
+         }) }
+        </Select>
+      </FormControl>
     </div>
   )
 }
