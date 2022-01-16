@@ -7,7 +7,9 @@ import {Request, Response, NextFunction} from 'express'
 
 const scrapCarFromLink = async (req:Request, res:Response, next:NextFunction) => {
   const result:any = {}
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  });
   const page = await browser.newPage();
   if(req.headers.link){
       await page.goto(req.headers.link);
