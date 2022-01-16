@@ -1,16 +1,15 @@
 const fs = require('fs')
 const path = require('path')
 const Sequelize = require('sequelize')
+require('dotenv').config();
 const basename = path.basename(__filename)
 const env = process.env.NODE_ENV || 'development'
 const config = require(__dirname + '/../../config/db.ts')[env]
 const db: any = {}
 
 let sequelize: any
-// if (config.use_env_variable) {
-    // console.log('here if')
-    // sequelize = new Sequelize(process.env[config.use_env_variable], config)
-// } else  if( process.env.NODE_ENV === 'production' ) {
+
+if(process.env.NODE_ENV === 'production'){
     sequelize = new Sequelize(process.env.DATABASE_URL, {
         dialectOptions: {
           ssl: {
@@ -19,14 +18,18 @@ let sequelize: any
           }
         }
       });
-// }
-// else {
-//     console.log('here else')
-//     sequelize = new Sequelize(config.database, config.username, config.password, config)
-// }
+} else {
+    sequelize = new Sequelize({
+        "username": "vsevoloddoroshenko",
+        "password": null,
+        "database": "diploma",
+        "host": "127.0.0.1",
+        "dialect": "postgres"
+    })
+}
 
-fs
-    .readdirSync(__dirname)
+
+fs.readdirSync(__dirname)
     .filter((file: string) => {
         return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.ts')
     })

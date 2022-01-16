@@ -45,10 +45,10 @@ const PaymentForm = ({ selectedOptions }:Props) => {
 
           if(response.data.success){
             console.log('Successful payment');
-            setSuccess(true);
-
+        
             createOrderOnServer({...selectedOptions, client }).then((res:any) => {
-              console.log(res);
+              console.log('created order result', res);
+              setSuccess(true);
               history.push('/dashboard');
             });
             

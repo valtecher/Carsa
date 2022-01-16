@@ -75,7 +75,7 @@ const addOrder = async (req: Request, res: Response) => {
                 const carBody = req.body.configuration;
                 const location = await locationRepository.getLocationByName(carBody.location_id)
                 const car:CarType = { ...carBody, generation_id: carBody.CarGeneration.id, price: carBody.price.replace(/\D/g,''), location_id: location.id, mileage: carBody.mileage.replace('km', ''), brand_id: carBody.CarGeneration.CarModel.CarBrand.id, model_id: carBody.CarGeneration.CarModel.id, registrationNumber: '', }
-                console.log(car)
+                console.log('Car should be saved', car)
                 const createdCar = await carRepository.createCar(car);
                 await createdCar.save();
                 const car_order = await carRepository.addCarToOrder(createdCar.id, newOrder.id)

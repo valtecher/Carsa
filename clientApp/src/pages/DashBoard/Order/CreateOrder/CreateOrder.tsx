@@ -18,7 +18,7 @@ interface Props {
 
 interface StepperButtonsProps {
   currentStep: number,
-  numberOfSteps: number
+  numberOfSteps: number 
   next: (answer: any) => void,
   prev: () => void,
 }
