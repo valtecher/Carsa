@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import AcceptTerms from '../../../../components/createOrderStepper/AcceptTerms/AcceptTerms';
+import ChoosePackagePackage from '../../../../components/createOrderStepper/Step1/StepperChoosePackage';
+import ConfigurationCreator from '../../../../components/createOrderStepper/LinkCreation/ConfigurationCreator';
+import StripeContainer from '../../../../components/createOrderStepper/PaymentMethod/StripeContainer';
 import './createOrder.scss'
 import SideMenu from '../../../../components/sideMenu/SideMenu'
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 // import { orderSteps } from './orderSteps'
-import  { handleRender } from '../../../../components/createOrderStepper/OptionRenderer/OptionRenderer'
+// import  { handleRender } from '../../../../components/createOrderStepper/OptionRenderer/OptionRenderer'
 import { CarConfigurationType } from '../../../../interfaces/models/carConfiguration'
 import { PackageType, Package } from '../../../../interfaces/models/package'
 import { CarType } from '../../../../interfaces/models/car';
@@ -19,6 +23,34 @@ interface StepperButtonsProps {
   numberOfSteps: number
   next: (answer: any) => void,
   prev: () => void,
+}
+const handleRender = (activeStep:number, next: (answer: CarConfigurationType | Package  | null) => any, orderCreated: any) => {
+
+    
+  switch(activeStep){
+    case 0:
+      return(
+        <ChoosePackagePackage next={next}/>
+      )
+    case 1: 
+        return(
+          <ConfigurationCreator type={orderCreated.package!.type}  next={next}></ConfigurationCreator>
+        )
+    case 2:
+      return(
+          <AcceptTerms next={next}/>
+      )
+    case 3: 
+        return(  
+          <StripeContainer selectedOptions={orderCreated} />
+        )
+    default:
+      return(
+        <div>
+          
+        </div>
+      )
+  }
 }
 
 const StepperButtons = ({ next, prev, currentStep, numberOfSteps }:StepperButtonsProps) => {
