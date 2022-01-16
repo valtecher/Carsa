@@ -11,7 +11,9 @@ let sequelize: any
     // console.log('here if')
     // sequelize = new Sequelize(process.env[config.use_env_variable], config)
 // } else  if( process.env.NODE_ENV === 'production' ) {
-    sequelize = new Sequelize({ connectionString: process.env.DATABASE_URL, ssl:  {   rejectUnauthorized: false}, dialect: 'postgres'});
+    sequelize = new Sequelize({ connectionString: process.env.DATABASE_URL, ssl:  {   rejectUnauthorized: false}, dialect: 'postgres'}, {
+        dialect: 'postgres'
+    });
 // }
 // else {
 //     console.log('here else')
