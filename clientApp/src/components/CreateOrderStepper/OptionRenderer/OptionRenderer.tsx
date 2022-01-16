@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AcceptTerms from '../acceptterms/acceptTerms';
+import AcceptTerms from '../AcceptTerms/AcceptTerms';
 import ChoosePackagePackage from '../step1/StepperChoosePackage'
 import ConfigurationCreator from '../linkcreation/ConfigurationCreator';
 import { CarConfigurationType } from '../../../interfaces/models/carConfiguration';
