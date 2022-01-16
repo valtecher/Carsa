@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './customSelect.scss';
+import './CustomSelect.scss';
 
 
 interface Props{
@@ -21,7 +21,7 @@ const CustomSelect  = ({className, disabled = false, title, options, setFilterOp
 
   const [isShown, setIsShown] = useState(false)
   const [ value, setValue ] = useState({id: -1, name: 'Select one...'});
-  const [ localFilterOptions, setLocalFilterOptions ] = useState()
+
  
 
   const handleClick = (e:any) => {
@@ -40,11 +40,12 @@ const CustomSelect  = ({className, disabled = false, title, options, setFilterOp
     setIsShown(false)
   }
 
+  console.log(isShown)
   return(
     <div className={`customSelect ${ className }`}>
       <div className='customSelect-label'>{title}</div>
       <div className='customSelect-display' onClick={handleClick}>{value.name}</div>
-      <div className={`${isShown?'visible ': 'hidden '}customSelect-options`}>
+      <div className={`${isShown?'visible ': 'hidden'}customSelect-options`}>
         {options.map((option:{id:string, name:string})=> {
           return(
             <div key={option.id} onClick={()=>{
