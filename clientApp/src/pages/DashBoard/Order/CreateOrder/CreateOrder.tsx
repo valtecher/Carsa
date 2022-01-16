@@ -9,7 +9,7 @@ import  { handleRender } from '../../../../components/createOrderStepper/OptionR
 import { CarConfigurationType } from '../../../../interfaces/models/carConfiguration'
 import { PackageType, Package } from '../../../../interfaces/models/package'
 import { CarType } from '../../../../interfaces/models/car';
-
+import CheckIcon from '@mui/icons-material/Check';
 interface Props {
 
 }
