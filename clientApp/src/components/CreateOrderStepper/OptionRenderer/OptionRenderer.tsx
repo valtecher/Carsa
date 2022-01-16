@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import AcceptTerms from '../AcceptTerms/AcceptTerms';
-import ChoosePackagePackage from '../Step1/StepperChoosePackage'
-import ConfigurationCreator from '../LinkCreation/ConfigurationCreator';
+import AcceptTerms from '../acceptterms/acceptTerms';
+import ChoosePackagePackage from '../step1/StepperChoosePackage'
+import ConfigurationCreator from '../linkcreation/ConfigurationCreator';
 import { CarConfigurationType } from '../../../interfaces/models/carConfiguration';
 import { Package } from '../../../interfaces/models/package';
-import StripeContainer from '../PaymentMethod/StripeContainer';
+import StripeContainer from '../paymentmethod/StripeContainer';
 // import { SelectedOptionType } from '../../../pages/DashBoard/Order/CreateOrder/createOrder';
 
 

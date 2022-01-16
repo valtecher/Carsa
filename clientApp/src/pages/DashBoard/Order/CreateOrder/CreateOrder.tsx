@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import AcceptTerms from '../../../../components/createOrderStepper/AcceptTerms/AcceptTerms';
-import ChoosePackagePackage from '../../../../components/createOrderStepper/Step1/StepperChoosePackage';
-import ConfigurationCreator from '../../../../components/createOrderStepper/LinkCreation/ConfigurationCreator';
-import StripeContainer from '../../../../components/createOrderStepper/PaymentMethod/StripeContainer';
+import AcceptTerms from '../../../../components/createOrderStepper/acceptterms/acceptTerms';
+import ChoosePackagePackage from '../../../../components/createOrderStepper/step1/StepperChoosePackage';
+import ConfigurationCreator from '../../../../components/createOrderStepper/linkcreation/ConfigurationCreator';
+import StripeContainer from '../../../../components/createOrderStepper/paymentmethod/StripeContainer';
 import './createOrder.scss'
 import SideMenu from '../../../../components/sideMenu/SideMenu'
 import Stepper from '@mui/material/Stepper';
