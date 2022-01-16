@@ -5,7 +5,6 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 // import { orderSteps } from './orderSteps'
-import StepperButtons from '../stepperbuttons/StepperButtons';
 import  { handleRender } from '../../../../components/createOrderStepper/OptionRenderer/OptionRenderer'
 import { CarConfigurationType } from '../../../../interfaces/models/carConfiguration'
 import { PackageType, Package } from '../../../../interfaces/models/package'
@@ -13,6 +12,24 @@ import { CarType } from '../../../../interfaces/models/car';
 
 interface Props {
 
+}
+
+interface StepperButtonsProps {
+  currentStep: number,
+  numberOfSteps: number
+  next: (answer: any) => void,
+  prev: () => void,
+}
+
+const StepperButtons = ({ next, prev, currentStep, numberOfSteps }:StepperButtonsProps) => {
+
+  return(
+    <div className={'stepperButtons'}>
+      <div className={`stepperButtons-button  ${ currentStep === 0 ? 'disabledStepBtn' : '' }`} onClick={prev}> Prev</div>
+
+       <div className={`stepperButtons-button `} onClick={next}>{ currentStep != numberOfSteps - 1? 'Next' : <CheckIcon className='stepperButtons-button-icon'/>}</div>
+    </div>
+  )
 }
 interface Step{
   id: number,
