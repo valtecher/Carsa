@@ -38,6 +38,7 @@ const handleRender = (activeStep:number, next: (answer: CarConfigurationType | P
         )
     case 2:
       return(
+        <div></div>
           // <AcceptTerms next={next}/>
       )
     case 3: 
