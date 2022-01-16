@@ -13,7 +13,7 @@ import CarPage from "./pages/CarPage/CarPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ProtectedRoute from "./components/shared/protectedRoute/ProtectedRoute";
-// import Dashboard from "./pages/dashboard/DashBoard";
+import Dashboard from "./pages/DashBoard/DashBoard";
 // import OrderDashBoard from "./pages/dashboard/orderdashboard/OrderDashBoard";
 // import PaymentDashBoard from "./pages/dashboard/paymentsdashboard/PaymentsDashBoard";
 // import CarDashBoard from "./pages/dashboard/cardashboard/CarDashBoard";
@@ -32,7 +32,7 @@ function App() {
                     <Route exact path="/login" component={LoginPage}/>
                     <Route exact path="/register" component={RegistrationPage}/>
                     <Route exact path="/car/:id" component={CarPage}/>
-                    {/* <ProtectedRoute exact path="/dashboard" component={Dashboard}/> */}
+                    <ProtectedRoute exact path="/dashboard" component={Dashboard}/>
                     {/* <ProtectedRoute exact path="/dashboard/orders" component={OrderDashBoard}/> */}
                     {/* <ProtectedRoute exact path="/dashboard/cars" component={CarDashBoard}/> */}
                     {/* <ProtectedRoute exact path="/dashboard/payments" component={PaymentDashBoard}/> */}
