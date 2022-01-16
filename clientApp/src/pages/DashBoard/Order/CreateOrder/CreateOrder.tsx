@@ -4,7 +4,7 @@ import SideMenu from '../../../../components/sideMenu/SideMenu'
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-import { orderSteps } from './orderSteps'
+// import { orderSteps } from './orderSteps'
 import StepperButtons from '../stepperbuttons/StepperButtons';
 import  { handleRender } from '../../../../components/createOrderStepper/OptionRenderer/OptionRenderer'
 import { CarConfigurationType } from '../../../../interfaces/models/carConfiguration'
@@ -14,6 +14,17 @@ import { CarType } from '../../../../interfaces/models/car';
 interface Props {
 
 }
+interface Step{
+  id: number,
+  label: string,
+}
+
+const orderSteps:Array<Step> = [
+  { id: 0, label: 'Choose package', },
+  { id: 1, label: 'Add Your Specification', },
+  { id: 2, label: 'Sign E-Contract and accept policies', },
+  { id: 4, label: 'Summary', }
+]
 
 export interface SelectedOptionType {
   package:   Package | null
