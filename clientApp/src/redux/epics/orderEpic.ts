@@ -12,7 +12,7 @@ export const saveOrderEpic = (action$:any, state$:any) => action$.pipe(
 
 export const getOrderEpic = (action$:any, state$:any) => action$.pipe(
   ofType(GET_ORDER),
-  switchMap( action => from(axios.get('http://localhost:3000/api/orders/detailed').then((res:any)=>{
+  switchMap( action => from(axios.get(`${process.env.REACT_APP_API_URL}/orders/detailed`).then((res:any)=>{
     console.log(res.data)
     return res.data
   }))),
