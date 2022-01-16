@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AcceptTerms from '../../../../components/createOrderStepper/acceptterms/acceptTerms'
+// import AcceptTerms from '../../../../components/createOrderStepper/acceptterms/acceptTerms'
 import ChoosePackagePackage from '../../../../components/createOrderStepper/step1/StepperChoosePackage';
 import ConfigurationCreator from '../../../../components/createOrderStepper/linkcreation/ConfigurationCreator';
 import StripeContainer from '../../../../components/createOrderStepper/paymentmethod/StripeContainer';
@@ -38,7 +38,7 @@ const handleRender = (activeStep:number, next: (answer: CarConfigurationType | P
         )
     case 2:
       return(
-          <AcceptTerms next={next}/>
+          // <AcceptTerms next={next}/>
       )
     case 3: 
         return(  
