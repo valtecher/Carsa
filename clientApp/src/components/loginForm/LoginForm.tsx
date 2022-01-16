@@ -62,7 +62,7 @@ const LoginForm = () => {
     }, [])
 
     const handleSubmit = (values: FormValues, {setSubmitting}: FormikHelpers<FormValues>) => {
-        axios.post('http://localhost:3000/api/auth/login', {
+        axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, {
             email: formValues.email,
             password: formValues.password,
         })
