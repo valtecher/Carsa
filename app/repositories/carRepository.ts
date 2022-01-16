@@ -1,11 +1,9 @@
-import Op from 'sequelize/types/lib/operators'
 import db from '../../database/models'
 import {CarType} from '../../types/car'
 import {CarBrandType} from '../../types/carBrand'
 import {Car_OrderType} from '../../types/car_order'
 import {EngineType} from '../../types/engine'
 import {OrderType} from '../../types/order'
-import moment from 'moment';
 import {CarModelType} from '../../types/carModel'
 import {CarGenerationType} from '../../types/carGeneration'
 
