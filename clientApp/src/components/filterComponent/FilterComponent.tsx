@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import './filter.scss'
-import CustomSelect from '../shared/select/CustomSelect'
+import CustomSelect from '../shared/CustomSelect/CustomSelect'
 import RangeSelect from '../shared/rangeSelect/RangeSelect'
 import { useSelector } from 'react-redux';
 interface Props {

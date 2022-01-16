@@ -11,7 +11,7 @@ import { CarType } from '../../../interfaces/models/car';
 import { getAllCarBrands, getAllCarModelsWithBrand, getAllCarGenerations } from '../../../services/car/carService'
 import { CarConfigurationType } from '../../../interfaces/models/carConfiguration';
 import { CarBrandType } from '../../../interfaces/models/carBrand';
-import CustomSelect from '../../shared/select/CustomSelect';
+import CustomSelect from '../../shared/CustomSelect/CustomSelect';
 import { typeMock, fuelTypeMock, gearboxTypeMock, driveTypeMock } from '../../../utils/constants/carMock'
 import RangeSelect from '../../shared/rangeSelect/RangeSelect'
 import LocationInput from '../../shared/locationInput/LocationInput';

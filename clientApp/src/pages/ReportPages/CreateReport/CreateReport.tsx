@@ -5,7 +5,7 @@ import { getCarById } from '../../../services/car/carService';
 import Paper from '../../../components/shared/Papper/Papper';
 import './CreateReport.scss'
 import { CarType } from '../../../interfaces/models/car';
-import CustomSelect from '../../../components/shared/select/CustomSelect';
+import CustomSelect from '../../../components/shared/CustomSelect/CustomSelect';
 import { reportTypesMock } from '../../../utils/constants/reportMock'
 import { IReport, IReportWithType } from '../../../interfaces/models/report'
 import InputPie from '../../../components/dashboardInputScore/DashBoardInputScore';
