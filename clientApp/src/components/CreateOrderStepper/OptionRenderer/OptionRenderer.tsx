@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AcceptTerms from '../AcceptTerms/AcceptTerms';
-import ChoosePackagePackage from '../step1/StepperChoosePackage'
+import ChoosePackagePackage from '../Step1/StepperChoosePackage'
 import ConfigurationCreator from '../linkcreation/ConfigurationCreator';
 import { CarConfigurationType } from '../../../interfaces/models/carConfiguration';
 import { Package } from '../../../interfaces/models/package';
