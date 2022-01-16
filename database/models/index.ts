@@ -7,16 +7,16 @@ const config = require(__dirname + '/../../config/db.ts')[env]
 const db: any = {}
 
 let sequelize: any
-if (config.use_env_variable) {
-    console.log('here if')
-    sequelize = new Sequelize(process.env[config.use_env_variable], config)
-} else  if( process.env.NODE_ENV === 'production' ) {
+// if (config.use_env_variable) {
+    // console.log('here if')
+    // sequelize = new Sequelize(process.env[config.use_env_variable], config)
+// } else  if( process.env.NODE_ENV === 'production' ) {
     sequelize = new Sequelize(process.env.DATABASE_URL);
-}
-else {
-    console.log('here else')
-    sequelize = new Sequelize(config.database, config.username, config.password, config)
-}
+// }
+// else {
+//     console.log('here else')
+//     sequelize = new Sequelize(config.database, config.username, config.password, config)
+// }
 
 fs
     .readdirSync(__dirname)
