@@ -14,9 +14,9 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ProtectedRoute from "./components/shared/protectedRoute/ProtectedRoute";
 // import Dashboard from "./pages/dashboard/DashBoard";
-import OrderDashBoard from "./pages/dashboard/orderdashboard/OrderDashBoard";
-import PaymentDashBoard from "./pages/dashboard/paymentsdashboard/PaymentsDashBoard";
-import CarDashBoard from "./pages/dashboard/cardashboard/CarDashBoard";
+// import OrderDashBoard from "./pages/dashboard/orderdashboard/OrderDashBoard";
+// import PaymentDashBoard from "./pages/dashboard/paymentsdashboard/PaymentsDashBoard";
+// import CarDashBoard from "./pages/dashboard/cardashboard/CarDashBoard";
 // import CreateOrder from "./pages/DashBoard/Order/CreateOrder/createOrder";
 import CreateReport from "./pages/ReportPages/CreateReport/CreateReport";
 import ReportMainPage from "./pages/ReportPages/ReportMainPage/ReportMainPage";
@@ -33,9 +33,9 @@ function App() {
                     <Route exact path="/register" component={RegistrationPage}/>
                     <Route exact path="/car/:id" component={CarPage}/>
                     {/* <ProtectedRoute exact path="/dashboard" component={Dashboard}/> */}
-                    <ProtectedRoute exact path="/dashboard/orders" component={OrderDashBoard}/>
-                    <ProtectedRoute exact path="/dashboard/cars" component={CarDashBoard}/>
-                    <ProtectedRoute exact path="/dashboard/payments" component={PaymentDashBoard}/>
+                    {/* <ProtectedRoute exact path="/dashboard/orders" component={OrderDashBoard}/> */}
+                    {/* <ProtectedRoute exact path="/dashboard/cars" component={CarDashBoard}/> */}
+                    {/* <ProtectedRoute exact path="/dashboard/payments" component={PaymentDashBoard}/> */}
                     <ProtectedRoute exact path="/report" component={ReportMainPage}/>
                     <Route exact path='/report/:id' component={CreateReport}/>
                     {/* <Route exact path='/dashboard/createorder' component={CreateOrder}/> */}
