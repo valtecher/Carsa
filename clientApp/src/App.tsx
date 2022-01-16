@@ -17,7 +17,7 @@ import Dashboard from "./pages/DashBoard/DashBoard";
 import OrderDashBoard from "./pages/DashBoard/OrderDashBoard/OrderDashBoard";
 import PaymentDashBoard from "./pages/DashBoard/PaymentsDashBoard/PaymentsDashBoard";
 import CarDashBoard from "./pages/DashBoard/CarDashBoard/CarDashBoard";
-// import CreateOrder from "./pages/DashBoard/Order/CreateOrder/CreateOrder";
+import CreateOrder from "./pages/DashBoard/Order/CreateOrder/CreateOrder";
 import CreateReport from "./pages/ReportPages/CreateReport/CreateReport";
 import ReportMainPage from "./pages/ReportPages/ReportMainPage/ReportMainPage";
 function App() {
@@ -38,7 +38,7 @@ function App() {
                     <ProtectedRoute exact path="/dashboard/payments" component={PaymentDashBoard}/>
                     <ProtectedRoute exact path="/report" component={ReportMainPage}/>
                     <Route exact path='/report/:id' component={CreateReport}/>
-                    {/* <Route exact path='/dashboard/createorder' component={CreateOrder}/> */}
+                    <Route exact path='/dashboard/createorder' component={CreateOrder}/>
                     <Route exact path="/" render={() => <Redirect to="/home"/>}/>
                 </Switch>
             </Router>
