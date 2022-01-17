@@ -2,6 +2,7 @@ import React from 'react'
 import { CarType } from '../../interfaces/models/car';
 import { carToFlatCar } from '../../utils/carConventor';
 import  engine  from '../../interfaces/models/engine'
+import { CarGenerationType } from '../../interfaces/models/generation';
 
 describe('converting objects', () => {
   const engine:engine = {
@@ -9,6 +10,21 @@ describe('converting objects', () => {
     volume: '1398',
     power: 125,
     fuel_type: 'Petrol'
+  }
+
+  const carGeneration:CarGenerationType = {
+    model_id: '',
+    name: '',
+    start_year: '',
+    end_year: '',
+    CarModel: {
+      CarBrand: {
+        name: ''
+      },
+      name: '',
+      brand_id: ''
+
+    }
   }
 
   const car:CarType = {
@@ -28,7 +44,7 @@ describe('converting objects', () => {
     images: [],
     equipment: [],
     Engine: engine,
-
+    CarGeneration: carGeneration
   }
 
   it('should convert into flat car', () => {

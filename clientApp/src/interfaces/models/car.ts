@@ -22,8 +22,8 @@ export interface CarType {
   drive:string,
   year:string, 
   gearBox:string,
-  Engine?: engine,
-  CarGeneration?: CarGenerationType,
+  Engine: engine,
+  CarGeneration: CarGenerationType,
   images: Array<string>,
   equipment: Array<Equipment>
   ReportOverviews?: Array<ReportOverview>;
