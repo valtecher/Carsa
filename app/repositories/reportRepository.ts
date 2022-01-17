@@ -25,9 +25,7 @@ const getAllReportsForOverview = async (overviewReportId:string) => {
 }
 
 const getAllReportsForCarByCarId = async (carId:string) => {
-    console.log('Car id:', carId)
     const overview = await overviewRepository.getOverviewByCarId(carId);
-    console.log(' Report repo: Overview: ', overview[0].id)
     const reports = await db.Report.findAll({where: { overview_id: overview[0].id }, include: [{ model: db.ReportType, attributes: [[sequelize.col('name'), 'type']] }] })
     return reports;
 
@@ -52,7 +50,6 @@ const getReportById = async (id: string) => {
 
 const addReport = async (reportBody: any) => {
     const type = await db.ReportType.findOne({where: {name: reportBody.ReportType}})
-    console.log(type)
     
 
     const preparedBody = {

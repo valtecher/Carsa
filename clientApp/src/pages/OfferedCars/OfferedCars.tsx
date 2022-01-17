@@ -19,7 +19,6 @@ const OfferedCars = () => {
 
   const filter = (options:any, rangeOptions:any) => {
     /// TODO: Refactor code to remove ifs because it complexes code understanding
-      console.log('Options: ', options)
       if(options.Brand) setCarView(cars.filter((car)=>{return options.Brand.includes(car.brand)}))
       if(options.Model) setCarView(cars.filter((car)=>{return options.Model.includes(car.model)}))
       if(options.GearBox) setCarView(cars.filter((car)=>{return options.Model.includes(car.gearBox)}))
@@ -30,15 +29,12 @@ const OfferedCars = () => {
       if(rangeOptions.Power){
         setCarView(cars.filter((car)=>{
           if(rangeOptions.Power.until && rangeOptions.Power.from == ''){
-            console.log('no from')
             return car.Engine.power < rangeOptions.Power?.until 
           } else 
           if(rangeOptions.Power.from && rangeOptions.Power.until == ''){
-            console.log('no until')
             return car.Engine.power > rangeOptions.Power?.from 
           }else 
           if(rangeOptions.Power.from && rangeOptions.Power.until){
-            console.log('both')
             return car.Engine.power < rangeOptions.Power?.until && car.Engine.power > rangeOptions.Power?.from 
           }
           

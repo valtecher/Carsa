@@ -13,7 +13,7 @@ export const getAllCarBrands = async () => {
 }
 
 export const getAllCarModelsWithBrand = async (brand_name: string) => {
-  console.log('hee')
+
   return await axios.get(`${process.env.REACT_APP_API_URL}/cars/models`, { headers: { brand_name } })
 }
 

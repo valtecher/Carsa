@@ -1,0 +1,698 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components should render correct app snapshot test 1`] = `
+Array [
+  " // Set context",
+  <div
+    className="App"
+  >
+    <div
+      className="home"
+    >
+      <div
+        className="home-decorations"
+      >
+        <div
+          className="home-decorations-item"
+        />
+        <div
+          className="home-decorations-item"
+        />
+      </div>
+      <div
+        className="home-decorations"
+      >
+        <div
+          className="home-decorations-item"
+        />
+        <div
+          className="home-decorations-item"
+        />
+      </div>
+      <div
+        className="homeheader"
+      >
+        <div
+          className="homeheader-wrapper"
+        >
+          <a
+            href="/home"
+            onClick={[Function]}
+          >
+            Home
+          </a>
+        </div>
+        <div
+          className="homeheader-wrapper"
+        >
+          <a
+            href="/offers"
+            onClick={[Function]}
+          >
+            Offers
+          </a>
+        </div>
+        
+        <div
+          className="homeheader-logo"
+        >
+          <img
+            src="logo.png"
+          />
+        </div>
+        
+        <div
+          className="homeheader-wrapper"
+        >
+          <a
+            href="/about"
+            onClick={[Function]}
+          >
+            Contact
+          </a>
+        </div>
+        <div
+          className="homeheader-wrapper"
+        >
+          <a
+            className="header-wrapper-link"
+            href="/login"
+            onClick={[Function]}
+          >
+            Log in
+          </a>
+        </div>
+      </div>
+      <div
+        className="home-section"
+      >
+        <div
+          className="home-section-first"
+        >
+          <div
+            className="home-section-first-fadingText"
+            data-aos="fade-up"
+          >
+            CARSA
+          </div>
+          <img
+            data-aos="fade-down"
+            src="brandCar.png"
+          />
+        </div>
+        <div
+          className="home-section-marketing"
+        >
+          <p>
+            Selection helper
+          </p>
+          <img
+            src="Arrow 2.png"
+          />
+          <div
+            className="home-section-marketing-btn"
+          >
+            Drive Now
+          </div>
+        </div>
+      </div>
+      <div
+        className="home-section home-second"
+      >
+        <div
+          className="home-decorations home-decorations-horizontal"
+        >
+          <div
+            className="home-decorations-item"
+          />
+          <div
+            className="home-decorations-item"
+          />
+        </div>
+        <div
+          className="home-decorations home-decorations-horizontal"
+        >
+          <div
+            className="home-decorations-item"
+          />
+          <div
+            className="home-decorations-item"
+          />
+        </div>
+        <div
+          className="home-second-main"
+          data-aos="fade-right"
+        >
+          <div
+            className="home-second-main-body"
+          >
+            <p
+              className="home-second-main-body-pre"
+            >
+              BEST SERVICES
+            </p>
+            <p
+              className="home-second-main-body-header"
+            >
+              Feel the best experience with our selection deals
+            </p>
+            <div
+              className="home-second-main-body-section"
+            >
+              <p
+                className="home-second-main-body-section-header"
+              >
+                Packages for every budget
+              </p>
+              <p
+                className="home-second-main-body-section-body"
+              >
+                Feel the best experience with our selection deals
+              </p>
+            </div>
+            <div
+              className="home-second-main-body-section"
+            >
+              <p>
+                Best price
+              </p>
+              <p>
+                We find the best deals for their price
+              </p>
+            </div>
+            <div
+              className="home-second-main-body-section"
+            >
+              <p>
+                Support 24/7
+              </p>
+              <p>
+                Feel free to contact our helpline 24/7
+              </p>
+            </div>
+          </div>
+          <div
+            className="home-second-main-image"
+            data-aos="fade-left"
+          >
+            <img
+              src="aston_martin_PNG91.png"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="home-section home-third"
+        data-aos="fade-up"
+      >
+        <div
+          className="home-third-header"
+        >
+          Reviews
+        </div>
+        <div
+          className="home-third-body"
+        >
+          <div
+            className="home-third-body-reviews"
+          >
+            <div
+              className="home-third-body-reviews-item"
+            >
+              <div
+                className="home-third-body-review-item-icon"
+              >
+                <img
+                  src="icon_user.png"
+                />
+              </div>
+              <div
+                className="home-third-body-review-item-userName"
+              >
+                Kiril Johnson
+              </div>
+              <div
+                className="home-third-body-review-item-review"
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised
+              </div>
+            </div>
+            <div
+              className="home-third-body-reviews-item"
+            >
+              <div
+                className="home-third-body-review-item-icon"
+              >
+                <img
+                  src="icon_user.png"
+                />
+              </div>
+              <div
+                className="home-third-body-review-item-userName"
+              >
+                Kiril Johnson
+              </div>
+              <div
+                className="home-third-body-review-item-review"
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised
+              </div>
+            </div>
+            <div
+              className="home-third-body-reviews-item"
+            >
+              <div
+                className="home-third-body-review-item-icon"
+              >
+                <img
+                  src="icon_user.png"
+                />
+              </div>
+              <div
+                className="home-third-body-review-item-userName"
+              >
+                Kiril Johnson
+              </div>
+              <div
+                className="home-third-body-review-item-review"
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="footerWrapper"
+      >
+        <h5>
+          © 2022 CARSA, Inc.
+        </h5>
+      </div>
+    </div>
+  </div>,
+  " // Now App has access to context",
+]
+`;
+
+exports[`components should render correct home page test 1`] = `
+Array [
+  " // Set context",
+  <div
+    className="home"
+  >
+    <div
+      className="home-decorations"
+    >
+      <div
+        className="home-decorations-item"
+      />
+      <div
+        className="home-decorations-item"
+      />
+    </div>
+    <div
+      className="home-decorations"
+    >
+      <div
+        className="home-decorations-item"
+      />
+      <div
+        className="home-decorations-item"
+      />
+    </div>
+    <div
+      className="homeheader"
+    >
+      <div
+        className="homeheader-wrapper"
+      >
+        <a
+          href="/home"
+          onClick={[Function]}
+        >
+          Home
+        </a>
+      </div>
+      <div
+        className="homeheader-wrapper"
+      >
+        <a
+          href="/offers"
+          onClick={[Function]}
+        >
+          Offers
+        </a>
+      </div>
+      
+      <div
+        className="homeheader-logo"
+      >
+        <img
+          src="logo.png"
+        />
+      </div>
+      
+      <div
+        className="homeheader-wrapper"
+      >
+        <a
+          href="/about"
+          onClick={[Function]}
+        >
+          Contact
+        </a>
+      </div>
+      <div
+        className="homeheader-wrapper"
+      >
+        <a
+          className="header-wrapper-link"
+          href="/login"
+          onClick={[Function]}
+        >
+          Log in
+        </a>
+      </div>
+    </div>
+    <div
+      className="home-section"
+    >
+      <div
+        className="home-section-first"
+      >
+        <div
+          className="home-section-first-fadingText"
+          data-aos="fade-up"
+        >
+          CARSA
+        </div>
+        <img
+          data-aos="fade-down"
+          src="brandCar.png"
+        />
+      </div>
+      <div
+        className="home-section-marketing"
+      >
+        <p>
+          Selection helper
+        </p>
+        <img
+          src="Arrow 2.png"
+        />
+        <div
+          className="home-section-marketing-btn"
+        >
+          Drive Now
+        </div>
+      </div>
+    </div>
+    <div
+      className="home-section home-second"
+    >
+      <div
+        className="home-decorations home-decorations-horizontal"
+      >
+        <div
+          className="home-decorations-item"
+        />
+        <div
+          className="home-decorations-item"
+        />
+      </div>
+      <div
+        className="home-decorations home-decorations-horizontal"
+      >
+        <div
+          className="home-decorations-item"
+        />
+        <div
+          className="home-decorations-item"
+        />
+      </div>
+      <div
+        className="home-second-main"
+        data-aos="fade-right"
+      >
+        <div
+          className="home-second-main-body"
+        >
+          <p
+            className="home-second-main-body-pre"
+          >
+            BEST SERVICES
+          </p>
+          <p
+            className="home-second-main-body-header"
+          >
+            Feel the best experience with our selection deals
+          </p>
+          <div
+            className="home-second-main-body-section"
+          >
+            <p
+              className="home-second-main-body-section-header"
+            >
+              Packages for every budget
+            </p>
+            <p
+              className="home-second-main-body-section-body"
+            >
+              Feel the best experience with our selection deals
+            </p>
+          </div>
+          <div
+            className="home-second-main-body-section"
+          >
+            <p>
+              Best price
+            </p>
+            <p>
+              We find the best deals for their price
+            </p>
+          </div>
+          <div
+            className="home-second-main-body-section"
+          >
+            <p>
+              Support 24/7
+            </p>
+            <p>
+              Feel free to contact our helpline 24/7
+            </p>
+          </div>
+        </div>
+        <div
+          className="home-second-main-image"
+          data-aos="fade-left"
+        >
+          <img
+            src="aston_martin_PNG91.png"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="home-section home-third"
+      data-aos="fade-up"
+    >
+      <div
+        className="home-third-header"
+      >
+        Reviews
+      </div>
+      <div
+        className="home-third-body"
+      >
+        <div
+          className="home-third-body-reviews"
+        >
+          <div
+            className="home-third-body-reviews-item"
+          >
+            <div
+              className="home-third-body-review-item-icon"
+            >
+              <img
+                src="icon_user.png"
+              />
+            </div>
+            <div
+              className="home-third-body-review-item-userName"
+            >
+              Kiril Johnson
+            </div>
+            <div
+              className="home-third-body-review-item-review"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised
+            </div>
+          </div>
+          <div
+            className="home-third-body-reviews-item"
+          >
+            <div
+              className="home-third-body-review-item-icon"
+            >
+              <img
+                src="icon_user.png"
+              />
+            </div>
+            <div
+              className="home-third-body-review-item-userName"
+            >
+              Kiril Johnson
+            </div>
+            <div
+              className="home-third-body-review-item-review"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised
+            </div>
+          </div>
+          <div
+            className="home-third-body-reviews-item"
+          >
+            <div
+              className="home-third-body-review-item-icon"
+            >
+              <img
+                src="icon_user.png"
+              />
+            </div>
+            <div
+              className="home-third-body-review-item-userName"
+            >
+              Kiril Johnson
+            </div>
+            <div
+              className="home-third-body-review-item-review"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="footerWrapper"
+    >
+      <h5>
+        © 2022 CARSA, Inc.
+      </h5>
+    </div>
+  </div>,
+  " // Now App has access to context",
+]
+`;
+
+exports[`components should render correct login page test 1`] = `
+Array [
+  " // Set context",
+  <div
+    className="wrapper"
+  >
+    <div
+      className="header-wrapper"
+    >
+      <a
+        className="header-wrapper-link"
+        href="/home"
+        onClick={[Function]}
+      >
+        Home
+      </a>
+      <a
+        className="header-wrapper-link"
+        href="/offers"
+        onClick={[Function]}
+      >
+        Offers
+      </a>
+      <a
+        className="header-wrapper-link"
+        href="/about"
+        onClick={[Function]}
+      >
+        About Us
+      </a>
+      <a
+        className="header-wrapper-link"
+        href="/register"
+        onClick={[Function]}
+      >
+        Register
+      </a>
+      
+      <a
+        className="header-wrapper-link"
+        href="/login"
+        onClick={[Function]}
+      >
+        Log in
+      </a>
+    </div>
+    <div
+      className="wrapper"
+    >
+      <h1
+        className="formLabel"
+      >
+        Log In
+      </h1>
+      <form
+        action="#"
+        noValidate={true}
+        onReset={[Function]}
+        onSubmit={[Function]}
+      >
+        <div
+          className="wrapper"
+        >
+          <input
+            className=""
+            id="email"
+            name="email"
+            placeholder="EMAIL"
+            type="email"
+            value=""
+          />
+        </div>
+        <div
+          className="wrapper"
+        >
+          <input
+            className=""
+            id="password"
+            name="password"
+            placeholder="PASSWORD"
+            type="password"
+            value=""
+          />
+        </div>
+        <a
+          className="forgotPasswordLink"
+          href="/home"
+          onClick={[Function]}
+        >
+          Forgot password?
+        </a>
+        <button
+          className="submitButton"
+          type="submit"
+        >
+          Log in
+        </button>
+      </form>
+      <a
+        className="signupLink"
+        href="/register"
+        onClick={[Function]}
+      >
+        Sign up now
+      </a>
+    </div>
+  </div>,
+  " // Now App has access to context",
+]
+`;

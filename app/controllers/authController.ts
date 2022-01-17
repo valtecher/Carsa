@@ -11,12 +11,10 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
     let failed = false; 
     const clientWithEmail: ClientType = await clientRepository.getClientByEmail(email)
     if (!clientWithEmail){
-        console.log('wrong email')
             failed = true;
     }
     const validPass = comparePasswords(password, clientWithEmail.password)
     if (!validPass){
-        console.log('wrong password')
         failed = true;
     }
         
@@ -33,10 +31,8 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
             expiresIn: process.env.JWT_EXPIRES_IN,
         })
     if(!failed){
-        console.log('authenticated');
         res.header('Access-Token', token).send(token)
     }else {
-        console.log('here');
         res.status(401).json({success: false, status: '401'})
     }
     

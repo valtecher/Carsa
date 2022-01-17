@@ -75,20 +75,17 @@ const addOrder = async (req: Request, res: Response) => {
                 const carBody = req.body.configuration;
                 const location = await locationRepository.getLocationByName(carBody.location_id)
                 const car:CarType = { ...carBody, generation_id: carBody.CarGeneration.id, price: carBody.price.replace(/\D/g,''), location_id: location.id, mileage: carBody.mileage.replace('km', ''), brand_id: carBody.CarGeneration.CarModel.CarBrand.id, model_id: carBody.CarGeneration.CarModel.id, registrationNumber: '', }
-                console.log('Car should be saved', car)
                 const createdCar = await carRepository.createCar(car);
                 await createdCar.save();
                 const car_order = await carRepository.addCarToOrder(createdCar.id, newOrder.id)
                 await car_order.save();
                 res.json({ success: true, car_order, car: createdCar, order: newOrder  })
             } else {
-                console.log('there is configuration');
                 const configurationBody = req.body.configuration; 
                 const generation = await carRepository.getGenerationByName(configurationBody.CarGeneration) 
                 configurationBody.CarGeneration = generation.id
                 configurationBody.CarModel = generation.CarModel.id
                 configurationBody.CarBrand = generation.CarModel.CarBrand.id
-                console.log(configurationBody);
                 const configuration:ConfigurationType = {
                     brand_id: generation.id,
                     model_id: generation.CarModel.id,
@@ -104,7 +101,6 @@ const addOrder = async (req: Request, res: Response) => {
                     mileage_from: configurationBody.mileage_from,
                     mileage_until: configurationBody.mileage_until,
                 }
-                console.log('Final configuration: ', configuration)
                 const createdConfiguration = await  configurationRepository.createConfiguration(configuration);
                 await createdConfiguration.save();
                 const order_configuration = await configurationRepository.addConfigurationToOrder(createdConfiguration.id, newOrder.id)

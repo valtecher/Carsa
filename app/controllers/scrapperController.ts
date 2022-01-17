@@ -72,16 +72,15 @@ const scrapCarFromLink = async (req:Request, res:Response, next:NextFunction) =>
       const bracketsRegExp = /\((.*)\)/; 
       let car = convertScrappedDataToCar(result, req.headers.link as string);
       const generationPeriod = (result['Generacja'] || '').match(bracketsRegExp)[1];
-      console.log(generationPeriod)
+
       const engine = await carRepository.findEngineByCharacteristics(result['Moc'], result['Pojemność skokowa'], result['Rodzaj paliwa'], result['Wersja'])
       const carGeneration = await carRepository.findCarName(result['Marka pojazdu'], result['Model pojazdu'], result['Generacja'], generationPeriod?.split('-')[0], generationPeriod?.split('-')[1])
 
-    //   console.log('Final car name: ', carGeneration)
+
 
       car!['engine_id'] = engine.id
       car!['CarGeneration'] = carGeneration;
 
-      console.log('car');
       res.json(car)
   } else {
       res.json(StatusCodes.SERVICE_UNAVAILABLE)

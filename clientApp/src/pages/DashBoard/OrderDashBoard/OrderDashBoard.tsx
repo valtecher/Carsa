@@ -22,7 +22,6 @@ const OrderDashBoard = () => {
   const orders = useSelector((state:any) => { return state.orders.orders })
   
   useEffect(()=>{
-    console.log('Api call');
     dispatch(getOrder())
   }, [])
 
@@ -64,7 +63,6 @@ const OrderDashBoard = () => {
             </div>
         </div>
         { selectedOrdeState?.cars.map((car)=>{
-          console.log(car)
           const carNew = cartodasboardview(car);
           return (
             <div>

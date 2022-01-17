@@ -20,16 +20,13 @@ const getAllReports = async (req: Request, res: Response, next: NextFunction) =>
 
 const getAllReportsForCar = async (req: Request, res: Response, next: NextFunction) => {
     const carId = req.params.id;
-    console.log('Parasm: ', req.params)
     const reports = await reportRepository.getAllReportsForCarByCarId(carId)
     res.json(reports); 
 }
 
 const getAllReportsForOverview = async (req: Request, res: Response, next: NextFunction) => {
     const overviewId:string = req.params.id;
-    console.log(overviewId, ' this is overview id');
     const reports = await reportRepository.getAllReportsForOverview(overviewId);
-    console.log('Reports: ', reports);
     res.json({reports, success: true});
 }
 
@@ -45,7 +42,6 @@ const getReportById = async (req: Request, res: Response, next: NextFunction) =>
 
 const addReport = async (req: Request, res: Response, next: NextFunction) => {
     const reportBody = req.body
-    console.log(reportBody);
     const [report, message] = await reportRepository.addReport(reportBody)
 
     report

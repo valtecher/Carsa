@@ -97,14 +97,11 @@ const updateOrderById = async (id: string, modifiedOrder: any) => {
 }
 
 const deleteOrderById = async (id: string) => {
-    console.log('fffff')
 
     const order = await db.Order.findByPk(id)
-    console.log('aaaaaa')
 
     if (order) {
         await order.destroy()
-        console.log('bbbbb')
     }
 
     return

@@ -127,7 +127,6 @@ const RegistrationForm = () => {
                 }
             })
             .catch(error => {
-                console.log(error)
                 dispatch(loginFailed())
             })
 

@@ -45,7 +45,6 @@ const InputPie = ({ name, percentage, colour, label, value, changeValue   }: { n
   const handleChange = (e:any) => {
     const charCode = (e.which) ? e.which : e.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-      console.log('Input only numbers');
     } else {
       if(e.target.value < 101){
         setInputValue(e.target.value);

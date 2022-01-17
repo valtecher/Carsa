@@ -65,7 +65,7 @@ const ConfigurationCreator = ({ next, type }:Props) => {
     if (link) {
       const fetchedCar = await scrapperApi.getScrappedModel(link, handleLoading)
       setScrapedCar(fetchedCar);
-      console.log(fetchedCar);
+
     }
   } 
 
@@ -84,7 +84,6 @@ const ConfigurationCreator = ({ next, type }:Props) => {
       if(configuration.CarModel !== ''){
         getAllCarGenerations(configuration.CarModel as string || '').then((res:any) => {
           
-          console.log('Generations: ',res)
           setGenerations(res.data)
         })
       }
@@ -92,14 +91,12 @@ const ConfigurationCreator = ({ next, type }:Props) => {
   let tmpFilled = true;
   Object.values(configuration).map((value: string | number) => {
     if(value === '' || value === 0){
-      console.log('Value: ', value);
       tmpFilled = false;
     }
   })
   setIsFilled(tmpFilled)
   }, [configuration])
 
-  console.log(configuration)
 
   const handleLocationChange = (e:any) => {
     setConfiguration({...configuration, location: e.target.value});

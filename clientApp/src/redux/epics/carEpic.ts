@@ -24,7 +24,7 @@ export const getCarsEpic = (action$:any, state$:any) => action$.pipe(
     })
     return {cars: flattenCars, brands }
   }).catch((err)=>{
-    console.log(err)
+
     map(getCarFailed)
   }))),
   map(saveCar)
@@ -33,7 +33,7 @@ export const getCarsEpic = (action$:any, state$:any) => action$.pipe(
 export const getCarClient = (action$:any, state$:any) => action$.pipe( 
   ofType(GET_CAR_CLIENT_ATTEMP),
   switchMap(action => from(axios.get<Array<Car>>(`${process.env.REACT_APP_API_URL}/cars/client`).then((res)=>{
-    console.log(res);
+
     return res.data
   }))),
   map(saveCar)
@@ -44,7 +44,7 @@ export const updateCarEpic = (action$:any, state$:any) => action$.pipe(
   switchMap((action:any) => from(axios.put(`${process.env.REACT_APP_API_URL}/cars/${action.payload.id}`, {body: action.payload}).then((res)=> {
     return res.data
   }).catch((err)=>{
-    console.log(err)
+
     map(updateCarFailed)
   }))),
   map(updateCarSuccess)

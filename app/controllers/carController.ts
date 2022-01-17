@@ -37,7 +37,6 @@ const getGenerationsForModel = async (req:Request, res:Response, next:NextFuncti
 
 const addCar = async (req: Request, res: Response) => {
     const carBody = req.body
-    console.log('Car body before creating', carBody)
     const newCar = await carRepository.createCar(carBody)
     return res.status(StatusCodes.CREATED).json(newCar)
 }
@@ -49,28 +48,24 @@ const getAllCars = async (req: Request, res: Response, next: NextFunction) => {
 
 const getCarById = async (req: Request, res: Response, next: NextFunction) => {
     const id = req.params.id
-    console.log('Id get ', id)
     const car = await carRepository.getCarByIdDb(id)
     res.json(car)
 }
 
 const updateCar = async (req: Request, res: Response, next: NextFunction) => {
     const car = req.body
-    console.log(car, ' recieved car')
     await carRepository.updateCarByIdDb(car)
     res.send({status: StatusCodes.OK})
 }
 
 const deleteById = async (req: Request, res: Response, next: NextFunction) => {
     const carId = req.params.id
-    console.log("delete id: " + carId)
     await carRepository.deleteCarByIdDb(carId)
     res.send(StatusCodes.OK)
 }
 const getAllCarsForClient = async (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization;
     const decoded = await jwt.decode(token?.split(' ')?.[1]);
-    console.log(decoded, ' decoded')
     const cars = await carRepository.getAllCarsForClient(decoded.id)
     res.json(cars)
 

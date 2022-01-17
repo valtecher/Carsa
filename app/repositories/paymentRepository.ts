@@ -13,7 +13,6 @@ const getAllPaymentsByOrderId = async (orderId:string) => {
 
 const getAllClientPayments =  async (clientId: string) => {
   const clientOrders = await db.Order.findAll( { include: [{ model: db.Payment, include: [ { model: db.CardPayment }, { model: db.CashPayment }, { model: db.Order } ] }],  where: { client_id: clientId } })
-  console.log(clientOrders, ' orders')
   return clientOrders
   
 }

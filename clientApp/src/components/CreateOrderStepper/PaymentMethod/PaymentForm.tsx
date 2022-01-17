@@ -44,10 +44,8 @@ const PaymentForm = ({ selectedOptions }:Props) => {
           const response:any = await postStripePayment(selectedOptions.package.price, id)
 
           if(response.data.success){
-            console.log('Successful payment');
         
             createOrderOnServer({...selectedOptions, client }).then((res:any) => {
-              console.log('created order result', res);
               setSuccess(true);
               history.push('/dashboard');
             });
@@ -55,15 +53,11 @@ const PaymentForm = ({ selectedOptions }:Props) => {
           }
 
         } catch(err){
-            console.log('Error', err)
         }
       } else {
-        console.log(error.message)  
+
       }
   }
-
-
-console.log(selectedOptions)
 
 
   return(

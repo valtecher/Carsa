@@ -79,12 +79,10 @@ const LoginForm = () => {
                     }))
                     history.push('/')
                 }else {
-                    console.log('Login failed')
                     dispatch(loginFailed())
                 }
             })
             .catch(error => {
-                console.log(error)
                 dispatch(loginFailed())
             })
 

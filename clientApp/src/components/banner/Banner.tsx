@@ -11,7 +11,7 @@ const Banner = () => {
   }
 
   useEffect(()=>{
-    console.log('here')
+
  
   }, [])
 

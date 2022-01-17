@@ -17,7 +17,6 @@ export const getPaymentsEpic = (action$:any, state$:any) => action$.pipe(
 
         })
 
-        console.log('Fetched payments', payments)
 
         return payments
     }))),

@@ -6,7 +6,7 @@
 //
 // python.stdout.on('data', (data) => {
 //     // const dataFromScraper = JSON.parse(data.toString().replaceAll('\'', '"'))
-//     console.log(data.toString())
+
 // })
 
 const _ = require('lodash')

@@ -3,6 +3,7 @@ import { reportTypes } from '../interfaces/enums/ReportTypes';
 
 export const carToFlatCar = (car:Car) => {
   const carEngine = car.Engine
+  
   const flattenEngine = {
     EngineName: carEngine?.name || '',
     EngineVolume: carEngine?.volume || '', 
@@ -10,25 +11,23 @@ export const carToFlatCar = (car:Car) => {
     EnginePower: carEngine?.power || '',
   }
   const carNaming = {
-    brand: car.CarGeneration.CarModel.CarBrand.name,
-    model: car.CarGeneration.CarModel.name,
-    generation: car.CarGeneration.name,
+    brand: car.CarGeneration?.CarModel.CarBrand.name,
+    model: car.CarGeneration?.CarModel.name,
+    generation: car.CarGeneration?.name,
   };
 
   const flattenCar = {...car, ...flattenEngine, ...carNaming }
-  console.log(flattenCar, ' flattenCar')
   return flattenCar;
 }
 
 export const carToFlatNaming = (car:Car)  => {
   const carNaming = {
-    brand: car.CarGeneration.CarModel.CarBrand.name,
-    model: car.CarGeneration.CarModel.name,
-    generation: car.CarGeneration.name,
+    brand: car.CarGeneration?.CarModel.CarBrand.name,
+    model: car.CarGeneration?.CarModel.name,
+    generation: car.CarGeneration?.name,
   };
 
   const flattenCar = {...car, ...carNaming }
-  console.log(flattenCar, ' flatten to name Car')
   return flattenCar;
 }
 export const cartodasboardview =  (car: Car) => {
@@ -53,10 +52,9 @@ export const cartodasboardview =  (car: Car) => {
     }
   })
 
-  // console.log('fin', finalReports)
 
   let carDashboard:CarDash = {
-    ...car, brand: car?.CarGeneration?.CarModel?.CarBrand?.name, model: car?.CarGeneration?.CarModel?.name, generation: car?.CarGeneration?.name,
+    ...car, brand: car?.CarGeneration?.CarModel?.CarBrand?.name || '', model: car?.CarGeneration?.CarModel?.name || '', generation: car?.CarGeneration?.name || '',
     vin: car?.vin || '',
     numberPlate: "",
     owner: car?.ReportOverviews?.[0]?.Technician?.Employee?.Person?.first_name + ' ' + car?.ReportOverviews?.[0]?.Technician?.Employee?.Person?.last_name,

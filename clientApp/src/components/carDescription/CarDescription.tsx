@@ -11,7 +11,6 @@ interface Props{
 
 const CarDescription = ({car}:Props) => {
 
-    console.log(car)
 
     const viewCar:FlattenCar | any = carToFlatCar(car || {})
     return(

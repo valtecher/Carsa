@@ -31,7 +31,7 @@ const CustomSelect  = ({className = '', disabled = false, title, options, setFil
     if( !disabled ) {
       setIsShown(!isShown);
     } else { 
-      console.log('else: ', disabled)
+
     }
   }
 

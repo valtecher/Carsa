@@ -41,7 +41,6 @@ const getOverviewByCarId = async ( req:Request, res:Response, next: NextFunction
             technician_id: technician.person_id,
         }
         const addedReportOverview = await overviewRepository.addOverview(reportOverviewBody);
-        console.log('Added report: ', addedReportOverview)
         res.json( addedReportOverview);
     }
 

@@ -19,7 +19,6 @@ const ReportMainPage = () => {
   }, [])
 
   const onCarClick = (carId: string) => {
-    console.log('car clikcked')
     history.push(`/report/${carId}`)
   }
 

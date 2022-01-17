@@ -52,7 +52,6 @@ const CarDashBoard = () => {
   }
   const createSlides = () => {
     return selectedCar?.images?.map((image) => {
-      console.log(image, ' this is image')
       return {image, label: selectedCar?.CarGeneration?.CarModel?.CarBrand?.name }
     })
   }

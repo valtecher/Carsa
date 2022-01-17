@@ -47,7 +47,6 @@ const PaymentDashBoard = () => {
       setLeftSum(leftOverArr)
     }
     useEffect(() => {
-      console.log('Api payment call');
         dispatch(getPaymentsAttemp());
         selectPaymentsForOrder();
     }, [])

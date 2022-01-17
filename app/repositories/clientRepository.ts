@@ -91,7 +91,6 @@ const addClient = async (clientBody: any) => {
             return newClientObject
         }
     } catch (err: any) {
-        console.log(err, ' Error')
         return false;
     }
 

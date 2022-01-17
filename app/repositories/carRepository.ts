@@ -212,7 +212,6 @@ const findEngineByCharacteristics = async (power: string, volume: string, fuelTy
     })
 
     if (engines.length === 0) {
-        console.log('no engine found, creating new engine');
         let engine: EngineType;
         if (version) {
             engine = {
@@ -239,13 +238,9 @@ const findEngineByCharacteristics = async (power: string, volume: string, fuelTy
 
 
 const findCarName = async (brand: string, model: string, generation: string, generationStart: string, generationEnd: string) => {
-    console.log(brand, model, generation, generationStart, generationEnd)
     const foundBrand = await findBrandByName(brand);
-    // console.log('Found brand: ', foundBrand)
     const foundModel: CarModelType = await findModelByNameAndBrandId(foundBrand.id, model)
-    // console.log('Found model ',foundModel)
     const foundGeneration: CarGenerationType = await findGenerationByModelId(foundModel.id, generationStart, generationEnd, generation)
-    // console.log('Found Gen', foundGeneration)
 
     return foundGeneration;
 }
@@ -272,7 +267,6 @@ const findModelByNameAndBrandId = async (brandId: string, name: string) => {
     })
 
     if (model.length === 0) {
-        console.log('Could not find find model, creating new one')
         const createdModel = await db.CarModel.create({name, brand_id: brandId})
         await createdModel.save();
         return createdModel;
@@ -281,16 +275,13 @@ const findModelByNameAndBrandId = async (brandId: string, name: string) => {
 }
 
 const findGenerationByModelId = async (modelId: string, startYear: string, endYear: string, name: string) => {
-    console.log(modelId, startYear, endYear, name);
     const generation: any = await db.CarGeneration.findAll({
         where: {
             name: name.split('(')[0]
         },
         include: [{model: db.CarModel, include: [{model: db.CarBrand}]}]
     })
-    console.log(generation);
     if (generation.length === 0) {
-        console.log('Generation was not found, creating new one');
         let generation;
         if (endYear === '') {
             const currentYear = new Date().getFullYear().toString();
@@ -318,7 +309,6 @@ const findGenerationByModelId = async (modelId: string, startYear: string, endYe
         return generationFound[0];
     }
 
-    console.log('Before sending', generation)
     return generation[0];
 }
 const getGenerationByName = async (generationName:string) => { 

@@ -7,7 +7,6 @@ const clientRepository = require('../repositories/clientRepository')
 
 const getAllClients = async (req: Request, res: Response, next: NextFunction) => {
     const clients = await clientRepository.getAllClients();
-    console.log(req.headers)
     res.json(clients)
 }
 

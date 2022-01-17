@@ -19,7 +19,7 @@ const getAllOverviews = async (query: ParsedUrlQuery) => {
 
 const getOverviewByCarId = async (carId: string ) => {
     const overviews =  await db.ReportOverview.findAll({ where: { car_id: carId }, include: [ { model: db.Report, include: [{ model: db.ReportType, attributes: [[sequelize.col('name'), 'type']] }] } ]})
-    console.log('Found overview: ', overviews);
+
     return overviews;
 
 }

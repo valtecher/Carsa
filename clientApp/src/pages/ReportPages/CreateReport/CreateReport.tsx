@@ -38,7 +38,6 @@ const CreateReport = (props:any) => {
           setFetchedReport(res?.data);
           if(res?.data?.length !== 0){
             res.data.map((report:any) => {
-              console.log(report.type)
             })
             setReports(reports.concat(res?.data))
           }
@@ -46,7 +45,6 @@ const CreateReport = (props:any) => {
     })
   }, [])
 
-  console.log('fetched:', fetchedReports)
 
   useEffect(() => {
     let tmpFilled = true;
@@ -72,19 +70,15 @@ const CreateReport = (props:any) => {
       setReports([...reports, { ...currentReport, type: selectedReportType.ReportType }])  
       getReportOverview(car?.id || '').then((res) => {
         const data:any = res.data;
-        console.log(data);
           const reportOverviewId = data.id;
           getReportsForOverview(reportOverviewId).then((reportsResponse:any) =>{
             const reports:Array<any> = reportsResponse.data.reports 
-            console.log(reports);
             let types:Array<any> = [];
             if(reports && reports?.length !==  0) {
                 types = reports?.map((report) => {
-                console.log(report)
               });
             }
             if (!types.includes(selectedReportType)) {
-              console.log('Here');
               const reportBody:IReport = {
                 condition: currentReport.condition,
                 details: currentReport.details,
@@ -92,7 +86,6 @@ const CreateReport = (props:any) => {
                 ReportType:  selectedReportType.ReportType 
               }
               addReport(reportBody).then((res) => {
-                console.log('Final: ', res)
               })
             }
             

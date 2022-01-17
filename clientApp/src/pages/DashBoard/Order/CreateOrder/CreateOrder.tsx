@@ -22,7 +22,7 @@ interface StepperButtonsProps {
   next: (answer: any) => void,
   prev: () => void,
 }
-const handleRender = (activeStep:number, next: (answer: CarConfigurationType | Package  | null) => any, orderCreated: any) => {
+export const handleRender = (activeStep:number, next: (answer: CarConfigurationType | Package  | null) => any, orderCreated: any) => {
 
     
   switch(activeStep){
@@ -78,7 +78,7 @@ export interface SelectedOptionType {
   configuration: CarConfigurationType | CarType | null
 }
 
-const CreateOrder = (props:Props) => {
+export const CreateOrder = (props:Props) => {
   const [activeStep, setActiveStep] = useState(0);
   const [ orderCreated, setCreatedOrder ] = useState<SelectedOptionType>({ package: null, configuration: null, });
 
