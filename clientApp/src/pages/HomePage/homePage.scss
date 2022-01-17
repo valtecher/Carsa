@@ -182,5 +182,20 @@
       font-size: 48px;
       line-height: 70px;
     }  
+
+    &-body{
+      &-reviews{
+        display: flex;  
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1150px;
+
+        &-item{
+          width: 350px;
+        }
+
+      }
+    }
   }
 }

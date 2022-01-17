@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import HomeHeader from '../../components/Home/Header/HomeHeader'
 import './homePage.scss'
 import brnadCar from '../../images/HomePage/brandCar.png'
 import aston from '../../images/HomePage/aston_martin_PNG91.png'
 import arrow from '../../images/HomePage/Arrow 2.png'
-const HomePage = () => {
-   
+import userIcon from '../../images/HomePage/icon_user.png'
+import Footer from '../../components/footer/Footer';
+import "animate.css/animate.min.css";
+import Aos from 'aos'
+import  "aos/dist/aos.css"
+
+const HomePage = () => {   
+ 
+    useEffect(()=>{
+        Aos.init({ duration: 2000 })
+    }, [])
 
     return (
         <div className='home'>
@@ -20,10 +29,10 @@ const HomePage = () => {
             <HomeHeader/>
             <div className='home-section'>
                 <div className='home-section-first'>
-                    <div className='home-section-first-fadingText'>
+                    <div data-aos="fade-up" className='home-section-first-fadingText'>
                         CARSA
                     </div>
-                    <img src={brnadCar}></img>
+                    <img data-aos="fade-down" src={brnadCar}></img>
                 </div>
                 <div className='home-section-marketing'>
                     <p>Selection helper</p>
@@ -40,7 +49,7 @@ const HomePage = () => {
                     <div className='home-decorations-item'></div>
                     <div className='home-decorations-item'></div>
                 </div>
-                <div className='home-second-main'>
+                <div className='home-second-main' data-aos="fade-right">
                     <div className='home-second-main-body'>
                         <p className='home-second-main-body-pre'>BEST SERVICES</p>
                         <p className='home-second-main-body-header'>Feel the best experience with our selection deals</p>
@@ -59,26 +68,65 @@ const HomePage = () => {
                         
 
                     </div>
-                    <div className='home-second-main-image'>
+                    <div data-aos="fade-left" className='home-second-main-image'>
                         <img src={aston}/>
                     </div>
                 </div>   
             </div>
-            <div className='home-section home-third'>
+            <div className='home-section home-third' data-aos="fade-up">
                 <div className='home-third-header'>Reviews</div>
                 <div className='home-third-body'>
                     <div className='home-third-body-reviews'>
                         <div className='home-third-body-reviews-item'>
                             <div className='home-third-body-review-item-icon'>
-
+                                <img src={userIcon}/>
                             </div>
-                            <div></div>
+                            <div className='home-third-body-review-item-userName'>
+                                Kiril Johnson
+                            </div>
+                            <div className='home-third-body-review-item-review'>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                  when an unknown printer took a galley of type and scrambled it to make a type
+                                   specimen book. It has survived not only five centuries, but also the leap into 
+                                   electronic typesetting, remaining essentially unchanged. It was popularised 
+                            </div>
+                        </div>
+                        <div className='home-third-body-reviews-item'>
+                            <div className='home-third-body-review-item-icon'>
+                                <img src={userIcon}/>
+                            </div>
+                            <div className='home-third-body-review-item-userName'>
+                                Kiril Johnson
+                            </div>
+                            <div className='home-third-body-review-item-review'>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                  when an unknown printer took a galley of type and scrambled it to make a type
+                                   specimen book. It has survived not only five centuries, but also the leap into 
+                                   electronic typesetting, remaining essentially unchanged. It was popularised 
+                            </div>
+                        </div>
+                        <div className='home-third-body-reviews-item'>
+                            <div className='home-third-body-review-item-icon'>
+                                <img src={userIcon}/>
+                            </div>
+                            <div className='home-third-body-review-item-userName'>
+                                Kiril Johnson
+                            </div>
+                            <div className='home-third-body-review-item-review'>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                  when an unknown printer took a galley of type and scrambled it to make a type
+                                   specimen book. It has survived not only five centuries, but also the leap into 
+                                   electronic typesetting, remaining essentially unchanged. It was popularised 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-        
+        <Footer/>
         </div>
     )
 }
