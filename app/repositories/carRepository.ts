@@ -277,23 +277,43 @@ const findModelByNameAndBrandId = async (brandId: string, name: string) => {
 const findGenerationByModelId = async (modelId: string, startYear: string, endYear: string, name: string) => {
     const generation: any = await db.CarGeneration.findAll({
         where: {
-            name: name.split('(')[0]
+            name: name?.split('(')[0] || '1980'
         },
         include: [{model: db.CarModel, include: [{model: db.CarBrand}]}]
     })
     if (generation.length === 0) {
         let generation;
+        if( !name || !startYear ){
+            const currentYear = new Date().getFullYear().toString();
+            
+            const noGen = await db.CarGeneration.findOne({ where: {  model_id: modelId  }, include: [{model: db.CarModel, include: [{model: db.CarBrand}]}] })
+            console.log(noGen);
+            if(!noGen ){
+                generation = await db.CarGeneration.create({
+                    name: 'no gen',
+                    start_year: '1980',
+                    end_year: currentYear,
+                    model_id: modelId
+                })
+
+                generation.save()
+
+                generation = await db.CarGeneration.findOne({ where: {  model_id: modelId  }, include: [{model: db.CarModel, include: [{model: db.CarBrand}]}] })
+                return generation;
+            }
+            return noGen;
+        }
         if (endYear === '') {
             const currentYear = new Date().getFullYear().toString();
             generation = await db.CarGeneration.create({
-                name: name.split('(')[0],
+                name: name?.split('(')?.[0] || '1980',
                 start_year: startYear,
                 end_year: currentYear,
                 model_id: modelId
             })
         } else {
             generation = await db.CarGeneration.create({
-                name: name.split('(')[0],
+                name: name?.split('(')?.[0] || '2022',
                 start_year: startYear,
                 end_year: endYear,
                 model_id: modelId
@@ -302,7 +322,7 @@ const findGenerationByModelId = async (modelId: string, startYear: string, endYe
         await generation.save();
         const generationFound: any = await db.CarGeneration.findAll({
             where: {
-                name: name.split('(')[0]
+                name: name?.split?.('(')[0] || '1980' 
             },
             include: [{model: db.CarModel, include: [{model: db.CarBrand}]}]
         })

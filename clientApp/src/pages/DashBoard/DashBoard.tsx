@@ -117,11 +117,6 @@ const DashBoard = () => {
             )
             
           })}
-          <Paper size='sw'>
-           <div className='dashboard-wrapper-quickInfo-header'>
-            Payment:
-            </div>
-          </Paper>
         </div>
         <Paper className='dashboard-wrapper-body-news' size='ll'>
         <div className='dashboard-wrapper-quickInfo-header'>

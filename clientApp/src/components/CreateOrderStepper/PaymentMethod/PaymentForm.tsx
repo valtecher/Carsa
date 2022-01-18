@@ -44,7 +44,7 @@ const PaymentForm = ({ selectedOptions }:Props) => {
           const response:any = await postStripePayment(selectedOptions.package.price, id)
 
           if(response.data.success){
-        
+            console.log(selectedOptions);
             createOrderOnServer({...selectedOptions, client }).then((res:any) => {
               setSuccess(true);
               history.push('/dashboard');
@@ -85,7 +85,7 @@ const PaymentForm = ({ selectedOptions }:Props) => {
                   <button className='paymentForm-body-card-pay'>Pay</button>
                 </form>
            </Paper>
-           <div className='paymentForm-applePay'> Checkout with Apple Pay  <AppleIcon className='appleIcon' fontSize='large'/></div>
+           <div className='paymentForm-applePay'> Checkout with Apple Pay<AppleIcon className='appleIcon' fontSize='large'/></div>
 
           </div>
          :

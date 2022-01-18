@@ -74,6 +74,7 @@ const addOrder = async (req: Request, res: Response) => {
             if(req.body.package.price === 200){
                 const carBody = req.body.configuration;
                 const location = await locationRepository.getLocationByName(carBody.location_id)
+                console.log(carBody)
                 const car:CarType = { ...carBody, generation_id: carBody.CarGeneration.id, price: carBody.price.replace(/\D/g,''), location_id: location.id, mileage: carBody.mileage.replace('km', ''), brand_id: carBody.CarGeneration.CarModel.CarBrand.id, model_id: carBody.CarGeneration.CarModel.id, registrationNumber: '', }
                 const createdCar = await carRepository.createCar(car);
                 await createdCar.save();

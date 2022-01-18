@@ -63,8 +63,15 @@ const ConfigurationCreator = ({ next, type }:Props) => {
 
   const handleScrappedCar = async () => {
     if (link) {
-      const fetchedCar = await scrapperApi.getScrappedModel(link, handleLoading)
-      setScrapedCar(fetchedCar);
+      var matches = link.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
+      var domain = matches && matches[1]; 
+      if( domain && domain === 'www.otomoto.pl' ){
+        handleLoading(true);
+        const fetchedCar = await scrapperApi.getScrappedModel(link, handleLoading)
+        setScrapedCar(fetchedCar);
+      } else {
+        alert('You should enter only otomoto links')
+      }
 
     }
   } 
@@ -123,7 +130,6 @@ const ConfigurationCreator = ({ next, type }:Props) => {
             </div>
             <div className={`configurationCreator-body-btn ${isLoading? 'loadingBtn' : ''} ${ scrapedCar? 'disabledBtn' : '' }`} onClick={() => {
               if(link && !scrapedCar){
-                handleLoading(true);
                 handleScrappedCar();
               }
               }}> { isLoading ? <div className={`createConfiguration-loader`}><MetroSpinner size={25} color="#fff" loading={isLoading} /></div> : 'Proceed' }</div>
