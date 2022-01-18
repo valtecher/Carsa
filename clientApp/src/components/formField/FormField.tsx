@@ -24,6 +24,7 @@ const FormField = forwardRef<HTMLInputElement, Props>((props, ref) => {
                 value={value}
                 placeholder={placeholder}
                 type={type}
+                autoComplete={'false'}
             />
             <ErrorMessage className={styles.errorMessage} component='span' name={name}/>
         </div>

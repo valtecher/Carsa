@@ -32,7 +32,7 @@ const authReducer = (state = initialState, action: any) => {
             return {...state, isLoading: false}
         case ATTEMPT_LOGOUT:
             localStorage.setItem('isAuthenticated', String(false))
-            return {...state, isLoading: true, isAuthenticated: false};
+            return {...state, isLoading: true, isAuthenticated: false, user: null};
         case LOGOUT_SUCCESS:
             return {...state, isLoading: false}
         case LOGOUT_FAILED:

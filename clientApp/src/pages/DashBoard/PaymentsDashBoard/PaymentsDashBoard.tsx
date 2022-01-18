@@ -62,7 +62,7 @@ const PaymentDashBoard = () => {
  <div className={'dashboard'}>
       <SideMenu/>
       <div className='dashboard-workSpace'>
-        <div className='dashboard-itemWrapper'>
+        <div className='dashboard-itemWrapper overflow'>
             { [...payments || []].map((payment:PaymentType) => {
                 return(
                     <div>

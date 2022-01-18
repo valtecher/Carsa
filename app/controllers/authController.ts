@@ -56,8 +56,19 @@ const register = async (req: Request, res: Response, next: NextFunction) => {
     }
 }
 
+const check_user_status = async (req:Request, res:Response, next: NextFunction) => {
+    const token = req.headers.authorization?.replace('bearer ', '') || ''
+    console.log(token)
+    jwt.verify(token, process.env.JWT_SECRET || '', (err, verifiedToken)=> {
+        console.log(err)
+        const success = err ? false : true
+        res.json({ success })
+    })
+}
+
 
 export default {
     login,
-    register
+    register,
+    check_user_status,
 }

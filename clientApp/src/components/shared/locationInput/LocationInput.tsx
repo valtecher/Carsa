@@ -32,7 +32,7 @@ const LocationInput = ({title, handleLocationChange, location, range, handleRang
        <div className='locationInput-group'>
         <input className='locationInput-display' onChange={handleLocationChange} value={location} placeholder='Location...'></input>
         <div className='locationInput-range' onClick={handleClick}>
-         <CustomSelect className='locationCustomSelect'  options={rangeMock || []}  title='CarBrand' filterOptions={range} setFilterOptions={handleRangeChange} ></CustomSelect>
+         <CustomSelect className='locationCustomSelect'  options={rangeMock || []}  title='Range' filterOptions={range} setFilterOptions={handleRangeChange} ></CustomSelect>
          </div>
        
 

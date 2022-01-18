@@ -90,12 +90,12 @@ const LoginForm = () => {
     }
 
     return (
-        <AuthFormWrapper formLabel='Log In'>
+        <AuthFormWrapper  formLabel='Log In'>
             <Formik
                 initialValues={formValues}
                 onSubmit={handleSubmit}
             >
-                <Form noValidate>
+                <Form noValidate >
                     <FormField
                         id='email'
                         name='email'
@@ -104,6 +104,7 @@ const LoginForm = () => {
                         value={formValues.email}
                         placeholder='EMAIL'
                         type='email'
+                        
                     />
                     <FormField
                         id='password'

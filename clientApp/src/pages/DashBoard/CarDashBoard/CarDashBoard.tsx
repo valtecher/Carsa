@@ -61,7 +61,7 @@ const CarDashBoard = () => {
   <div className={'dashboard'}>
       <SideMenu/>
       <div className='dashboard-workSpace'>
-        <div className='dashboard-itemWrapper'>
+        <div className='dashboard-itemWrapper '>
           { [...carsToShow || []].map((car: CarType)=>{
             return(
               <DashBoardCarCard car={car} handleClick={handleCardClick} ></DashBoardCarCard>
