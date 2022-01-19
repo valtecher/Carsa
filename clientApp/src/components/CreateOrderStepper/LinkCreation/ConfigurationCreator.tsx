@@ -97,13 +97,14 @@ const ConfigurationCreator = ({ next, type }:Props) => {
     }
   let tmpFilled = true;
   Object.values(configuration).map((value: string | number) => {
-    if(value === '' || value === 0){
+    if(value === '' || value === 0 ){
       tmpFilled = false;
     }
   })
   setIsFilled(tmpFilled)
   }, [configuration])
 
+ 
 
   const handleLocationChange = (e:any) => {
     setConfiguration({...configuration, location: e.target.value});
@@ -113,6 +114,7 @@ const ConfigurationCreator = ({ next, type }:Props) => {
     setConfiguration({ ...configuration, range: e })
   } 
 
+  console.log(configuration)
   return (
     <div className='configurationCreator'>
       <Paper size='xla'>
@@ -174,9 +176,33 @@ const ConfigurationCreator = ({ next, type }:Props) => {
           <div className='configurationCreator-buttons'>
             <div onClick={() => {
                 if(isFilled){
-                  next(configuration)
+                  const carBrandIndex = [...brands || []].findIndex((brand:any) => {
+                    return  brand.name === configuration.CarBrand
+                  })
+                  const carModelIndex = [...models || []].findIndex((model: any) =>{
+                    return model.name === configuration.CarModel
+                  })
+
+                  const carGenerationIndex = [ ...generations || [] ].findIndex((generation:any) => {
+                    console.log( generation.name,  configuration.CarGeneration , generation.name == configuration.CarGeneration);
+                    return generation.name == configuration.CarGeneration
+                  })
+                  console.log(carGenerationIndex)
+                  const CarBrand:any = { ...brands?.[carBrandIndex] || { }}
+                  const CarModel:any = { ...models?.[carModelIndex] || {} }
+                  CarModel.CarBrand = { ...CarBrand}; 
+                  const CarGeneration:any = { ...generations?.[carGenerationIndex] || {}}
+                  CarGeneration.CarModel = {...CarModel}
+                  
+                  console.log(CarGeneration)
+                  setConfiguration({...configuration, CarBrand: brands?.[carBrandIndex] || '', CarModel: models?.[carModelIndex] || '', CarGeneration: CarGeneration, brand_id: CarBrand.id, model_id: CarModel.id, generation_id: CarGeneration.id });
+                  const newConf = {...configuration, CarBrand: brands?.[carBrandIndex] || '', CarModel: models?.[carModelIndex] || '', CarGeneration: CarGeneration, brand_id: CarBrand.id, model_id: CarModel.id, generation_id: CarGeneration.id }
+                  console.log('New Configuration: ', newConf);
+                  next(newConf)
                 }
-                }} className={`configurationCreator-buttons-btn ${isFilled? '' : 'disabledBtn' }`}>Continue</div>
+                }
+                }
+                 className={`configurationCreator-buttons-btn ${isFilled? '' : 'disabledBtn' }`}>Continue</div>
             </div>
         </div>
         }

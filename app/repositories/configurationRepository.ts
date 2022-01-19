@@ -2,9 +2,9 @@ import db from '../../database/models'
 import sequelize from 'sequelize'
 
 interface ConfigurationBody {
-    brand?: string
-    model?: string
-    generation?: string
+    brand_id?: string
+    model_id?: string
+    generation_id?: string
     year_from?: Date
     year_until?: Date
     engine_volume_from?: number
@@ -75,19 +75,19 @@ const getConfigurationById = async (id: string) => {
 }
 
 const createConfiguration = async (configurationBody: ConfigurationBody) => {
-    const brand = configurationBody.brand
-        ? await db.CarBrand.findOne({where: {name: configurationBody.brand}}) : null
+    // const brand = configurationBody.brand
+    //     ? await db.CarBrand.findOne({where: {name: configurationBody.brand}}) : null
 
-    const model = configurationBody.model
-        ? await db.CarModel.findOne({where: {name: configurationBody.model}}) : null
+    // const model = configurationBody.model
+    //     ? await db.CarModel.findOne({where: {name: configurationBody.model}}) : null
 
-    const generation = configurationBody.generation
-        ? await db.CarGeneration.findOne({where: {name: configurationBody.generation}}) : null
+    // const generation = configurationBody.generation
+    //     ? await db.CarGeneration.findOne({where: {name: configurationBody.generation}}) : null
 
     const preparedBody = {
-        brand_id: brand?.id || null,
-        model_id: model?.id || null,
-        generation_id: generation?.id || null,
+        brand_id: configurationBody?.brand_id  || null,
+        model_id: configurationBody?.model_id || null,
+        generation_id: configurationBody?.generation_id || null,
         year_from: configurationBody.year_from || null,
         year_until: configurationBody.year_until || null,
         engine_volume_from: configurationBody.engine_volume_from || null,
@@ -118,14 +118,14 @@ const updateConfigurationById = async (id: string, configurationBody: Configurat
     let configuration = await db.Configuration.findByPk(id)
 
     if (configuration) {
-        const brand = configurationBody.brand
-            ? await db.CarBrand.findOne({where: {name: configurationBody.brand}}) : null
+        const brand = configurationBody.brand_id
+            ? await db.CarBrand.findOne({where: {name: configurationBody.brand_id}}) : null
 
-        const model = configurationBody.model
-            ? await db.CarModel.findOne({where: {name: configurationBody.model}}) : null
+        const model = configurationBody.model_id
+            ? await db.CarModel.findOne({where: {name: configurationBody.model_id}}) : null
 
-        const generation = configurationBody.generation
-            ? await db.CarGeneration.findOne({where: {name: configurationBody.generation}}) : null
+        const generation = configurationBody.generation_id
+            ? await db.CarGeneration.findOne({where: {name: configurationBody.generation_id}}) : null
 
         const preparedBody: any = {
             brand_id: brand?.id,

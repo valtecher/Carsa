@@ -15,13 +15,13 @@ const paymentRepository = require('../repositories/paymentRepository')
 const getAllOrders = async (req: Request, res: Response) => {
     const page: number = Number(req.query.page) || 1
     const limit: number = Number(req.query.limit)
-
     if (page && limit) {
         const offset = (page - 1) * limit
         const orders = await orderRepository.getAllOrders(limit, offset)
         return res.json(orders)
     } else {
         const orders = await orderRepository.getAllOrders()
+
         return res.json(orders)
     }
 }
@@ -30,6 +30,7 @@ const getAllDetailedOrders = async (req: Request, res: Response) => {
     const page: number = Number(req.query.page) || 1
     const limit: number = Number(req.query.limit)
 
+    console.log('ejuhweg')
     if (page && limit) {
         const offset = (page - 1) * limit
         const orders = await orderRepository.getAllDetailedOrders(limit, offset)
@@ -66,12 +67,13 @@ const addOrder = async (req: Request, res: Response) => {
         sum: req.body.package.price,
         order_id: newOrder.id
     }
+    console.log('Payment', payment)
     const newPayment = await paymentRepository.createPayment(payment);
     await newPayment.save();
     await newOrder.save();
     if( req.body.configuration ) { 
         if(req.body.package){
-            if(req.body.package.price === 200){
+            if(req.body.package.price == 200){
                 const carBody = req.body.configuration;
                 const location = await locationRepository.getLocationByName(carBody.location_id)
                 console.log(carBody)
@@ -83,14 +85,15 @@ const addOrder = async (req: Request, res: Response) => {
                 res.json({ success: true, car_order, car: createdCar, order: newOrder  })
             } else {
                 const configurationBody = req.body.configuration; 
-                const generation = await carRepository.getGenerationByName(configurationBody.CarGeneration) 
-                configurationBody.CarGeneration = generation.id
-                configurationBody.CarModel = generation.CarModel.id
-                configurationBody.CarBrand = generation.CarModel.CarBrand.id
+                // const generation = await carRepository.getGenerationByName(configurationBody.CarGeneration.id) 
+                // configurationBody.CarGeneration = generation.id
+                // configurationBody.CarModel = generation.CarModel.id
+                // configurationBody.CarBrand = generation.CarModel.CarBrand.id
+                console.log('Configuration bidsjkh had fgwugy ', configurationBody)
                 const configuration:ConfigurationType = {
-                    brand_id: generation.id,
-                    model_id: generation.CarModel.id,
-                    generation_id: generation.CarModel.CarBrand.id,
+                    brand_id: configurationBody.CarGeneration.CarModel.CarBrand.id,
+                    model_id: configurationBody.CarModel.id,
+                    generation_id: configurationBody.CarGeneration.id,
                     year_from: new Date(Number(configurationBody.year_from), 1, 0),
                     year_until: new Date(Number(configurationBody.year_until), 1, 0),
                     engine_volume_from: configurationBody.engine_volume_from,
@@ -102,6 +105,7 @@ const addOrder = async (req: Request, res: Response) => {
                     mileage_from: configurationBody.mileage_from,
                     mileage_until: configurationBody.mileage_until,
                 }
+                console.log("Lst conf: ", configuration)
                 const createdConfiguration = await  configurationRepository.createConfiguration(configuration);
                 await createdConfiguration.save();
                 const order_configuration = await configurationRepository.addConfigurationToOrder(createdConfiguration.id, newOrder.id)

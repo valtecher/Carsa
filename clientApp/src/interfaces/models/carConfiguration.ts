@@ -19,4 +19,7 @@ export interface CarConfigurationType {
   fuel_type: string;
   drive: string;
   range?: string;
+  brand_id?: string;
+  model_id?: string;
+  generation_id?: string;
 }

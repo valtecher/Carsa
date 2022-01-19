@@ -62,7 +62,16 @@ const OrderDashBoard = () => {
               <CloseIcon onClick={handleCloseInfo} className='dashBoardInfo-wrapper-header-icon' fontSize='large' color={ selectedOrder? 'error' : 'disabled' }/>
             </div>
         </div>
-        { selectedOrdeState?.cars.map((car)=>{
+        
+        {selectedOrdeState?.cars?.length === 0? 
+          <div className='conf-state'>
+            <p>There are no cars for now!</p>
+
+          
+          </div>
+        
+        
+        : selectedOrdeState?.cars.map((car)=>{
           const carNew = cartodasboardview(car);
           return (
             <div>
