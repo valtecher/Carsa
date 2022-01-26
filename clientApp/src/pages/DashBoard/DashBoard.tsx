@@ -14,6 +14,7 @@ import { useHistory } from 'react-router-dom';
 
 
 
+
 const DashBoard = () => {
 
   const dispatch = useDispatch();
@@ -23,7 +24,8 @@ const DashBoard = () => {
   const cars = useSelector((state: storeState) => { return state.cars.cars })
   const payments = useSelector((state: storeState) => { return state.payments.payments })
   const orders = useSelector((state: storeState) => { return state.orders.orders})
- 
+  const isSideMenuCollapsed = useSelector((state: storeState) => state.app.isSideMenuCollapsed );
+
   const [ paymentsSum, setPaymentsSum ] = useState<Array<{id: number, amount: number}>>([])
   const [paymentsState, setPaymentsState] = useState<Array<any>>([...payments])
 
@@ -65,7 +67,7 @@ const DashBoard = () => {
 
 
   return(
-    <div className={'dashboard-wrapper'}>
+    <div className={`dashboard-wrapper ${ isSideMenuCollapsed?  '' : 'dashboard-collapsed' } `}>
       <SideMenu/>
       <div className='dashboard-wrapper-nav'>
         <div className='dashboard-wrapper-nav-button' onClick={()=> { history.push('/dashboard/createOrder') }}>Create order</div>

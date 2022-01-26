@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import { persistReducer  } from 'redux-persist'
 import  storage  from 'redux-persist/lib/storage'
+import appReducer from './appReducer'
 import authReducer from './auth'
 import carReducer from './carReducer'
 import orderReducer from './orderReducer'
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   orders: orderReducer,
   payments: paymentsReducer,
+  app: appReducer,
 })
 
 export default persistReducer(persistConfig, rootReducer)

@@ -6,7 +6,13 @@ import PaymentsIcon from '@mui/icons-material/Payments';
 import CarRepairIcon from '@mui/icons-material/CarRepair';
 import HomeIcon from '@mui/icons-material/Home';
 import { useHistory } from 'react-router';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { storeState } from '../../redux/store';
+import { sideMenuCollapse, sideMenuExpand } from '../../redux/actions/appActions';
+
 interface Tab {
     id: number,
     label:string, 
@@ -24,7 +30,10 @@ const tabs:Array<Tab> = [
 ]
 
 const SideMenu = () => {
+
+  const isSideMenuCollapsed = useSelector((state:storeState) => state.app.isSideMenuCollapsed);
   const history = useHistory();
+  const dispatch = useDispatch();
   const [ tabsState, setTabsState ] = useState(tabs);
   const getIcon = (icon:string) => {
     switch(icon){
@@ -38,6 +47,15 @@ const SideMenu = () => {
         return (<CarRepairIcon/>)
       case "HomeIcon":
         return (<HomeIcon/>)
+    }
+  }
+
+  const handleCollapse = () => {
+    console.log('clicked');
+    if(isSideMenuCollapsed){
+      dispatch(sideMenuExpand())
+    }else {
+      dispatch(sideMenuCollapse())
     }
   }
 
@@ -58,12 +76,15 @@ const SideMenu = () => {
   }, [history.location.pathname])
  
   return(
-    <div className='sideMenu-wrapper'>
+    <div className={isSideMenuCollapsed ? `sideMenu-wrapper` : `sideMenu-collapsed`}>
+      <div className='sideMenu-collapsible' onClick={handleCollapse}>
+        { isSideMenuCollapsed? <ArrowBackIosNewIcon/> : <ArrowForwardIosIcon/> }
+      </div>
       {tabsState.map((tab:Tab)=> {
         return (
-          <div key={tab.id} className={`sideMenu-wrapper-tab ${tab.isSelected? 'selected' : ''}`}>
+          <div key={tab.id} className={`${ isSideMenuCollapsed? 'sideMenu-wrapper-tab' : 'sideMenu-collapsible-tab' }    ${tab.isSelected? isSideMenuCollapsed? 'selected' : 'sideMenu-collapsible-selected' : ''}`}>
             <Link to={`${tab.path}`}>
-              {getIcon(tab.icon)} {tab.label}
+              {getIcon(tab.icon)} { isSideMenuCollapsed?  tab.label : ''}  
             </Link>
           </div>
         )

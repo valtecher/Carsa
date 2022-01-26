@@ -14,13 +14,15 @@ import CloseIcon from '@mui/icons-material/Close';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import { cartodasboardview } from '../../../utils/carConventor';
 import { deleteSelectedOrder } from '../../../redux/actions/orderActions';
+import { storeState } from '../../../redux/store';
 
 
 const OrderDashBoard = () => {
 
   const dispatch = useDispatch();
   const orders = useSelector((state:any) => { return state.orders.orders })
-  
+  const isSideMenuCollapsed = useSelector((state: storeState) => state.app.isSideMenuCollapsed)
+
   useEffect(()=>{
     dispatch(getOrder())
   }, [])
@@ -44,7 +46,7 @@ const OrderDashBoard = () => {
   return(
     <div className={'dashboard'}>
       <SideMenu/>
-      <div className='dashboard-workSpace'>
+      <div className={`dashboard-workSpace ${ isSideMenuCollapsed? '' : 'collapsed' }`}>
         <div className='dashboard-itemWrapper'>
           {[...orders || []].map((order:Order)=>{
             return(
