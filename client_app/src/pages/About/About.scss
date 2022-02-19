@@ -1,4 +1,5 @@
 .about{
+  height: 100vh;
   max-width: 1200px;
   margin: 0 auto;
   &-header{
@@ -16,5 +17,10 @@
     p{
       margin: 15px 0;
     }
+  }
+
+  &-image{
+    position: absolute;
+    right: 0;
   }
 }
