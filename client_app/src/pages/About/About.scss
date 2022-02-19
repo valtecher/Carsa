@@ -1,0 +1,20 @@
+.about{
+  max-width: 1200px;
+  margin: 0 auto;
+  &-header{
+    padding-top: 8vh;
+    font-size: 64px;
+    color: #FFD77F;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  &-body{
+    padding-top: 20px;
+    max-width: 900px;
+    font-size: 24px;
+    line-height: 34px;
+    p{
+      margin: 15px 0;
+    }
+  }
+}
