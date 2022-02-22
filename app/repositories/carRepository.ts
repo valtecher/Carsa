@@ -170,7 +170,7 @@ const getAllGenerationsForModel = async (modelId: string ) => {
 
 const getCars = async () => {
     const cars = await db.Car.findAll({
-        include: [db.Engine, {model: db.Equipment, as: 'car_equipment'}, {
+        include: [db.CarModel, db.CarBrand, db.Engine, {model: db.Equipment, as: 'car_equipment'}, {
             model: db.CarGeneration,
             include: [{model: db.CarModel, include: [db.CarBrand]}]
         }]
@@ -348,6 +348,23 @@ const createEngine = async (engine: any) => {
     await db.Engine.create({...engine})
 }
 
+const filterCars = async (filter:any) => {
+    Object.keys(filter).forEach(key => {
+        if (filter[key] === null) {
+          delete filter[key];
+        }
+      });
+
+    console.log('Filter', filter)
+    const cars = await db.Car.findAll({
+        where: {
+            ...filter
+        }
+      })
+
+    return cars;
+}
+
 
 module.exports = {
     getAllCarsForClient,
@@ -377,6 +394,8 @@ module.exports = {
     getGenerationByName,
 
 
-    getCarLocation
+    getCarLocation,
+
+    filterCars,
 
 }

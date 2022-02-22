@@ -11,6 +11,10 @@ router.get('/', carController.getAllCars);
 router.get('/car/:id', carController.getCarById);
 router.get('/client', passport.authenticate("jwt", {session: false}), carController.getAllCarsForClient);
 
+// ---------------- Car Filtering -----------
+
+router.post('/filter', carController.filterCars)
+
 
 // ------------------------- Car naming ----------------------------
 

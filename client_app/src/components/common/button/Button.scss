@@ -1,0 +1,30 @@
+.button{
+  width: 150px;
+  height: 35px;
+  border-radius: 20px;
+  background-color: #D8B669;
+  cursor: pointer;
+  text-align: center;
+  line-height: 35px;
+  color: #fff;
+  transition: 0.3s ease-in-out;
+  text-transform: capitalize;
+  &:hover{
+    background-color:  rgb(209, 175, 133);
+  }
+}
+
+.light_button{
+  width: 150px;
+  height: 35px;
+  border-radius: 20px;
+  background-color: #fff;
+  cursor: pointer;
+  text-align: center;
+  line-height: 35px;
+  color: #D8B669;
+  text-transform: capitalize;
+  &:hover{
+    background-color: rgb(206, 206, 206);
+  }
+}

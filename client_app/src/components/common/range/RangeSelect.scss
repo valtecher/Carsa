@@ -1,0 +1,20 @@
+.rangeselect{
+  &-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &-input{
+      color: #fff;
+      margin: 5px;
+      width: 110px;
+      height: 35px;
+      border-radius: 20px;
+      background-color: #D8B669;
+      border: 0;
+      padding: 2px;
+      text-align: center;
+      text-transform: capitalize;
+    }
+  }
+}

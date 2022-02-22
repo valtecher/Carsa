@@ -1,49 +1,43 @@
 import { Link } from 'react-router-dom';
 import './Header.scss'
 import logo from '../../images/Common/carsa_logo.png';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppState } from '../../redux/store';
+import { setOpenedLink } from '../../redux/actions/AppActions';
 
 const Header = () => {
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const isAuthenticatedFromStore = false;
-    // useSelector((state: any) => { return state.auth.isAuthenticated })
+    const selectedLink = useSelector((appState:AppState) => appState.app.openedLink)
 
-
-
-    const handleLogout = () => {
-        // dispatch(logoutAttempt())
-        // dispatch(logoutSuccess())
+    const handleLinkChange = (link:string) => {
+      dispatch(setOpenedLink(link))
     }
 
 
   return(
     <div className='homeheader'>
-      <div className='homeheader-wrapper'>
+      <div onClick={() => {handleLinkChange('home')}} className={`homeheader-wrapper ${selectedLink === 'home'? 'selectedLink' : ''}`}>
         <Link to='/home'>Home</Link>
       </div>
-      <div className='homeheader-wrapper'>
+      <div onClick={() => {handleLinkChange('offers')}} className={`homeheader-wrapper ${selectedLink === 'offers'? 'selectedLink' : ''}`}>
         <Link to='/offers'>Offers</Link>
       </div>
         { isAuthenticatedFromStore?  
-          <div className='homeheader-wrapper'>
+          <div onClick={() => {handleLinkChange('dashboard')}} className={`homeheader-wrapper ${selectedLink === 'dashboard'? 'selectedLink' : ''}`}>
             <Link to='/dashboard'>Dashboard</Link>
           </div> : '' 
         }
-      <div className='homeheader-logo'>
+      <div className={`homeheader-wrapper `}>
         <img src={logo}/> 
       </div>
-      { isAuthenticatedFromStore? 
-          <div className='homeheader-wrapper'>
-            <Link to='/report'>Reports</Link>
-          </div> 
-          : '' 
-      }
-      <div className='homeheader-wrapper'>
+      <div onClick={() => {handleLinkChange('about')}} className={`homeheader-wrapper ${selectedLink === 'about'? 'selectedLink' : ''}`}>
         <Link to='/about'>Contact</Link>
       </div>
-      <div className='homeheader-wrapper'>
-          {isAuthenticatedFromStore
-                ? <Link className='header-wrapper-link' onClick={handleLogout} to='/'>Log Out</Link>
+      <div onClick={() => {handleLinkChange('login')}} className={`homeheader-wrapper ${selectedLink === 'login' || selectedLink === 'logout' ? 'selectedLink' : ''}`}>
+          {isAuthenticatedFromStore?
+                ''// ? <Link className='header-wrapper-link' onClick={handleLogout} to='/'>Log Out</Link>
                 : <Link className='header-wrapper-link' to='/login'>Log in</Link>
             }
       </div>

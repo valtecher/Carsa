@@ -118,6 +118,14 @@ const addCarToOrder = async (req: Request, res: Response) => {
         return res.status(StatusCodes.CREATED).json(order)
 }
 
+// -----------------CAR FILTER ------------------------
+
+const filterCars = (req:Request, res:Response, next:NextFunction) => {
+    const filter:any = req.body
+    carRepository.filterCars(filter)
+    
+}
+
 
 export default {
     getAllCars,
@@ -135,5 +143,7 @@ export default {
     getModelsForBrand,
     getModelsForBrandByName,
     getGenerationsForModel,
+
+    filterCars,
 
 }
