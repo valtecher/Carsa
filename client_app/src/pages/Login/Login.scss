@@ -1,0 +1,25 @@
+.login{
+  width: 100%;
+  position: relative; 
+  &-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-height: 100vh;
+    &-left{
+      width: 50%;
+      &-fadingText{
+        font-size: 140px;
+      }
+    } 
+    &-right{
+      
+      background-color: #D8B669;
+      width: 50%;
+      min-width: 200px;
+      min-height: 100vh;
+    }
+  }
+ 
+}

@@ -10,6 +10,7 @@ import {
 import About from './pages/About/About';
 import OffersPage from './pages/Offers/Offers';
 import LoginPage from './pages/Login/Login';
+import RegisterPage from './pages/Register/Register';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/offers' element={<OffersPage/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/login' element={<LoginPage/>}/>
+        <Route path='register' element={<RegisterPage/>}/>
         <Route path="*" element={<Navigate to="/home"/>} />
       </Routes>
     </Router>

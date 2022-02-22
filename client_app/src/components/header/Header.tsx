@@ -1,20 +1,26 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Header.scss'
 import logo from '../../images/Common/carsa_logo.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../redux/store';
 import { setOpenedLink } from '../../redux/actions/AppActions';
+import { useEffect } from 'react';
 
 const Header = () => {
 
     const dispatch = useDispatch();
     const isAuthenticatedFromStore = false;
     const selectedLink = useSelector((appState:AppState) => appState.app.openedLink)
-
+    const { pathname } = useLocation();
+    
     const handleLinkChange = (link:string) => {
-      dispatch(setOpenedLink(link))
+      dispatch(setOpenedLink(link));
     }
 
+    useEffect(() => {
+      console.log('PathName changed: ', pathname.replace('/', ''))
+      dispatch(setOpenedLink(pathname.replace('/', '')))
+    }, [pathname])
 
   return(
     <div className='homeheader'>

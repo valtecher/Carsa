@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Header from '../../components/header/Header'
 import './homepage.scss'
-import brnadCar from '../../images/HomePage/arteon.png'
+import brandCar from '../../images/HomePage/arteon.png'
 import aston from '../../images/HomePage/aston_martin_PNG9.png'
 import arrow from '../../images/HomePage/Arrow 2.png'
 import userIcon from '../../images/HomePage/icon_user.png'
@@ -31,7 +31,7 @@ const HomePage = () => {
                     <div data-aos="fade-up" className='home-section-first-fadingText'>
                         CARSA
                     </div>
-                    <img data-aos="fade-down" src={brnadCar}></img>
+                    <img data-aos="fade-down" src={brandCar}></img>
                 </div>
                 <div className='home-section-marketing'>
                     <p>Selection helper</p>
