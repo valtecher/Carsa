@@ -1,0 +1,50 @@
+.register{
+  &-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-height: 100vh;
+    &-left{
+      z-index: -1;
+      width: 50%;
+      position: relative;
+
+      &-fadingText{  
+        text-align: center;
+        font-size: 140px;
+      }
+    }
+
+    &-right{ 
+      position: absolute;
+      right: 0;
+      -webkit-box-shadow: -12px 0px 24px 0px rgba(66, 68, 90, 1);
+      -moz-box-shadow: -12px 0px 24px 0px rgba(66, 68, 90, 1);
+      box-shadow: -12px 0px 24px 0px rgba(66, 68, 90, 1);
+      background-color: #D8B669;
+      width: 50%;
+      min-width: 200px;
+      min-height: 100vh;
+      color: #fff;
+      z-index: -1;
+   
+      &-form{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-top: 250px;
+        width: 50%;
+        display: flex;  
+        min-height: 500px;
+        &-link{
+          cursor: pointer;
+        }
+        &-submit{
+          margin-top: 50px;
+        }
+      }
+    }
+  }
+}
