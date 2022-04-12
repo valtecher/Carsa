@@ -8,7 +8,7 @@
     "npm": "6.14.15"
   },
   "scripts": {
-    "heroku-postbuild": "cd clientApp && npm install && npm run build",
+    "heroku-postbuild": "cd client_app && npm install && npm run build",
     "start": "tsnd --respawn index.ts",
     "migrate": "npx sequelize-cli db:migrate",
     "undo-migration": "npx sequelize-cli db:migrate:undo",
