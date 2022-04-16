@@ -11,7 +11,7 @@ const passport = require("./app/auth/passport")
 const app = express()
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, "./clientApp/build")))
+    app.use(express.static(path.join(__dirname, "./client_app/build")))
 }
 
 app.use(express.json())
@@ -32,7 +32,7 @@ app.use(router)
 
 
 app.get("*", (req:any, res:any)=>{
-    res.sendFile(path.join( __dirname, './clientApp/build/index.html'))
+    res.sendFile(path.join( __dirname, './client_app/build/index.html'))
 })
 
 db.sequelize.sync().then(() => {
