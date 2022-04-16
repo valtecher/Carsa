@@ -19,6 +19,7 @@ app.use(express.urlencoded({extended: true}))
 app.disable('x-powered-by')
 app.use(passport.initialize())
 
+
 // Setup CORS Logic
 app.options('*', corsMiddleware)
 app.use(corsMiddleware)
