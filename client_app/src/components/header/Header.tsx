@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 const Header = () => {
 
     const dispatch = useDispatch();
-    const isAuthenticatedFromStore = false;
+    const isAuthenticatedFromStore = useSelector((state:AppState) => state.user.isAuthenticated);
     const selectedLink = useSelector((appState:AppState) => appState.app.openedLink)
     const { pathname } = useLocation();
     
@@ -32,7 +32,7 @@ const Header = () => {
       </div>
         { isAuthenticatedFromStore?  
           <div onClick={() => {handleLinkChange('dashboard')}} className={`homeheader-wrapper ${selectedLink === 'dashboard'? 'selectedLink' : ''}`}>
-            <Link to='/dashboard'>Dashboard</Link>
+            <Link to='/client/dashboard'>Dashboard</Link>
           </div> : '' 
         }
       <div className={`homeheader-wrapper `}>
@@ -43,7 +43,7 @@ const Header = () => {
       </div>
       <div onClick={() => {handleLinkChange('login')}} className={`homeheader-wrapper ${selectedLink === 'login' || selectedLink === 'logout' ? 'selectedLink' : ''}`}>
           {isAuthenticatedFromStore?
-                ''// ? <Link className='header-wrapper-link' onClick={handleLogout} to='/'>Log Out</Link>
+                  <Link className='header-wrapper-link'  to='/'>Log Out</Link>
                 : <Link className='header-wrapper-link' to='/login'>Log in</Link>
             }
       </div>
