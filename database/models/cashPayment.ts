@@ -1,5 +1,5 @@
-const {Model} = require('sequelize')
-import {CashPaymentType} from '../../types/cashPayment'
+const { Model } = require('sequelize')
+import { CashPaymentType } from '../../types/cashPayment'
 
 module.exports = (sequelize: any, DataTypes: any) => {
     class CashPayment extends Model<CashPaymentType> implements CashPaymentType {
@@ -25,6 +25,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }, {
         sequelize,
         freezeTableName: true,
+        createdAt: false,
+        updatedAt: false,
         modelName: 'CashPayment'
     })
 

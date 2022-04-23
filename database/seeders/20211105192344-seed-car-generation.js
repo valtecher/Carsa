@@ -11,9 +11,7 @@ const generations = _.flattenDeep(data
                     name: generation.generation_name,
                     start_year: generation.start_year,
                     end_year: generation.end_year,
-                    model_id: model.model_id,
-                    createdAt: new Date(),
-                    updatedAt: new Date()
+                    model_id: model.model_id
                 }
             })
         )

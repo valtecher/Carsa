@@ -1,4 +1,4 @@
-const {Model} = require('sequelize')
+const { Model } = require('sequelize')
 import ConfigurationType from '../../types/configuration'
 
 module.exports = (sequelize: any, DataTypes: any) => {
@@ -120,6 +120,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }, {
         sequelize,
         freezeTableName: true,
+        createdAt: false,
+        updatedAt: false,
         modelName: 'Configuration'
     })
 

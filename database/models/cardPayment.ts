@@ -1,11 +1,11 @@
-const {Model} = require('sequelize')
-import {CardPaymentType} from '../../types/cardPayment'
+const { Model } = require('sequelize')
+import { CardPaymentType } from '../../types/cardPayment'
 
 module.exports = (sequelize: any, DataTypes: any) => {
     class CardPayment extends Model<CardPaymentType> implements CardPaymentType {
         payment_id!: string;
         card_number!: string;
-        ownerName!: string;  
+        ownerName!: string;
 
         static associate(models: any) {
             CardPayment.belongsTo(models.Payment, {
@@ -23,18 +23,20 @@ module.exports = (sequelize: any, DataTypes: any) => {
                 model: 'Payment',
                 key: 'id'
             }
-        }, 
+        },
         card_number: {
             type: DataTypes.STRING,
-            allowNull: false, 
+            allowNull: false,
         },
         owner_name: {
             type: DataTypes.STRING,
-            allowNull: false, 
+            allowNull: false,
         }
     }, {
         sequelize,
         freezeTableName: true,
+        createdAt: false,
+        updatedAt: false,
         modelName: 'CardPayment'
     })
 

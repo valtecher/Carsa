@@ -29,9 +29,7 @@ for (let i = 0; i < 20; i++) {
         engine_id: engines.engines[randomInteger(0, engines.engines.length - 1)].id,
         location_id: locations.locations[randomInteger(0, locations.locations.length - 1)].id,
         mainImage: 'https://picsum.photos/600/400',
-        images: ['https://picsum.photos/600/400', 'https://picsum.photos/400/600', 'https://picsum.photos/800/600'],
-        createdAt: new Date(),
-        updatedAt: new Date()
+        images: ['https://picsum.photos/600/400', 'https://picsum.photos/400/600', 'https://picsum.photos/800/600']
     })
 }
 

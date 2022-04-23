@@ -7,9 +7,7 @@ for (let i = 0; i < 20; i++) {
     people.push({
         id: uuid.v4(),
         first_name: faker.name.firstName(),
-        last_name: faker.name.lastName(),
-        createdAt: new Date(),
-        updatedAt: new Date()
+        last_name: faker.name.lastName()
     })
 }
 

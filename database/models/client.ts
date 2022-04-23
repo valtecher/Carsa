@@ -1,5 +1,5 @@
-import {Model} from 'sequelize'
-import {ClientType} from '../../types/client'
+import { Model } from 'sequelize'
+import { ClientType } from '../../types/client'
 
 module.exports = (sequelize: any, DataTypes: any) => {
     class Client extends Model<ClientType> implements ClientType {
@@ -57,6 +57,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }, {
         sequelize,
         freezeTableName: true,
+        createdAt: false,
+        updatedAt: false,
         modelName: 'Client'
     })
 

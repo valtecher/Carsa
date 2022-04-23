@@ -15,9 +15,7 @@ for (let i = 0; i < cars.cars.length; i++) {
     for (let j = 0; j < 5; j++) {
         records.push({
             car_id: cars.cars[i].id,
-            equipment_id: iterator.next().value,
-            createdAt: new Date(),
-            updatedAt: new Date()
+            equipment_id: iterator.next().value
         })
     }
 }

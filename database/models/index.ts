@@ -4,7 +4,7 @@ const Sequelize = require('sequelize')
 require('dotenv').config();
 const basename = path.basename(__filename)
 const env = process.env.NODE_ENV || 'development'
-const config = require(__dirname + '/../../config/db.ts')[env]
+const config = require(__dirname + '/../../config/db.js')[env]
 const db: any = {}
 
 let sequelize: any
@@ -20,9 +20,9 @@ if(process.env.NODE_ENV === 'production'){
       });
 } else {
     sequelize = new Sequelize({
-        "username": "vsevoloddoroshenko",
-        "password": null,
-        "database": "diploma",
+        "username": "postgres",
+        "password": "postgres",
+        "database": "postgres",
         "host": "127.0.0.1",
         "dialect": "postgres"
     })
@@ -47,4 +47,4 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize
 db.Sequelize = Sequelize
 
-export default db
+export default db;

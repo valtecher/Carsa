@@ -3,9 +3,7 @@ const managers = []
 
 for (let i = 0; i < 5; i++) {
     managers.push({
-        person_id: employees.employees[i].person_id,
-        createdAt: new Date(),
-        updatedAt: new Date()
+        person_id: employees.employees[i].person_id
     })
 }
 

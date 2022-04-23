@@ -13,9 +13,7 @@ for (let i = 0; i < 10; i++) {
         email: userCard.email,
         password: bcrypt.hashSync('qwerty123', 10),
         phone: faker.phone.phoneNumber('+(48) ### ### ###'),
-        location_id: Math.random() > 0.5 ? locations.locations[randomInteger(0, locations.locations.length - 1)].id : null,
-        createdAt: new Date(),
-        updatedAt: new Date()
+        location_id: Math.random() > 0.5 ? locations.locations[randomInteger(0, locations.locations.length - 1)].id : null
     })
 }
 

@@ -12,9 +12,7 @@ for (let i = 0; i < 20; i++) {
         name: names[randomInteger(0, names.length - 1)],
         volume: fuelType === 'Electric' ? null : (1 + Math.random() * 4).toFixed(2),
         power: randomInteger(79, 400),
-        fuel_type: fuelType,
-        createdAt: new Date(),
-        updatedAt: new Date()
+        fuel_type: fuelType
     })
 }
 

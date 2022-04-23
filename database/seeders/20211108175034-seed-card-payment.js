@@ -6,9 +6,7 @@ for (let i = 10; i < 20; i++) {
     cardPayments.push({
         payment_id: payments.payments[i].id,
         card_number: '4917484589897107',
-        owner_name: 'JOHN MARTINEZ',
-        createdAt: new Date(),
-        updatedAt: new Date()
+        owner_name: 'JOHN MARTINEZ'
     })
 }
 
