@@ -1,30 +1,27 @@
-import express from 'express';
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
 import clientHelper from '../services/helpers/clientHelpers';
 import { verifyJWT, comparePasswords } from '../utils/authUtils';
 import { invalidateSession, generateAccessToken, generateRefreshToken } from '../services/helpers/authHelpers';
+import { ClientRegistrationBody } from '../DTOs/clientRegistrationBody';
+import { CreatedClient } from '../DTOs/createdClient';
 
 const register = async (req: Request, res: Response) => {
-    const { first_name, last_name, phone, email, password } = req.body;
-
-    const isClientExist = await clientHelper.isClientExist(req.body);
+    const clientBody: ClientRegistrationBody = req.body;
+    const isClientExist = await clientHelper.isClientExist(clientBody);
 
     if (isClientExist) {
         return res.status(StatusCodes.BAD_REQUEST).json({ message: 'Client with such email phone is already exist' });
     }
 
-    const createdClient: any = await clientHelper.createClient(req.body);
+    const createdClient: CreatedClient = await clientHelper.createClient(clientBody);
 
-    // @ts-ignore
-    req.session.person_id = createdClient.client_id;
-    // @ts-ignore
-    req.session.email = email;
-    // @ts-ignore
-    req.session.valid = true;
+    req.session!.person_id = createdClient.client_id;
+    req.session!.email = createdClient.email;
+    req.session!.valid = true;
 
-    const sessionId = req.session.id;
+    const sessionId = req.session!.id;
     const accessToken = generateAccessToken(sessionId, { email: createdClient.email, first_name: createdClient.first_name });
     const refreshToken = generateRefreshToken(sessionId);
 
@@ -46,20 +43,17 @@ const login = async (req: Request, res: Response) => {
 
     const clientWithEmail = await clientHelper.getClientByEmail(email);
 
-    if (!clientWithEmail || !comparePasswords(password, clientWithEmail.password)) {
+    if (!clientWithEmail || !comparePasswords(password, clientWithEmail.password!)) {
         return res.status(StatusCodes.BAD_REQUEST).json({ message: 'Incorrect email or password' });
     }
 
     delete clientWithEmail.password;
 
-    // @ts-ignore
-    req.session.person_id = clientWithEmail.client_id;
-    // @ts-ignore
-    req.session.email = email;
-    // @ts-ignore
-    req.session.valid = true;
+    req.session!.person_id = clientWithEmail.client_id;
+    req.session!.email = email;
+    req.session!.valid = true;
 
-    const sessionId = req.session.id;
+    const sessionId = req.session!.id;
     const accessToken = generateAccessToken(sessionId, { ...clientWithEmail });
     const refreshToken = generateRefreshToken(sessionId);
 
@@ -82,8 +76,7 @@ const logout = async (req: Request, res: Response) => {
     const { payload: accessTokenPayload } = verifyJWT(accessToken);
 
     if (accessTokenPayload || req.session?.id) {
-        // @ts-ignore
-        await invalidateSession(accessTokenPayload.sessionId || req.session.id);
+        await invalidateSession(accessTokenPayload?.sessionId || req.session!.id);
     }
 
     res.clearCookie("accessToken");

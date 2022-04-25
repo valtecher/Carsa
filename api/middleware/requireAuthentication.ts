@@ -14,7 +14,6 @@ export const requireAuthentication = async (req: Request, res: Response, next: N
 
     // For a valid Access Token
     if (accessTokenPayload && !isAccessTokenExpired) {
-        // @ts-ignore
         if (!await isSessionValid(accessTokenPayload.sessionId)) {
             return res.sendStatus(StatusCodes.UNAUTHORIZED);
         }
@@ -31,10 +30,8 @@ export const requireAuthentication = async (req: Request, res: Response, next: N
         return res.sendStatus(StatusCodes.UNAUTHORIZED);
     }
 
-    // @ts-ignore
     const sessionId = refreshTokenPayload.sessionId;
 
-    // @ts-ignore
     if (!await isSessionValid(refreshTokenPayload.sessionId)) {
         return res.sendStatus(StatusCodes.UNAUTHORIZED);
     }

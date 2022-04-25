@@ -15,8 +15,8 @@ router.post(
 
 router.post(
     '/login',
-    // useLoginSchema,
-    // validateRequestSchema,
+    useLoginSchema,
+    validateRequestSchema,
     authController.login
 );
 
@@ -31,4 +31,4 @@ router.get(
     authController.getProtected
 );
 
-module.exports = router;
+export default router;

@@ -2,13 +2,15 @@ import { promisify } from 'util';
 import { signJWT } from '../../utils/authUtils';
 import { sessionStore } from '../../middleware/session';
 
-sessionStore.get = promisify(sessionStore.get);
-sessionStore.set = promisify(sessionStore.set);
+const store = {
+    set: promisify(sessionStore.set),
+    get: promisify(sessionStore.get)
+}
 
 export const isSessionValid = async (sessionId: string): Promise<boolean> => {
     try {
-        const session = await sessionStore.get(sessionId);
-        return session.valid;
+        const session = await store.get(sessionId);
+        return session?.valid ?? false;
     } catch (err) {
         console.error(err);
         return false;
@@ -17,8 +19,10 @@ export const isSessionValid = async (sessionId: string): Promise<boolean> => {
 
 export const invalidateSession = async (sessionId: string) => {
     try {
-        const session = await sessionStore.get(sessionId);
-        await sessionStore.set(sessionId, { ...session, valid: false });
+        const session = await store.get(sessionId);
+        if (session) {
+            await store.set(sessionId, { ...session, valid: false });
+        }
     } catch (err) {
         console.error(err);
     }

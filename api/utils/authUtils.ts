@@ -1,16 +1,17 @@
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import jwt, { JwtPayload } from 'jsonwebtoken';
 import fs from 'fs';
 import path from 'path';
+import { TokenPayload } from '../DTOs/tokenPayload';
 
 const privateKey = fs.readFileSync(path.resolve(process.cwd(), 'private.pem'));
 const publicKey = fs.readFileSync(path.resolve(process.cwd(), 'public.pem'));
 
-export function signJWT(payload: object, expiresIn: string | number): string {
+export function signJWT(payload: TokenPayload, expiresIn: string | number): string {
     return jwt.sign(payload, privateKey, { algorithm: "RS512", expiresIn });
 }
 
-export function verifyJWT(token: string): { payload: object | null, expired: boolean } {
+export function verifyJWT(token: string): { payload: JwtPayload | null, expired: boolean } {
     try {
         const decoded = jwt.verify(token, publicKey);
         return { payload: decoded, expired: false };

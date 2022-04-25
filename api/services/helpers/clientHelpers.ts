@@ -1,8 +1,18 @@
 import sequelize, { Op } from 'sequelize';
 import db from '../../../database/models';
 import { hashPassword } from '../../utils/authUtils';
+import { CreatedClient } from '../../DTOs/createdClient';
 
-const getClientByEmail = async (email: string) => {
+interface ClientByEmail {
+    client_id: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+    phone: string;
+    password?: string;
+}
+
+const getClientByEmail = async (email: string): Promise<ClientByEmail> => {
     const client = await db.Client.findOne({
         attributes: [
             [sequelize.col('person_id'), 'client_id'],
@@ -24,7 +34,7 @@ const getClientByEmail = async (email: string) => {
     return client;
 }
 
-const isClientExist = async ({ email, phone }) => {
+const isClientExist = async ({ email, phone }): Promise<boolean> => {
     const existingClient = await db.Client.findOne({
         where: {
             [Op.or]: [
@@ -37,7 +47,7 @@ const isClientExist = async ({ email, phone }) => {
     return !!existingClient;
 }
 
-const createClient = async ({ first_name, last_name, email, phone, password }) => {
+const createClient = async ({ first_name, last_name, email, phone, password }): Promise<CreatedClient> => {
     const newPerson = await db.Person.create({
         first_name,
         last_name

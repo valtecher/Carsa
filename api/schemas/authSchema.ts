@@ -1,4 +1,5 @@
-import { body } from 'express-validator';
+import { body, matchedData } from 'express-validator';
+import { Request, Response, NextFunction } from 'express';
 
 export const useRegistrationSchema = [
     body('first_name')
@@ -28,7 +29,11 @@ export const useRegistrationSchema = [
         .exists().bail().withMessage('The field is required')
         .trim()
         .isString().notEmpty().bail().withMessage('Field must contain a valid non empty string')
-        .isStrongPassword().bail().withMessage('Password is not strong enough')
+        .isStrongPassword().bail().withMessage('Password is not strong enough'),
+    (req: Request, _res: Response, next: NextFunction) => {
+        req.body = matchedData(req, { locations: ['body'], includeOptionals: false });
+        next();
+    }
 ];
 
 export const useLoginSchema = [
@@ -36,10 +41,14 @@ export const useLoginSchema = [
         .exists().bail().withMessage('The field is required')
         .trim()
         .isString().notEmpty().bail().withMessage('Field must contain a valid non empty string')
-        .isEmail().bail().withMessage('Field is not a valid email address')
-        .normalizeEmail({ gmail_remove_dots: false }),
+        .isEmail().bail().withMessage('Field is not a valid email address'),
+    // .normalizeEmail({ gmail_remove_dots: false }) -- uncomment for production,
     body('password')
         .exists().bail().withMessage('The field is required')
         .trim()
-        .isString().notEmpty().bail().withMessage('Field must contain a valid non empty string')
+        .isString().notEmpty().bail().withMessage('Field must contain a valid non empty string'),
+    (req: Request, _res: Response, next: NextFunction) => {
+        req.body = matchedData(req, { locations: ['body'], includeOptionals: false });
+        next();
+    }
 ];
