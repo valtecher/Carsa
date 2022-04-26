@@ -1,5 +1,5 @@
-import {ManagerType} from '../../types/manager'
-import {Model} from 'sequelize'
+import { ManagerType } from '../../types/manager'
+import { Model } from 'sequelize'
 
 module.exports = (sequelize: any, DataTypes: any) => {
     class Manager extends Model<ManagerType> implements ManagerType {
@@ -28,6 +28,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }, {
         sequelize,
         freezeTableName: true,
+        createdAt: false,
+        updatedAt: false,
         modelName: 'Manager'
     })
 

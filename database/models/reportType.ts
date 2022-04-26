@@ -1,5 +1,5 @@
-const {Model} = require('sequelize')
-import {ReportTypeName, ReportTypeType} from '../../types/reportType'
+const { Model } = require('sequelize')
+import { ReportTypeName, ReportTypeType } from '../../types/reportType'
 
 module.exports = (sequelize: any, DataTypes: any) => {
     class ReportType extends Model<ReportTypeType> implements ReportTypeType {
@@ -28,6 +28,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }, {
         sequelize,
         freezeTableName: true,
+        createdAt: false,
+        updatedAt: false,
         modelName: 'ReportType'
     })
 

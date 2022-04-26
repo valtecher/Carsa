@@ -11,9 +11,7 @@ while (overviews.length < 5) {
         id: uuid.v4(),
         date: faker.date.recent(),
         car_id: cars.cars[i * 2].id,
-        technician_id: technicians.technicians[i].person_id,
-        createdAt: new Date(),
-        updatedAt: new Date()
+        technician_id: technicians.technicians[i].person_id
     })
     i++
 }

@@ -8,9 +8,7 @@ const equipments = []
 for (let i = 0; i < equipmentNames.length; i++) {
     equipments.push({
         id: uuid.v4(),
-        name: equipmentNames[i],
-        createdAt: new Date(),
-        updatedAt: new Date()
+        name: equipmentNames[i]
     })
 }
 

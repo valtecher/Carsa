@@ -1,5 +1,5 @@
-import {Model} from 'sequelize'
-import {PaymentType} from '../../types/payment'
+import { Model } from 'sequelize'
+import { PaymentType } from '../../types/payment'
 
 const Order = require('./order')
 
@@ -18,10 +18,10 @@ module.exports = (sequelize: any, DataTypes: any) => {
             Payment.hasOne(models.CashPayment, {
                 foreignKey: 'payment_id'
             });
-            Payment.belongsTo(models.Order, { 
+            Payment.belongsTo(models.Order, {
                 foreignKey: 'order_id',
             })
-            
+
         }
     }
 
@@ -55,6 +55,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }, {
         sequelize,
         freezeTableName: true,
+        createdAt: false,
+        updatedAt: false,
         modelName: 'Payment'
     })
 

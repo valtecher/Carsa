@@ -1,5 +1,5 @@
-import {Model} from 'sequelize'
-import {TechnicianType} from '../../types/technician'
+import { Model } from 'sequelize'
+import { TechnicianType } from '../../types/technician'
 
 module.exports = (sequelize: any, DataTypes: any) => {
     class Technician extends Model<TechnicianType> implements TechnicianType {
@@ -40,6 +40,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }, {
         sequelize,
         freezeTableName: true,
+        createdAt: false,
+        updatedAt: false,
         modelName: 'Technician'
     })
 

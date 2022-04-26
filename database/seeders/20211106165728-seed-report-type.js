@@ -5,9 +5,7 @@ const reportTypes = []
 for (let i = 0; i < typeNames.length; i++) {
     reportTypes.push({
         id: uuid.v4(),
-        name: typeNames[i],
-        createdAt: new Date(),
-        updatedAt: new Date()
+        name: typeNames[i]
     })
 }
 

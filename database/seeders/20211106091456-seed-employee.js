@@ -8,9 +8,7 @@ for (let i = 0; i < 10; i++) {
     employees.push({
         person_id: people.people[10 + i].id,
         email: faker.internet.email(),
-        password: bcrypt.hashSync('qwerty123', 10),
-        createdAt: new Date(),
-        updatedAt: new Date()
+        password: bcrypt.hashSync('qwerty123', 10)
     })
 }
 

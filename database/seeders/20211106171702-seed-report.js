@@ -12,9 +12,7 @@ for (let i = 0; i < overviews.overviews.length; i++) {
             overview_id: overviews.overviews[i].id,
             type_id: types.reportTypes[j].id,
             condition: randomInteger(0, 100),
-            details: faker.lorem.paragraph(),
-            createdAt: new Date(),
-            updatedAt: new Date()
+            details: faker.lorem.paragraph()
         })
     }
 }

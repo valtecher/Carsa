@@ -4,9 +4,7 @@ const cashPayments = []
 
 for (let i = 0; i < 10; i++) {
     cashPayments.push({
-        payment_id: payments.payments[i].id,
-        createdAt: new Date(),
-        updatedAt: new Date()
+        payment_id: payments.payments[i].id
     })
 }
 

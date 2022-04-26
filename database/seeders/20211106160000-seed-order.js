@@ -14,9 +14,7 @@ while (i < 20) {
         date: faker.date.recent(),
         client_id: clients.clients[randomInteger(0, clients.clients.length - 1)].person_id,
         manager_id: managers.managers[randomInteger(0, managers.managers.length - 1)].person_id,
-        sum: 20000,
-        createdAt: new Date(),
-        updatedAt: new Date()
+        sum: 20000
     })
     i++
 }
