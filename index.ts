@@ -1,16 +1,15 @@
 // @ts-ignore
-import express, { Request, Response, Application } from 'express';
+import express, { Application } from 'express';
 import session from './api/middleware/session';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import router from './api/routes';
 import db from './database/models';
+
 require('dotenv').config();
 
 const PORT = process.env.PORT;
 const corsMiddleware = require('./app/middlewares/cors');
-const redis = require('redis');
-const connectRedis = require('connect-redis');
 const passport = require("./app/auth/passport");
 
 const app: Application = express();
