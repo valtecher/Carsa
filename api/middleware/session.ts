@@ -1,10 +1,19 @@
-import session from 'express-session';
+import session, { Session } from 'express-session';
 import connectRedis from 'connect-redis';
 import { redisClient } from '../../config/redis';
 
-const RedisStore = connectRedis(session);
+declare module 'express-session' {
+    interface SessionData {
+        person_id: string;
+        email: string;
+        valid: boolean;
+    }
+}
 
-export const sessionStore = new RedisStore({ client: redisClient });
+const RedisStore = connectRedis(session);
+const sessionStore = new RedisStore({ client: redisClient });
+
+export { sessionStore };
 
 export default session({
     store: sessionStore,

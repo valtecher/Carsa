@@ -3,14 +3,14 @@ import { signJWT } from '../../utils/authUtils';
 import { sessionStore } from '../../middleware/session';
 
 const store = {
-    set: promisify(sessionStore.set),
-    get: promisify(sessionStore.get)
+    set: promisify(sessionStore.set).bind(sessionStore),
+    get: promisify(sessionStore.get).bind(sessionStore)
 }
 
 export const isSessionValid = async (sessionId: string): Promise<boolean> => {
     try {
         const session = await store.get(sessionId);
-        return session?.valid ?? false;
+        return !!session?.valid;
     } catch (err) {
         console.error(err);
         return false;
