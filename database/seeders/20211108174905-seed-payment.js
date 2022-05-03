@@ -11,9 +11,7 @@ for (let i = 0; i < 20; i++) {
         date: new Date(),
         amount: amount,
         sum: Math.random() > 0.5 ? amount : amount + randomInteger(100, 1500),
-        order_id: orders.orders[randomInteger(0, orders.orders.length - 1)].id,
-        createdAt: new Date(),
-        updatedAt: new Date()
+        order_id: orders.orders[randomInteger(0, orders.orders.length - 1)].id
     })
 }
 

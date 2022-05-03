@@ -1,5 +1,5 @@
-const {Model} = require('sequelize')
-import {CarModelType} from '../../types/carModel'
+const { Model } = require('sequelize')
+import { CarModelType } from '../../types/carModel'
 
 module.exports = (sequelize: any, DataTypes: any) => {
     class CarModel extends Model<CarModelType> implements CarModelType {
@@ -29,25 +29,25 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }
 
     CarModel.init({
-            id: {
-                type: DataTypes.UUID,
-                defaultValue: DataTypes.UUIDV4,
-                primaryKey: true,
-                allowNull: false
-            },
-            name: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
-            brand_id: {
-                type: DataTypes.UUID,
-                allowNull: false,
-                references: {
-                    model: 'CarBrand',
-                    key: 'id'
-                }
-            }
+        id: {
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
+            primaryKey: true,
+            allowNull: false
         },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        brand_id: {
+            type: DataTypes.UUID,
+            allowNull: false,
+            references: {
+                model: 'CarBrand',
+                key: 'id'
+            }
+        }
+    },
         {
             indexes: [
                 {
@@ -57,6 +57,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
             ],
             sequelize,
             freezeTableName: true,
+            createdAt: false,
+            updatedAt: false,
             modelName: 'CarModel'
         }
     )

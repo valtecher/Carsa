@@ -36,9 +36,7 @@ for (let i = 0; i < 20; i++) {
         transmission: Math.random() > 0.3 ? transmissionTypes[randomInteger(0, transmissionTypes.length - 1)] : null,
         mileage_from: Math.random() > 0.7 ? mileageFrom : null,
         mileage_until: mileageUntil,
-        location_id: Math.random() > 0.8 ? locations.locations[randomInteger(0, locations.locations.length - 1)].id : null,
-        createdAt: new Date(),
-        updatedAt: new Date()
+        location_id: Math.random() > 0.8 ? locations.locations[randomInteger(0, locations.locations.length - 1)].id : null
     })
 }
 

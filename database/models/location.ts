@@ -1,5 +1,5 @@
-const {Model} = require('sequelize')
-import {LocationType} from '../../types/location'
+const { Model } = require('sequelize')
+import { LocationType } from '../../types/location'
 
 module.exports = (sequelize: any, DataTypes: any) => {
     class Location extends Model<LocationType> implements LocationType {
@@ -66,6 +66,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }, {
         sequelize,
         freezeTableName: true,
+        createdAt: false,
+        updatedAt: false,
         modelName: 'Location'
     })
 

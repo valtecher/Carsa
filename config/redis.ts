@@ -1,6 +1,6 @@
-const redis = require('redis')
+import { createClient } from 'redis';
 
-export const redisClient = redis.createClient({
+export const redisClient = createClient({
     port: 6379,
     host: 'localhost'
-})
+});

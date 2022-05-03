@@ -14,9 +14,7 @@ for (let i = 0; i < 20; i++) {
         postal_code: rand ? faker.address.zipCode() : null,
         street: rand ? faker.address.streetName() : null,
         house_number: rand ? randomInteger(1, 199) : null,
-        apartment_number: rand && Math.random() > 0.5 ? faker.address.secondaryAddress() : null,
-        createdAt: new Date(),
-        updatedAt: new Date()
+        apartment_number: rand && Math.random() > 0.5 ? faker.address.secondaryAddress() : null
     })
 }
 

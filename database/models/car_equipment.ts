@@ -1,5 +1,5 @@
-const {Model} = require('sequelize')
-import {Car_EquipmentType} from '../../types/car_equipment'
+const { Model } = require('sequelize')
+import { Car_EquipmentType } from '../../types/car_equipment'
 
 module.exports = (sequelize: any, DataTypes: any) => {
     class Car_Equipment extends Model<Car_EquipmentType> implements Car_EquipmentType {
@@ -29,6 +29,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }, {
         sequelize,
         freezeTableName: true,
+        createdAt: false,
+        updatedAt: false,
         modelName: 'Car_Equipment'
     })
 

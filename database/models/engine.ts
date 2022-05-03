@@ -1,5 +1,5 @@
-const {Model} = require('sequelize')
-import {EngineType} from '../../types/engine'
+const { Model } = require('sequelize')
+import { EngineType } from '../../types/engine'
 
 module.exports = (sequelize: any, DataTypes: any) => {
     class Engine extends Model<EngineType> implements EngineType {
@@ -47,6 +47,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }, {
         sequelize,
         freezeTableName: true,
+        createdAt: false,
+        updatedAt: false,
         modelName: 'Engine'
     })
 

@@ -7,9 +7,7 @@ const models = _.flattenDeep(data
             return {
                 id: model.model_id,
                 name: model.model_name,
-                brand_id: brand.brand_id,
-                createdAt: new Date(),
-                updatedAt: new Date()
+                brand_id: brand.brand_id
             }
         })
     )
