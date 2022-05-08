@@ -1,5 +1,5 @@
 import { User } from "../../utils/models/User"
-import { REGISTER, SET_USER } from '../actions/UserActions'
+import { SET_USER, LOGOUT } from '../actions/UserActions'
 
 interface userReducerInitialState{
   isAuthenticated: boolean, 
@@ -17,8 +17,8 @@ const initialState:userReducerInitialState = {
 
 const userReducer = (state = initialState, action:any) => {
   switch(action.type){
-    case REGISTER:
-      return state
+    case LOGOUT: 
+      return { ...state, user: null, isAuthenticated: false}
     case SET_USER: 
       return { ...state, user: action.user, isAuthenticated: true } 
     default: 

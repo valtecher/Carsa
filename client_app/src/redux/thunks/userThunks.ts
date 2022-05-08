@@ -1,29 +1,30 @@
-import { FormState } from "../../pages/Register/Register";
-import { register } from "../../utils/apis/UserApi"
+import { FormState as RegisterForm } from "../../pages/Register/Register";
+import { FormState as LoginForm } from "../../pages/Login/Login";
+import { register, login, logout } from "../../utils/apis/UserApi"
 import { User } from "../../utils/models/User";
-import { setUser } from "../actions/UserActions";
+import { logoutUser, setUser } from "../actions/UserActions";
 
-
-export const registerUserThunk = (formFields:FormState) => async (dispatch:any) => {
+export const registerUserThunk = (formFields:RegisterForm) => async (dispatch:any) => {
   const user:any = await register(formFields);
-  console.log('inside thunk', user);
   const userToSave:User = {
-    name: user.data.data.first_name, 
-    lastName: user.data.data.last_name, 
+    first_name: user.data.data.first_name, 
+    last_name: user.data.data.last_name, 
     email: user.data.data.email, 
+    password: user.data.data.password,
   }
-  localStorage.setItem('user', JSON.stringify({...userToSave, accessToken: 'wiuretywywyeuqweq213123', refreshToken: 'y9813u931he1ib2uih132i12'}) )
   dispatch(setUser(userToSave))
 }
 
-export const loginUserThunk = (formFields:FormState) => async (dispatch:any) => {
-
+export const loginUserThunk = (formFields:LoginForm) => async (dispatch:any) => {
+  const user:any = await login(formFields);
+  dispatch(setUser(user.data))
 }
 
-export const logoutUserThunk = (formFields:FormState) => async (dispatch:any) => {
-
+export const logoutUserThunk = () => async (dispatch:any) => {
+  await logout();
+  dispatch(logoutUser())
 }
 
-export const resetUserPasswordThunk = (formFields:FormState) => async (dispatch:any) => {
+export const resetUserPasswordThunk = (formFields:LoginForm) => async (dispatch:any) => {
 
 }

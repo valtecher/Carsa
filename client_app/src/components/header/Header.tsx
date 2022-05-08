@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../redux/store';
 import { setOpenedLink } from '../../redux/actions/AppActions';
 import { useEffect } from 'react';
+import { logoutUserThunk } from '../../redux/thunks/userThunks';
 
 const Header = () => {
 
@@ -43,7 +44,9 @@ const Header = () => {
       </div>
       <div onClick={() => {handleLinkChange('login')}} className={`homeheader-wrapper ${selectedLink === 'login' || selectedLink === 'logout' ? 'selectedLink' : ''}`}>
           {isAuthenticatedFromStore?
-                  <Link className='header-wrapper-link'  to='/'>Log Out</Link>
+                  <Link className='header-wrapper-link'  to='/' onClick={() => {
+                    dispatch(logoutUserThunk())
+                  }}>Log Out</Link>
                 : <Link className='header-wrapper-link' to='/login'>Log in</Link>
             }
       </div>

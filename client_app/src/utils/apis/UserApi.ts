@@ -1,11 +1,44 @@
 import axios from "axios"
 import { FormState as RegisterFormFields} from "../../pages/Register/Register";
 
-export const login = () => {
+interface FormError {
+  hasError: boolean, 
+  message: string
+}
 
+export const login = async (fields:{ email: string | null | FormError, password: string | null | FormError  }) => {
+  const user = await axios({
+    method: 'post',
+    url: `${process.env.REACT_APP_API_URL}/auth/login`,
+    headers: {}, 
+    withCredentials: true,
+    data: {
+     ...fields
+    }
+  });
+  return user;
+}
+
+export const logout = async () => {
+  axios.get(`${process.env.REACT_APP_API_URL}/auth/logout`, { withCredentials: true });
 }
 
 export const register = async (fields:RegisterFormFields) => {
-  const user = await axios.get('https://reqres.in/api/users/2');
+  console.log(fields);
+  const user = await axios({
+    method: 'post',
+    url: `${process.env.REACT_APP_API_URL}/auth/register`,
+    headers: {}, 
+    withCredentials: true,
+    data: {
+     ...fields
+    }
+  });
+
   return user;
+}
+
+export const checkUserCredentials = async () => {
+  const response = await axios.get('http://localhost:3000/api/auth/protected', {withCredentials: true});
+  console.log(response);
 }

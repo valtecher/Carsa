@@ -1,8 +1,7 @@
 import { User } from "../../utils/models/User"
 
-export const LOGIN = '@users/LOGIN'
-export const REGISTER = '@users/REGISTER'
-export const SET_USER = '@users/SET_USER'
+export const LOGOUT = '@users/LOGOUT';
+export const SET_USER = '@users/SET_USER';
 
 export const setUser = (user:User) => {
   return {
@@ -11,16 +10,8 @@ export const setUser = (user:User) => {
   }
 }
 
-export const login = (user:any) => {
-  return{
-    type: LOGIN,
-    user
-  }
-}
-
-export const register = (user:any) => {
-  return{
-    type: REGISTER,
-    user
-  }
+export const logoutUser = () => {
+    return {
+      type: LOGOUT,
+    }
 }
