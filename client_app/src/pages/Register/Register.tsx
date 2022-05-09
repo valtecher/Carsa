@@ -7,7 +7,8 @@ import Button from '../../components/common/button/Button';
 import FaceBookIcon from '../../images/HomePage/facebook_icon.png';
 import { useNavigate } from 'react-router-dom';
 import { registerUserThunk } from '../../redux/thunks/userThunks'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../../redux/store';
 
 interface FormError {
   hasError: boolean, 
@@ -41,7 +42,8 @@ const RegisterPage = () => {
   }
   const [formFields, setFormFields] = useState<FormState>({ email: null, password: null, first_name: null, second_name: null })
   const [formFieldsErrors, setFormFieldsErrors] = useState<FormState>(defaultErrorState)
-
+  const isAuthenticated = useSelector((state: AppState) => state.user.isAuthenticated);
+  const registerError = useSelector((state: AppState) => state.user.error);
   const onChange = (e:any) => {
     setFormFields({...formFields, [e.target.name]: e.target.value})
   }
@@ -122,6 +124,7 @@ const RegisterPage = () => {
           <TextInput onChange={onChange} value={formFields.first_name} name={fieldNames.first_name as string || ''} error={formFieldsErrors.second_name} placeholder='First name'></TextInput>
           <TextInput onChange={onChange} value={formFields.second_name} name={fieldNames.second_name as string || ''} error={formFieldsErrors.second_name} placeholder='Second name'></TextInput>
           <div className='login-wrapper-right-form-link' onClick={() => { navigate('/login') }}>Have account?</div>
+          <div className='login-wrapper-right-form-error'>{registerError}</div>
             <div className='login-wrapper-right-form-submit'>
               <Button type={false} name='Register' outerFunction={submit}/>
             </div>

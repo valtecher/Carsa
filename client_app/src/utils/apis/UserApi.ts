@@ -15,6 +15,8 @@ export const login = async (fields:{ email: string | null | FormError, password:
     data: {
      ...fields
     }
+  }).catch((e) => {
+    return e.response.data.message;
   });
   return user;
 }
@@ -40,5 +42,5 @@ export const register = async (fields:RegisterFormFields) => {
 
 export const checkUserCredentials = async () => {
   const response = await axios.get('http://localhost:3000/api/auth/protected', {withCredentials: true});
-  console.log(response);
+  return response;
 }

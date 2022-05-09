@@ -2,7 +2,8 @@ import { FormState as RegisterForm } from "../../pages/Register/Register";
 import { FormState as LoginForm } from "../../pages/Login/Login";
 import { register, login, logout } from "../../utils/apis/UserApi"
 import { User } from "../../utils/models/User";
-import { logoutUser, setUser } from "../actions/UserActions";
+import { loginFailed, logoutUser, setUser } from "../actions/UserActions";
+import { Axios, AxiosResponse } from "axios";
 
 export const registerUserThunk = (formFields:RegisterForm) => async (dispatch:any) => {
   const user:any = await register(formFields);
@@ -16,8 +17,15 @@ export const registerUserThunk = (formFields:RegisterForm) => async (dispatch:an
 }
 
 export const loginUserThunk = (formFields:LoginForm) => async (dispatch:any) => {
-  const user:any = await login(formFields);
-  dispatch(setUser(user.data))
+  const user:AxiosResponse<User> | string = await login(formFields);
+  if(typeof user === 'string' ){
+    console.log('String is here');
+    dispatch(loginFailed(user))
+  } else { 
+    dispatch(setUser(user.data))
+    
+  }
+  
 }
 
 export const logoutUserThunk = () => async (dispatch:any) => {
