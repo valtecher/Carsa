@@ -11,6 +11,8 @@ import About from './pages/About/About';
 import OffersPage from './pages/Offers/Offers';
 import LoginPage from './pages/Login/Login';
 import RegisterPage from './pages/Register/Register';
+import ClientDashboard from './pages/Client/Dashboard/ClientDashboard';
+import ProtectedRoute from './components/protectedRoute/ProtectedRoute';
 
 function App() {
   return (
@@ -20,7 +22,10 @@ function App() {
         <Route path='/offers' element={<OffersPage/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/login' element={<LoginPage/>}/>
-        <Route path='register' element={<RegisterPage/>}/>
+        <Route path='/register' element={<RegisterPage/>}/>
+        <Route element={<ProtectedRoute/>}>
+          <Route path='/client/dashboard' element={<ClientDashboard/>}/>
+        </Route>
         <Route path="*" element={<Navigate to="/home"/>} />
       </Routes>
     </Router>

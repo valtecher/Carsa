@@ -5,7 +5,7 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import router from './api/routes';
 import db from './database/models';
-
+var cors = require('cors');
 require('dotenv').config();
 
 const PORT = process.env.PORT;
@@ -22,12 +22,15 @@ if (process.env.NODE_ENV === 'production') {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-// app.use(passport.initialize());
+// app.use(passport.initialize());                 
 
-
+app.use(cors({credentials: true, origin: 'http://localhost:3001'}));
 // Setup CORS Logic
-// app.options('*', corsMiddleware);
+// app.options(['http://localhost:3001'], corsMiddleware);
 // app.use(corsMiddleware);
+
+// Tmp cors 
+
 
 // Setup session middleware with Redis storage
 app.use(session);

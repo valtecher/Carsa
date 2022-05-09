@@ -65,6 +65,9 @@
         &-link{
           cursor: pointer;
         }
+        &-error {
+          color: tomato;
+        }
         &-submit{
           margin-top: 50px;
         }
