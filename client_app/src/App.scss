@@ -4,3 +4,12 @@ body{
   margin: 0;
   padding: 0;
 }
+
+
+.keyValuePair{
+  display: flex;
+  margin: 5px;
+  text-transform: capitalize;
+  flex-direction: row;
+  min-width: 150px;
+}

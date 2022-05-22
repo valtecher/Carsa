@@ -10,4 +10,6 @@ export interface ISpecification {
   engine?: IEngine,
   color?: Array<string> | string, 
   gearbox?: string,
+  price: string, 
+  
 }

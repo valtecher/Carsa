@@ -1,3 +1,8 @@
+interface KeyValuePair {
+  key: string, 
+  value: string,
+}
+
 export const flattenObject = (obj:any) => {
   const flattened:any = {}
 
@@ -10,6 +15,14 @@ export const flattenObject = (obj:any) => {
       flattened[key] = value
     }
   })
-
   return flattened
+}
+
+export const createKeyValueArrayFromObject = (obj:any, bannedKeys:Array<any> = []): Array<KeyValuePair> => {
+  const arr: Array<KeyValuePair> = [];
+  Object.entries(obj).map((pair:any) => {
+    if(!bannedKeys.includes(pair[0]))
+        arr.push(pair)
+  })
+  return arr;
 }

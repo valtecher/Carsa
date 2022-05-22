@@ -4,7 +4,7 @@ export interface CarGenerationType{
   name: string, 
   start_year: string,
   end_year: string,
-  CarModel: CarModelType,
+  CarModel?: CarModelType,
 }
 
 export interface CarBrandType {

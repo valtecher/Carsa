@@ -5,7 +5,6 @@ import { EngineType } from "./Engine";
 
 export interface CarType {
   id?:string,
-  // Car_Order?: Car_Order_Type, 
   mainImage:string,
   description:string,
   brand:string, 
@@ -27,6 +26,43 @@ export interface CarType {
   CarGeneration: CarGenerationType,
   images: Array<string>,
   fuel_type: string,
-  // equipment: Array<Equipment>,
-  // ReportOverviews?: Array<ReportOverview>,
 } 
+
+export const dummyCar:CarType = {
+  mainImage: "",
+  description: "",
+  brand: "Volkswagen",
+  model: "Passat",
+  generation: "b7",
+  price: 54500,
+  type: "Sedan",
+  market: "",
+  mileage: 129500,
+  color: "Grey",
+  drive: "Front",
+  year: "2014",
+  gearBox: "DSG",
+  Engine: {
+    name: 'tsi', 
+    volume: '2000', 
+    power: 211,
+    fuel_type: 'Petrol'
+  },
+  CarBrand: {
+    id: '1323',
+    name: 'Volkswagen'
+  },
+  CarModel: {
+    id: '532223',
+    name: 'Passat',
+  },
+  CarGeneration: {
+    model_id: '532223',
+    id: '85674564',
+    name: 'b7',
+    start_year: '2012',
+    end_year: '2016',
+  },
+  images: [],
+  fuel_type: 'Petrol'
+}

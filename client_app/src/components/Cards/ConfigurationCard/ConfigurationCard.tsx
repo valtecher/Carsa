@@ -39,7 +39,7 @@ const ConfigurationCard = (props: IConfigurationCardProps) => {
       </div>
       <div className='configurationCard-separator'></div>
       <div className='configurationCard-part'>
-        <Button outerFunction={() => { navigate('/carselector/details') }} name={'Details'} type={false} />
+        <Button outerFunction={() => { navigate(`/carselector/details/${configuration.id}`) }} name={'Details'} type={false} />
         <Button outerFunction={() => { navigate('/carselector/add/configuration') }} name={'Add Car'} type={false} />
       </div>
     </div>

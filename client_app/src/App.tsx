@@ -26,7 +26,7 @@ function App() {
         <Route path='register' element={<RegisterPage/>}/>
         
         <Route path='/carselector/dashboard'  element={<CarSelectorDashboard/>}/>
-        <Route path='/carselector/details' element={<OrderWithConfigurationDetails/>}/>
+        <Route path='/carselector/details/:id' element={<OrderWithConfigurationDetails/>}/>
         <Route path='/carselector/add/configuration' element={<AddCarConfiguration/>}/>
 
         <Route path="*" element={<Navigate to="/home"/>} />
