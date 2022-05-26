@@ -1,5 +1,6 @@
 import { CarBrandType } from "./CarBrand";
 import { CarModelType } from "./CarModel";
+import { CarStateReport } from "./CarStateReport";
 import { CarGenerationType } from "./CraGeneration";
 import { EngineType } from "./Engine";
 
@@ -9,7 +10,8 @@ export interface CarType {
   description:string,
   brand:string, 
   model:string, 
-  generation:string, 
+  generation:string,
+  registrationPlate?:string, 
   vin?:string,
   price:number,
   type:string, 
@@ -26,6 +28,7 @@ export interface CarType {
   CarGeneration: CarGenerationType,
   images: Array<string>,
   fuel_type: string,
+  state?: CarStateReport, 
 } 
 
 export const dummyCar:CarType = {
@@ -42,6 +45,7 @@ export const dummyCar:CarType = {
   drive: "Front",
   year: "2014",
   gearBox: "DSG",
+  registrationPlate: 'KR4321MV',
   Engine: {
     name: 'tsi', 
     volume: '2000', 
@@ -64,5 +68,23 @@ export const dummyCar:CarType = {
     end_year: '2016',
   },
   images: [],
-  fuel_type: 'Petrol'
+  fuel_type: 'Petrol',
+  vin: 'hwy23487234810831g139123d',
+  state: {
+    exterior: { 
+      state: 90,
+    },
+    interior: { 
+      state: 90,
+    },
+    suspension: { 
+      state: 90,
+    },
+    engine: { 
+      state: 90,
+    },
+    gearbox: {
+      state: 90,
+    }
+  }, 
 }

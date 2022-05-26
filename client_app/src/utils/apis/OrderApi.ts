@@ -28,7 +28,7 @@ export const getOrderbyDetails = async (orderId: string) => {
         surName: 'Milyi'
       }, 
       cars: [
-        dummyCar, dummyCar, dummyCar
+        dummyCar, dummyCar, dummyCar,dummyCar,dummyCar,dummyCar
       ]
     }
     const res = {

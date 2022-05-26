@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { CarType } from '../../../utils/models/Car';
+import  Pie from '../../../components/CarStateScore/CarStateScore';
 import './carCard.scss'
+import Button, { ButtonSize } from '../../common/button/Button';
+import { createKeyValueArrayFromObject, flattenObject } from '../../../utils/helpers/flattenObject';
 
 interface ICarCardProps {
   car: CarType
@@ -15,8 +18,37 @@ const CarCard = (props:ICarCardProps) => {
   }
 
   return(
-    <div className={`carCard ${ isExtended? 'carCard-expanded':''}`} onClick={handleExtend}>
-      { car.CarBrand.name }
+    <div className={`${ isExtended? 'carCard-expanded':' carCard'}`} onClick={handleExtend}>
+      <div className={`${ isExtended? 'carCard-expanded-info':' carCard-info'}`}>
+        <p className={`${ isExtended? 'carCard-expanded-info-brand':' carCard-info-brand'}`}>{ car.CarBrand.name }</p>
+        <p className={`${ isExtended? 'carCard-expanded-info-naming':' carCard-info-naming'}`}>{ car.CarModel.name }</p>
+        <p className={`${ isExtended? 'carCard-expanded-info-naming':' carCard-info-naming'}`}>{ car.CarGeneration.name }</p>
+        <p className={`${ isExtended? 'carCard-expanded-info-naming':' carCard-info-naming'}`}>{ car.year }</p>
+        <p className={`${ isExtended? 'carCard-expanded-info-naming carCard-expanded-info-naming-details':' carCard-info-naming carCard-info-naming-details'}`}>{ car?.registrationPlate || 'No registration plates' }</p>
+        <p className={`${ isExtended? 'carCard-expanded-info-naming carCard-expanded-info-naming-details':' carCard-info-naming carCard-info-naming-details'}`}>{ car?.vin || 'No vin'}</p>
+        { isExtended && <Button outerFunction={() => {}} type={false} name={'more'} size={ButtonSize.SMALL}/>}
+      </div>
+      { !isExtended && <div className='carCard-separator'></div>}
+      <div className={`${ isExtended? 'carCard-expanded-state':' carCard-state'}`}>
+         { !isExtended && <Pie id='carCard-expanded-state-overall' percentage={90} color={'white'} label={''} ></Pie>} 
+         { isExtended && <Pie percentage={90} color={'white'} label={'Interior'} ></Pie>} 
+         { isExtended && <Pie percentage={90} color={'white'} label={'Exterior'} ></Pie>} 
+         { isExtended && <Pie percentage={90} color={'white'} label={'Engine'} ></Pie>} 
+         { isExtended && <Pie percentage={90} color={'white'} label={'Gearbox'} ></Pie>} 
+         { isExtended && <Pie percentage={90} color={'white'} label={'Suspension'} ></Pie>} 
+      </div>
+      { isExtended && <div className='carCard-expanded-specs'>
+        <div className='carCard-expanded-specs-header'>Specs</div>
+        <div className='carCard-expanded-specs-wrapper'>
+            {  createKeyValueArrayFromObject(flattenObject(car), ['state', 'id', 'images', 'mainImage', 'description', 'market', 'name', 'registrationPlate', 'model_id']).map((item:any, index: number) => {
+              return(
+                <div key={index} className='carCard-expanded-specs-wrapper-item'>
+                   <div className='carCard-expanded-specs-wrapper-item-key'>{ item[0] } </div> : { item[1] } 
+                </div>
+              )
+            })}
+        </div>
+      </div>}
     </div>
   )
 };
