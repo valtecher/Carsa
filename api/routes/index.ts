@@ -2,6 +2,7 @@ import express from 'express';
 import authRouter from './auth';
 
 import carBrandsController from './brands';
+import carModelsController from './models';
 
 // const swaggerUI = require('swagger-ui-express');
 // const swaggerDocs = require('../../config/swagger');
@@ -17,6 +18,7 @@ const router = express.Router();
 // router.use('/api/reports', require('./reports'));
 router.use('/api/auth', authRouter);
 router.use('/api/brands', carBrandsController);
+router.use('/api/models', carModelsController);
 // router.use('/api/payments', require('./payments'));
 // router.use('/api/configurations', require('./configurations'));
 // router.use('/api/scraper', require('./scrapper'));
