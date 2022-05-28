@@ -1,10 +1,9 @@
-import {CorsOptions} from 'cors'
+import cors, { CorsOptions } from 'cors';
 
-const cors = require('cors')
-
-const whitelist = new Set(['http://localhost:3001', 'https://localhost:3001', 'http://localhost:3000'])
+const whitelist = new Set(['http://localhost:3001', 'https://localhost:3001', 'http://localhost:3000']);
 
 const corsOptions: CorsOptions = {
+    methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
     origin: function (origin, callback) {
         if (origin && whitelist.has(origin)) {
             callback(null, true)
@@ -14,6 +13,6 @@ const corsOptions: CorsOptions = {
     },
     credentials: true,
     optionsSuccessStatus: 200
-}
+};
 
-module.exports = cors()
+export default cors(corsOptions);
