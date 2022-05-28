@@ -9,7 +9,7 @@
   min-width: 260px;
   width: 100%;
   border-radius: 20px;
-  max-width: 450px;
+  max-width: 550px;
   max-height: 150px;
   transition: 0.5s ease-in-out;
   font-family: 'M plus 1p';
@@ -73,8 +73,8 @@
   min-width: 270px;
   width: 100%;
   border-radius: 20px;
-  max-width: 450px;
-  max-height: 315px;
+  max-width: 550px;
+
   transition: 0.5s ease-in-out;
   font-family: 'M plus 1p';
   color: #fff;
@@ -127,6 +127,18 @@
     max-height: 300px;
     background-color: #fff;
     border-radius: 20px;
+  }
+
+  &-gallery{
+    height: 150px;
+    width: 100%;
+    &-image{
+      border-radius: 5px;
+      img{
+        border-radius: 10px;
+        width: 200px;
+      }
+    }
   }
 
   &-state {

@@ -5,17 +5,29 @@ import './carCard.scss'
 import Button, { ButtonSize } from '../../common/button/Button';
 import { createKeyValueArrayFromObject, flattenObject } from '../../../utils/helpers/flattenObject';
 
+import Slider from "react-slick";
+
 interface ICarCardProps {
-  car: CarType
+  defaultExpended?: boolean;
+  car: CarType;
 }
 
 const CarCard = (props:ICarCardProps) => {
-  const { car } = props
-  const [ isExtended, setIsExtended ] = useState<boolean>();
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2.1,
+    slidesToScroll: 1
+  };
+  const { car, defaultExpended } = props
+  const [ isExtended, setIsExtended ] = useState<boolean>(defaultExpended || false);
 
   const handleExtend = () => {
     setIsExtended(!isExtended);
   }
+
 
   return(
     <div className={`${ isExtended? 'carCard-expanded':' carCard'}`} onClick={handleExtend}>
@@ -29,6 +41,21 @@ const CarCard = (props:ICarCardProps) => {
         { isExtended && <Button outerFunction={() => {}} type={false} name={'more'} size={ButtonSize.SMALL}/>}
       </div>
       { !isExtended && <div className='carCard-separator'></div>}
+      { (isExtended && car.images.length !== 0 ) && 
+        <div className='carCard-expanded-gallery'>
+          <Slider {...settings}>
+            { car.images.map((image:string, index: number) => {
+
+              return (
+                <div className='carCard-expanded-gallery-image' key={index} >
+                  <img src={image} alt="car image" />
+                </div>
+              )
+              
+            }) }
+            </Slider>
+        </div> 
+      }
       <div className={`${ isExtended? 'carCard-expanded-state':' carCard-state'}`}>
          { !isExtended && <Pie id='carCard-expanded-state-overall' percentage={90} color={'white'} label={''} ></Pie>} 
          { isExtended && <Pie percentage={90} color={'white'} label={'Interior'} ></Pie>} 

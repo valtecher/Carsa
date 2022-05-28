@@ -25,8 +25,6 @@ const Button = (props:IProps) => {
     outerFunction();
   } 
 
-  console.log(size);
-
   return(
     <div style={ handleButtonSizes(size || ButtonSize.NORMAL)} className={`${type? 'button' : 'light_button'}`} onClick={handleClick}>
       {name}
