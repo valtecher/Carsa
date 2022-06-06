@@ -19,7 +19,6 @@ const Header = () => {
     }
 
     useEffect(() => {
-      console.log('PathName changed: ', pathname.replace('/', ''))
       dispatch(setOpenedLink(pathname.replace('/', '')))
     }, [pathname])
 

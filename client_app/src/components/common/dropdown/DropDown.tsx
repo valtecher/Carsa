@@ -9,7 +9,7 @@ interface Props {
 }
 
 const DropDown = (props:Props) => {
-  const { options, setOuterOptions, placeholder, outerOption } = props;
+  const { options, outerOption, setOuterOptions, placeholder,  } = props;
   const [ selectedOption, setSelectedOption ] = useState<string>(placeholder?  `Choose  ${placeholder}` : 'Choose option');
   const [ isOpened, setIsOpened ] = useState<boolean>(false); 
   

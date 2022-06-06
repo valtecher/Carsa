@@ -1,11 +1,12 @@
 .button{
+  margin: 5px;
   width: 150px;
-  height: 35px;
+  height: 30px;
   border-radius: 20px;
   background-color: #D8B669;
   cursor: pointer;
   text-align: center;
-  line-height: 35px;
+  line-height: 30px;
   color: #fff;
   transition: 0.3s ease-in-out;
   text-transform: capitalize;
@@ -15,6 +16,7 @@
 }
 
 .light_button{
+  margin: 5px;
   width: 150px;
   height: 35px;
   border-radius: 20px;

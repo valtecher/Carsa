@@ -1,0 +1,181 @@
+@import "../../../variables.scss";
+
+.carCard{
+  align-self: flex-end;
+  padding: 5px;
+  margin: 5px;
+  background-color: $base-card-color;
+  min-height: 100px;
+  min-width: 260px;
+  width: 100%;
+  border-radius: 20px;
+  max-width: 550px;
+  max-height: 150px;
+  transition: 0.5s ease-in-out;
+  font-family: 'M plus 1p';
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  &-info{
+    width: 50%;
+    &-brand{
+      font-family: 'M plus 1p';
+      font-style: normal;
+      font-weight: 800;
+      font-size: 36px;
+      margin: 0;
+    }
+    &-naming{
+      display: inline-block;
+      margin: 2px;
+      text-transform: capitalize;
+      font-family: 'M plus 1p';
+      font-style: normal;
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 36px;
+      &-details{
+        font-family: 'M plus 1p';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 21px;
+        display: block;
+      }
+    }
+  }
+
+  &-separator{
+    width: 5px;
+    min-height: 120px;
+    height: 100%;
+    max-height: 300px;
+    background-color: #fff;
+    border-radius: 20px;
+  }
+
+  &-state {
+    display: flex;
+    justify-content: center;
+    width: 45%;
+  }
+
+}
+
+.carCard-expanded{
+  overflow: scroll;
+  padding: 5px;
+  margin: 5px;
+  background-color: $base-card-color;
+  min-height: 315px;
+  min-width: 270px;
+  width: 100%;
+  border-radius: 20px;
+  max-width: 550px;
+
+  transition: 0.5s ease-in-out;
+  font-family: 'M plus 1p';
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  
+  &-info{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+
+    &-brand{
+      font-family: 'M plus 1p';
+      font-style: normal;
+      font-weight: 800;
+      font-size: 36px;
+      margin: 0;
+    }
+    &-naming{
+      display: inline-block;
+      margin: 2px;
+      text-transform: capitalize;
+      font-family: 'M plus 1p';
+      font-style: normal;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 36px;
+      &-details{
+        font-family: 'M plus 1p';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 21px;
+        display: block;
+      }
+    }
+  }
+
+  &-separator{
+    width: 5px;
+    min-height: 120px;
+    height: 100%;
+    max-height: 300px;
+    background-color: #fff;
+    border-radius: 20px;
+  }
+
+  &-gallery{
+    height: 150px;
+    width: 100%;
+    &-image{
+      border-radius: 5px;
+      img{
+        border-radius: 10px;
+        width: 200px;
+      }
+    }
+  }
+
+  &-state {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &-specs{
+    &-header{
+      font-family: 'M plus 1p';
+      font-style: normal;
+      font-weight: 800;
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    &-wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      &-item {
+        display: flex;
+        text-transform: capitalize;
+        min-width: 50px;
+        margin: 2px;
+        &-key{
+          font-weight: bold;
+         }
+      }
+    }
+  }
+
+  
+
+}
+
+#carCard-expanded-state-overall{
+  transform: scale(1.5);
+}
