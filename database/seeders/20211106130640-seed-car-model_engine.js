@@ -6,9 +6,7 @@ const records = []
 for (let i = 0; i < 20; i++) {
     records.push({
         car_model_id: models.models[i].id,
-        engine_id: engines.engines[i].id,
-        createdAt: new Date(),
-        updatedAt: new Date()
+        engine_id: engines.engines[i].id
     })
 }
 

@@ -1,5 +1,5 @@
-import {Model} from 'sequelize'
-import {OrderType} from '../../types/order'
+import { Model } from 'sequelize'
+import { OrderType } from '../../types/order'
 
 module.exports = (sequelize: any, DataTypes: any) => {
     class Order extends Model<OrderType> implements OrderType {
@@ -71,6 +71,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }, {
         sequelize,
         freezeTableName: true,
+        createdAt: false,
+        updatedAt: false,
         modelName: 'Order'
     })
 

@@ -10,9 +10,7 @@ while (records.length < 10) {
         order_id: orders.orders[i].id,
         car_id: cars.cars[i].id,
         start_reservation: new Date(),
-        status: statuses[randomInteger(0, statuses.length - 1)],
-        createdAt: new Date(),
-        updatedAt: new Date()
+        status: statuses[randomInteger(0, statuses.length - 1)]
     })
     i++
 }

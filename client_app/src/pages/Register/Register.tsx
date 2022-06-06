@@ -7,7 +7,8 @@ import Button from '../../components/common/button/Button';
 import FaceBookIcon from '../../images/HomePage/facebook_icon.png';
 import { useNavigate } from 'react-router-dom';
 import { registerUserThunk } from '../../redux/thunks/userThunks'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../../redux/store';
 
 interface FormError {
   hasError: boolean, 
@@ -17,36 +18,32 @@ interface FormError {
 export interface FormState {
   email: string | null | FormError; 
   password: string | null | FormError; 
-  firstName: string | null | FormError; 
-  secondName: string | null | FormError;
+  first_name: string | null | FormError; 
+  second_name: string | null | FormError;
 }
 
 
 const fieldNames:FormState = {
   email: 'email',
   password: 'password',
-  firstName: 'firstName',
-  secondName: 'secondName',
+  first_name: 'firstName',
+  second_name: 'secondName',
 }
 
 const RegisterPage = () => {
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const defaultErrorState = {
     email: null, 
     password: null, 
-    firstName: null, 
-    secondName: null,
+    first_name: null, 
+    second_name: null,
   }
-  const [formFields, setFormFields] = useState<FormState>({
-    email: null, 
-    password: null, 
-    firstName: null, 
-    secondName: null,
-  })
-
+  const [formFields, setFormFields] = useState<FormState>({ email: null, password: null, first_name: null, second_name: null })
   const [formFieldsErrors, setFormFieldsErrors] = useState<FormState>(defaultErrorState)
-
+  const isAuthenticated = useSelector((state: AppState) => state.user.isAuthenticated);
+  const registerError = useSelector((state: AppState) => state.user.error);
   const onChange = (e:any) => {
     setFormFields({...formFields, [e.target.name]: e.target.value})
   }
@@ -54,6 +51,7 @@ const RegisterPage = () => {
   const resetErrors = () => {
     setFormFieldsErrors(defaultErrorState)
   }
+  
   const validate = ():boolean => {
     resetErrors();
     let flag = true; 
@@ -80,13 +78,13 @@ const RegisterPage = () => {
       flag = false;
     }
 
-    if(formFields.firstName == '' || formFields.firstName == null){
-      localError = {...localError, firstName: { hasError: true, message: 'First name is required' }  }
+    if(formFields.first_name == '' || formFields.first_name == null){
+      localError = {...localError, first_name: { hasError: true, message: 'First name is required' }  }
       flag = false;
     }
    
-    if(formFields.secondName == '' || formFields.secondName == null){
-      localError = {...localError, secondName: { hasError: true, message: 'Second name is required' }  }
+    if(formFields.second_name == '' || formFields.second_name == null){
+      localError = {...localError, second_name: { hasError: true, message: 'Second name is required' }  }
       flag = false;
     }
     setFormFieldsErrors({...localError})
@@ -123,9 +121,10 @@ const RegisterPage = () => {
         <div className='register-wrapper-right-form'>
           <TextInput onChange={onChange} value={formFields.email} name={fieldNames.email as string || ''} error={formFieldsErrors.email}  placeholder='E-mail'></TextInput>
           <TextInput type='password' onChange={onChange} value={formFields.password} name={fieldNames.password as string || ''} error={formFieldsErrors.password} placeholder='Password'></TextInput>
-          <TextInput onChange={onChange} value={formFields.firstName} name={fieldNames.firstName as string || ''} error={formFieldsErrors.secondName} placeholder='First name'></TextInput>
-          <TextInput onChange={onChange} value={formFields.secondName} name={fieldNames.secondName as string || ''} error={formFieldsErrors.secondName} placeholder='Second name'></TextInput>
-          <div className='login-wrapper-right-form-link' onClick={() => { navigate('/register') }}>Have no account?</div>
+          <TextInput onChange={onChange} value={formFields.first_name} name={fieldNames.first_name as string || ''} error={formFieldsErrors.second_name} placeholder='First name'></TextInput>
+          <TextInput onChange={onChange} value={formFields.second_name} name={fieldNames.second_name as string || ''} error={formFieldsErrors.second_name} placeholder='Second name'></TextInput>
+          <div className='login-wrapper-right-form-link' onClick={() => { navigate('/login') }}>Have account?</div>
+          <div className='login-wrapper-right-form-error'>{registerError}</div>
             <div className='login-wrapper-right-form-submit'>
               <Button type={false} name='Register' outerFunction={submit}/>
             </div>

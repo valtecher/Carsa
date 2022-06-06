@@ -1,5 +1,5 @@
-const {Model} = require('sequelize')
-import {Car_OrderType} from '../../types/car_order'
+const { Model } = require('sequelize')
+import { Car_OrderType } from '../../types/car_order'
 
 module.exports = (sequelize: any, DataTypes: any) => {
     class Car_Order extends Model<Car_OrderType> implements Car_OrderType {
@@ -9,7 +9,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
         status!: string
 
         static associate(models: any) {
-           Car_Order.hasMany(models.Car, {foreignKey: 'id'})
+            Car_Order.hasMany(models.Car, { foreignKey: 'id' })
         }
     }
 
@@ -44,6 +44,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }, {
         sequelize,
         freezeTableName: true,
+        createdAt: false,
+        updatedAt: false,
         modelName: 'Car_Order'
     })
 

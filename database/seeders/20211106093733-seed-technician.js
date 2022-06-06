@@ -6,9 +6,7 @@ const technicians = []
 for (let i = 0; i < 5; i++) {
     technicians.push({
         person_id: employees.employees[i].person_id,
-        location_id: locations.locations[randomInteger(0, locations.locations.length - 1)].id,
-        createdAt: new Date(),
-        updatedAt: new Date()
+        location_id: locations.locations[randomInteger(0, locations.locations.length - 1)].id
     })
 }
 

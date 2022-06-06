@@ -14,6 +14,8 @@ import RegisterPage from './pages/Register/Register';
 import CarSelectorDashboard from './pages/CarSelector/Dashboard/CarSelectorDashboard';
 import OrderWithConfigurationDetails from './pages/CarSelector/OrderDetails/OrderWithConfigurationDetails';
 import AddCarConfiguration from './pages/CarSelector/AddCarConfiguration/AddCarConfiguration';
+import ClientDashboard from './pages/Client/Dashboard/ClientDashboard';
+import ProtectedRoute from './components/protectedRoute/ProtectedRoute';
 
 function App() {
   return (
@@ -28,7 +30,10 @@ function App() {
         <Route path='/carselector/dashboard'  element={<CarSelectorDashboard/>}/>
         <Route path='/carselector/details/:id' element={<OrderWithConfigurationDetails/>}/>
         <Route path='/carselector/add/configuration' element={<AddCarConfiguration/>}/>
-
+        <Route path='/register' element={<RegisterPage/>}/>
+        <Route element={<ProtectedRoute/>}>
+          <Route path='/client/dashboard' element={<ClientDashboard/>}/>
+        </Route>
         <Route path="*" element={<Navigate to="/home"/>} />
       </Routes>
     </Router>

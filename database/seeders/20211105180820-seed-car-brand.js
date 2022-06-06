@@ -3,9 +3,7 @@ const data = require('../../scraper/parsed_data.json')
 const brands = data.map(brand => {
     return {
         id: brand.brand_id,
-        name: brand.brand_name,
-        createdAt: new Date(),
-        updatedAt: new Date()
+        name: brand.brand_name
     }
 })
 
