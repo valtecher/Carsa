@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { dummyCar } from '../models/Car';
+import { manualConfiguration } from '../../pages/CarSelector/AddCarConfiguration/AddCarConfiguration';
+import { CarType, dummyCar } from '../models/Car';
 import { IConfiguration } from '../models/OrderWithConfiguration';
 
 export const getOrderbyDetails = async (orderId: string) => {
@@ -39,4 +40,8 @@ export const getOrderbyDetails = async (orderId: string) => {
    const order = await axios.get(`${process.env.REACT_APP_API_URL}/orders/${orderId}`, { withCredentials: true });
    return order;
   }
+}
+
+export const addCarToConfiguration = (car: manualConfiguration | CarType) => {
+  axios.post('', { body: car }).then((res) => { return res;  }).catch((e) => {console.log(e);})
 }
