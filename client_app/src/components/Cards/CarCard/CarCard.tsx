@@ -6,14 +6,24 @@ import Button, { ButtonSize } from '../../common/button/Button';
 import { createKeyValueArrayFromObject, flattenObject } from '../../../utils/helpers/flattenObject';
 
 import Slider from "react-slick";
+import { useNavigate } from 'react-router-dom';
+
+export enum CarCardModes {
+  NONE='NONE',
+  CLIENT='CLIENT',
+  TECHNICIAN='TECHNICIAN', 
+
+}
 
 interface ICarCardProps {
   defaultExpended?: boolean;
   car: CarType;
+  mode?: CarCardModes;
 }
 
 const CarCard = (props:ICarCardProps) => {
 
+  const navigate = useNavigate();
   const settings = {
     dots: false,
     infinite: true,
@@ -21,7 +31,7 @@ const CarCard = (props:ICarCardProps) => {
     slidesToShow: 2.1,
     slidesToScroll: 1
   };
-  const { car, defaultExpended } = props
+  const { car, defaultExpended, mode } = props
   const [ isExtended, setIsExtended ] = useState<boolean>(defaultExpended || false);
 
   const handleExtend = () => {
@@ -38,7 +48,11 @@ const CarCard = (props:ICarCardProps) => {
         <p className={`${ isExtended? 'carCard-expanded-info-naming':' carCard-info-naming'}`}>{ car.year }</p>
         <p className={`${ isExtended? 'carCard-expanded-info-naming carCard-expanded-info-naming-details':' carCard-info-naming carCard-info-naming-details'}`}>{ car?.registrationPlate || 'No registration plates' }</p>
         <p className={`${ isExtended? 'carCard-expanded-info-naming carCard-expanded-info-naming-details':' carCard-info-naming carCard-info-naming-details'}`}>{ car?.vin || 'No vin'}</p>
-        { isExtended && <Button outerFunction={() => {}} type={false} name={'more'} size={ButtonSize.SMALL}/>}
+        <div className='carCard-expanded-info-naming-buttons'>
+          {(mode === CarCardModes.TECHNICIAN &&  isExtended) && <Button outerFunction={() => {  }} type={false} name={'Add report'} size={ButtonSize.SMALL}/>}
+          { isExtended && <Button outerFunction={() => { navigate(`/technician/report/add/${car.id || ''}`) }} type={false} name={'Edit'} size={ButtonSize.SMALL}/>}
+          { isExtended && <Button outerFunction={() => {}} type={false} name={'More'} size={ButtonSize.SMALL}/>}
+        </div>
       </div>
       { !isExtended && <div className='carCard-separator'></div>}
       { (isExtended && car.images.length !== 0 ) && 
@@ -67,7 +81,7 @@ const CarCard = (props:ICarCardProps) => {
       { isExtended && <div className='carCard-expanded-specs'>
         <div className='carCard-expanded-specs-header'>Specs</div>
         <div className='carCard-expanded-specs-wrapper'>
-            {  createKeyValueArrayFromObject(flattenObject(car), ['state', 'id', 'images', 'mainImage', 'description', 'market', 'name', 'registrationPlate', 'model_id']).map((item:any, index: number) => {
+            {  createKeyValueArrayFromObject(flattenObject(car), ['state', 'id', 'images', 'mainImage', 'description', 'market', 'name', 'registrationPlate', 'model_id', 'vin']).map((item:any, index: number) => {
               return(
                 <div key={index} className='carCard-expanded-specs-wrapper-item'>
                    <div className='carCard-expanded-specs-wrapper-item-key'>{ item[0] } </div> : { item[1] } 

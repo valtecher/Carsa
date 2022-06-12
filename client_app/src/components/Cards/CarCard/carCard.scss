@@ -109,6 +109,11 @@
       font-weight: 800;
       font-size: 22px;
       line-height: 36px;
+      &-buttons{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+      }
       &-details{
         font-family: 'M plus 1p';
         font-style: normal;

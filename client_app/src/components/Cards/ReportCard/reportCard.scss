@@ -1,0 +1,9 @@
+@import "../../../variables.scss";
+
+.reportCard{
+  min-width: 350px;
+  height: 150px;
+  background-color: $base-card-color;
+  margin: 10px;
+  border-radius: 20px;
+}
