@@ -11,6 +11,7 @@ import { useParams } from 'react-router-dom';
 import { IReport, IReportType } from '../../../../utils/models/Report';
 import ReportCard from '../../../../components/Cards/ReportCard/ReportCard';
 import { simpleValidateForm } from '../../../../utils/helpers/validateForm';
+import { addReportToConfiguration } from '../../../../utils/apis/OrderApi';
 
 
 const CreateReport = () => {
@@ -26,12 +27,22 @@ const CreateReport = () => {
   }); 
 
   const addReport = () => {
-    if(simpleValidateForm(pendingReport)){
-      console.log('here passed')
-    } else {
-      console.log('here failed')
-    }
+    console.log(reports.some((report) => {
+      console.log(report.type, ' pending report type: ', pendingReport.type  , '  result: ', report.type === pendingReport.type)
+      return report.type === pendingReport.type}));
 
+    if(simpleValidateForm(pendingReport) && !(reports.some((report) => report.type === pendingReport.type))){
+        addReportToConfiguration(pendingReport);
+        setReports([...reports, pendingReport])
+        setPendingReport({
+          carId: params.id, 
+          type: IReportType.None,
+          description: '', 
+          grade: -1,
+        })
+    } else {
+      alert('Fill all the needed fields or such report type exists')
+    }
   }
 
   const handleDropDownChange = (e:any) => {

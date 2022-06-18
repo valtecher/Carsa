@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IReport } from '../../../utils/models/Report';
+import Pie from '../../CarStateScore/CarStateScore';
+import Button, { ButtonSize } from '../../common/button/Button';
+import TextInput from '../../common/input/TextInput';
 import './reportCard.scss'
 
 interface IReportCard {
@@ -8,9 +11,46 @@ interface IReportCard {
 
 const ReportCard = (props:IReportCard) => {
   const { report } = props;
+
+  const [mode, setMode] = useState<boolean>(true)
+  const [ pendingReport, setPendingReport ] = useState<IReport>(report);
+
+  const handleChange = (e:any) => {
+      setPendingReport({ ...pendingReport, [e.target.name]: e.target.value })
+  }
+
+  const handleSave = () => {
+    console.log(pendingReport);
+    console.log('Saving report');
+
+  }
+
   return (
     <div className='reportCard'>
-        
+        <div className='reportCard-header'>
+          <div className='reportCard-header-type'>{ report.type }</div>
+          <div className='reportCard-header-actions'>
+            <Button size={ButtonSize.SMALL} outerFunction={() => { 
+              setMode(!mode) 
+              if(!mode){
+                handleSave();
+              }
+            }} type={false} name={mode ? 'Edit' : 'Save'} ></Button>
+            { ! mode ? <Button size={ButtonSize.SMALL} outerFunction={() => {
+              setPendingReport(report)
+              setMode(!mode)
+            }} type={false} name={'Cancel'} ></Button> : ''}
+          </div>
+        </div>
+        <div className='reportCard-body'>
+          <div className='reportCard-body-section'>
+            { mode ?  <p>{ pendingReport.description }</p> :   <textarea name='description' onChange={handleChange} value={pendingReport.description}></textarea>} 
+          </div>
+          <div className='reportCard-body-divider'></div>
+          <div className='reportCard-body-section'>
+           { mode ? <Pie percentage={pendingReport.grade} color={'white'} label={''} /> : <TextInput name='grade' onChange={handleChange} className='reportCard-input' placeholder='Grade' value={pendingReport.grade} ></TextInput>} 
+          </div>
+        </div>
     </div>
   )
 }

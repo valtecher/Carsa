@@ -2,6 +2,7 @@ import axios from 'axios';
 import { manualConfiguration } from '../../pages/CarSelector/AddCarConfiguration/AddCarConfiguration';
 import { CarType, dummyCar } from '../models/Car';
 import { IConfiguration } from '../models/OrderWithConfiguration';
+import { IReport } from '../models/Report';
 
 export const getOrderbyDetails = async (orderId: string) => {
   if(orderId === 'test') {
@@ -44,4 +45,16 @@ export const getOrderbyDetails = async (orderId: string) => {
 
 export const addCarToConfiguration = (car: manualConfiguration | CarType) => {
   axios.post('', { body: car }).then((res) => { return res;  }).catch((e) => {console.log(e);})
+}
+
+export const addReportToConfiguration = (report:IReport) => {
+  axios.post('', { report }).then((res) => {return res.data}).catch((e) => {
+    console.log('something went wrong:', e)
+  });
+}
+
+export const editReport = (updatedReport:IReport) => {
+  axios.put('', { report: updatedReport }).then((res) => {return res.data}).catch((e) => {
+    console.log('Something went wrong: ', e)
+  });
 }
