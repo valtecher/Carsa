@@ -51,12 +51,6 @@ module.exports = (sequelize: any, DataTypes: any) => {
         }
     },
         {
-            indexes: [
-                {
-                    unique: true,
-                    fields: ['name', 'model_id']
-                }
-            ],
             sequelize,
             freezeTableName: true,
             createdAt: false,
