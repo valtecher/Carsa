@@ -18,6 +18,7 @@ import ClientDashboard from './pages/Client/Dashboard/ClientDashboard';
 import ProtectedRoute from './components/protectedRoute/ProtectedRoute';
 import TechnicianDashboard from './pages/Technitian/Dashboard/TeachnitianDashboard';
 import CreateReport from './pages/Technitian/Reports/CreateReport/CreateReport';
+import EditCar from './pages/Car/EditCar';
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
         <Route path='/technician/dashboard' element={<TechnicianDashboard/>}/>
         <Route path='/technician/report/add/:id' element={<CreateReport/>}/>
         
+        <Route path='/car/edit/:id' element={<EditCar/>} />
+
         <Route element={<ProtectedRoute/>}>
           <Route path='/client/dashboard' element={<ClientDashboard/>}/>
         </Route>

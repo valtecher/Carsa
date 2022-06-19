@@ -21,3 +21,15 @@ export const getReportsByCarId = async  (carId:string) => {
       });
   }
 }
+
+export const getCarById = async (carId:String) => {
+
+  if(carId === 'test') {
+    return dummyCarWithImages;
+  }
+  axios.get('', { params: { carId } }).then((res) => {
+    return res.data;
+  }).catch((e) => {
+    console.log('Something went wrong', e)
+  })
+}
