@@ -7,10 +7,17 @@ import './reportCard.scss'
 
 interface IReportCard {
   report: IReport,
+  editable?: boolean,
+  size?: ReportCardSize, 
+}
+
+export enum ReportCardSize {
+  HW = 'HALFWIDTH',
+  FW = 'FULLWIDTH'
 }
 
 const ReportCard = (props:IReportCard) => {
-  const { report } = props;
+  const { report, editable } = props;
 
   const [mode, setMode] = useState<boolean>(true)
   const [ pendingReport, setPendingReport ] = useState<IReport>(report);
@@ -30,12 +37,12 @@ const ReportCard = (props:IReportCard) => {
         <div className='reportCard-header'>
           <div className='reportCard-header-type'>{ report.type }</div>
           <div className='reportCard-header-actions'>
-            <Button size={ButtonSize.SMALL} outerFunction={() => { 
+           { editable?   <Button size={ButtonSize.SMALL} outerFunction={() => { 
               setMode(!mode) 
               if(!mode){
                 handleSave();
               }
-            }} type={false} name={mode ? 'Edit' : 'Save'} ></Button>
+            }} type={false} name={mode ? 'Edit' : 'Save'} ></Button> : '' }
             { ! mode ? <Button size={ButtonSize.SMALL} outerFunction={() => {
               setPendingReport(report)
               setMode(!mode)
