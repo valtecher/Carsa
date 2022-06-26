@@ -32,13 +32,16 @@ module.exports = (sequelize: any, DataTypes: any) => {
                 foreignKey: 'engine_id'
             })
             Car.belongsTo(models.CarBrand, {
-                foreignKey: 'brand_id'
+                foreignKey: 'brand_id',
+                as: 'Brand'
             })
             Car.belongsTo(models.CarModel, {
-                foreignKey: 'model_id'
+                foreignKey: 'model_id',
+                as: 'Model'
             })
             Car.belongsTo(models.CarGeneration, {
-                foreignKey: 'generation_id'
+                foreignKey: 'generation_id',
+                as: 'Generation'
             })
             Car.belongsTo(models.Location, {
                 foreignKey: 'location_id'

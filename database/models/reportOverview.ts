@@ -10,7 +10,8 @@ module.exports = (sequelize: any, DataTypes: any) => {
 
         static associate(models: any) {
             ReportOverview.hasMany(models.Report, {
-                foreignKey: 'overview_id'
+                foreignKey: 'overview_id',
+                as: 'Reports'
             })
             ReportOverview.belongsTo(models.Car, {
                 foreignKey: 'car_id'
