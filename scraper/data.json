@@ -1,0 +1,3683 @@
+{
+  "Abarth": [
+    {"124": null},
+    {"500": null},
+    {"595": null},
+    {"695": null},
+    {"Grande Punto": null},
+    {"Inny": null}
+  ], "Acura": [
+  {"CL": null},
+  {"Inny": null},
+  {"Integra": null},
+  {"Legend": null},
+  {"MDX": null},
+  {"NSX": null},
+  {"RDX": null},
+  {"RL": null},
+  {"RSX": null},
+  {"TL": null},
+  {"TSX": null},
+  {"Vigor": null},
+  {"ZDX": null}
+], "Aixam": [
+  {}
+], "Alfa Romeo": [
+  {"145": null},
+  {"146": null},
+  {"147": null},
+  {"155": null},
+  {"156": null},
+  {"159": null},
+  {"164": null},
+  {"166": null},
+  {"33": null},
+  {"4C": null},
+  {"75": null},
+  {"90": null},
+  {"Alfasud": null},
+  {"Alfetta": null},
+  {"Brera": null},
+  {"Crosswagon": null},
+  {"GT": null},
+  {"GTV": null},
+  {"Giulia": null},
+  {"Giulietta": null},
+  {"Inny": null},
+  {"Mito": null},
+  {
+    "RS": [
+      "SZ"
+    ]
+  },
+  {"Spider": null},
+  {"Sportwagon": null},
+  {"Sprint": null},
+  {"Stelvio": null}
+], "Alpine": [
+  {"A110": null}
+], "Aro": [
+  {"145": null},
+  {"146": null},
+  {"147": null},
+  {"155": null},
+  {"156": null},
+  {"159": null},
+  {"164": null},
+  {"166": null},
+  {"33": null},
+  {"4C": null},
+  {"75": null},
+  {"90": null},
+  {"Alfasud": null},
+  {"Alfetta": null},
+  {"Brera": null},
+  {"Crosswagon": null},
+  {"GT": null},
+  {"GTV": null},
+  {"Giulia": null},
+  {"Giulietta": null},
+  {"Inny": null},
+  {"Mito": null},
+  {"RS": null},
+  {
+    "Spider": [
+      "SZ"
+    ]
+  },
+  {"Sportwagon": null},
+  {"Sprint": null},
+  {"Stelvio": null}
+], "Asia": [
+  {"Rocsta": null}
+], "Aston Martin": [
+  {"Bulldog": null},
+  {"Cygnet": null},
+  {"DB": null},
+  {"DB Mk III": null},
+  {"DB1": null},
+  {"DB11": null},
+  {
+    "DB2": [
+      "4"
+    ]
+  },
+  {"DB4": null},
+  {"DB5": null},
+  {"DB6": null},
+  {"DB7": null},
+  {"DB9": null},
+  {"DBS": null},
+  {"DBS Superleggera": null},
+  {"DBX": null},
+  {"Inny": null},
+  {"Lagonda": null},
+  {"One-77": null},
+  {"Rapide": null},
+  {"V12 Vanquish": null},
+  {"V12 Vantage": null},
+  {"V8": null},
+  {"V8 Vantage": null},
+  {"V8 Zagato": null},
+  {"Vanquish": null},
+  {"Vantage": null},
+  {"Virage": null},
+  {"Volatne": null}
+], "Audi": [
+  {
+    "100": [
+      "C1 (1968-1976)",
+      "C2 (1976-1982)",
+      "C3 (1982-1991)",
+      "C4 (1991-1994)"
+    ]
+  },
+  {"200": null},
+  {
+    "80": [
+      "B1 (1972-1978)",
+      "B2 (1978-1986)",
+      "B3 (1986-1991)",
+      "B4 (1991-1995)"
+    ]
+  },
+  {
+    "90": [
+      "B2 (1984-1986)",
+      "B3 (1986-1991)"
+    ]
+  },
+  {"A1": null},
+  {"A2": null},
+  {
+    "A3": [
+      "8L (1996-2003)",
+      "8P (2003-2012)",
+      "8V (2012-)",
+      "8Y (2020 - )"
+    ]
+  },
+  {
+    "A4": [
+      "B5 (1995-2001)",
+      "B6 (2000-2004)",
+      "B7 (2004-2007)",
+      "B8 (2007-2015)",
+      "B9 (2015-)"
+    ]
+  },
+  {"A4 Allroad": null},
+  {
+    "A5": [
+      "8T (2007-2016)",
+      "F5 (2016-)"
+    ]
+  },
+  {
+    "A6": [
+      "C4 (1994-1997)",
+      "C5 (1997-2004)",
+      "C6 (2004-2011)",
+      "C7 (2011-2018)",
+      "C8 (2018-)"
+    ]
+  },
+  {
+    "A6 Allroad": [
+      "C5 (1999-2005)",
+      "C6 (2006-2011)",
+      "C7 (2012-)",
+      "C8 (2019-)"
+    ]
+  },
+  {
+    "A7": [
+      "C7 (2011-2018)",
+      "C8 (2018-)"
+    ]
+  },
+  {
+    "A8": [
+      "D2 (1994-2002)",
+      "D3 (2002-2010)",
+      "D4 (2010-)",
+      "D5 (2017-)"
+    ]
+  },
+  {"Cabriolet": null},
+  {"Coupe": null},
+  {"Inny": null},
+  {"Q2": null},
+  {"Q3": null},
+  {"Q4": null},
+  {"Q4 Sportback": null},
+  {
+    "Q5": [
+      "8R (2008-2016)",
+      "FY (2017-)"
+    ]
+  },
+  {
+    "Q7": [
+      "I (2005-2015)",
+      "II (2015-)"
+    ]
+  },
+  {"Q8": null},
+  {"Quattro": null},
+  {"R8": null},
+  {"RS Q3": null},
+  {"RS Q8": null},
+  {"RS2": null},
+  {"RS3": null},
+  {"RS4": null},
+  {"RS5": null},
+  {"RS6": null},
+  {"RS7": null},
+  {"S1": null},
+  {"S2": null},
+  {"S3": null},
+  {"S4": null},
+  {"S5": null},
+  {"S6": null},
+  {"S7": null},
+  {
+    "S8": [
+      "D2 (1994-2002)",
+      "D3 (2002-2010)",
+      "D4 (2010-2017)",
+      "D5 (2017-)"
+    ]
+  },
+  {"SQ2": null},
+  {"SQ5": null},
+  {"SQ7": null},
+  {"SQ8": null},
+  {"TT": null},
+  {"TT RS": null},
+  {"TT S": null},
+  {"V8": null},
+  {"e-tron": null},
+  {"e-tron GT": null}
+], "Austin": [
+  {"Allegro": null},
+  {"Ambasador": null},
+  {"Healey": null},
+  {"Inny": null},
+  {"Maxi": null},
+  {"Metro": null},
+  {"Mini": null},
+  {"Montego": null}
+], "Autobianchi": [
+  {"Bianchina": null}
+], "BAC": [
+  {"Mono": null}
+], "BMW": [
+  {"1M": null},
+  {"3GT": null},
+  {"5GT": null},
+  {"6GT": null},
+  {"Inny": null},
+  {"M2": null},
+  {"M3": null},
+  {"M4": null},
+  {"M5": null},
+  {"M6": null},
+  {"M8": null},
+  {
+    "Seria 1": [
+      "114",
+      "E81/E82/E87/E88 (2004-2013)",
+      "F20/F21 (2011-)",
+      "F40 (2019-)"
+    ]
+  },
+  {"Seria 2": null},
+  {
+    "Seria 3": [
+      "E21 (1975-1982)",
+      "E30 (1982-1994)",
+      "E36 (1990-1999)",
+      "E46 (1998-2007)",
+      "E90/E91/E92/E93 (2005-2012)",
+      "F30/F31 (2012-)",
+      "G20 (2019-)"
+    ]
+  },
+  {"Seria 4": null},
+  {
+    "Seria 5": [
+      "E12 (1972-1981)",
+      "E28 (1981-1987)",
+      "E34 (1988-1996)",
+      "E39 (1996-2003)",
+      "E60/E61 (2003-2010)",
+      "F10/F11 (2009-2017)",
+      "G30/G31 (2017-)"
+    ]
+  },
+  {
+    "Seria 6": [
+      "E24 (1976-1989)",
+      "E63/E64 (2002-2010)",
+      "F12/F13/F14 (2011-)",
+      "G32 (2017-)"
+    ]
+  },
+  {
+    "Seria 7": [
+      "E23 (1977-1986)",
+      "E32 (1986-1994)",
+      "E38 (1994-2001)",
+      "E65/66 (2001-2008)",
+      "F01 (2008-2015)",
+      "G11/12 (2015-)"
+    ]
+  },
+  {
+    "Seria 8": [
+      "E31 (1989-1999)",
+      "G14/G15/G16 (2018-)"
+    ]
+  },
+  {
+    "X1": [
+      "E84 (2009-2015)",
+      "F48 (2015-)"
+    ]
+  },
+  {"X2": null},
+  {"X3": null},
+  {"X3 M": null},
+  {
+    "X4": [
+      "E85/E86 (2002-2008)",
+      "E89 (2009-2016)",
+      "F26 (2014-2018)",
+      "G02 (2018-)",
+      "G29 (2018-)"
+    ]
+  },
+  {"X4 M": null},
+  {
+    "X5": [
+      "E53 (1999-2006)",
+      "E70 (2006-2013)",
+      "F15 (2013-2018)",
+      "G05 (2018-)"
+    ]
+  },
+  {"X5 M": null},
+  {
+    "X6": [
+      "E71 (2008-2014)",
+      "F16 (2014-)",
+      "G06 (2019-)"
+    ]
+  },
+  {"X6 M": null},
+  {
+    "X7": [
+      "G07 (2019-)"
+    ]
+  },
+  {"Z1": null},
+  {"Z3": null},
+  {
+    "Z4": [
+      "E85/E86 (2002-2008)",
+      "E89 (2009-2016)",
+      "G29 (2018-)"
+    ]
+  },
+  {"Z4 M": null},
+  {"Z8": null},
+  {"i3": null},
+  {"i4": null},
+  {"i8": null},
+  {"iX": null},
+  {"iX3": null}
+], "BMW-ALPINA": [
+  {"B10": null},
+  {"B12": null},
+  {"B3": null},
+  {"B4": null},
+  {"B5": null},
+  {"B6": null},
+  {"B7": null},
+  {"B8": null},
+  {"D10": null},
+  {"D3": null},
+  {"D4": null},
+  {"D5": null},
+  {"Inny": null},
+  {"Roadster S": null},
+  {"XB7": null},
+  {"XD3": null},
+  {"XD4": null}
+], "Baic": [
+  {"B40": null},
+  {"BJ20": null},
+  {"BJ40": null},
+  {"D20": null},
+  {"Senova X25": null},
+  {"Senova X35": null},
+  {"Senova X55": null},
+  {"Senova X65": null}
+], "Befard": [
+  {}
+], "Bentley": [
+  {"Arnage": null},
+  {"Azure": null},
+  {"Bentayga": null},
+  {"Brooklands": null},
+  {"Continental Flying Spur": null},
+  {"Continental GT": null},
+  {"Eight": null},
+  {"Inny": null},
+  {"Mulsanne": null},
+  {"Turbo R": null},
+  {"Turbo RT": null},
+  {"Turbo S": null}
+], "Bobcat": [
+  {}
+], "Bolloré": [
+  {"Bluecar": null}
+], "Brilliance": [
+  {"BC3": null},
+  {"BS2": null},
+  {"BS4": null},
+  {"BS6": null},
+  {"Inny": null}
+], "Bugatti": [
+  {"Chiron": null},
+  {"Divo": null},
+  {"EB 110": null},
+  {"Inny": null},
+  {"Veyron": null}
+], "Buick": [
+  {"Centurion": null},
+  {"Century": null},
+  {"Electra": null},
+  {"Enclave": null},
+  {"Encore": null},
+  {"Inny": null},
+  {"Lacrosse": null},
+  {"Le Sabre": null},
+  {"Lucerne": null},
+  {"Park Avenue": null},
+  {"Reatta": null},
+  {"Regal": null},
+  {"Rendezvous": null},
+  {"Riviera": null},
+  {"Roadmaster": null},
+  {"Skyhawk": null},
+  {"Skylark": null}
+], "Cadillac": [
+  {"ATS": null},
+  {"Allante": null},
+  {"BLS": null},
+  {"Brougham": null},
+  {"CT6": null},
+  {"CTS": null},
+  {"Catera": null},
+  {"Cimarron": null},
+  {"DTS": null},
+  {"Deville": null},
+  {"ELR": null},
+  {"Eldorado": null},
+  {"Escalade": null},
+  {"Fleetwood": null},
+  {"Inny": null},
+  {"SLS": null},
+  {"SRX": null},
+  {"STS": null},
+  {"STS-V": null},
+  {"Seville": null},
+  {"XLR": null},
+  {"XLR-V": null},
+  {"XT4": null},
+  {"XT5": null},
+  {"XT6": null},
+  {"XTS": null}
+], "Casalini": [
+  {"Inny": null},
+  {"Kerry": null},
+  {"M10": null},
+  {"M12": null},
+  {"M14": null},
+  {"M14 2.0": null},
+  {"Pickup": null},
+  {"Sulky": null},
+  {"Ydea": null}
+], "Caterham": [
+  {"Academy": null},
+  {"CSR": null},
+  {"Inny": null},
+  {"Roadsport": null},
+  {"Seven": null},
+  {"Super Seven": null}
+], "Chatenet": [
+  {"CH22 Barooder": null},
+  {"CH26": null},
+  {"CH30": null},
+  {"CH32": null},
+  {"CH40": null},
+  {"CH46": null},
+  {"Inny": null},
+  {"Media": null},
+  {"Speedino": null},
+  {"Sporteevo": null},
+  {"Stella": null}
+], "Chevrolet": [
+  {"1500": null},
+  {"2500": null},
+  {"3500": null},
+  {"Alero": null},
+  {"Apache": null},
+  {"Astro": null},
+  {"Avalanche": null},
+  {"Aveo": null},
+  {"Bel Air": null},
+  {"Beretta": null},
+  {"Blazer": null},
+  {"Bolt": null},
+  {"C-10": null},
+  {"C-20": null},
+  {"C-30": null},
+  {"Camaro": null},
+  {"Caprice": null},
+  {"Captiva": null},
+  {"Cavalier": null},
+  {"Celebrity": null},
+  {"Chevelle": null},
+  {"Chevy Van": null},
+  {"Citation": null},
+  {"Cobalt": null},
+  {"Colorado": null},
+  {"Corsica": null},
+  {"Corvette": null},
+  {"Cruze": null},
+  {"El Camino": null},
+  {"Epica": null},
+  {"Equinox": null},
+  {"Evanda": null},
+  {"Express": null},
+  {"G": null},
+  {"HHR": null},
+  {"Impala": null},
+  {"Inny": null},
+  {"K1500": null},
+  {"K30": null},
+  {"Kalos": null},
+  {"Lacetti": null},
+  {"Lumina": null},
+  {"Malibu": null},
+  {"Matiz": null},
+  {"Monte Carlo": null},
+  {"Monza": null},
+  {"Nova": null},
+  {"Nubira": null},
+  {"Orlando": null},
+  {"Rezzo": null},
+  {"S-10": null},
+  {"SSR": null},
+  {"Silverado": null},
+  {"Spark": null},
+  {"Spectrum": null},
+  {"Suburban": null},
+  {"Tacuma": null},
+  {"Tahoe": null},
+  {"Trailblazer": null},
+  {"Trans Sport": null},
+  {"Traverse": null},
+  {"Trax": null},
+  {"Venture": null},
+  {"Volt": null}
+], "Chrysler": [
+  {"200": null},
+  {"300": null},
+  {"300C": null},
+  {"300M": null},
+  {"300s": null},
+  {"Aspen": null},
+  {"Caravan": null},
+  {"Concorde": null},
+  {"Crossfire": null},
+  {"Daytona": null},
+  {"ES": null},
+  {"GS": null},
+  {"GTS": null},
+  {
+    "Grand Voyager": [
+      "I (1990-1995)",
+      "II (1995-2000)",
+      "III (2001-2006)",
+      "IV (2007-2010)",
+      "V (2008-2015)"
+    ]
+  },
+  {"Inny": null},
+  {"LHS": null},
+  {"Le Baron": null},
+  {"Neon": null},
+  {"New Yorker": null},
+  {"PT Cruiser": null},
+  {"Pacifica": null},
+  {"Prowler": null},
+  {"Saratoga": null},
+  {"Sebring": null},
+  {"Stratus": null},
+  {
+    "Town & Country": [
+      "I (1995-2005)",
+      "II (2001-)"
+    ]
+  },
+  {"Valiant": null},
+  {"Viper": null},
+  {"Vision": null},
+  {
+    "Voyager": [
+      "I (1990-1995)",
+      "II (1995-2000)",
+      "III (2001-2006)",
+      "IV (2007-2010)",
+      "V (2008-2015)"
+    ]
+  }
+], "Citroën": [
+  {"2 CV": null},
+  {"AX": null},
+  {"Axel": null},
+  {"BX": null},
+  {
+    "Berlingo": [
+      "I (1996-2010)",
+      "II (2008-2018)",
+      "III (2018-)"
+    ]
+  },
+  {"C-Crosser": null},
+  {"C-Elysée": null},
+  {"C-Zero": null},
+  {
+    "C1": [
+      "I (2005-2014)",
+      "II (2014-)"
+    ]
+  },
+  {"C2": null},
+  {
+    "C3": [
+      "I (2002-2009)",
+      "II (2008-2018)",
+      "III (2016-)"
+    ]
+  },
+  {"C3 Aircross": null},
+  {"C3 Picasso": null},
+  {"C3 Pluriel": null},
+  {
+    "C4": [
+      "I (2004-2010)",
+      "II (2010-)",
+      "III (2020-)"
+    ]
+  },
+  {"C4 Aircross": null},
+  {"C4 Cactus": null},
+  {
+    "C4 Grand Picasso": [
+      "I (2006-2013)",
+      "II (2013-)"
+    ]
+  },
+  {
+    "C4 Picasso": [
+      "I (2006-2013)",
+      "II (2013-)"
+    ]
+  },
+  {"C4 SpaceTourer": null},
+  {
+    "C5": [
+      "I (2001-2004)",
+      "II (2004-2008)",
+      "III (2008-)"
+    ]
+  },
+  {"C5 Aircross": null},
+  {"C6": null},
+  {"C8": null},
+  {"CX": null},
+  {"DS": null},
+  {"DS3": null},
+  {"DS4": null},
+  {"DS5": null},
+  {"Evasion": null},
+  {"GSA": null},
+  {"Inny": null},
+  {
+    "Jumper": [
+      "I (1994-2006)",
+      "II (2006-)"
+    ]
+  },
+  {"Jumpy Combi": null},
+  {"Nemo": null},
+  {"SM": null},
+  {"Saxo": null},
+  {"SpaceTourer": null},
+  {"Visa": null},
+  {"XM": null},
+  {
+    "Xantia": [
+      "I (1993-1998)",
+      "II (1998-2001)"
+    ]
+  },
+  {
+    "Xsara": [
+      "I (1997-2001)",
+      "II (2001-2004)"
+    ]
+  },
+  {"Xsara Picasso": null},
+  {"ZX": null}
+], "Comarth": [
+  {"S1": null}
+], "Cupra": [
+  {"Ateca": null},
+  {"Formentor": null},
+  {"Leon": null},
+  {"Leon Sportstourer": null}
+], "DFSK": [
+  {"Double Cab": null},
+  {"Fengon 5": null},
+  {"Fengon 500": null},
+  {"Fengon 580": null},
+  {"Fengon 7": null},
+  {"Glory 580": null},
+  {"Mini Bus": null},
+  {"Mini Van": null},
+  {"Pick Up": null},
+  {"Seres 3": null},
+  {"Seres 5": null}
+], "DKW": [
+  {"Inny": null}
+], "DR MOTOR": [
+  {"DR5": null},
+  {"Inny": null}
+], "DS Automobiles": [
+  {"DS 3": null},
+  {"DS 3 Crossback": null},
+  {
+    "DS 4": [
+      "I (2010-2018)",
+      "II (2021-)"
+    ]
+  },
+  {"DS 4 Crossback": null},
+  {"DS 5": null},
+  {"DS 7 Crossback": null},
+  {"DS 9": null},
+  {"Inny": null}
+], "Dacia": [
+  {"1300": null},
+  {"1310": null},
+  {"1400": null},
+  {"1410": null},
+  {"Dokker": null},
+  {"Dokker Van": null},
+  {"Duster": null},
+  {"Inny": null},
+  {"Jogger": null},
+  {"Lodgy": null},
+  {
+    "Logan": [
+      "I (2004-2012)",
+      "II (2012-)"
+    ]
+  },
+  {"Logan Van": null},
+  {"Nova": null},
+  {"Pick Up": null},
+  {
+    "Sandero": [
+      "I (2008-2012)",
+      "II (2012-)"
+    ]
+  },
+  {"Sandero Stepway": null},
+  {"Solenza": null},
+  {"Spring": null},
+  {"Super Nova": null}
+], "Daewoo": [
+  {"Chairman": null},
+  {"Cielo": null},
+  {"Espero": null},
+  {"Evanda": null},
+  {"Inny": null},
+  {"Kalos": null},
+  {"Korando": null},
+  {"Lacetti": null},
+  {"Lanos": null},
+  {"Leganza": null},
+  {"Matiz": null},
+  {"Musso": null},
+  {"Nexia": null},
+  {"Nubira": null},
+  {"Racer": null},
+  {"Rezzo": null},
+  {"Tacuma": null},
+  {"Tico": null}
+], "Daihatsu": [
+  {"Applause": null},
+  {"Charade": null},
+  {"Charmant": null},
+  {"Copen": null},
+  {"Cuore": null},
+  {"Feroza": null},
+  {"Fourtrak": null},
+  {"Freeclimber": null},
+  {"Gran Move": null},
+  {"Hijet": null},
+  {"Inny": null},
+  {"Materia": null},
+  {"Move": null},
+  {"Rocky": null},
+  {"Sirion": null},
+  {"Sportrak": null},
+  {"Terios": null},
+  {"Trevis": null},
+  {"YRV": null}
+], "De Lorean": [
+  {"DMC 12": null},
+  {"Inny": null}
+], "Dodge": [
+  {"Avenger": null},
+  {"Caliber": null},
+  {
+    "Caravan": [
+      "I (1990-1995)",
+      "II (1995-2001)",
+      "III (2001-)"
+    ]
+  },
+  {"Challenger": null},
+  {"Charger": null},
+  {"Dakota": null},
+  {"Dart": null},
+  {"Daytona": null},
+  {"Diplomat": null},
+  {"Durango": null},
+  {"Dynasty": null},
+  {"Grand Caravan": null},
+  {"Hornet": null},
+  {"Inny": null},
+  {"Intrepid": null},
+  {"Journey": null},
+  {"Magnum": null},
+  {"Monaco": null},
+  {"Neon": null},
+  {"Nitro": null},
+  {"Omni": null},
+  {"RAM": null},
+  {"Spirit": null},
+  {"Stealth": null},
+  {"Stratus": null},
+  {"Viper": null}
+], "Eagle": [
+  {"Inny": null},
+  {"Medallion": null},
+  {"Premier": null},
+  {"Summit": null},
+  {"Talon": null},
+  {"Vision": null}
+], "FAW": [
+  {"HQ": null}
+], "Ferrari": [
+  {"208": null},
+  {"248": null},
+  {"250": null},
+  {"288": null},
+  {"308": null},
+  {"328": null},
+  {"330": null},
+  {"348": null},
+  {"360": null},
+  {"365": null},
+  {"400": null},
+  {"412": null},
+  {"456": null},
+  {"458 Italia": null},
+  {"488": null},
+  {"488 Pista": null},
+  {"488 Pista Spider": null},
+  {"512": null},
+  {"575": null},
+  {"599GTB": null},
+  {"612": null},
+  {"750": null},
+  {"812 GTS": null},
+  {"812 Superfast": null},
+  {"California": null},
+  {"Daytona": null},
+  {"Dino GT4": null},
+  {"Enzo": null},
+  {"F12berlinetta": null},
+  {"F355": null},
+  {"F360": null},
+  {"F40": null},
+  {"F430": null},
+  {"F50": null},
+  {"F550": null},
+  {"F8 Spider": null},
+  {"F8 Tributo": null},
+  {"FF": null},
+  {"GTC4Lusso": null},
+  {"Inny": null},
+  {"LaFerrari": null},
+  {"Mondial": null},
+  {"Portofino": null},
+  {"Portofino M": null},
+  {"Roma": null},
+  {"SF90 Spider": null},
+  {"SF90 Stradale": null},
+  {"Superamerica": null},
+  {"Testarossa": null}
+], "Fiat": [
+  {"124": null},
+  {"124 Spider": null},
+  {"125p": null},
+  {"126": null},
+  {"127": null},
+  {"128": null},
+  {"130": null},
+  {"131": null},
+  {"132": null},
+  {"500": null},
+  {"500L": null},
+  {"500X": null},
+  {"600": null},
+  {"850": null},
+  {"Albea": null},
+  {"Barchetta": null},
+  {"Brava": null},
+  {
+    "Bravo": [
+      "I (1995-2001)",
+      "II (2007-)"
+    ]
+  },
+  {"Cinquecento": null},
+  {"Coupe": null},
+  {
+    "Croma": [
+      "I (1985-1994)",
+      "II (2005-)"
+    ]
+  },
+  {"Dino": null},
+  {
+    "Doblo": [
+      "I (2000-2010)",
+      "II (2009-)"
+    ]
+  },
+  {
+    "Ducato": [
+      "I (1981-1993)",
+      "II (1994-2006)",
+      "III (2007-)"
+    ]
+  },
+  {"Fiorino": null},
+  {"Freemont": null},
+  {"Fullback": null},
+  {"Grande Punto": null},
+  {"Idea": null},
+  {"Inny": null},
+  {"Linea": null},
+  {"Marea": null},
+  {"Multipla": null},
+  {"Palio": null},
+  {
+    "Panda": [
+      "I (1980-2003)",
+      "II (2003-2012)",
+      "III (2011-)"
+    ]
+  },
+  {"Punto": null},
+  {"Punto 2012": null},
+  {"Punto Evo": null},
+  {"Qubo": null},
+  {"Regata": null},
+  {"Ritmo": null},
+  {"Scudo": null},
+  {"Sedici": null},
+  {"Seicento": null},
+  {"Siena": null},
+  {"Spider Europa": null},
+  {"Stilo": null},
+  {"Strada": null},
+  {"Talento": null},
+  {"Tempra": null},
+  {
+    "Tipo": [
+      "I (1988-1995)",
+      "II (2016-)"
+    ]
+  },
+  {"Ulysse": null},
+  {
+    "Uno": [
+      "I (1983-1989)",
+      "II (1989-)"
+    ]
+  },
+  {
+    "X 1": [
+      "9"
+    ]
+  }
+], "Ford": [
+  {"Aerostar": null},
+  {"Aspire": null},
+  {"B-MAX": null},
+  {"Bronco": null},
+  {
+    "C-MAX": [
+      "I (2003-2010)",
+      "II (2010-)"
+    ]
+  },
+  {"Capri": null},
+  {"Contour": null},
+  {"Cougar": null},
+  {"Courier": null},
+  {"Crown": null},
+  {"EDGE": null},
+  {"EcoSport": null},
+  {"Econoline": null},
+  {"Econovan": null},
+  {"Escape": null},
+  {
+    "Escort": [
+      "Mk1 (1968-1975)",
+      "Mk2 (1975-1980)",
+      "Mk3 (1980-1986)",
+      "Mk4 (1986-1990)",
+      "Mk5 (1990-1992)",
+      "Mk6 (1992-1995)",
+      "Mk7 (1995-1999)"
+    ]
+  },
+  {"Excursion": null},
+  {"Expedition": null},
+  {"Explorer": null},
+  {"F150": null},
+  {"F250": null},
+  {"F350": null},
+  {"FIVE HUNDRED": null},
+  {"Fairlane": null},
+  {"Falcon": null},
+  {"Festiva": null},
+  {
+    "Fiesta": [
+      "Mk1 (1977-1983)",
+      "Mk2 (1983-1989)",
+      "Mk3 (1989-1996)",
+      "Mk4 (1996-1999)",
+      "Mk5 (1999-2002)",
+      "Mk6 (2002-2008)",
+      "Mk7 (2008-)",
+      "Mk8 (2017-)"
+    ]
+  },
+  {"Flex": null},
+  {
+    "Focus": [
+      "Mk1 (1998-2004)",
+      "Mk2 (2004-2011)",
+      "Mk3 (2010-)",
+      "Mk4 (2018-)"
+    ]
+  },
+  {"Focus C-Max": null},
+  {"Freestar": null},
+  {"Freestyle": null},
+  {"Fusion": null},
+  {"GT": null},
+  {
+    "Galaxy": [
+      "Mk1 (1995-2005)",
+      "Mk2 (2000-2005)",
+      "Mk2 (2006-2015)",
+      "Mk3 (2015-)"
+    ]
+  },
+  {"Granada": null},
+  {"Grand C-MAX": null},
+  {"Inny": null},
+  {
+    "KA": [
+      "I (1996-2008)",
+      "II (2008-2018)"
+    ]
+  },
+  {"Ka+": null},
+  {
+    "Kuga": [
+      "I (2008-2012)",
+      "II (2012-)",
+      "III (2019 - )"
+    ]
+  },
+  {"Maverick": null},
+  {"Mercury": null},
+  {
+    "Mondeo": [
+      "Mk1 (1993-1996)",
+      "Mk2 (1996-2000)",
+      "Mk3 (2000-2006)",
+      "Mk4 (2007-2014)",
+      "Mk5 (2014-)"
+    ]
+  },
+  {"Mustang": null},
+  {"Mustang Mach-E": null},
+  {"Orion": null},
+  {
+    "Probe": [
+      "I (1989-1992)",
+      "II (1993-1997)"
+    ]
+  },
+  {"Puma": null},
+  {"Ranchero": null},
+  {"Ranger": null},
+  {"Ranger Raptor": null},
+  {
+    "S-Max": [
+      "I (2006-2015)",
+      "II (2015-)"
+    ]
+  },
+  {
+    "Scorpio": [
+      "Mk1 (1985-1994)",
+      "Mk2 (1994-1998)"
+    ]
+  },
+  {
+    "Sierra": [
+      "Mk1 (1982-1986)",
+      "Mk2 (1987-1993)"
+    ]
+  },
+  {"Streetka": null},
+  {"Taunus": null},
+  {"Taurus": null},
+  {"Tempo": null},
+  {"Thunderbird": null},
+  {
+    "Tourneo Connect": [
+      "I (2002-2013)",
+      "II (2013-)"
+    ]
+  },
+  {"Tourneo Courier": null},
+  {"Tourneo Custom": null},
+  {
+    "Transit": [
+      "II (1978-1986)",
+      "III (1986-1994)",
+      "IV (1994-2000)",
+      "V (2000-2006)",
+      "VI (2006-)",
+      "VII (2013-)"
+    ]
+  },
+  {
+    "Transit Connect": [
+      "I (2002-2013)",
+      "II (2013-)"
+    ]
+  },
+  {"Transit Courier": null},
+  {"Transit Custom": null},
+  {"Windstar": null}
+], "GMC": [
+  {"Acadia": null},
+  {"Envoy": null},
+  {"Inny": null},
+  {"Safari": null},
+  {"Savana": null},
+  {"Sierra": null},
+  {"Sonoma": null},
+  {"Syclone": null},
+  {"Terrain": null},
+  {"Typhoon": null},
+  {"Vandura": null},
+  {"Yukon": null}
+], "GWM": [
+  {"Altul": null},
+  {"Cowry": null},
+  {"Haval H5": null},
+  {"Hover": null},
+  {"Steed": null},
+  {"Voleex": null}
+], "Galloper": [
+  {"Inny": null},
+  {"Super Exceed": null}
+], "Gaspardo": [
+  {}
+], "Gaz": [
+  {"67": null},
+  {"69": null},
+  {"Inny": null}
+], "Geely": [
+  {"Ck": null}
+], "Gonow": [
+  {"altul": null}
+], "Grecav": [
+  {"Inny": null},
+  {"Sonique": null}
+], "Hammer": [
+  {}
+], "Holden": [
+  {"Adventra": null},
+  {"Astra": null},
+  {"Barina": null},
+  {"Berlina": null},
+  {"Calais": null},
+  {"Caprice": null},
+  {"Captiva": null},
+  {"Colorado": null},
+  {"Commodore": null},
+  {"Crewman": null},
+  {"Cruze": null},
+  {"Epica": null},
+  {"Jackaroo": null},
+  {"Monaro": null},
+  {"Sportwagon": null},
+  {"Statesman": null},
+  {"Ute": null},
+  {"Viva": null}
+], "Honda": [
+  {
+    "Accord": [
+      "II (1983-1985)",
+      "III (1985-1989)",
+      "IV (1990-1993)",
+      "IX (2012-2018)",
+      "V (1993-1998)",
+      "VI (1998-2002)",
+      "VII (2002-2008)",
+      "VIII (2008-2015)",
+      "X (2018-)"
+    ]
+  },
+  {"Aerodeck": null},
+  {
+    "CR-V": [
+      "I (1995-2001)",
+      "II (2001-2006)",
+      "III (2006-2012)",
+      "IV (2012-2018)",
+      "V (2018-)"
+    ]
+  },
+  {"CR-Z": null},
+  {"CRX": null},
+  {"City": null},
+  {
+    "Civic": [
+      "II (1979-1983)",
+      "III (1983-1987)",
+      "IV (1987-1991)",
+      "IX (2011-2017)",
+      "V (1991-1996)",
+      "VI (1995-2001)",
+      "VII (2001-2006)",
+      "VIII (2006-2011)",
+      "X (2017-2021)",
+      "XI (2021-)"
+    ]
+  },
+  {"Concerto": null},
+  {"Element": null},
+  {"FR-V": null},
+  {
+    "HR-V": [
+      "I (1998-2006)",
+      "II (2015-)"
+    ]
+  },
+  {"Inny": null},
+  {"Insight": null},
+  {"Integra": null},
+  {
+    "Jazz": [
+      "I (1981-1986)",
+      "II (2002-2008)",
+      "III (2008-2014)",
+      "IV (2015-2020)",
+      "V (2020-)"
+    ]
+  },
+  {"Legend": null},
+  {"Logo": null},
+  {"NSX": null},
+  {"Odyssey": null},
+  {"Pilot": null},
+  {"Prelude": null},
+  {"Ridgeline": null},
+  {"S 2000": null},
+  {"Shuttle": null},
+  {"Stream": null},
+  {"e": null}
+], "Hummer": [
+  {"H1": null},
+  {"H2": null},
+  {"H3": null},
+  {"Inny": null}
+], "Hyundai": [
+  {"Accent": null},
+  {"Atos": null},
+  {"Avante": null},
+  {"Azera": null},
+  {"Bayon": null},
+  {"Coupe": null},
+  {
+    "Elantra": [
+      "I (2000-2006)",
+      "II (2006-2010)",
+      "III (2010-2015)",
+      "IV (2016-)"
+    ]
+  },
+  {"Equus": null},
+  {"Excel": null},
+  {"Galloper": null},
+  {"Genesis": null},
+  {"Genesis Coupe": null},
+  {"Getz": null},
+  {"Grand Santa Fe": null},
+  {"Grandeur": null},
+  {"H-1": null},
+  {"H-1 Starex": null},
+  {"H200": null},
+  {"H350": null},
+  {"IONIQ": null},
+  {"Inny": null},
+  {"Kona": null},
+  {
+    "Lantra": [
+      "I (2000-2006)",
+      "II (2006-2010)",
+      "III (2010-2015)",
+      "IV (2016-)"
+    ]
+  },
+  {"Matrix": null},
+  {"Pony": null},
+  {"S-Coupe": null},
+  {"Santa Fe": null},
+  {"Santamo": null},
+  {"Sonata": null},
+  {"Sonica": null},
+  {"Terracan": null},
+  {"Trajet": null},
+  {
+    "Tucson": [
+      "I (2004-2010)",
+      "II (2010-2015)",
+      "III (2015-2020)",
+      "IV (2020-)"
+    ]
+  },
+  {"Veloster": null},
+  {"Veracruz": null},
+  {"XG 30": null},
+  {"XG 350": null},
+  {
+    "i10": [
+      "I (2008-2013)",
+      "II (2013-)"
+    ]
+  },
+  {
+    "i20": [
+      "I (2008-2014)",
+      "II (2014-)"
+    ]
+  },
+  {"i25": null},
+  {
+    "i30": [
+      "I (2007-2012)",
+      "II (2012-)",
+      "III (2017-)"
+    ]
+  },
+  {"i30 N": null},
+  {"i40": null},
+  {"ix20": null},
+  {"ix35": null},
+  {"ix55": null}
+], "Infiniti": [
+  {"EX": null},
+  {
+    "FX": [
+      "I (2003-2009)",
+      "II (2009-2013)"
+    ]
+  },
+  {"G": null},
+  {"I30": null},
+  {"I35": null},
+  {"Inny": null},
+  {"J30": null},
+  {"M": null},
+  {"Q30": null},
+  {"Q45": null},
+  {"Q50": null},
+  {"Q60": null},
+  {"Q70": null},
+  {"QX": null},
+  {"QX30": null},
+  {"QX50": null},
+  {"QX60": null},
+  {"QX70": null},
+  {"QX80": null}
+], "Inny": [
+  {"Inny": null}
+], "Isuzu": [
+  {"Campo": null},
+  {"D-Max": null},
+  {"Gemini": null},
+  {"Inny": null},
+  {"Midi": null},
+  {"Pick up": null},
+  {"Trooper": null}
+], "Iveco": [
+  {"Daily": null},
+  {"Massif": null}
+], "Jaguar": [
+  {"Daimler": null},
+  {"E-Pace": null},
+  {"E-Type": null},
+  {"F-Pace": null},
+  {"F-Type": null},
+  {"I-Pace": null},
+  {"Inny": null},
+  {"MK II": null},
+  {"S-Type": null},
+  {"X-Type": null},
+  {"XE": null},
+  {
+    "XF": [
+      "X250 (2007-2015)",
+      "X260 (2015-)"
+    ]
+  },
+  {
+    "XJ": [
+      "Mark I (1968-1992)",
+      "X300 (1994-1997)",
+      "X308 (1997-2003)",
+      "X350 (2004-2007)",
+      "X351 (2009-)",
+      "X358 (2007-2009)",
+      "XJ40 (1986-1994)"
+    ]
+  },
+  {"XJR": null},
+  {"XJS": null},
+  {
+    "XK": [
+      "I (1997-2006)",
+      "II (2006-)"
+    ]
+  },
+  {"XK8": null}
+], "Jeep": [
+  {"CJ": null},
+  {
+    "Cherokee": [
+      "II (1987-2001)",
+      "III (2001-2008)",
+      "IV (2008-2013)",
+      "V (2014-)"
+    ]
+  },
+  {"Comanche": null},
+  {"Commander": null},
+  {"Compass": null},
+  {"Gladiator": null},
+  {
+    "Grand Cherokee": [
+      "I (1991-1999)",
+      "II (1999-2004)",
+      "III (2005-2010)",
+      "IV (2010-2021)",
+      "V (2021-)"
+    ]
+  },
+  {"Inny": null},
+  {"Liberty": null},
+  {"Patriot": null},
+  {"Renegade": null},
+  {"Wagoneer": null},
+  {"Willys": null},
+  {
+    "Wrangler": [
+      "I (1987-1995)",
+      "II (1997-2006)",
+      "III (2006-2018)",
+      "IV (2017-)"
+    ]
+  }
+], "John Deere": [
+  {}
+], "Kaipan": [
+  {"47": null},
+  {"Inny": null}
+], "Kia": [
+  {"Asia Rocsta": null},
+  {"Besta": null},
+  {
+    "Carens": [
+      "I (2000-2002)",
+      "II (2002-2006)",
+      "III (2006-2012)",
+      "IV (2013-)"
+    ]
+  },
+  {"Carnival": null},
+  {
+    "Ceed": [
+      "I (2006-2012)",
+      "II (2012-)",
+      "III (2018-)"
+    ]
+  },
+  {"Cerato": null},
+  {"Clarus": null},
+  {"EV6": null},
+  {"Elan": null},
+  {"Inny": null},
+  {"Joice": null},
+  {"Leo": null},
+  {"Magentis": null},
+  {"Mentor": null},
+  {"Niro": null},
+  {"Opirus": null},
+  {"Optima": null},
+  {
+    "Picanto": [
+      "I (2004-2010)",
+      "II (2011-)",
+      "III (2017-)"
+    ]
+  },
+  {"Pregio": null},
+  {"Pride": null},
+  {"Pro_cee'd": null},
+  {"Retona": null},
+  {
+    "Rio": [
+      "I (2000-2005)",
+      "II (2005-2011)",
+      "III (2011-)",
+      "IV (2017-)"
+    ]
+  },
+  {"Roadster": null},
+  {"Rocsta": null},
+  {"Sedona": null},
+  {"Sephia": null},
+  {"Shuma": null},
+  {
+    "Sorento": [
+      "I (2002-2009)",
+      "II (2009-2015)",
+      "III (2015-2020)",
+      "IV (2020-)"
+    ]
+  },
+  {
+    "Soul": [
+      "I (2009-2014)",
+      "II (2014-2019)",
+      "III (2019-)"
+    ]
+  },
+  {"Spectra": null},
+  {
+    "Sportage": [
+      "I (1994-2002)",
+      "II (2004-2010)",
+      "III (2010-2015)",
+      "IV (2016-)"
+    ]
+  },
+  {"Stinger": null},
+  {"Stonic": null},
+  {"Venga": null},
+  {"XCeed": null}
+], "Kuhn": [
+  {}
+], "LEVC": [
+  {"TX": null}
+], "LTI": [
+  {"Fairway": null},
+  {"Inne": null},
+  {"Inny": null},
+  {"TX2": null},
+  {"TX4": null}
+], "Lada": [
+  {"110": null},
+  {"111": null},
+  {"1117": null},
+  {"1118": null},
+  {"1119": null},
+  {"112": null},
+  {"1200": null},
+  {"1300": null},
+  {"1500": null},
+  {"2101": null},
+  {"2103": null},
+  {"2104": null},
+  {"2105": null},
+  {"2106": null},
+  {"2107": null},
+  {"2108": null},
+  {"2109": null},
+  {"2110": null},
+  {"2111": null},
+  {"2112": null},
+  {"2170": null},
+  {"Aleko": null},
+  {"Forma": null},
+  {"Granta": null},
+  {"Inny": null},
+  {"Kalina": null},
+  {"Niva": null},
+  {"Nova": null},
+  {"Priora": null},
+  {"Samara": null}
+], "Lamborghini": [
+  {"Aventador": null},
+  {"Countach": null},
+  {"Diablo": null},
+  {"Espada": null},
+  {"Gallardo": null},
+  {"Huracan": null},
+  {"Inny": null},
+  {"Jalpa": null},
+  {"LM": null},
+  {"Miura": null},
+  {"Murcielago": null},
+  {"Urraco": null},
+  {"Urus": null}
+], "Lancia": [
+  {"Beta": null},
+  {"Dedra": null},
+  {"Delta": null},
+  {"Flamina": null},
+  {"Fulvia": null},
+  {"Gamma": null},
+  {"Inny": null},
+  {"Kappa": null},
+  {"Lybra": null},
+  {"Musa": null},
+  {"Phedra": null},
+  {"Prisma": null},
+  {"Stratos": null},
+  {"Thema": null},
+  {"Thesis": null},
+  {"Voyager": null},
+  {"Ypsilon": null},
+  {"Zeta": null}
+], "Land Rover": [
+  {"Defender": null},
+  {
+    "Discovery": [
+      "I (1989-1998)",
+      "II (1998-2004)",
+      "III (2004-2009)",
+      "IV (2010-)",
+      "V (2017-)"
+    ]
+  },
+  {"Discovery Sport": null},
+  {
+    "Freelander": [
+      "I (1996-2006)",
+      "II (2006-)"
+    ]
+  },
+  {"Inny": null},
+  {
+    "Range Rover": [
+      "I (1970-1994)",
+      "II (1994-2001)",
+      "III (2001-2012)",
+      "IV (2012-2018)"
+    ]
+  },
+  {"Range Rover Evoque": null},
+  {
+    "Range Rover Sport": [
+      "I (2005-2013)",
+      "II (2013-)"
+    ]
+  },
+  {"Range Rover Velar": null}
+], "Lexus": [
+  {"CT": null},
+  {"ES": null},
+  {
+    "GS": [
+      "I (1991-1996)",
+      "II (1997-2004)",
+      "III (2004-2011)",
+      "IV (2012-2018)"
+    ]
+  },
+  {"GX": null},
+  {"HS 250h": null},
+  {
+    "IS": [
+      "I (1999-2005)",
+      "II (2005-2012)",
+      "III (2013-)"
+    ]
+  },
+  {"Inny": null},
+  {"LC": null},
+  {"LFA": null},
+  {
+    "LS": [
+      "I (1989-1994)",
+      "II (1995-2000)",
+      "III (2000-2006)",
+      "IV (2006-2017)",
+      "V (2018-)"
+    ]
+  },
+  {"LX": null},
+  {"NX": null},
+  {"RC": null},
+  {
+    "RX": [
+      "I (1997-2003)",
+      "II (2003-2009)",
+      "III (2009-2015)",
+      "IV (2015-2020)"
+    ]
+  },
+  {"SC": null},
+  {"UX": null}
+], "Ligier": [
+  {"Ambra": null},
+  {"Be-Two": null},
+  {"Be-Up": null},
+  {"IXO": null},
+  {"Inny": null},
+  {"JS RC": null},
+  {"JS49": null},
+  {"JS50": null},
+  {"JS50L": null},
+  {"Nova": null},
+  {"Optima": null},
+  {"X-Too": null},
+  {"X-Too Max": null},
+  {"X-Too R": null},
+  {"X-Too RS": null},
+  {"X-Too S": null},
+  {"altul": null}
+], "Lincoln": [
+  {"Aviator": null},
+  {"Continental": null},
+  {"Inny": null},
+  {"LS": null},
+  {"MKX": null},
+  {"MKZ": null},
+  {"Mark": null},
+  {"Mark LT": null},
+  {"Navigator": null},
+  {"Town Car": null}
+], "Lotus": [
+  {"340R": null},
+  {"Cortina": null},
+  {"Elan": null},
+  {"Elise": null},
+  {"Elite": null},
+  {"Esprit": null},
+  {"Europa": null},
+  {"Evora": null},
+  {"Excel": null},
+  {"Exige": null},
+  {"Inny": null},
+  {"Super Seven": null},
+  {"V8": null}
+], "LuAZ": [
+  {"969": null},
+  {"altul": null}
+], "MAN": [
+  {"TGE": null}
+], "MG": [
+  {"F": null},
+  {"Inny": null},
+  {"MGA": null},
+  {"MGB": null},
+  {"MGF": null},
+  {"Midget": null},
+  {"Montego": null},
+  {"TD": null},
+  {"TF": null},
+  {"ZR": null},
+  {"ZS": null},
+  {"ZT": null}
+], "MINI": [
+  {"1000": null},
+  {"1300": null},
+  {"Clubman": null},
+  {"Cooper": null},
+  {"Cooper S": null},
+  {"Countryman": null},
+  {"Inny": null},
+  {"ONE": null},
+  {"Paceman": null}
+], "Mahindra": [
+  {"Inny": null}
+], "Maruti": [
+  {"800": null},
+  {"Inny": null}
+], "Maserati": [
+  {"222": null},
+  {"224": null},
+  {"228": null},
+  {"3200": null},
+  {"418": null},
+  {"420": null},
+  {"4200": null},
+  {"422": null},
+  {"424": null},
+  {"430": null},
+  {"Biturbo": null},
+  {"Coupe": null},
+  {"Ghibli": null},
+  {"GranCabrio": null},
+  {"GranTurismo": null},
+  {"Gransport": null},
+  {"Indy": null},
+  {"Inny": null},
+  {"Karif": null},
+  {"Levante": null},
+  {"MC Stradale": null},
+  {"MC12": null},
+  {"MC20": null},
+  {"Merak": null},
+  {"Quattroporte": null},
+  {"Shamal": null},
+  {"Spyder": null}
+], "Maybach": [
+  {"57": null},
+  {"62": null},
+  {"Inny": null}
+], "Mazda": [
+  {"121": null},
+  {
+    "2": [
+      "I (2003-2007)",
+      "II (2007-2014)",
+      "III (2015-)"
+    ]
+  },
+  {
+    "3": [
+      "I (2003-2007)",
+      "II (2007-2014)",
+      "III (2015-)"
+    ]
+  },
+  {
+    "323": [
+      "II (1980-1986)",
+      "III (1986-1989)",
+      "IV (1989-1994)",
+      "V (1994-1998)",
+      "VI (1998-2003)"
+    ]
+  },
+  {
+    "323F": [
+      "I (1989-1994)",
+      "II (1994-1998)",
+      "III (1998-2003)"
+    ]
+  },
+  {
+    "5": [
+      "I (2003-2009)",
+      "II (2009-2013)",
+      "III (2013-)",
+      "IV (2019-)"
+    ]
+  },
+  {
+    "6": [
+      "I (2005-2010)",
+      "II (2010-)"
+    ]
+  },
+  {
+    "626": [
+      "I (1979-1982)",
+      "II (1983-1987)",
+      "III (1987-1992)",
+      "IV (1992-1997)",
+      "V (1997-2001)"
+    ]
+  },
+  {"929": null},
+  {"BT-50": null},
+  {"Bongo": null},
+  {"CX-3": null},
+  {"CX-30": null},
+  {"CX-5": null},
+  {"CX-7": null},
+  {"CX-9": null},
+  {"Demio": null},
+  {"Inny": null},
+  {"MPV": null},
+  {"MX-3": null},
+  {"MX-30": null},
+  {"MX-5": null},
+  {"MX-6": null},
+  {"Millenia": null},
+  {"Premacy": null},
+  {"Protege": null},
+  {"RX-6": null},
+  {"RX-7": null},
+  {"RX-8": null},
+  {"Seria B": null},
+  {"Seria E": null},
+  {"Tribute": null},
+  {"Xedos": null}
+], "McLaren": [
+  {"570 GT": null},
+  {"570S Coupe": null},
+  {"570S Spider": null},
+  {"600LT Coupe": null},
+  {"600LT Spider": null},
+  {"650S": null},
+  {"720S Coupe": null},
+  {"720S Spider": null},
+  {"MP4-12C": null},
+  {"Senna": null},
+  {"altul": null}
+], "Mercedes-Benz": [
+  {"280": null},
+  {"AMG GT": null},
+  {
+    "CL": [
+      "C140 (1992-1998)",
+      "C215 (1999-2006)",
+      "C216 (2006-2013)"
+    ]
+  },
+  {"CLA": null},
+  {"CLC": null},
+  {
+    "CLK": [
+      "W208 (1997-2002)",
+      "W209 (2002-)"
+    ]
+  },
+  {
+    "CLS": [
+      "C218 (2011-)",
+      "C219 (2004-2010)",
+      "C257 (2018-)"
+    ]
+  },
+  {"Citan": null},
+  {"EQA": null},
+  {"EQC": null},
+  {"EQS": null},
+  {"EQV": null},
+  {
+    "GL": [
+      "X164 (2006-2012)",
+      "X166 (2012-)"
+    ]
+  },
+  {"GLA": null},
+  {"GLB": null},
+  {"GLC": null},
+  {
+    "GLE": [
+      "W166 (2015-2019)",
+      "W167 (2019-)"
+    ]
+  },
+  {
+    "GLK": [
+      "GLK 220",
+      "GLK 250",
+      "GLK 280",
+      "GLK 320",
+      "GLK 350"
+    ]
+  },
+  {"GLS": null},
+  {"Inny": null},
+  {
+    "Klasa A": [
+      "W168 (1997-2004)",
+      "W169 (2004-2012)",
+      "W176 (2012-)",
+      "W177 (2018-)"
+    ]
+  },
+  {
+    "Klasa B": [
+      "W245 (2005-2011)",
+      "W246 (2011-2018)",
+      "W247 (2018-)"
+    ]
+  },
+  {
+    "Klasa C": [
+      "W202 (1993-2001)",
+      "W203 (2000-2007)",
+      "W204 (2007-2014)",
+      "W205 (2014-2021)",
+      "W206 (2021-)"
+    ]
+  },
+  {
+    "Klasa E": [
+      "W124 (1993-1997)",
+      "W210 (1995-2002)",
+      "W211 (2002-2009)",
+      "W212 (2009-2016)",
+      "W213 (2016-)"
+    ]
+  },
+  {
+    "Klasa G": [
+      "W460 (1979-1992)",
+      "W463 (1992-2018)",
+      "W483 (2018-)"
+    ]
+  },
+  {"Klasa R": null},
+  {
+    "Klasa S": [
+      "W108 (1965-1972)",
+      "W116 (1972-1980)",
+      "W126 (1980-1993)",
+      "W140 (1992-1998)",
+      "W220 (1998-2005)",
+      "W221 (2005-)",
+      "W221 (2005-2013)",
+      "W222 (2013-2020)",
+      "W223 (2020-)"
+    ]
+  },
+  {
+    "Klasa V": [
+      "I (1996-2003)",
+      "II (2014-)"
+    ]
+  },
+  {"Klasa X": null},
+  {"MB 100": null},
+  {
+    "ML": [
+      "W163 (1998-2005)",
+      "W164 (2005-2011)",
+      "W166 (2011-2015)"
+    ]
+  },
+  {"Monarch": null},
+  {
+    "SL": [
+      "R107 (1972-1989)",
+      "R129 (1989-2000)",
+      "R230 (2001-2013)",
+      "R231 (2012-)"
+    ]
+  },
+  {"SLC": null},
+  {
+    "SLK": [
+      "R170 (1996-2004)",
+      "R171 (2004-2011)",
+      "R172 (2011-)"
+    ]
+  },
+  {"SLR": null},
+  {"SLS": null},
+  {
+    "Sprinter": [
+      "I (1995-2000)",
+      "II (2000-2006)",
+      "III (2006-)"
+    ]
+  },
+  {"Vaneo": null},
+  {"Vario": null},
+  {"Viano": null},
+  {
+    "Vito": [
+      "W447 (2014-)",
+      "W638 (1996-2003)",
+      "W639 (2003-2014)"
+    ]
+  },
+  {"W123": null},
+  {"W124 (1984-1993)": null},
+  {"W201": null}
+], "Mercury": [
+  {"Comet": null},
+  {"Cougar": null},
+  {"Inny": null},
+  {"Marauder": null},
+  {"Mariner": null},
+  {"Marquis": null},
+  {"Milan": null},
+  {"Montego": null},
+  {"Monterey": null},
+  {"Mountaineer": null},
+  {"Sable": null},
+  {"Tracer": null},
+  {"Villager": null},
+  {"Zephyr": null}
+], "Microcar": [
+  {"Cargo": null},
+  {"DUE": null},
+  {"DUE First": null},
+  {"Flex": null},
+  {"Highland X": null},
+  {"Inny": null},
+  {"Ligier": null},
+  {"M.Cross": null},
+  {"M.GO": null},
+  {"MC": null},
+  {"Virgo": null}
+], "Mitsubishi": [
+  {"3000GT": null},
+  {"ASX": null},
+  {"Canter": null},
+  {
+    "Carisma": [
+      "I (1995-1999)",
+      "II (1999-2004)"
+    ]
+  },
+  {
+    "Colt": [
+      "A150 (1978-1983)",
+      "C10 (1984-1988)",
+      "C50 (1988-1992)",
+      "CA0 (1992-1995)",
+      "CJ0 (1995-2003)",
+      "Z30 (2004-2012)"
+    ]
+  },
+  {"Cordia": null},
+  {"Cosmos": null},
+  {"Diamante": null},
+  {
+    "Eclipse": [
+      "I (1990-1995)",
+      "II (1995-1999)",
+      "III (1999-2006)",
+      "IV (2006-)"
+    ]
+  },
+  {"Eclipse Cross": null},
+  {"Endeavor": null},
+  {"FTO": null},
+  {
+    "Galant": [
+      "IV (1980-1984)",
+      "IX (2006-)",
+      "V (1984-1988)",
+      "VI (1987-1992)",
+      "VII (1992-1997)",
+      "VIII (1996-2006)"
+    ]
+  },
+  {"Galloper": null},
+  {"Grandis": null},
+  {"Inny": null},
+  {"L200": null},
+  {"L300": null},
+  {"L400": null},
+  {
+    "Lancer": [
+      "II (1979-1983)",
+      "III (1983-1988)",
+      "IV (1985-1992)",
+      "IX (2007-2016)",
+      "V (1988-1994)",
+      "VI (1992-1996)",
+      "VII (1995-2000)",
+      "VIII (2003-2008)"
+    ]
+  },
+  {"Lancer Evolution": null},
+  {"Montero": null},
+  {
+    "Outlander": [
+      "I (2001-2006)",
+      "II (2006-2013)",
+      "III (2012-)"
+    ]
+  },
+  {
+    "Pajero": [
+      "I (1982-1990)",
+      "II (1990-2000)",
+      "III (2000-2006)",
+      "IV (2007-)"
+    ]
+  },
+  {"Pajero Pinin": null},
+  {"Santamo": null},
+  {"Sapporo": null},
+  {"Sigma": null},
+  {"Space Gear": null},
+  {"Space Runner": null},
+  {
+    "Space Star": [
+      "I (1998-2005)",
+      "II (2012-)"
+    ]
+  },
+  {"Space Wagon": null},
+  {"Starion": null},
+  {"Tredia": null},
+  {"i-MiEV": null}
+], "Morgan": [
+  {"Aero 8": null},
+  {"Inny": null},
+  {"Plus 4": null},
+  {"Plus 8": null},
+  {"Roadster": null}
+], "Moskwicz": [
+  {"1500": null},
+  {"2138": null},
+  {"2140": null},
+  {"2141": null},
+  {"2142": null},
+  {"400": null},
+  {"401": null},
+  {"402": null},
+  {"403": null},
+  {"404": null},
+  {"407": null},
+  {"408": null},
+  {"410": null},
+  {"411": null},
+  {"412": null},
+  {"415": null},
+  {"416": null},
+  {"420": null},
+  {"422": null},
+  {"423": null},
+  {"426": null},
+  {"427": null},
+  {"432": null},
+  {"433": null},
+  {"434": null},
+  {"444": null},
+  {"Aleko": null},
+  {"G1": null},
+  {"G2": null},
+  {"G3": null},
+  {"G4": null},
+  {"G5": null}
+], "NSU": [
+  {"1000": null},
+  {"Inny": null},
+  {"RO 80": null}
+], "Nissan": [
+  {"100 NX": null},
+  {"200 SX": null},
+  {"240 SX": null},
+  {"280 ZX": null},
+  {"300 ZX": null},
+  {"350 Z": null},
+  {"370 Z": null},
+  {
+    "Almera": [
+      "N15 (1995-2000)",
+      "N16 (2000-2006)"
+    ]
+  },
+  {"Almera Tino": null},
+  {"Altima": null},
+  {"Armada": null},
+  {"Bluebird": null},
+  {"Cherry": null},
+  {"Cube": null},
+  {"Frontier": null},
+  {"GT-R": null},
+  {"Inny": null},
+  {"Interstar": null},
+  {
+    "Juke": [
+      "I (2010-2019)",
+      "II (2019-)"
+    ]
+  },
+  {"King Cab": null},
+  {"Kubistar": null},
+  {"Laurel": null},
+  {"Leaf": null},
+  {"Maxima": null},
+  {
+    "Micra": [
+      "K10 (1982-1992)",
+      "K11 (1992-2003)",
+      "K12 (2003-2010)",
+      "K13 (2010-2016)",
+      "K14 (2017-)"
+    ]
+  },
+  {
+    "Murano": [
+      "Z50 (2003-2008)",
+      "Z51 (2008-2014)",
+      "Z52 (2015-)"
+    ]
+  },
+  {"NP300 Pickup": null},
+  {"NV200": null},
+  {"NV300": null},
+  {"NV400": null},
+  {"Navara": null},
+  {
+    "Note": [
+      "I (2005-2013)",
+      "II (2013-)"
+    ]
+  },
+  {"Pathfinder": null},
+  {
+    "Patrol": [
+      "GR I Y60 (1987-1997)",
+      "GR II Y61 (1997-)",
+      "Inny"
+    ]
+  },
+  {"Pickup": null},
+  {"Pixo": null},
+  {"Prairie": null},
+  {"Primastar": null},
+  {
+    "Primera": [
+      "P10/W10 (1990-1998)",
+      "P11 (1996-2002)",
+      "P12 (2001-2007)"
+    ]
+  },
+  {"Pulsar": null},
+  {
+    "Qashqai": [
+      "I (2007-2013)",
+      "II (2013-)"
+    ]
+  },
+  {"Qashqai+2": null},
+  {"Quest": null},
+  {"Rogue": null},
+  {"Sentra": null},
+  {"Serena": null},
+  {"Silvia": null},
+  {"Skyline": null},
+  {"Stanza": null},
+  {
+    "Sunny": [
+      "B11 (1982-1987)",
+      "B12/N13 (1986-1991)",
+      "B13/N14 (1990-1995)"
+    ]
+  },
+  {
+    "Terrano": [
+      "I (1987-1995)",
+      "II (1995-)"
+    ]
+  },
+  {"Tiida": null},
+  {"Titan": null},
+  {"Trade": null},
+  {"Urvan": null},
+  {"Vanette": null},
+  {
+    "X-Trail": [
+      "I (2001-2007)",
+      "II (2007-2014)",
+      "III (2014-)"
+    ]
+  },
+  {"Xterra": null}
+], "Nysa": [
+  {"Inny": null},
+  {"Seria 500": null},
+  {"Seria N": null}
+], "Oldsmobile": [
+  {"Alero": null},
+  {"Aurora": null},
+  {"Bravada": null},
+  {"Custom Cruiser": null},
+  {"Cutlass": null},
+  {"Delta 88": null},
+  {"Eighty - Eight": null},
+  {"Inny": null},
+  {"Intrigue": null},
+  {"Regency": null},
+  {"Silhouette": null},
+  {"Supreme": null},
+  {"Toronado": null}
+], "Oltcit": [
+  {"Club": null},
+  {"Inny": null},
+  {"Special": null}
+], "Opel": [
+  {"Adam": null},
+  {
+    "Agila": [
+      "A (2000-2007)",
+      "B (2008-2014)"
+    ]
+  },
+  {"Ampera": null},
+  {"Antara": null},
+  {"Arena": null},
+  {"Ascona": null},
+  {
+    "Astra": [
+      "F (1991-2002)",
+      "G (1998-2009)",
+      "H (2004-2014)",
+      "J (2009-2015)",
+      "K (2015-)",
+      "K (2015-2021)",
+      "L (2021-)"
+    ]
+  },
+  {"Calibra": null},
+  {"Campo": null},
+  {"Cascada": null},
+  {
+    "Combo": [
+      "B (1994-2000)",
+      "C (2001-2011)",
+      "D (2011-2018)",
+      "E (2018-)"
+    ]
+  },
+  {"Commodore": null},
+  {
+    "Corsa": [
+      "A (1982-1993)",
+      "B (1993-2000)",
+      "C (2000-2006)",
+      "D (2006-2014)",
+      "E (2014-2019)",
+      "F (2019-)"
+    ]
+  },
+  {"Crossland X": null},
+  {"Diplomat": null},
+  {
+    "Frontera": [
+      "A (1992-1998)",
+      "B (1998-2004)"
+    ]
+  },
+  {"GT": null},
+  {"Grandland X": null},
+  {"Inny": null},
+  {
+    "Insignia": [
+      "A (2008-2017)",
+      "B (2017-)"
+    ]
+  },
+  {
+    "Kadett": [
+      "C (1973-1979)",
+      "D (1979-1984)",
+      "E (1984-1994)"
+    ]
+  },
+  {"Karl": null},
+  {"Manta": null},
+  {
+    "Meriva": [
+      "I (2002-2010)",
+      "II (2010-)"
+    ]
+  },
+  {"Mokka": null},
+  {"Monterey": null},
+  {"Monza": null},
+  {
+    "Movano": [
+      "I (1999-2003)",
+      "II (2003-2010)",
+      "III (2010-)"
+    ]
+  },
+  {"Nova": null},
+  {
+    "Omega": [
+      "A (1986-1994)",
+      "B (1994-1999)",
+      "B FL (1999-2003)"
+    ]
+  },
+  {"Pick up Sportcap": null},
+  {"Rekord": null},
+  {"Senator": null},
+  {"Signum": null},
+  {"Sintra": null},
+  {"Speedster": null},
+  {
+    "Tigra": [
+      "I (1994-2001)",
+      "II (2004-2009)"
+    ]
+  },
+  {
+    "Vectra": [
+      "A (1988-1995)",
+      "B (1995-2002)",
+      "C (2002-2008)"
+    ]
+  },
+  {
+    "Vivaro": [
+      "I (2001-2014)",
+      "II (2014-)"
+    ]
+  },
+  {
+    "Zafira": [
+      "A (1999-2005)",
+      "B (2005-2014)",
+      "C (2011-2019)",
+      "D (2019-)"
+    ]
+  }
+], "Peugeot": [
+  {"1007": null},
+  {"104": null},
+  {
+    "106": [
+      "I (1991-1996)",
+      "II (1996-2006)"
+    ]
+  },
+  {"107": null},
+  {"108": null},
+  {
+    "2008": [
+      "I (2013-2019)",
+      "II (2019-)"
+    ]
+  },
+  {"204": null},
+  {"205": null},
+  {"206": null},
+  {"206 CC": null},
+  {"206 plus": null},
+  {"207": null},
+  {"207 CC": null},
+  {
+    "208": [
+      "I (2012-2019)",
+      "II (2019-)"
+    ]
+  },
+  {
+    "3008": [
+      "I (2009-2016)",
+      "II (2016-)"
+    ]
+  },
+  {"301": null},
+  {"304": null},
+  {"305": null},
+  {"306": null},
+  {
+    "307": [
+      "I (2001-2005)",
+      "II (2005-)"
+    ]
+  },
+  {"307 CC": null},
+  {
+    "308": [
+      "T7 (2008-2013)",
+      "T9 (2014-)"
+    ]
+  },
+  {"308 CC": null},
+  {"309": null},
+  {"395": null},
+  {"4007": null},
+  {"4008": null},
+  {"404": null},
+  {"405": null},
+  {"406": null},
+  {"407": null},
+  {
+    "5008": [
+      "I (2009-2017)",
+      "II (2017-)"
+    ]
+  },
+  {"504": null},
+  {"505": null},
+  {"508": null},
+  {"604": null},
+  {"605": null},
+  {"607": null},
+  {"806": null},
+  {"807": null},
+  {"Bipper": null},
+  {"Boxer": null},
+  {"Expert": null},
+  {"Inny": null},
+  {
+    "Partner": [
+      "I (1996-2007)",
+      "II (2008-2018)"
+    ]
+  },
+  {"RCZ": null},
+  {"Rifter": null},
+  {"Traveller": null},
+  {"iOn": null}
+], "Piaggio": [
+  {"Inny": null},
+  {"Porter": null}
+], "Plymouth": [
+  {"Belvedere": null},
+  {"Caravelle": null},
+  {"Duster": null},
+  {"Fury": null},
+  {"GTX": null},
+  {"Gran Fury": null},
+  {"Grand Voyager": null},
+  {"Horizon": null},
+  {"Inny": null},
+  {"Laser": null},
+  {"Prowler": null},
+  {"Road Runner": null},
+  {"Satellite": null},
+  {"Superbird": null},
+  {"Turismo": null},
+  {"Valiant": null},
+  {"Voyager": null}
+], "Polestar": [
+  {"1": null},
+  {"2": null}
+], "Polonez": [
+  {"1.5": null},
+  {"1.6": null},
+  {"Atu": null},
+  {"Caro": null},
+  {"Inny": null}
+], "Pontiac": [
+  {"1000": null},
+  {"6000": null},
+  {"Bonneville": null},
+  {"Catalina": null},
+  {"Chieftain": null},
+  {"Fiero": null},
+  {"Firebird": null},
+  {"G6": null},
+  {"GTO": null},
+  {"Grand-Am": null},
+  {"Grand-Prix": null},
+  {"Inny": null},
+  {"Le Mans": null},
+  {"Montana": null},
+  {"Solstice": null},
+  {"Sunbird": null},
+  {"Sunfire": null},
+  {"Trans Am": null},
+  {"Trans Sport": null},
+  {"Vibe": null}
+], "Porsche": [
+  {"356": null},
+  {"718 Boxster": null},
+  {"718 Cayman": null},
+  {"718 Spyder": null},
+  {
+    "911": [
+      "930 (1983-1990)",
+      "964 (1989-1994)",
+      "991 (2011-2018)",
+      "992 (2019-)",
+      "993 (1993-1997)",
+      "996 (1997-2004)",
+      "997 (2005-2011)"
+    ]
+  },
+  {"912": null},
+  {"914": null},
+  {"924": null},
+  {"928": null},
+  {"944": null},
+  {"959": null},
+  {"962": null},
+  {"968": null},
+  {"Boxster": null},
+  {"Carrera GT": null},
+  {
+    "Cayenne": [
+      "I (2002-2010)",
+      "II (2010-)",
+      "III (2017-)"
+    ]
+  },
+  {"Cayman": null},
+  {"Inny": null},
+  {"Macan": null},
+  {"Panamera": null},
+  {"Taycan": null}
+], "Proton": [
+  {"Inny": null},
+  {"Seria 300": null},
+  {"Seria 400": null}
+], "RAM": [
+  {"1500": null},
+  {"2500": null},
+  {"3500": null},
+  {"Inny": null}
+], "Radical": [
+  {"SR3 RSX": null}
+], "Rayton Fissore": [
+  {"Magnum": null}
+], "Renault": [
+  {"10": null},
+  {"11": null},
+  {"12": null},
+  {"14": null},
+  {"18": null},
+  {
+    "19": [
+      "I (1988-1992)",
+      "II (1992-1997)"
+    ]
+  },
+  {"20": null},
+  {"21": null},
+  {"25": null},
+  {"30": null},
+  {"4": null},
+  {"5": null},
+  {"8": null},
+  {"9": null},
+  {"Alaskan": null},
+  {"Alpine A110": null},
+  {"Alpine A310": null},
+  {"Alpine V6": null},
+  {"Arkana": null},
+  {"Avantime": null},
+  {
+    "Captur": [
+      "I (2013-2019)",
+      "II (2019-)"
+    ]
+  },
+  {
+    "Clio": [
+      "I (1990-1998)",
+      "II (1998-2012)",
+      "III (2005-2012)",
+      "IV (2012-2018)",
+      "V (2019-)"
+    ]
+  },
+  {"Coupe": null},
+  {
+    "Espace": [
+      "I (1984-1991)",
+      "II (1991-1996)",
+      "III (1997-2003)",
+      "IV (2003-2014)",
+      "V (2015-)"
+    ]
+  },
+  {"Express": null},
+  {"Fluence": null},
+  {"Fuego": null},
+  {"Grand Espace": null},
+  {
+    "Grand Scenic": [
+      "II (2003-2009)",
+      "III (2009-2013)",
+      "IV (2013-)"
+    ]
+  },
+  {"Inny": null},
+  {"Kadjar": null},
+  {
+    "Kangoo": [
+      "I (1998-2008)",
+      "II (2008-)",
+      "IV (2013-)"
+    ]
+  },
+  {"Koleos": null},
+  {
+    "Laguna": [
+      "I (1993-2001)",
+      "II (2001-2007)",
+      "III (2007-)"
+    ]
+  },
+  {"Latitude": null},
+  {
+    "Master": [
+      "II (1998-2003)",
+      "III (2003-2010)",
+      "IV (2010-)"
+    ]
+  },
+  {
+    "Megane": [
+      "I (1996-2002)",
+      "II (2002-2008)",
+      "III (2008-2016)",
+      "IV (2016-)"
+    ]
+  },
+  {"Modus": null},
+  {"Safrane": null},
+  {
+    "Scenic": [
+      "II (2003-2009)",
+      "III (2009-2013)",
+      "IV (2013-)"
+    ]
+  },
+  {"Scenic Conquest": null},
+  {"Scenic RX4": null},
+  {"Symbol": null},
+  {"Talisman": null},
+  {"Thalia": null},
+  {
+    "Trafic": [
+      "I (1981-2000)",
+      "II (2001-2014)",
+      "III (2014-)"
+    ]
+  },
+  {
+    "Twingo": [
+      "I (1993-2007)",
+      "II (2007-2014)",
+      "III (2014-)"
+    ]
+  },
+  {"Twizy": null},
+  {"Vel Satis": null},
+  {"Wind": null},
+  {"Zoe": null}
+], "Rolls-Royce": [
+  {"Corniche": null},
+  {"Cullinan": null},
+  {"Flying Spur": null},
+  {"Ghost": null},
+  {"Inny": null},
+  {"Park Ward": null},
+  {"Phantom": null},
+  {"Silver Cloud": null},
+  {"Silver Down": null},
+  {"Silver Seraph": null},
+  {"Silver Shadow": null},
+  {"Silver Spirit": null},
+  {"Silver Spur": null},
+  {"Touring Limousine": null},
+  {"Wraith": null}
+], "Rover": [
+  {"Defender": null},
+  {
+    "Discovery": [
+      "I (1989-1998)",
+      "II (1998-2004)",
+      "III (2004-2009)",
+      "IV (2010-)",
+      "V (2017-)"
+    ]
+  },
+  {"Discovery Sport": null},
+  {
+    "Freelander": [
+      "I (1996-2006)",
+      "II (2006-)"
+    ]
+  },
+  {"Inny": null},
+  {
+    "Range Rover": [
+      "I (1970-1994)",
+      "II (1994-2001)",
+      "III (2001-2012)",
+      "IV (2012-2018)"
+    ]
+  },
+  {"Range Rover Evoque": null},
+  {
+    "Range Rover Sport": [
+      "I (2005-2013)",
+      "II (2013-)"
+    ]
+  },
+  {"Range Rover Velar": null}
+], "Saab": [
+  {"9-2X": null},
+  {
+    "9-3": [
+      "I (1998-2002)",
+      "II (2003-2011)"
+    ]
+  },
+  {"9-3X": null},
+  {"9-5": null},
+  {"9-7X": null},
+  {"90": null},
+  {"900": null},
+  {"9000": null},
+  {"96": null},
+  {"99": null},
+  {"Inny": null}
+], "Santana": [
+  {"Inny": null},
+  {"PS-10": null},
+  {"PS-300": null},
+  {"PS-350": null}
+], "Saturn": [
+  {"Astra": null},
+  {"Aura": null},
+  {"ION Quad Coupe": null},
+  {"ION Sedan": null},
+  {"Inny": null},
+  {"Outlook": null},
+  {"Relay": null},
+  {"SC": null},
+  {"SL": null},
+  {"SW": null},
+  {"Sky": null},
+  {"VUE": null}
+], "Scion": [
+  {"Inny": null},
+  {"xA": null},
+  {"xB": null},
+  {"xD": null}
+], "Seat": [
+  {
+    "Alhambra": [
+      "I (1996-2010)",
+      "II (2010-)"
+    ]
+  },
+  {"Altea": null},
+  {"Altea XL": null},
+  {"Arona": null},
+  {"Arosa": null},
+  {"Ateca": null},
+  {
+    "Cordoba": [
+      "I (1993-1999)",
+      "I FL (1999-2002)",
+      "II (2002-2010)"
+    ]
+  },
+  {"Exeo": null},
+  {
+    "Ibiza": [
+      "I (1985-1993)",
+      "II (1993-1999)",
+      "II FL (1999-2002)",
+      "III (2002-2008)",
+      "IV (2008-2017)",
+      "V (2017-)"
+    ]
+  },
+  {"Inca": null},
+  {"Inny": null},
+  {
+    "Leon": [
+      "I (1999-2005)",
+      "II (2005-2012)",
+      "III (2012-)",
+      "IV (2020 - )"
+    ]
+  },
+  {"Malaga": null},
+  {"Marbella": null},
+  {"Mii": null},
+  {"Ronda": null},
+  {"Tarraco": null},
+  {"Terra": null},
+  {
+    "Toledo": [
+      "I (1991-1999)",
+      "II (1999-2004)",
+      "III (2004-2009)",
+      "IV (2012-2018)"
+    ]
+  }
+], "Shuanghuan": [
+  {"Sceo": null}
+], "Smart": [
+  {"Crossblade": null},
+  {
+    "Forfour": [
+      "I (2004-2006)",
+      "II (2014-)"
+    ]
+  },
+  {
+    "Fortwo": [
+      "I (1998-2007)",
+      "II (2007-2013)",
+      "III (2014-)"
+    ]
+  },
+  {"Inny": null},
+  {"Roadster": null},
+  {"Roomster": null}
+], "SsangYong": [
+  {"Actyon": null},
+  {"Family": null},
+  {"Inny": null},
+  {"Korando": null},
+  {"Kyron": null},
+  {"MUSSO": null},
+  {"REXTON": null},
+  {"Rodius": null},
+  {"Tivoli": null},
+  {"XLV": null}
+], "Subaru": [
+  {"1800 Coupe": null},
+  {"B9 Tribeca": null},
+  {"BRZ": null},
+  {"Baja": null},
+  {
+    "Forester": [
+      "I (1997-2002)",
+      "II (2002-2008)",
+      "III (2008-2012)",
+      "IV (2013-)",
+      "V (2019 - )"
+    ]
+  },
+  {"G3X Justy": null},
+  {
+    "Impreza": [
+      "GC (1992-2001)",
+      "GD (2001-2007)",
+      "GH (2007-)"
+    ]
+  },
+  {"Inny": null},
+  {"Justy": null},
+  {
+    "Legacy": [
+      "I (1989-1994)",
+      "II (1994-1999)",
+      "III (1998-2003)",
+      "IV (2003-2009)",
+      "V (2009-2014)",
+      "VI (2014-)"
+    ]
+  },
+  {"Leone": null},
+  {"Levorg": null},
+  {
+    "OUTBACK": [
+      "I (1995-1999)",
+      "II (2000-2004)",
+      "III (2005-2009)",
+      "IV (2009-2015)",
+      "V (2015-)",
+      "VI (2020 - )",
+      "VI (2020-)"
+    ]
+  },
+  {"SVX": null},
+  {"Trezia": null},
+  {"Tribeca": null},
+  {"Vivio": null},
+  {"WRX": null},
+  {"XT": null},
+  {"XV": null}
+], "Suzuki": [
+  {"Across": null},
+  {"Alto": null},
+  {"Baleno": null},
+  {"Cappucino": null},
+  {"Carry": null},
+  {"Celerio": null},
+  {
+    "Grand Vitara": [
+      "I (1998-2005)",
+      "II (2005-2014)"
+    ]
+  },
+  {"Ignis": null},
+  {"Inny": null},
+  {"Jimny": null},
+  {"Kizashi": null},
+  {"LJ": null},
+  {"Liana": null},
+  {"Reno": null},
+  {"SJ": null},
+  {
+    "SX4": [
+      "I (2006-2013)",
+      "II (2013-)"
+    ]
+  },
+  {"SX4 S-Cross": null},
+  {"Samurai": null},
+  {"Splash": null},
+  {"Super-Carry": null},
+  {"Swace": null},
+  {
+    "Swift": [
+      "I (1983-1989)",
+      "II (1989-1996)",
+      "III (1996-2004)",
+      "IV (2004-2010)",
+      "V (2010-2017)",
+      "VI (2017-)"
+    ]
+  },
+  {
+    "Vitara": [
+      "I (1998-2005)",
+      "II (2005-2014)"
+    ]
+  },
+  {"Wagon R+": null},
+  {"X-90": null},
+  {"XL7": null}
+], "Syrena": [
+  {"101": null},
+  {"102": null},
+  {"103": null},
+  {"104": null},
+  {"105": null},
+  {"Bosto": null},
+  {"Inny": null},
+  {"R-20": null}
+], "TVR": [
+  {"Cerbera": null},
+  {"Chimaera": null},
+  {"Griffith": null},
+  {"Inny": null},
+  {"Tamora": null},
+  {"Tasmin": null},
+  {"Tuscan": null},
+  {"Vixen": null}
+], "Talbot": [
+  {"Horizon": null},
+  {"Inny": null},
+  {"Rancho": null},
+  {"Samba": null}
+], "Tarpan": [
+  {"233": null},
+  {"235": null},
+  {"237": null},
+  {"Honker": null},
+  {"Inny": null}
+], "Tata": [
+  {"Indica": null},
+  {"Indigo": null},
+  {"Inny": null},
+  {"Nano": null},
+  {"Safari": null},
+  {"Xenon": null}
+], "Tatra": [
+  {"Inny": null},
+  {"T613": null},
+  {"T613-4": null},
+  {"T700": null}
+], "Tavria": [
+  {"Inny": null},
+  {"ZAZ 1102": null},
+  {"ZAZ 1103": null},
+  {"ZAZ 1105": null}
+], "Tesla": [
+  {"Model 3": null},
+  {"Model S": null},
+  {"Model X": null},
+  {"Roadster": null},
+  {"Y": null}
+], "Thumm": [
+  {}
+], "Toyota": [
+  {"4-Runner": null},
+  {
+    "Auris": [
+      "I (2006-2012)",
+      "II (2012-)"
+    ]
+  },
+  {"Avalon": null},
+  {
+    "Avensis": [
+      "I (1997-2002)",
+      "II (2003-2009)",
+      "III (2009-)"
+    ]
+  },
+  {"Avensis Verso": null},
+  {
+    "Aygo": [
+      "I (2005-2014)",
+      "II (2014-)"
+    ]
+  },
+  {"C-HR": null},
+  {"Camry": null},
+  {"Camry Solara": null},
+  {
+    "Carina": [
+      "E (1992-1997)",
+      "II (1984-1992)"
+    ]
+  },
+  {"Celica": null},
+  {
+    "Corolla": [
+      "E8 i starsze (-1987)",
+      "Seria E10 (1992-1997)",
+      "Seria E11 (1997-2002)",
+      "Seria E12 (2001-2007)",
+      "Seria E15 (2007-2013)",
+      "Seria E16 (2012-2019)",
+      "Seria E21 (2019-)",
+      "Seria E9 (1987-1992)"
+    ]
+  },
+  {"Corolla Verso": null},
+  {"Cressida": null},
+  {"Crown": null},
+  {"Dyna": null},
+  {"FJ": null},
+  {"GT86": null},
+  {"Hiace": null},
+  {"Highlander": null},
+  {"Hilux": null},
+  {"Inny": null},
+  {
+    "Land Cruiser": [
+      "I (1981-1990)",
+      "II (1989-1997)",
+      "III (1996-2002)",
+      "IV (2002-2009)",
+      "V (2008-2010)",
+      "VI (2010-)"
+    ]
+  },
+  {"Lite-Ace": null},
+  {"MR2": null},
+  {"Matrix": null},
+  {"Mirai": null},
+  {"Paseo": null},
+  {"Picnic": null},
+  {"Previa": null},
+  {
+    "Prius": [
+      "I (1997-2003)",
+      "II (2000 - 2003)",
+      "II (2003-2009)",
+      "III (2009-2015)",
+      "IV (2015-2020)"
+    ]
+  },
+  {"Prius+": null},
+  {"ProAce": null},
+  {"Proace City": null},
+  {"Proace City Verso": null},
+  {"Proace Verso": null},
+  {
+    "RAV4": [
+      "I (1994-2000)",
+      "II (2000-2005)",
+      "III (2006-2012)",
+      "IV (2012-2018)",
+      "V (2018-)"
+    ]
+  },
+  {"Sequoia": null},
+  {"Sienna": null},
+  {"Starlet": null},
+  {"Supra": null},
+  {"Tacoma": null},
+  {"Tercel": null},
+  {"Tundra": null},
+  {"Urban Cruiser": null},
+  {"Venza": null},
+  {"Verso": null},
+  {"Verso S": null},
+  {
+    "Yaris": [
+      "I (1999-2005)",
+      "II (2005-2011)",
+      "III (2011-2019)",
+      "IV (2020-)"
+    ]
+  },
+  {"Yaris Cross": null},
+  {"Yaris Verso": null},
+  {"iQ": null}
+], "Trabant": [
+  {"601": null},
+  {"Inny": null},
+  {
+    "P 50": [
+      "60"
+    ]
+  }
+], "Triumph": [
+  {"Dolomite": null},
+  {"Inny": null},
+  {"Moss": null},
+  {"Spitfire": null},
+  {"TR3": null},
+  {"TR4": null},
+  {"TR5": null},
+  {"TR6": null},
+  {"TR7": null},
+  {"TR8": null}
+], "Uaz": [
+  {"969": null},
+  {"altul": null}
+], "VTN": [
+  {}
+], "Vanderhall": [
+  {"Speedster": null}
+], "Vauxhall": [
+  {"Astra": null},
+  {"Frontera": null},
+  {"Inny": null},
+  {"Omega": null},
+  {"Vectra": null},
+  {"Vivaro": null}
+], "Volkswagen": [
+  {"181": null},
+  {"Amarok": null},
+  {"Arteon": null},
+  {"Atlas": null},
+  {"Beetle": null},
+  {"Bora": null},
+  {"Buggy": null},
+  {"CC": null},
+  {
+    "Caddy": [
+      "I (1983-1993)",
+      "II (1995-2003)",
+      "III (2004-2015)",
+      "IV (2015-2020)",
+      "V (2020-)"
+    ]
+  },
+  {"California": null},
+  {"Caravelle": null},
+  {"Corrado": null},
+  {"Crafter": null},
+  {"Eos": null},
+  {"Fox": null},
+  {"Garbus": null},
+  {
+    "Golf": [
+      "I (1974-1983)",
+      "II (1983-1992)",
+      "III (1991-1998)",
+      "IV (1997-2006)",
+      "V (2003-2009)",
+      "VI (2008-2013)",
+      "VII (2012-2020)",
+      "VIII (2020-)"
+    ]
+  },
+  {"Golf Plus": null},
+  {"Golf Sportsvan": null},
+  {"ID.3": null},
+  {"ID.4": null},
+  {"Iltis": null},
+  {"Inny": null},
+  {
+    "Jetta": [
+      "A1 (1980-1984)",
+      "A2 (1984-1992)",
+      "A5 (2005-2010)",
+      "A6 (2010-)"
+    ]
+  },
+  {"Kafer": null},
+  {"Karmann Ghia": null},
+  {"LT": null},
+  {"Lupo": null},
+  {"Multivan": null},
+  {"New Beetle": null},
+  {
+    "Passat": [
+      "B1 (1973-1981)",
+      "B2 (1981-1987)",
+      "B3 (1988-1993)",
+      "B4 (1993-1997)",
+      "B5 (1996-2000)",
+      "B5 FL (2000-2005)",
+      "B6 (2005-2010)",
+      "B7 (2010-2014)",
+      "B8 (2014-)"
+    ]
+  },
+  {"Passat CC": null},
+  {"Phaeton": null},
+  {
+    "Polo": [
+      "I (1975-1981)",
+      "II (1981-1994)",
+      "III (1994-2001)",
+      "IV (2001-2009)",
+      "V (2009-2017)",
+      "VI (2017-)"
+    ]
+  },
+  {"Routan": null},
+  {"Santana": null},
+  {"Scirocco": null},
+  {
+    "Sharan": [
+      "I (1995-2010)",
+      "II (2010-)"
+    ]
+  },
+  {"T-Cross": null},
+  {"T-Roc": null},
+  {"Teramont": null},
+  {
+    "Tiguan": [
+      "I (2007-2016)",
+      "II (2016-)"
+    ]
+  },
+  {"Tiguan Allspace": null},
+  {
+    "Touareg": [
+      "I (2002-2010)",
+      "II (2010-)",
+      "III (2018-)"
+    ]
+  },
+  {
+    "Touran": [
+      "I (2003-2010)",
+      "II (2010-2015)",
+      "III (2015-)"
+    ]
+  },
+  {
+    "Transporter": [
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6"
+    ]
+  },
+  {"Vento": null},
+  {"up!": null}
+], "Volvo": [
+  {"245": null},
+  {"262": null},
+  {"340": null},
+  {"744": null},
+  {"745": null},
+  {"780": null},
+  {"850": null},
+  {"855": null},
+  {"945": null},
+  {"965": null},
+  {"C30": null},
+  {"C40": null},
+  {"C70": null},
+  {"Inny": null},
+  {"MY23": null},
+  {"Polar": null},
+  {
+    "S40": [
+      "I (1995-2004)",
+      "II (2004-2012)"
+    ]
+  },
+  {
+    "S60": [
+      "I (2000-2010)",
+      "II (2010-)",
+      "III (2018-)"
+    ]
+  },
+  {"S70": null},
+  {
+    "S80": [
+      "I (1998-2006)",
+      "II (2006-)"
+    ]
+  },
+  {"S90": null},
+  {"Seria 200": null},
+  {"Seria 300": null},
+  {"Seria 400": null},
+  {"Seria 700": null},
+  {"Seria 900": null},
+  {
+    "V40": [
+      "I (1995-2004)",
+      "II (2012-)"
+    ]
+  },
+  {"V50": null},
+  {
+    "V60": [
+      "I (2011-2018)",
+      "II (2018- )"
+    ]
+  },
+  {
+    "V70": [
+      "I (1997-2000)",
+      "II (1999-2007)",
+      "III (2007-)"
+    ]
+  },
+  {"V90": null},
+  {"XC 40": null},
+  {
+    "XC 60": [
+      "I (2008-2017)",
+      "II (2017-)"
+    ]
+  },
+  {"XC 70": null},
+  {
+    "XC 90": [
+      "I (2002-2014)",
+      "II (2014-)"
+    ]
+  }
+], "Warszawa": [
+  {"203": null},
+  {"204": null},
+  {"223": null},
+  {"224": null},
+  {"Inny": null},
+  {"M-20": null},
+  {"Pick-up": null}
+], "Wartburg": [
+  {"1.3": null},
+  {"311": null},
+  {"312": null},
+  {"313": null},
+  {"353": null},
+  {"Inny": null}
+], "Weismann": [
+  {"MF 25": null},
+  {"MF 28": null},
+  {"MF 3": null},
+  {"MF 30": null},
+  {"MF 35": null},
+  {"MF 4": null}
+], "Wołga": [
+  {"2410": null},
+  {"GAZ-21": null},
+  {"GAZ-24": null},
+  {"Inny": null}
+], "Yugo": [
+  {"102": null},
+  {"Florida": null},
+  {"Inny": null},
+  {"Koral": null}
+], "Zaporożec": [
+  {"965": null},
+  {"968": null},
+  {"Inny": null}
+], "Zastava": [
+  {"1100": null},
+  {"750": null},
+  {"Inny": null}
+], "Škoda": [
+  {"100": null},
+  {"105": null},
+  {"120": null},
+  {"130": null},
+  {"135": null},
+  {"Citigo": null},
+  {"Enyaq": null},
+  {
+    "Fabia": [
+      "I (1999-2008)",
+      "II (2007-2014)",
+      "III (2014-2021)",
+      "IV (2021-)"
+    ]
+  },
+  {"Favorit": null},
+  {"Felicia": null},
+  {"Forman": null},
+  {"Inny": null},
+  {"Kamiq": null},
+  {"Karoq": null},
+  {"Kodiaq": null},
+  {
+    "Octavia": [
+      "I (1996-2011)",
+      "II (2004-2013)",
+      "III (2013-)",
+      "IV (2020-)"
+    ]
+  },
+  {"Praktik": null},
+  {"RAPID": null},
+  {"Roomster": null},
+  {"Scala": null},
+  {
+    "Superb": [
+      "I (2001-2008)",
+      "II (2008-2018)",
+      "III (2015-)"
+    ]
+  },
+  {"Yeti": null}
+], "Żuk": [
+  {"Inny": null}
+]
+}
