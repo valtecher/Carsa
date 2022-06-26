@@ -34,13 +34,14 @@
       justify-content: space-between;
       align-items: flex-start;
       &-section{
+        max-width: 40%;
         display: flex;
         flex-direction: column;
         &-subSection{
           display: flex;
           flex-direction: row;
           align-items: center;
-          justify-content: space-between;
+          justify-content: flex-start;
           &-info{
             margin: 2px;
             font-family: 'M plus 1p';
@@ -68,11 +69,14 @@
   }
 
   &-body {
+    position: relative;
     &-section {
       margin: 10px;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      position: relative;
+      margin-bottom: 10px;
 
       &-header{
         font-size: 36px;
@@ -88,6 +92,11 @@
       &-halfwidth{
         width: 50%;
       }
+
+      &-center{
+        margin: 0 auto;
+
+      }
     }
   }
 }
@@ -99,5 +108,24 @@
   font-size: 36px;
   line-height: 53px;
   letter-spacing: -0.015em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 
+
+.edit-body-section-center {
+  position: absolute;
+  left: 50%;
+  right: -50%;
+
+
+}
+
+.editCar-inputPair{
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+ 
+}

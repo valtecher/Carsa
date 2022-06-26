@@ -9,9 +9,15 @@ import Button, { ButtonSize } from '../../components/common/button/Button';
 import { IReport } from '../../utils/models/Report';
 import ReportCard from '../../components/Cards/ReportCard/ReportCard';
 import { createKeyValueArrayFromObject, flattenObject } from '../../utils/helpers/flattenObject';
+import TextInput from '../../components/common/input/TextInput';
 
 interface IEditCarProps {
 
+}
+
+export enum CarPageModes {
+  VIEW =  'VIEW',
+  EDIT = 'EDIT'
 }
 
 const EditCar = (props:IEditCarProps) => {
@@ -19,6 +25,11 @@ const EditCar = (props:IEditCarProps) => {
   const params = useParams();
   const [ car, setCar ] = useState<CarType>()
   const [reports, setReports] = useState<Array<IReport>>();
+  const [ mode, setMode ] = useState<CarPageModes>(CarPageModes.VIEW);
+
+  const isInEditMode = ():boolean => {
+    return mode === CarPageModes.EDIT
+  }
 
   useEffect(() => {
     getCarById(params.id|| '').then((res) => {
@@ -35,12 +46,13 @@ const EditCar = (props:IEditCarProps) => {
       <Header/>
       <div className='editCar'>
         <div className='editCar-header'>
-          <div className='editCar-header-label'>Edit Car</div>
+          <div className='editCar-header-label'> { isInEditMode() ? 'Edit Car' : 'Car'  } </div>
           <div className='editCar-header-double'>{ car?.id }</div>
         </div>
         <div className='editCar-header-info'>
           <div className='editCar-header-info-section'>
             <div className='editCar-header-info-section-subSection'>
+              
               <div className='editCar-header-info-main'>{car?.CarBrand.name}</div>
               <div className='editCar-header-info-section-subSection-info'>{car?.CarModel.name}</div>
               <div className='editCar-header-info-section-subSection-info'>{ car?.CarGeneration.name }</div>
@@ -49,11 +61,12 @@ const EditCar = (props:IEditCarProps) => {
             <div className='editCar-header-info-section-subSection'>
               <div className='editCar-header-info-section-subSection-smallinfo'>{car?.registrationPlate}</div>
               <div className='editCar-header-info-section-subSection-smallinfo'>{car?.vin}</div>
-              <Button size={ButtonSize.SMALL} outerFunction={undefined} type={true} name={'Buy'}></Button>
-              <Button size={ButtonSize.SMALL} outerFunction={undefined} type={true} name={'Reject'}></Button>
-              <Button size={ButtonSize.SMALL} outerFunction={undefined} type={true} name={'Edit'}></Button>
-              <Button size={ButtonSize.SMALL} outerFunction={undefined} type={true} name={'Add Vin'}></Button>
-              <Button size={ButtonSize.SMALL} outerFunction={undefined} type={true} name={'Add Number plates'}></Button>
+              { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} outerFunction={undefined} type={true} name={'Buy'}></Button>}
+              { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} outerFunction={undefined} type={true} name={'Reject'}></Button>}
+              { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} outerFunction={() => {setMode(CarPageModes.EDIT)}} type={true} name={'Edit'}></Button>}
+              { !isInEditMode() ? '' : <Button size={ButtonSize.SMALL} outerFunction={undefined} type={true} name={'Add Vin'}></Button> }
+              { !isInEditMode() ? '' : <Button size={ButtonSize.SMALL} outerFunction={undefined} type={true} name={'Add Number plates'}></Button>}
+              
             </div>
           </div>
 
@@ -64,12 +77,13 @@ const EditCar = (props:IEditCarProps) => {
         </div>
         <div className='editCar-body'>
           <Carousel images={car?.images || []}/>
-          <div className='editCar-header-info-main'>Reports</div>
+          <div className='editCar-header-info-main'>Reports
+          </div>
           <div className='editCar-body-section'> 
             { reports?.map((report) => {
               return(
                 <div key={report.id} className='editCar-body-section-halfwidth'>
-                  <ReportCard editable={false} report={report} />
+                  <ReportCard editable={isInEditMode()} report={report} />
                 </div>
               )
             }) }
@@ -80,20 +94,22 @@ const EditCar = (props:IEditCarProps) => {
               <div>
                 <div className='carCard-expanded-specs-wrapper editCar-body-section-wrapper'>
                   { createKeyValueArrayFromObject(flattenObject(car || {}), ['state', 'id', 'images', 'mainImage', 'description', 'market', 'name', 'registrationPlate', 'model_id', 'vin']).map((item:any, index: number) => {
+                    
                     return(
-                      <div key={index} className='carCard-expanded-specs-wrapper-item'>
-                        <div className='carCard-expanded-specs-wrapper-item-key'>{ item[0] } </div> : { item[1] } 
+                      <div key={index} className='carCard-expanded-specs-wrapper-item editCar-inputPair'>
+                        <div className='carCard-expanded-specs-wrapper-item-key'>{ item[0] } </div> : {item[1] } 
                       </div>
                     )
                   })}
+                  <Button outerFunction={undefined} type={true} name={'Add spec'} ></Button>
                 </div>
               </div>
             </div>
 
           </div>
 
-          <div className='edit-body-section'>
-            <div className='editCar-header-info-main'>Features</div>
+            <div className='edit-body-section'>
+            { !isInEditMode()? '' :    <Button outerFunction={() => {setMode(CarPageModes.VIEW)}} type={true} name={'Save changes'} className='edit-body-section-center'></Button>}
           </div>
         </div>
       </div>
