@@ -1,29 +1,31 @@
-'use strict'
+'use strict';
+
 module.exports = {
-    up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('ReportType', {
-            id: {
-                type: Sequelize.UUID,
-                defaultValue: Sequelize.UUIDV4,
-                primaryKey: true,
-                allowNull: false
-            },
-            name: {
-                type: Sequelize.STRING,
-                allowNull: false,
-                unique: true
-            },
-            created_at: {
-                allowNull: false,
-                type: Sequelize.DATE
-            },
-            updated_at: {
-                allowNull: false,
-                type: Sequelize.DATE
+  up: async (queryInterface) => {
+    await queryInterface.createTable('ReportType', {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
+        allowNull: false
+      },
+      name: {
+        type: DataTypes.STRING(20),
+        allowNull: false,
+        unique: true,
+        validate: {
+          customValidator(value) {
+            if (!isReportTypeName(value)) {
+              throw new Error(
+                `Report type name should be one of the following: [${reportTypes.map((v) => `'${v}'`).join(', ')}]`
+              );
             }
-        })
-    },
-    down: async (queryInterface, Sequelize) => {
-        await queryInterface.dropTable('ReportType')
-    }
-}
+          }
+        }
+      }
+    });
+  },
+  down: async (queryInterface) => {
+    await queryInterface.dropTable('ReportType');
+  }
+};

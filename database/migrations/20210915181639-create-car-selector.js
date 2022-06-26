@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface) => {
-    await queryInterface.createTable('Technician', {
+    await queryInterface.createTable('CarSelector', {
       person_id: {
         type: DataTypes.UUID,
         allowNull: false,
@@ -12,14 +12,6 @@ module.exports = {
           key: 'person_id'
         }
       },
-      location_id: {
-        type: DataTypes.UUID,
-        allowNull: false,
-        references: {
-          model: 'Location',
-          key: 'id'
-        }
-      },
       creationDate: {
         type: DataTypes.DATE,
         allowNull: false
@@ -27,6 +19,6 @@ module.exports = {
     });
   },
   down: async (queryInterface) => {
-    await queryInterface.dropTable('Technician');
+    await queryInterface.dropTable('CarSelector');
   }
 };

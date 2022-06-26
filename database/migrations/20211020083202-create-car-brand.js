@@ -1,29 +1,22 @@
-'use strict'
+'use strict';
+
 module.exports = {
-    up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('CarBrand', {
-            id: {
-                type: Sequelize.UUID,
-                defaultValue: Sequelize.UUIDV4,
-                primaryKey: true,
-                allowNull: false
-            },
-            name: {
-                type: Sequelize.STRING,
-                allowNull: false,
-                unique: true
-            },
-            created_at: {
-                allowNull: false,
-                type: Sequelize.DATE
-            },
-            updated_at: {
-                allowNull: false,
-                type: Sequelize.DATE
-            }
-        })
-    },
-    down: async (queryInterface, Sequelize) => {
-        await queryInterface.dropTable('CarBrand')
-    }
-}
+  up: async (queryInterface) => {
+    await queryInterface.createTable('CarBrand', {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
+        allowNull: false
+      },
+      name: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+        unique: true
+      }
+    });
+  },
+  down: async (queryInterface) => {
+    await queryInterface.dropTable('CarBrand');
+  }
+};
