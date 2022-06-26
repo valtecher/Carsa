@@ -90,6 +90,7 @@ export const dummyCar:CarType = {
 }
 
 export const dummyCarWithImages:CarType = {
+  id: '#25353123098',
   mainImage: "",
   description: "",
   brand: "Volkswagen",

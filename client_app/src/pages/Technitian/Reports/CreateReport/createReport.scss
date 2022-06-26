@@ -1,0 +1,61 @@
+@import "../../../../variables.scss";
+.createReport{
+  position: absolute;
+  max-width: 1440px;
+  margin: 5vh auto;
+  right: 0;
+  left: 0;
+  width: 95%;
+  &-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    &-blotter{
+      background-color: $base-card-color;
+      width: 40%;
+      height: 355px;
+      border-radius: 20px;
+      display: flex;
+      flex-wrap: wrap;
+
+      &-label{
+        font-family: 'M plus 1p';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 36px;
+        letter-spacing: -0.015em;
+        color: #FFFFFF;
+      }
+      &-section{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        text-align: left;
+        min-height: 50px;
+        margin: 0;
+        width: 100%;
+        textarea {
+          border: 0;
+          width: 90%;
+          margin: 0 auto;
+          height: 110px;
+          resize: none;
+          overflow-y: scroll;
+          border-radius: 20px;
+          padding: 10px;
+        }
+        &-input {
+          width: 10%;
+        }
+      } 
+    }
+  
+    &-list{
+      width: 50%;
+    }
+  }
+
+}

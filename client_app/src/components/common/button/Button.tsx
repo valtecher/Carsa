@@ -8,11 +8,12 @@ interface IProps {
   outerFunction: any, 
   type: boolean,
   name: string,
-  size?: ButtonSize
+  size?: ButtonSize,
+  className?: string,
 }
 
 const Button = (props:IProps) => {
-  const {name, type, outerFunction, size} = props
+  const {name, type, outerFunction, size,className} = props
 
   const handleButtonSizes = (size:ButtonSize) => {
     switch(size){
@@ -26,7 +27,7 @@ const Button = (props:IProps) => {
   } 
 
   return(
-    <div style={ handleButtonSizes(size || ButtonSize.NORMAL)} className={`${type? 'button' : 'light_button'}`} onClick={handleClick}>
+    <div style={ handleButtonSizes(size || ButtonSize.NORMAL)} className={` ${ className } ${ type? 'button' : 'light_button'}`} onClick={handleClick}>
       {name}
     </div>
   )

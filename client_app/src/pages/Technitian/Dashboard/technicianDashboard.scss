@@ -1,0 +1,13 @@
+.technicianDashboard{
+  position: absolute;
+  max-width:  1400px;
+  width: 90%;
+  left: 0; 
+  right: 0;
+  margin: 100px auto;
+  
+  &-content{
+    display: flex;
+    justify-content: center;
+  }
+}

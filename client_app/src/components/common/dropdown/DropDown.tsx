@@ -18,14 +18,14 @@ const DropDown = (props:Props) => {
   }
 
   const handleItemSelect = (item:{ id:number, label: string, name: string }) => {
-      setSelectedOption(item?.label? item.label : item.name);
+      setSelectedOption(item?.label ?? item.name);
       setIsOpened(!isOpened);
       setOuterOptions(item, placeholder);  
   }
 
   useEffect(() => {
     const isInOptions = !!!( options.filter((option) => {
-      return option.name === selectedOption;
+      return option.name === selectedOption || option.label === selectedOption;
     }).length > 0 )
     if(isInOptions){
       setSelectedOption(placeholder?  `Choose  ${placeholder}` : 'Choose option')
@@ -44,7 +44,7 @@ const DropDown = (props:Props) => {
         { options.map((item, index:number) => {
           return(
             <div key={index} className='dropdown-menu-item' onClick={() => { handleItemSelect(item) }}>
-              {item?.label? item.label : item.name}
+              {item?.label ?? item.name}
             </div>
           )
         }) }

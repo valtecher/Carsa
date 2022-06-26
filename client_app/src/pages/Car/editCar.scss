@@ -1,0 +1,131 @@
+.editCar {
+  position: absolute;
+  max-width: 1400px;
+  width: 90%;
+  left: 0;
+  right: 0;
+  margin: 8vh auto;
+
+  
+
+  &-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &-label{
+      font-family: 'M plus 1p';
+      font-style: normal;
+      font-weight: 800;
+      font-size: 36px;
+      letter-spacing: -0.015em;
+      color: #000000;
+    }
+    
+    &-double{
+      margin-left: 10px;
+      font-size: 12px;
+
+    }
+
+    &-info{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      &-section{
+        max-width: 40%;
+        display: flex;
+        flex-direction: column;
+        &-subSection{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          &-info{
+            margin: 2px;
+            font-family: 'M plus 1p';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 28px;
+            line-height: 36px;
+            text-align: center;
+            letter-spacing: -0.015em;
+          }
+
+          &-smallinfo{
+            margin: 2px;
+            font-family: 'M plus 1p';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 24px;
+            text-align: center;
+            letter-spacing: -0.015em;
+          }
+        } 
+      }
+    }
+  }
+
+  &-body {
+    position: relative;
+    &-section {
+      margin: 10px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      position: relative;
+      margin-bottom: 10px;
+
+      &-header{
+        font-size: 36px;
+        font-family: 'M plus 1p';
+        font-style: normal;
+        font-weight: 800;
+      }
+
+      &-wrapper {
+        margin-top: 10px;
+      }
+
+      &-halfwidth{
+        width: 50%;
+      }
+
+      &-center{
+        margin: 0 auto;
+
+      }
+    }
+  }
+}
+
+.editCar-header-info-main{
+  font-family: 'M plus 1p';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 53px;
+  letter-spacing: -0.015em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+
+.edit-body-section-center {
+  position: absolute;
+  left: 50%;
+  right: -50%;
+
+
+}
+
+.editCar-inputPair{
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+ 
+}
