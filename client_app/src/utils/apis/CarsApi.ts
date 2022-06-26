@@ -33,3 +33,7 @@ export const getCarById = async (carId:String) => {
     console.log('Something went wrong', e)
   })
 }
+
+export const getLastCars = async() => {
+  return { data: [ dummyCar, dummyCar ]}
+}

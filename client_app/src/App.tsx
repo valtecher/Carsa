@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.scss';
 import HomePage from './pages/HomePage/HomePage';
 import {
@@ -14,7 +13,7 @@ import RegisterPage from './pages/Register/Register';
 import CarSelectorDashboard from './pages/CarSelector/Dashboard/CarSelectorDashboard';
 import OrderWithConfigurationDetails from './pages/CarSelector/OrderDetails/OrderWithConfigurationDetails';
 import AddCarConfiguration from './pages/CarSelector/AddCarConfiguration/AddCarConfiguration';
-import ClientDashboard from './pages/Client/Dashboard/ClientDashboard';
+import ClientDashboard from './pages/ClientPage/Dashboard/ClientDashboarsd';
 import ProtectedRoute from './components/protectedRoute/ProtectedRoute';
 import TechnicianDashboard from './pages/Technitian/Dashboard/TeachnitianDashboard';
 import CreateReport from './pages/Technitian/Reports/CreateReport/CreateReport';
@@ -39,8 +38,10 @@ function App() {
         
         <Route path='/car/edit/:id' element={<EditCar/>} />
 
+        <Route path='/client/dashboard' element={<ClientDashboard/>} />
+
         <Route element={<ProtectedRoute/>}>
-          <Route path='/client/dashboard' element={<ClientDashboard/>}/>
+          {/* <Route path='/client/dashboard' element={<ClientDashboard/>}/> */}
         </Route>
         
         <Route path="*" element={<Navigate to="/home"/>} />
