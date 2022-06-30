@@ -4967,13 +4967,13 @@
           },
           {
             "generation_id": "a20a89a9-734a-44eb-b5ea-78beec79252b",
-            "generation_name": "Mk2",
+            "generation_name": "Mk3",
             "start_year": "2006",
             "end_year": "2015"
           },
           {
             "generation_id": "746b693d-2ae7-4640-a359-80cb48e48a05",
-            "generation_name": "Mk3",
+            "generation_name": "Mk4",
             "start_year": "2015",
             "end_year": null
           }
@@ -9190,12 +9190,6 @@
             "end_year": "2005"
           },
           {
-            "generation_id": "90667419-1823-4d3f-a820-5e417844559a",
-            "generation_name": "W221",
-            "start_year": "2005",
-            "end_year": null
-          },
-          {
             "generation_id": "efc1aeff-b7f8-4a60-84c5-9f55ec876c7b",
             "generation_name": "W221",
             "start_year": "2005",
@@ -10849,12 +10843,6 @@
             "generation_name": "J",
             "start_year": "2009",
             "end_year": "2015"
-          },
-          {
-            "generation_id": "0504fb4a-b23f-4e90-ac3a-2ab338fa2282",
-            "generation_name": "K",
-            "start_year": "2015",
-            "end_year": null
           },
           {
             "generation_id": "62e7f8d0-5720-4f8f-b5b6-f99333008ed3",
@@ -13576,12 +13564,6 @@
             "end_year": null
           },
           {
-            "generation_id": "1a226c32-2dd9-4d4a-90c7-48da0312fd72",
-            "generation_name": "VI",
-            "start_year": "2020",
-            "end_year": null
-          },
-          {
             "generation_id": "2cd65994-a814-4030-88cd-7ab332c35708",
             "generation_name": "VI",
             "start_year": "2020",
@@ -14415,15 +14397,9 @@
             "end_year": "2003"
           },
           {
-            "generation_id": "f5736c82-ba97-472a-9879-674c39011a73",
-            "generation_name": "II",
-            "start_year": "2000",
-            "end_year": "2003"
-          },
-          {
             "generation_id": "d57e3f97-8d73-4d6f-86df-b1523d5f7543",
             "generation_name": "II",
-            "start_year": "2003",
+            "start_year": "2000",
             "end_year": "2009"
           },
           {

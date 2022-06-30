@@ -1,52 +1,42 @@
-'use strict'
+'use strict';
+
 module.exports = {
-    up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('Location', {
-            id: {
-                type: Sequelize.UUID,
-                defaultValue: Sequelize.UUIDV4,
-                primaryKey: true,
-                allowNull: false
-            },
-            country: {
-                type: Sequelize.STRING,
-                allowNull: false
-            },
-            state: {
-                type: Sequelize.STRING,
-                allowNull: false
-            },
-            city: {
-                type: Sequelize.STRING,
-                allowNull: false
-            },
-            postal_code: {
-                type: Sequelize.STRING,
-                allowNull: true
-            },
-            street: {
-                type: Sequelize.STRING,
-                allowNull: true
-            },
-            house_number: {
-                type: Sequelize.STRING,
-                allowNull: true
-            },
-            apartment_number: {
-                type: Sequelize.STRING,
-                allowNull: true
-            },
-            created_at: {
-                allowNull: false,
-                type: Sequelize.DATE
-            },
-            updated_at: {
-                allowNull: false,
-                type: Sequelize.DATE
-            }
-        })
-    },
-    down: async (queryInterface, Sequelize) => {
-        await queryInterface.dropTable('Location')
-    }
-}
+  up: async (queryInterface) => {
+    await queryInterface.createTable('Location', {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
+        allowNull: false
+      },
+      country: {
+        type: DataTypes.STRING(60),
+        allowNull: false,
+        unique: 'compositeIndex'
+      },
+      state: {
+        type: DataTypes.STRING(80),
+        allowNull: false,
+        unique: 'compositeIndex'
+      },
+      city: {
+        type: DataTypes.STRING(100),
+        allowNull: true,
+        unique: 'compositeIndex'
+      },
+      postal_code: {
+        type: DataTypes.STRING(10),
+        allowNull: true,
+        unique: 'compositeIndex'
+      },
+      street: {
+        type: DataTypes.STRING(140),
+        allowNull: true,
+        unique: 'compositeIndex'
+      }
+    });
+  },
+  down: async (queryInterface) => {
+    await queryInterface.dropTable('Location');
+  }
+};

@@ -1,24 +1,24 @@
-const uuid = require('uuid')
-const faker = require('faker')
+const uuid = require('uuid');
+const faker = require('faker');
 
-const people = []
+const people = [];
 
 for (let i = 0; i < 20; i++) {
-    people.push({
-        id: uuid.v4(),
-        first_name: faker.name.firstName(),
-        last_name: faker.name.lastName()
-    })
+  people.push({
+    id: uuid.v4(),
+    first_name: faker.name.firstName(),
+    last_name: faker.name.lastName()
+  });
 }
 
 module.exports = {
-    people: people,
+  people: people,
 
-    up: async (queryInterface, Sequelize) => {
-        await queryInterface.bulkInsert('Person', people, {})
-    },
+  up: async (queryInterface) => {
+    await queryInterface.bulkInsert('Person', people, {});
+  },
 
-    down: async (queryInterface, Sequelize) => {
-        await queryInterface.bulkDelete('Person', null, {})
-    }
-}
+  down: async (queryInterface) => {
+    await queryInterface.bulkDelete('Person', null, {});
+  }
+};

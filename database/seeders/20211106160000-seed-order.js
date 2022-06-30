@@ -1,36 +1,36 @@
-const uuid = require('uuid')
-const faker = require('faker')
-const clients = require('./20211106085323-seed-client')
-const managers = require('./20211106093024-seed-manager')
+const uuid = require('uuid');
+const faker = require('faker');
+const clients = require('./20211106085323-seed-client');
+const selectors = require('./20211106093024-seed-car-selector');
 
-const statuses = ['Created', 'Approved', 'Awaiting payment', 'Paid', 'In work', 'Finished', 'Delivered']
-const orders = []
+const statuses = ['Created', 'Approved', 'Awaiting payment', 'Paid', 'In work', 'Finished', 'Delivered'];
+const orders = [];
 
 let i = 0;
 while (i < 20) {
-    orders.push({
-        id: uuid.v4(),
-        status: statuses[randomInteger(0, statuses.length - 1)],
-        date: faker.date.recent(),
-        client_id: clients.clients[randomInteger(0, clients.clients.length - 1)].person_id,
-        manager_id: managers.managers[randomInteger(0, managers.managers.length - 1)].person_id,
-        sum: 20000
-    })
-    i++
+  orders.push({
+    id: uuid.v4(),
+    status: statuses[randomInteger(0, statuses.length - 1)],
+    date: faker.date.recent(),
+    client_id: clients.clients[randomInteger(0, clients.clients.length - 1)].person_id,
+    selector_id: selectors.selectors[randomInteger(0, selectors.selectors.length - 1)].person_id,
+    sum: randomInteger(300, 2000)
+  });
+  i++;
 }
 
 function randomInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 module.exports = {
-    orders: orders,
+  orders: orders,
 
-    up: async (queryInterface, Sequelize) => {
-        await queryInterface.bulkInsert('Order', orders, {})
-    },
+  up: async (queryInterface) => {
+    await queryInterface.bulkInsert('Order', orders, {});
+  },
 
-    down: async (queryInterface, Sequelize) => {
-        await queryInterface.bulkDelete('Order', null, {})
-    }
-}
+  down: async (queryInterface) => {
+    await queryInterface.bulkDelete('Order', null, {});
+  }
+};
