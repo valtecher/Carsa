@@ -1,4 +1,5 @@
 const { Model } = require('sequelize');
+import db from './';
 import ConfigurationType from '../../types/configuration';
 
 module.exports = (sequelize: any, DataTypes: any) => {
@@ -19,6 +20,27 @@ module.exports = (sequelize: any, DataTypes: any) => {
     mileage_from?: number;
     mileage_until?: number;
     location_id?: string;
+
+    getSpecs = async () => {
+      const brand = await db.CarBrand.findByPk(this.get('brand_id'), { raw: true });
+      const model = await db.CarModel.findByPk(this.get('model_id'), { raw: true });
+      const generation = await db.CarGeneration.findByPk(this.get('generation_id'), { raw: true });
+      const location = await db.Location.findByPk(this.get('location_id'), { raw: true });
+
+      return {
+        id: this.get('id'),
+        brand: brand?.name || null,
+        model: model?.name || null,
+        generation: generation?.name || null,
+        year: `${this.get('year_from') ?? ''}-${this.get('year_until') ?? ''}`,
+        engine_volume: `${this.get('engine_volume_from') ?? ''}-${this.get('engine_volume_until') ?? ''}`,
+        price: `${this.get('price_from') ?? ''}-${this.get('price_until') ?? ''}`,
+        type: this.get('type'),
+        transmission: this.get('transmission'),
+        mileage: `${this.get('mileage_from') ?? ''}-${this.get('mileage_until') ?? ''}`,
+        location: location
+      };
+    };
 
     static associate(models: any) {
       Configuration.belongsTo(models.Order, {
@@ -106,14 +128,14 @@ module.exports = (sequelize: any, DataTypes: any) => {
         }
       },
       engine_volume_from: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.DECIMAL(4, 2),
         allowNull: true,
         validate: {
           min: 0
         }
       },
       engine_volume_until: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.DECIMAL(4, 2),
         allowNull: true,
         validate: {
           customValidator(value) {
@@ -124,14 +146,14 @@ module.exports = (sequelize: any, DataTypes: any) => {
         }
       },
       price_from: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.INTEGER,
         allowNull: true,
         validate: {
           min: 0
         }
       },
       price_until: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.INTEGER,
         allowNull: true,
         validate: {
           customValidator(value) {
@@ -150,10 +172,22 @@ module.exports = (sequelize: any, DataTypes: any) => {
         allowNull: true
       },
       mileage_from: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        validate: {
+          min: 0
+        }
       },
       mileage_until: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        validate: {
+          customValidator(value) {
+            if (value && value < Configuration.mileage_from) {
+              throw new Error('The upper bound of mileage must be bigger than lower');
+            }
+          }
+        }
       },
       location_id: {
         type: DataTypes.UUID,
