@@ -1,4 +1,4 @@
-export const carOrderStatuses = ['Reserved', 'Expired'] as const;
+export const carOrderStatuses = ['Reserved', 'Expired', 'Deleted'] as const;
 
 export type CarOrderStatus = typeof carOrderStatuses;
 

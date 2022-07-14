@@ -46,7 +46,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
       });
 
       Car.belongsToMany(models.Order, {
-        as: 'car_orders',
+        as: 'car_order',
         through: 'Car_Order',
         foreignKey: 'car_id'
       });

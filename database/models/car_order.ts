@@ -7,12 +7,6 @@ module.exports = (sequelize: any, DataTypes: any) => {
     car_id!: string;
     start_reservation!: Date;
     status!: CarOrderStatus;
-
-    static associate(models: any) {
-      Car_Order.hasMany(models.Car, {
-        foreignKey: 'id'
-      });
-    }
   }
 
   Car_Order.init(
@@ -37,6 +31,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
       },
       start_reservation: {
         type: DataTypes.DATE,
+        defaultValue: sequelize.fn('NOW'),
         allowNull: false,
         comment: 'Timestamp when car reserved for this order only'
       },

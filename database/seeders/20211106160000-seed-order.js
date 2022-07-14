@@ -10,6 +10,7 @@ let i = 0;
 while (i < 20) {
   orders.push({
     id: uuid.v4(),
+    type: Math.random() > 0.5 ? 'Configuration' : 'Single_Car',
     status: statuses[randomInteger(0, statuses.length - 1)],
     date: faker.date.recent(),
     client_id: clients.clients[randomInteger(0, clients.clients.length - 1)].person_id,
