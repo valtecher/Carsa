@@ -200,9 +200,12 @@ module.exports = (sequelize: any, DataTypes: any) => {
     },
     {
       sequelize,
+      paranoid: true,
       modelName: 'Configuration',
       freezeTableName: true,
-      timestamps: false
+      timestamps: true,
+      createdAt: false,
+      updatedAt: false
     }
   );
 

@@ -4,6 +4,7 @@ import { OrderType } from '../../types/order';
 module.exports = (sequelize: any, DataTypes: any) => {
   class Order extends Model<OrderType> implements OrderType {
     id!: string;
+    type!: string;
     status!: string;
     client_id!: string;
     selector_id!: string;
@@ -12,7 +13,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
 
     static associate(models: any) {
       Order.belongsToMany(models.Car, {
-        as: 'cars',
+        as: 'car_order',
         through: 'Car_Order',
         foreignKey: 'order_id'
       });
@@ -43,6 +44,10 @@ module.exports = (sequelize: any, DataTypes: any) => {
         primaryKey: true,
         allowNull: false
       },
+      type: {
+        type: DataTypes.STRING(40),
+        allowNull: false
+      },
       status: {
         type: DataTypes.STRING(30),
         allowNull: false
@@ -65,6 +70,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
       },
       date: {
         type: DataTypes.DATE,
+        defaultValue: sequelize.fn('NOW'),
         allowNull: false
       },
       sum: {
@@ -74,9 +80,12 @@ module.exports = (sequelize: any, DataTypes: any) => {
     },
     {
       sequelize,
+      paranoid: true,
       modelName: 'Order',
       freezeTableName: true,
-      timestamps: false
+      timestamps: true,
+      createdAt: false,
+      updatedAt: false
     }
   );
 

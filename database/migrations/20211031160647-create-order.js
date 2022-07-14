@@ -9,6 +9,10 @@ module.exports = {
         primaryKey: true,
         allowNull: false
       },
+      type: {
+        type: DataTypes.STRING(40),
+        allowNull: false
+      },
       status: {
         type: DataTypes.STRING(30),
         allowNull: false
