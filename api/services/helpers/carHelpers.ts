@@ -1,4 +1,5 @@
 import { Transaction } from 'sequelize';
+import Logger from '../../../logger';
 import db from '../../../database/models';
 import reportHelpers from './reportHelpers';
 
@@ -50,8 +51,8 @@ const createCar = async (carBody: unknown) => {
     const car = (await getCarById(newCarId)).car;
 
     return { success: true, car };
-  } catch (error) {
-    console.error(error); // TODO: Log using logger
+  } catch (err) {
+    Logger.warn(err);
     return { success: false, message: 'Something went wrong' };
   }
 };
@@ -71,8 +72,8 @@ const updateCarById = async (carId: string, carBody: unknown) => {
     const updatedCar = (await getCarById(carId)).car;
 
     return { success: true, car: updatedCar };
-  } catch (error) {
-    console.error(error); // TODO: Log using logger
+  } catch (err) {
+    Logger.warn(err);
     return { success: false, message: 'Something went wrong' };
   }
 };
@@ -101,6 +102,7 @@ const deleteCarById = async (carId: string) => {
 
     return { success: true };
   } catch (error) {
+    Logger.warn(err);
     return { success: false, message: 'Something went wrong' };
   }
 };
