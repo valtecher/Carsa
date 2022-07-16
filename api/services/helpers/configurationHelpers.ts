@@ -1,4 +1,5 @@
 import { Transaction } from 'sequelize';
+import Logger from '../../../logger';
 import db from '../../../database/models';
 
 const getAllConfigurations = async ({
@@ -54,8 +55,8 @@ const createConfiguration = async (configurationBody: unknown) => {
     const configuration = (await getConfigurationById(newConfigurationId)).configuration;
 
     return { success: true, configuration };
-  } catch (error) {
-    console.error(error); // TODO: Log using logger
+  } catch (err) {
+    Logger.warn(err);
     return { success: false, message: 'Something went wrong' };
   }
 };
@@ -75,8 +76,8 @@ const updateConfigurationById = async (configurationId: string, configurationBod
     const updatedConfiguration = (await getConfigurationById(configurationId)).configuration;
 
     return { success: true, configuration: updatedConfiguration };
-  } catch (error) {
-    console.error(error); // TODO: Log using logger
+  } catch (err) {
+    Logger.warn(err);
     return { success: false, message: 'Something went wrong' };
   }
 };
@@ -95,7 +96,8 @@ const deleteConfigurationById = async (configurationId: string) => {
     });
 
     return { success: true };
-  } catch (error) {
+  } catch (err) {
+    Logger.warn(err);
     return { success: false, message: 'Something went wrong' };
   }
 };

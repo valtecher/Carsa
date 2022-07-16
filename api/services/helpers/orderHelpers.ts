@@ -1,5 +1,6 @@
 import { Transaction } from 'sequelize';
 import { RawOrderRecord } from '../../DTOs/rawOrderRecord';
+import Logger from '../../../logger';
 import db from '../../../database/models';
 import userHelpers from './userHelpers';
 
@@ -116,8 +117,8 @@ const createOrder = async (orderBody: unknown) => {
     const order = (await getOrderById(newOrderId)).order;
 
     return { success: true, order };
-  } catch (error) {
-    console.error(error); // TODO: Log using logger
+  } catch (err) {
+    Logger.warn(err);
     return { success: false, message: 'Something went wrong' };
   }
 };
@@ -137,8 +138,8 @@ const updateOrderById = async (orderId: string, orderBody: unknown) => {
     const updatedOrder = (await getOrderById(orderId)).order;
 
     return { success: true, order: updatedOrder };
-  } catch (error) {
-    console.error(error); // TODO: Log using logger
+  } catch (err) {
+    Logger.warn(err);
     return { success: false, message: 'Something went wrong' };
   }
 };
@@ -176,8 +177,8 @@ const deleteOrderById = async (orderId: string) => {
     });
 
     return { success: true };
-  } catch (error) {
-    console.error(error); // TODO: use Logger
+  } catch (err) {
+    Logger.warn(err);
     return { success: false, message: 'Something went wrong' };
   }
 };
