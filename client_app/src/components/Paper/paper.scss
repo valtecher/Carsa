@@ -1,0 +1,13 @@
+@import "../../variables.scss";
+
+.paper{
+  position: relative;
+  min-width: 320px;
+  width: 45%;
+  min-height: 250px;
+  height: auto;
+  border-radius: 20px;
+  background-color: $base-card-color;
+  padding: 10px;
+  margin: 10px;
+}

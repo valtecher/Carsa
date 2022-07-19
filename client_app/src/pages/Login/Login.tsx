@@ -117,7 +117,7 @@ const LoginPage = () => {
               <div className='login-wrapper-right-form-link' onClick={() => { navigate('/register') }}>Have no account?</div>
               <div className='login-wrapper-right-form-error'>{loginError}</div>
               <div className='login-wrapper-right-form-submit'>
-                <Button type={false} name='Log in' outerFunction={submit}/>
+                <Button type={false} name='Log in' onClick={submit}/>
               </div>
               <div className='login-wrapper-right-form-alternative'>
                 <p>or</p>

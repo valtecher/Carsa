@@ -32,7 +32,7 @@ const OrderWithConfigurationDetails =  (props:any) => {
             <div className='orderWithConfigurationDetails-header'>
               <p className='orderWithConfigurationDetails-header-label'>Details</p>
               <p>#908801231232</p>
-              <Button outerFunction={() => {}} type={true} name='Add Car'/>
+              <Button onClick={() => {}} type={true} name='Add Car'/>
             </div>
             <div className='orderWithConfigurationDetails-details'>
               <div className='orderWithConfigurationDetails-details-order'>

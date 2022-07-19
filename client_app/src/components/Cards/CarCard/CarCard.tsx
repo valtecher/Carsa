@@ -49,9 +49,9 @@ const CarCard = (props:ICarCardProps) => {
         <p className={`${ isExtended? 'carCard-expanded-info-naming carCard-expanded-info-naming-details':' carCard-info-naming carCard-info-naming-details'}`}>{ car?.registrationPlate || 'No registration plates' }</p>
         <p className={`${ isExtended? 'carCard-expanded-info-naming carCard-expanded-info-naming-details':' carCard-info-naming carCard-info-naming-details'}`}>{ car?.vin || 'No vin'}</p>
         <div className='carCard-expanded-info-naming-buttons'>
-          {(mode === CarCardModes.TECHNICIAN &&  isExtended) && <Button outerFunction={() => {  }} type={false} name={'Add report'} size={ButtonSize.SMALL}/>}
-          { isExtended && <Button outerFunction={() => { navigate(`/technician/report/add/${car.id || ''}`) }} type={false} name={'Edit'} size={ButtonSize.SMALL}/>}
-          { isExtended && <Button outerFunction={() => {}} type={false} name={'More'} size={ButtonSize.SMALL}/>}
+          {(mode === CarCardModes.TECHNICIAN &&  isExtended) && <Button onClick={() => {  }} type={false} name={'Add report'} size={ButtonSize.SMALL}/>}
+          { isExtended && <Button onClick={() => { navigate(`/technician/report/add/${car.id || ''}`) }} type={false} name={'Edit'} size={ButtonSize.SMALL}/>}
+          { isExtended && <Button onClick={() => {}} type={false} name={'More'} size={ButtonSize.SMALL}/>}
         </div>
       </div>
       { !isExtended && <div className='carCard-separator'></div>}

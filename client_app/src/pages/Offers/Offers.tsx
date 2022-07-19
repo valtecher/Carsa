@@ -117,8 +117,8 @@ const OffersPage = () =>  {
             <RangeSelect setOutsideOptions={rangeOptions} name={'milage'}/>
             <RangeSelect setOutsideOptions={rangeOptions} name={'year'}/>  
             <RangeSelect setOutsideOptions={rangeOptions} name={'power'}/>  
-            <Button name={'Filter'} type={true} outerFunction={handleFilterClick} ></Button>
-            <Button name={'Reset'} type={true} outerFunction={handleResetClick} ></Button>
+            <Button name={'Filter'} type={true} onClick={handleFilterClick} ></Button>
+            <Button name={'Reset'} type={true} onClick={handleResetClick} ></Button>
           </div>
           <div className='offers-wrapper-filter-image'>
             <img src={ArteonImg}></img>

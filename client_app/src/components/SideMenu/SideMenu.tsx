@@ -1,11 +1,11 @@
 import './sideMenu.scss';
-import BurgerIcon from '../../images/SideMenuIcons/Vectorburger.png';
-import ArrowIcon from '../../images/SideMenuIcons/Vectorarrow.png';
 import { useState } from 'react';
 import { sideMenuItems } from './sideMenuItems';
+import { useNavigate } from 'react-router-dom';
 
 const SideMenu = () => {
   
+  const navigate = useNavigate();
   const [ isOpened, setIsOpened ] = useState<boolean>(false);
 
   const handleMenuOpen = () => {
@@ -15,15 +15,15 @@ const SideMenu = () => {
   return(
     <div className={`sideMenu ${ isOpened ? 'menuExpanded' : '' }`}>
       <div  className={`sideMenu-burger expandedBurger `} onClick={handleMenuOpen}>
-        <img src={ isOpened? ArrowIcon :  BurgerIcon }></img>
+        <img src={ !isOpened? '../images/SideMenuIcons/Vectorburger.png' : '../images/SideMenuIcons/Vectorarrow.png' }></img>
       </div>
       <div className='sideMenu-items'>
         
         { sideMenuItems.map((item) => {
           return(
-            <div className='sideMenu-items-block' key={item.id}>
-              <img src={  '../../images/SideMenuIcons/Vectorhome.png' }></img>
-             { item.label }
+            <div className='sideMenu-items-block' key={item.id} onClick={() => {navigate(item.link)}}>
+              <img src={item.icon}/>
+              { isOpened? item.label : '' }
             </div>
           )
         }) }

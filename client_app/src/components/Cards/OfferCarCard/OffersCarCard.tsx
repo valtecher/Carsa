@@ -28,7 +28,7 @@ const OffersCarCard = (props:IProps) => {
         </div>
       </div>
       <div className='offersCarCard-footer'>
-        <Button type={false} name='Details' outerFunction={() => {}}/>
+        <Button type={false} name='Details' onClick={() => {}}/>
       </div>
     </div>
   )

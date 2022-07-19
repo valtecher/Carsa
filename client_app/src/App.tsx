@@ -18,6 +18,7 @@ import ProtectedRoute from './components/protectedRoute/ProtectedRoute';
 import TechnicianDashboard from './pages/Technitian/Dashboard/TeachnitianDashboard';
 import CreateReport from './pages/Technitian/Reports/CreateReport/CreateReport';
 import EditCar from './pages/Car/EditCar';
+import CreateOrder from './pages/Order/CreateOrder';
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
         
         <Route path='/carselector/dashboard'  element={<CarSelectorDashboard/>}/>
         <Route path='/carselector/details/:id' element={<OrderWithConfigurationDetails/>}/>
-        <Route path='/carselector/add/configuration/:id' element={<AddCarConfiguration/>}/>
+        <Route path='/carselector/add/configuration/:id' element={<AddCarConfiguration showHeader={true}/>}/>
         
         <Route path='/technician/dashboard' element={<TechnicianDashboard/>}/>
         <Route path='/technician/report/add/:id' element={<CreateReport/>}/>
@@ -39,6 +40,8 @@ function App() {
         <Route path='/car/edit/:id' element={<EditCar/>} />
 
         <Route path='/client/dashboard' element={<ClientDashboard/>} />
+
+        <Route path='/order/create' element={<CreateOrder/>}/>
 
         <Route element={<ProtectedRoute/>}>
           {/* <Route path='/client/dashboard' element={<ClientDashboard/>}/> */}

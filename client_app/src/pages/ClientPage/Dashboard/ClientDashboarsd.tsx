@@ -43,7 +43,7 @@ const ClientDashboard = () => {
         <SideMenu/>
         <div className='clientDashboard'>
           <div className='clientDashboard-mainInfo'>Last Events</div>
-          <Button outerFunction={() => {navigate('/order/add')}} type={true} name={'Add Order'}  />
+          <Button onClick={() => {navigate('/order/create')}} type={true} name={'Add Order'}  />
           <div className='clientDashboard-subInfo'>Last Orders</div>
           <div className='clientDashboard-section'>
             { orders.map((order) => {
