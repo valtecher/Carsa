@@ -36,12 +36,14 @@ export interface manualConfiguration {
 const mockBrands = [ { id: 1, label: 'Volkswagen', name: 'brand' } ]
 
 interface IAddCarConfigurationProps {
-  showHeader?:boolean
+  showHeader?:boolean;
+  mode?:boolean;
+  onSubmit?: (form:any) => void
 }
 
 const AddCarConfiguration = (props:IAddCarConfigurationProps) => {
 
-  const { showHeader } = props;
+  const { showHeader, mode, onSubmit } = props;
 
   const navigate = useLocation();
   const [ link, setLink ] = useState<string>('')
@@ -58,9 +60,9 @@ const AddCarConfiguration = (props:IAddCarConfigurationProps) => {
     })
   }
 
-  const handleDropdownChange = (e:any) => {
-    console.log(e.name);
-    setManualConfiguration({ ...manualConfiguration, [e.name]: e.label  });
+  const handleDropdownChange = (e:any, placeholder:any) => {
+    console.log('Inside configurtion: ', e.name, placeholder);
+    setManualConfiguration({ ...manualConfiguration, [placeholder.replaceAll(' ', '_')]: e.label  });
   }
 
   const handleManualConfigurationChange = (e:any) => {
@@ -73,6 +75,9 @@ const AddCarConfiguration = (props:IAddCarConfigurationProps) => {
 
   const handleSubmit = () => {
     const res:any = addCarToConfiguration(manualConfiguration ?? fetchedCar! );
+    if(onSubmit){
+      onSubmit(manualConfiguration ?? fetchedCar!);  
+    }
     
     if(res) {
 
@@ -80,7 +85,7 @@ const AddCarConfiguration = (props:IAddCarConfigurationProps) => {
 
   }
 
-  console.log(manualConfiguration || fetchedCar);
+  console.log('Testing: ', manualConfiguration || fetchedCar);
 
   return(
     <div className='carSelector-add'>
@@ -98,7 +103,7 @@ const AddCarConfiguration = (props:IAddCarConfigurationProps) => {
                 Add Manually 
               </div>
               <div className='carSelector-add-body-manual-body'>
-                <DropDown placeholder='Body type' options={mockBrands}/>
+                <DropDown placeholder='Body type' options={mockBrands} setOuterOptions={handleDropdownChange}/>
                 <DropDown placeholder='Brand' options={mockBrands} setOuterOptions={handleDropdownChange}/>
                 <DropDown placeholder='Model' options={mockBrands} setOuterOptions={handleDropdownChange}/>
                 <DropDown placeholder='Generation' options={mockBrands} setOuterOptions={handleDropdownChange}/>
@@ -138,7 +143,7 @@ const AddCarConfiguration = (props:IAddCarConfigurationProps) => {
       </div>
       <div className='carSelector-add-submit'>
          { fetchedCar && <Button name={'Reset'} onClick={handleReset} type={true}/>} 
-          <Button name={'Submit'} onClick={handleSubmit} type={true}/>
+         <Button name={'Submit'} onClick={handleSubmit} type={true}/> 
       </div>
     </div>
   )

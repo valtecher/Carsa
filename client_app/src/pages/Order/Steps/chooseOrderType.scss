@@ -1,3 +1,5 @@
+@import "../../../variables.scss";
+
 .chooseOrderTypeStep {
   display: flex;
   justify-content: row;
@@ -6,3 +8,40 @@
     margin: 15px auto;
   }
 } 
+
+.paymentStep {
+  width: 100%;
+  display: flex;
+  &-decoration {
+    width: 50%;  
+  }
+  &-content{
+    width: 50%;
+    height: 80vh;
+    background-color: $base-card-color;
+    p {
+      width: 100px;
+      margin: 10px auto;
+      align-items: center;
+    }
+    &-card {
+      position: relative;
+      padding: 20px;
+      width: 550px;
+      height: 350px;
+      background: radial-gradient(#e66465, #9198e5);
+      border-radius: 30px;
+      margin: 0 auto;
+      -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+      -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+      box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+
+    }
+
+  }
+
+  &-submit { 
+    width: 100px;
+    margin: 0 auto;
+  }
+}

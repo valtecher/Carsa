@@ -75,18 +75,22 @@ export const getLastOrders = async () => {
   }
 
 
-export const addCarToConfiguration = (car: manualConfiguration | CarType) => {
+export const addCarToConfiguration = async (car: manualConfiguration | CarType) => {
   axios.post('', { body: car }).then((res) => { return res;  }).catch((e) => {console.log(e);})
 }
 
-export const addReportToConfiguration = (report:IReport) => {
+export const addReportToConfiguration = async (report:IReport) => {
   axios.post('', { report }).then((res) => {return res.data}).catch((e) => {
     console.log('something went wrong:', e)
   });
 }
 
-export const editReport = (updatedReport:IReport) => {
+export const editReport = async (updatedReport:IReport) => {
   axios.put('', { report: updatedReport }).then((res) => {return res.data}).catch((e) => {
     console.log('Something went wrong: ', e)
   });
+}
+
+export const createOrder = async (dataSet:any) => {
+  axios.post('', {...dataSet})
 }

@@ -14,7 +14,6 @@ interface IProps{
 
 const TextInput = ({placeholder, value, className, onChange, error, name, type = 'text',}:IProps) => {
 
-
   return(
     <div className={`textInput ${className} ${error?  'input-error' : ''}`}>
       <input name={name} value={value} onChange={onChange} placeholder={placeholder} type={type}></input>
