@@ -19,6 +19,7 @@ import TechnicianDashboard from './pages/Technitian/Dashboard/TeachnitianDashboa
 import CreateReport from './pages/Technitian/Reports/CreateReport/CreateReport';
 import EditCar from './pages/Car/EditCar';
 import CreateOrder from './pages/Order/CreateOrder';
+import ClientOrder from './pages/ClientPage/Orders/ClientOrders';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path='/car/edit/:id' element={<EditCar/>} />
 
         <Route path='/client/dashboard' element={<ClientDashboard/>} />
+        <Route path='/client/orders' element={<ClientOrder/>} />
 
         <Route path='/order/create' element={<CreateOrder/>}/>
 

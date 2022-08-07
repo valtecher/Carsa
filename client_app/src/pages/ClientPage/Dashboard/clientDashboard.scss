@@ -4,7 +4,13 @@
   width: 90%;
   left: 0;
   right: 0;
-  margin: 120px auto;
+  margin: 10vh auto;
+
+  &-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   &-section {
     display: flex;

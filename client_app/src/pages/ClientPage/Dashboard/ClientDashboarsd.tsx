@@ -2,7 +2,6 @@ import './clientDashboard.scss'
 import React, { useEffect, useState } from 'react';
 import Header from '../../../components/header/Header';
 import { IPayment } from '../../../utils/models/Payments';
-import { IOrder } from '../../../utils/models/Order';
 import { CarType } from '../../../utils/models/Car';
 import { getLastOrders } from '../../../utils/apis/OrderApi';
 import { getLastCars } from '../../../utils/apis/CarsApi';
@@ -42,8 +41,11 @@ const ClientDashboard = () => {
         <Header/>
         <SideMenu/>
         <div className='clientDashboard'>
+         
+         <div className='clientDashboard-header'>
           <div className='clientDashboard-mainInfo'>Last Events</div>
           <Button onClick={() => {navigate('/order/create')}} type={true} name={'Add Order'}  />
+        </div> 
           <div className='clientDashboard-subInfo'>Last Orders</div>
           <div className='clientDashboard-section'>
             { orders.map((order) => {
