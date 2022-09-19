@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { registerUserThunk } from '../../redux/thunks/userThunks'
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../redux/store';
+import { useFormik } from 'formik';
 
 interface FormError {
   hasError: boolean, 
@@ -18,86 +19,58 @@ interface FormError {
 export interface FormState {
   email: string | null | FormError; 
   password: string | null | FormError; 
-  first_name: string | null | FormError; 
-  second_name: string | null | FormError;
+  firstName: string | null | FormError; 
+  surName: string | null | FormError;
 }
 
 
-const fieldNames:FormState = {
-  email: 'email',
-  password: 'password',
-  first_name: 'firstName',
-  second_name: 'secondName',
-}
 
 const RegisterPage = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const defaultErrorState = {
-    email: null, 
-    password: null, 
-    first_name: null, 
-    second_name: null,
-  }
-  const [formFields, setFormFields] = useState<FormState>({ email: null, password: null, first_name: null, second_name: null })
-  const [formFieldsErrors, setFormFieldsErrors] = useState<FormState>(defaultErrorState)
   const isAuthenticated = useSelector((state: AppState) => state.user.isAuthenticated);
-  const registerError = useSelector((state: AppState) => state.user.error);
-  const onChange = (e:any) => {
-    setFormFields({...formFields, [e.target.name]: e.target.value})
-  }
 
-  const resetErrors = () => {
-    setFormFieldsErrors(defaultErrorState)
-  }
+  const validate = (values:any) => {
+    const errors:any = {};
+    if (!values.firstName) {
+      errors.firstName = 'Required';
+    } else if (values.firstName.length > 15) {
+      errors.firstName = 'Must be 15 characters or less';
+    }
   
-  const validate = ():boolean => {
-    resetErrors();
-    let flag = true; 
-    const emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    
-    let localError:FormState = {...defaultErrorState}
-    if(formFields.email === '' || formFields.email == null){
-      localError = {...localError, email: { hasError: true, message: 'Email is required' }}
-      flag = false;
+    if (!values.surName) {
+      errors.surName = 'Required';
+    } else if (values.surName.length > 20) {
+      errors.surName = 'Must be 20 characters or less';
     }
 
-    if ((!emailRegEx.test(formFields.email as string || '') && formFields.email !== null )) {
-      localError = {...localError,  email: { hasError: true, message: 'This is not email' }}
-      flag = false;
+    if(!values.password){
+      errors.password = 'Required';
     }
-
-    if(formFields.password == '' || formFields.password == null){
-      localError = {...localError, password: { hasError: true, message: 'Password is required' } }
-      flag = false;
+  
+    if (!values.email) {
+      errors.email = 'Required';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      errors.email = 'Invalid email address';
     }
-    
-    if((formFields.password as string)?.length <= 5 && (formFields.password as string)?.length > 0){
-      localError = {...localError, password: { hasError: true, message: 'Password cannot be shorter than 5 symbols' }  }
-      flag = false;
-    }
-
-    if(formFields.first_name == '' || formFields.first_name == null){
-      localError = {...localError, first_name: { hasError: true, message: 'First name is required' }  }
-      flag = false;
-    }
-   
-    if(formFields.second_name == '' || formFields.second_name == null){
-      localError = {...localError, second_name: { hasError: true, message: 'Second name is required' }  }
-      flag = false;
-    }
-    setFormFieldsErrors({...localError})
-    return flag;
-  }
+  
+    return errors;
+  };
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+      firstName: '',
+      surName: ''
+    },
+    validate,
+    onSubmit: (values:any) => submit(),
+  });
 
   const submit = () => {
-    if(validate()){
-      console.log('here');
-      dispatch(registerUserThunk(formFields));
-    } else {
-      console.log('Error occurred on validation', formFieldsErrors);
-    }
+      console.log('Submit');
+      dispatch(registerUserThunk(formik.values));
   }
 
   return(
@@ -119,12 +92,63 @@ const RegisterPage = () => {
             </div>
         </div>
         <div className='register-wrapper-right-form'>
-          <TextInput onChange={onChange} value={formFields.email} name={fieldNames.email as string || ''} error={formFieldsErrors.email}  placeholder='E-mail'></TextInput>
-          <TextInput type='password' onChange={onChange} value={formFields.password} name={fieldNames.password as string || ''} error={formFieldsErrors.password} placeholder='Password'></TextInput>
-          <TextInput onChange={onChange} value={formFields.first_name} name={fieldNames.first_name as string || ''} error={formFieldsErrors.second_name} placeholder='First name'></TextInput>
-          <TextInput onChange={onChange} value={formFields.second_name} name={fieldNames.second_name as string || ''} error={formFieldsErrors.second_name} placeholder='Second name'></TextInput>
+          <form className='styled-form' onSubmit={formik.handleSubmit}>
+            <div>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder='email'
+                onChange={formik.handleChange}
+                value={formik.values.email}
+              />
+               {formik.touched.email && formik.errors.email ? (
+                  <div className='form-error'>{formik.errors.email}</div>
+                ) : null}
+            </div>
+            <label htmlFor="email"> </label>
+            <div className='input-wrapper'>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder='Password'
+                onChange={formik.handleChange}
+                value={formik.values.password}
+              />
+                {formik.touched.password && formik.errors.password ? (
+                  <div className='form-error'>{formik.errors.password}</div>
+                ) : null}
+            </div>
+            <div className='input-wrapper'>
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                placeholder='First Name'
+                onChange={formik.handleChange}
+                value={formik.values.firstName}
+              />
+              {formik.touched.firstName && formik.errors.firstName ? (
+                <div className='form-error'>{formik.errors.firstName}</div>
+              ) : null}
+            </div>
+            <div className='input-wrapper'>
+              <input
+                id="surName"
+                name="surName"
+                type="text"
+                placeholder='Sur Name'
+                onChange={formik.handleChange}
+                value={formik.values.surName}
+              />
+              {formik.touched.surName && formik.errors.surName ? (
+                <div className='form-error'>{formik.errors.surName}</div>
+              ) : null}
+            </div>
+            <button type="submit">Submit</button>
+          </form>
           <div className='login-wrapper-right-form-link' onClick={() => { navigate('/login') }}>Have account?</div>
-          <div className='login-wrapper-right-form-error'>{registerError}</div>
             <div className='login-wrapper-right-form-submit'>
               <Button type={false} name='Register' onClick={submit}/>
             </div>

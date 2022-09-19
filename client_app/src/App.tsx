@@ -20,6 +20,7 @@ import CreateReport from './pages/Technitian/Reports/CreateReport/CreateReport';
 import EditCar from './pages/Car/EditCar';
 import CreateOrder from './pages/Order/CreateOrder';
 import ClientOrder from './pages/ClientPage/Orders/ClientOrders';
+import ClientPayments from './pages/ClientPage/Payments/ClientPayments';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
 
         <Route path='/client/dashboard' element={<ClientDashboard/>} />
         <Route path='/client/orders' element={<ClientOrder/>} />
+        <Route path='client/payments' element={<ClientPayments/>} />
 
         <Route path='/order/create' element={<CreateOrder/>}/>
 

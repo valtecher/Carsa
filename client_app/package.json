@@ -17,6 +17,7 @@
     "aos": "^2.3.4",
     "axios": "^0.26.1",
     "dotenv": "^16.0.1",
+    "formik": "^2.2.9",
     "material-icons-react": "^1.0.4",
     "moment": "^2.29.3",
     "react": "^17.0.2",
