@@ -1,44 +1,37 @@
-'use strict'
+'use strict';
+
 module.exports = {
-    up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('Payment', {
-            id: {
-                type: Sequelize.UUID,
-                defaultValue: Sequelize.UUIDV4,
-                primaryKey: true,
-                allowNull: false
-            },
-            date: {
-                allowNull: false,
-                type: Sequelize.DATE
-            },
-            amount: {
-                allowNull: false,
-                type: Sequelize.FLOAT
-            },
-            sum: {
-                allowNull: false,
-                type: Sequelize.FLOAT
-            },
-            order_id: {
-                type: Sequelize.UUID,
-                allowNull: false,
-                references: {
-                    model: 'Order',
-                    key: 'id'
-                }
-            },
-            created_at: {
-                allowNull: false,
-                type: Sequelize.DATE
-            },
-            updated_at: {
-                allowNull: false,
-                type: Sequelize.DATE
-            }
-        })
-    },
-    down: async (queryInterface, Sequelize) => {
-        await queryInterface.dropTable('Payment')
-    }
-}
+  up: async (queryInterface) => {
+    await queryInterface.createTable('Payment', {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
+        allowNull: false
+      },
+      amount: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+        validate: {
+          isFloat: true,
+          min: 0.01
+        }
+      },
+      order_id: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        references: {
+          model: 'Order',
+          key: 'id'
+        }
+      },
+      date: {
+        type: DataTypes.DATE,
+        allowNull: false
+      }
+    });
+  },
+  down: async (queryInterface) => {
+    await queryInterface.dropTable('Payment');
+  }
+};

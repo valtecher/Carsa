@@ -1,32 +1,32 @@
-const uuid = require('uuid')
-const orders = require('./20211106160000-seed-order')
+const uuid = require('uuid');
+const faker = require('faker');
+const orders = require('./20211106160000-seed-order');
 
-const payments = []
+const payments = [];
 
 for (let i = 0; i < 20; i++) {
-    const amount = (100 + Math.random() * 5000).toFixed(2)
+  const amount = (100 + Math.random() * 5000).toFixed(2);
 
-    payments.push({
-        id: uuid.v4(),
-        date: new Date(),
-        amount: amount,
-        sum: Math.random() > 0.5 ? amount : amount + randomInteger(100, 1500),
-        order_id: orders.orders[randomInteger(0, orders.orders.length - 1)].id
-    })
+  payments.push({
+    id: uuid.v4(),
+    date: faker.date.recent(),
+    amount: amount,
+    order_id: orders.orders[randomInteger(0, orders.orders.length - 1)].id
+  });
 }
 
 function randomInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 module.exports = {
-    payments: payments,
+  payments: payments,
 
-    up: async (queryInterface, Sequelize) => {
-        await queryInterface.bulkInsert('Payment', payments, {})
-    },
+  up: async (queryInterface) => {
+    await queryInterface.bulkInsert('Payment', payments, {});
+  },
 
-    down: async (queryInterface, Sequelize) => {
-        await queryInterface.bulkDelete('Payment', null, {})
-    }
-}
+  down: async (queryInterface) => {
+    await queryInterface.bulkDelete('Payment', null, {});
+  }
+};

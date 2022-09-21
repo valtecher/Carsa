@@ -1,25 +1,43 @@
-const uuid = require('uuid')
+const uuid = require('uuid');
 
-const equipmentNames = ['ABD', 'ESP', 'Gearbox lock', 'Immobilizer', 'Airbags', 'Alarm', 'Multi wheel',
-    'Central locking', 'Light sensor', 'Climate control', 'Start/Stop button', 'Leather interior', 'Cruise control',
-    'Sunroof', 'Seat memory', 'Parking sensors', 'Heated mirrors', 'Heated steering wheel', 'On-board computer']
-const equipments = []
+const equipmentNames = [
+  'ABD',
+  'ESP',
+  'Gearbox lock',
+  'Immobilizer',
+  'Airbags',
+  'Alarm',
+  'Multi wheel',
+  'Central locking',
+  'Light sensor',
+  'Climate control',
+  'Start/Stop button',
+  'Leather interior',
+  'Cruise control',
+  'Sunroof',
+  'Seat memory',
+  'Parking sensors',
+  'Heated mirrors',
+  'Heated steering wheel',
+  'On-board computer'
+];
+const equipments = [];
 
 for (let i = 0; i < equipmentNames.length; i++) {
-    equipments.push({
-        id: uuid.v4(),
-        name: equipmentNames[i]
-    })
+  equipments.push({
+    id: uuid.v4(),
+    name: equipmentNames[i]
+  });
 }
 
 module.exports = {
-    equipments: equipments,
+  equipments: equipments,
 
-    up: async (queryInterface, Sequelize) => {
-        await queryInterface.bulkInsert('Equipment', equipments, {})
-    },
+  up: async (queryInterface) => {
+    await queryInterface.bulkInsert('Equipment', equipments, {});
+  },
 
-    down: async (queryInterface, Sequelize) => {
-        await queryInterface.bulkDelete('Equipment', null, {})
-    }
-}
+  down: async (queryInterface) => {
+    await queryInterface.bulkDelete('Equipment', null, {});
+  }
+};

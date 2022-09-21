@@ -1,20 +1,20 @@
-const data = require('../../scraper/parsed_data.json')
+const data = require('../../scraper/parsed_data.json');
 
-const brands = data.map(brand => {
-    return {
-        id: brand.brand_id,
-        name: brand.brand_name
-    }
-})
+const brands = data.map((brand) => {
+  return {
+    id: brand.brand_id,
+    name: brand.brand_name
+  };
+});
 
 module.exports = {
-    brands: brands,
+  brands: brands,
 
-    up: async (queryInterface, Sequelize) => {
-        await queryInterface.bulkInsert('CarBrand', brands, {})
-    },
+  up: async (queryInterface) => {
+    await queryInterface.bulkInsert('CarBrand', brands, {});
+  },
 
-    down: async (queryInterface, Sequelize) => {
-        await queryInterface.bulkDelete('CarBrand', null, {})
-    }
-}
+  down: async (queryInterface) => {
+    await queryInterface.bulkDelete('CarBrand', null, {});
+  }
+};

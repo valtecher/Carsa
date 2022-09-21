@@ -1,8 +1,9 @@
 export interface OrderType {
-    id?: string,
-    status: string,
-    client_id: string,
-    manager_id: string,
-    date: Date,
-    sum: number
+  id: string;
+  type: string;
+  status: string;
+  client_id: string;
+  selector_id: string;
+  date: Date;
+  sum: number;
 }

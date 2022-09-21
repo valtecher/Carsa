@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser';
 import corsMiddleware from './api/middleware/cors';
 import router from './api/routes';
 import db from './database/models';
-var cors = require('cors');
+// var cors = require('cors');
 require('dotenv').config();
 
 const PORT = process.env.PORT;

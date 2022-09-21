@@ -1,49 +1,45 @@
-'use strict'
+'use strict';
+
+const { DataTypes } = require('sequelize/dist');
+
 module.exports = {
-    up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('Client', {
-            person_id: {
-                type: Sequelize.UUID,
-                allowNull: false,
-                primaryKey: true,
-                references: {
-                    model: 'Person',
-                    key: 'id'
-                }
-            },
-            email: {
-                type: Sequelize.STRING,
-                allowNull: false,
-                unique: true
-            },
-            password: {
-                type: Sequelize.STRING,
-                allowNull: false
-            },
-            phone: {
-                type: Sequelize.STRING,
-                allowNull: false,
-                unique: true
-            },
-            location_id: {
-                type: Sequelize.UUID,
-                allowNull: true,
-                references: {
-                    model: 'Location',
-                    key: 'id'
-                }
-            },
-            created_at: {
-                allowNull: false,
-                type: Sequelize.DATE
-            },
-            updated_at: {
-                allowNull: false,
-                type: Sequelize.DATE
-            }
-        })
-    },
-    down: async (queryInterface, Sequelize) => {
-        await queryInterface.dropTable('Client')
-    }
-}
+  up: async (queryInterface) => {
+    await queryInterface.createTable('Client', {
+      person_id: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        primaryKey: true,
+        references: {
+          model: 'Person',
+          key: 'id'
+        }
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          isEmail: {
+            msg: 'Email is not valid'
+          }
+        }
+      },
+      password: {
+        type: DataTypes.STRING(80),
+        allowNull: false
+      },
+      phone: {
+        type: DataTypes.STRING(30),
+        allowNull: false,
+        unique: true
+      },
+      creationDate: {
+        type: DataTypes.DATE,
+        allowNull: false
+      }
+    });
+  },
+  down: async (queryInterface) => {
+    await queryInterface.dropTable('Client');
+  }
+};
