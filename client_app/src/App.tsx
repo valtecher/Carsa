@@ -41,14 +41,12 @@ function App() {
         
         <Route path='/car/edit/:id' element={<EditCar/>} />
 
-        <Route path='/client/dashboard' element={<ClientDashboard/>} />
-        <Route path='/client/orders' element={<ClientOrder/>} />
-        <Route path='client/payments' element={<ClientPayments/>} />
-
-        <Route path='/order/create' element={<CreateOrder/>}/>
 
         <Route element={<ProtectedRoute/>}>
-          {/* <Route path='/client/dashboard' element={<ClientDashboard/>}/> */}
+          <Route path='/client/dashboard' element={<ClientDashboard/>} />
+          <Route path='/client/orders' element={<ClientOrder/>} />
+          <Route path='client/payments' element={<ClientPayments/>} />
+          <Route path='/order/create' element={<CreateOrder/>}/>
         </Route>
         
         <Route path="*" element={<Navigate to="/home"/>} />

@@ -42,7 +42,7 @@
           cursor: pointer;
         }
         &-submit{
-          margin-top: 50px;
+          color: tomato;
         }
       }
     }
@@ -71,6 +71,11 @@
     height: 35px;
     width: 100px;
     margin-bottom: 10px;
+
+    &:hover{
+      cursor: pointer;
+      background-color: #30303030;
+    }
   }
 }
 

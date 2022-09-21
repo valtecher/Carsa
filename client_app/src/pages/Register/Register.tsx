@@ -1,9 +1,6 @@
 import './Register.scss'
-import { useState } from 'react';
 import Header from "../../components/header/Header";
 import brandCar from '../../images/HomePage/arteon.png'
-import TextInput from '../../components/common/input/TextInput';
-import Button from '../../components/common/button/Button';
 import FaceBookIcon from '../../images/HomePage/facebook_icon.png';
 import { useNavigate } from 'react-router-dom';
 import { registerUserThunk } from '../../redux/thunks/userThunks'
@@ -19,8 +16,8 @@ interface FormError {
 export interface FormState {
   email: string | null | FormError; 
   password: string | null | FormError; 
-  firstName: string | null | FormError; 
-  surName: string | null | FormError;
+  first_name: string | null | FormError; 
+  last_name: string | null | FormError;
 }
 
 
@@ -30,19 +27,20 @@ const RegisterPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state: AppState) => state.user.isAuthenticated);
+  const userState = useSelector((state: AppState) => state.user);
 
   const validate = (values:any) => {
     const errors:any = {};
-    if (!values.firstName) {
-      errors.firstName = 'Required';
-    } else if (values.firstName.length > 15) {
-      errors.firstName = 'Must be 15 characters or less';
+    if (!values.first_name) {
+      errors.first_name = 'Required';
+    } else if (values.first_name.length > 15) {
+      errors.first_name = 'Must be 15 characters or less';
     }
   
-    if (!values.surName) {
-      errors.surName = 'Required';
-    } else if (values.surName.length > 20) {
-      errors.surName = 'Must be 20 characters or less';
+    if (!values.last_name) {
+      errors.last_name = 'Required';
+    } else if (values.last_name.length > 20) {
+      errors.last_name = 'Must be 20 characters or less';
     }
 
     if(!values.password){
@@ -61,8 +59,9 @@ const RegisterPage = () => {
     initialValues: {
       email: '',
       password: '',
-      firstName: '',
-      surName: ''
+      phone: '',
+      first_name: '',
+      last_name: ''
     },
     validate,
     onSubmit: (values:any) => submit(),
@@ -122,35 +121,50 @@ const RegisterPage = () => {
             </div>
             <div className='input-wrapper'>
               <input
-                id="firstName"
-                name="firstName"
+                id="phone"
+                name="phone"
+                type="text"
+                placeholder='Phone'
+                onChange={formik.handleChange}
+                value={formik.values.phone}
+              />
+                {formik.touched.password && formik.errors.password ? (
+                  <div className='form-error'>{formik.errors.password}</div>
+                ) : null}
+            </div>
+            <div className='input-wrapper'>
+              <input
+                id="first_name"
+                name="first_name"
                 type="text"
                 placeholder='First Name'
                 onChange={formik.handleChange}
-                value={formik.values.firstName}
+                value={formik.values.first_name}
               />
-              {formik.touched.firstName && formik.errors.firstName ? (
-                <div className='form-error'>{formik.errors.firstName}</div>
+              {formik.touched.first_name && formik.errors.first_name ? (
+                <div className='form-error'>{formik.errors.first_name}</div>
               ) : null}
             </div>
             <div className='input-wrapper'>
               <input
-                id="surName"
-                name="surName"
+                id="last_name"
+                name="last_name"
                 type="text"
                 placeholder='Sur Name'
                 onChange={formik.handleChange}
-                value={formik.values.surName}
+                value={formik.values.last_name}
               />
-              {formik.touched.surName && formik.errors.surName ? (
-                <div className='form-error'>{formik.errors.surName}</div>
+              {formik.touched.last_name && formik.errors.last_name ? (
+                <div className='form-error'>{formik.errors.last_name}</div>
               ) : null}
             </div>
             <button type="submit">Submit</button>
           </form>
+
           <div className='login-wrapper-right-form-link' onClick={() => { navigate('/login') }}>Have account?</div>
+           
             <div className='login-wrapper-right-form-submit'>
-              <Button type={false} name='Register' onClick={submit}/>
+              <div>{userState.error}</div>
             </div>
             <div className='login-wrapper-right-form-alternative'>
               <p>or</p>

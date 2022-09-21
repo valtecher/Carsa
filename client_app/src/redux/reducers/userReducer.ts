@@ -4,17 +4,13 @@ import { SET_USER, LOGOUT, LOGIN_FAILED } from '../actions/UserActions'
 interface userReducerInitialState{
   isAuthenticated: boolean, 
   user: User | null,
-  accessToken: string | null,
-  refreshToken: string | null,
   error: string | null,
 }
 
 const initialState:userReducerInitialState = {
   isAuthenticated: false, 
   user: null, 
-  error: null,
-  accessToken: null, 
-  refreshToken: null,
+  error: null, 
 }
 
 const userReducer = (state = initialState, action:any) => {
