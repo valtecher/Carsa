@@ -23,8 +23,8 @@ const ClientPayments = () => {
   
   useEffect(() => {
     
-      axios.get(`/payments/${userID}`).then((res) => {
-        console.log('inside use effect');
+      axios.get(`${process.env.REACT_APP_API_URL}/clientpersonalpayments`).then((res) => {
+
         if(res.data){
           setPayments(res.data);
         }
