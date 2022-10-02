@@ -7,6 +7,8 @@ import carGenerationsRouter from './generations';
 import configurationsRouter from './configurations';
 import ordersRouter from './orders';
 import carsRouter from './cars';
+import paymentsRouter from './payments';
+
 
 // const swaggerUI = require('swagger-ui-express');
 // const swaggerDocs = require('../../config/swagger');
@@ -26,7 +28,7 @@ router.use('/api/generations', carGenerationsRouter);
 router.use('/api/configurations', configurationsRouter);
 router.use('/api/orders', ordersRouter);
 router.use('/api/cars', carsRouter);
-// router.use('/api/payments', require('./payments'));
+router.use('/api/payments', paymentsRouter);
 // router.use('/api/scraper', require('./scrapper'));
 // router.use('/api/equipments', require('./equipments'));
 // router.use('/api/stripe', require('./stripePayments'));

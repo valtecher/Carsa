@@ -102,7 +102,7 @@ const deleteCarById = async (carId: string) => {
 
     return { success: true };
   } catch (error) {
-    Logger.warn(err);
+    Logger.warn(error);
     return { success: false, message: 'Something went wrong' };
   }
 };

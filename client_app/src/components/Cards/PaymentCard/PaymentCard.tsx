@@ -12,8 +12,8 @@ const PaymentCard = (props:IPaymentCardProps) => {
     <div className='paymentCard'>
       <div>
         <div className='paymentCard-mainInfo'>Payment</div>
-        <div className='paymentCard-smallInfo'>{ payment.id }</div>
-        <div className='paymentCard-smallInfo'> {moment().toISOString()} </div>
+        <div className='paymentCard-smallInfo'>{ payment.id.slice(0, 25) }</div>
+        <div className='paymentCard-smallInfo'> {moment(payment.date).format('DD-MM-YYYY hh:mm')} </div>
       </div>
       <div className='configurationCard-separator'></div>
       <div className='configurationCard-section'>

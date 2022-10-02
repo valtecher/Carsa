@@ -14,22 +14,20 @@ const Wrapper = styled.div`
   margin-left: 2%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 
 `
 
 const ClientPayments = () => {
-  const userID = useSelector((state:AppState) => state.user?.user?.id)
+  const userID = useSelector((state:AppState) => state.user?.user?.client_id)
   const [ payments, setPayments ] = useState<Array<IPayment>>();
   
   useEffect(() => {
-    
-      axios.get(`${process.env.REACT_APP_API_URL}/clientpersonalpayments`).then((res) => {
-
+      axios.get(`${process.env.REACT_APP_API_URL}/payments/client/${userID}`).then((res) => {
         if(res.data){
-          setPayments(res.data);
+          console.log(Object.values(res.data).flat());
+          setPayments(Object.values(res.data).flat() as any);
         }
-      }).catch(() => {
-        setPayments([dummyPayment, dummyPayment])
       })
    }, [])
 

@@ -14,8 +14,11 @@ interface ClientByEmail {
 
 const getClientByEmail = async (email: string): Promise<ClientByEmail> => {
   const client = await db.Client.findOne({
+    include: [
+      db.Person
+    ],
     attributes: [
-      [sequelize.col('person_id'), 'client_id'],
+      [sequelize.col('Person.id'), 'client_id'],
       [sequelize.col('Person.first_name'), 'first_name'],
       [sequelize.col('Person.last_name'), 'last_name'],
       'email',
@@ -23,9 +26,10 @@ const getClientByEmail = async (email: string): Promise<ClientByEmail> => {
       'password'
     ],
     where: { email },
-    include: [{ model: db.Person, required: true, attributes: [] }, { model: db.Location }],
     raw: true,
-    nest: true
+    nest: true,
+  }).catch((e:any) =>{ 
+    console.log('Error occurred', e);
   });
 
   return client;

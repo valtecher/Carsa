@@ -183,10 +183,22 @@ const deleteOrderById = async (orderId: string) => {
   }
 };
 
+const getAllOrdersForClient = async (client_id:string) => {
+  const orders = await db.Order.findAll({
+    include: [db.Payment],
+    where: {
+      client_id: client_id
+    }
+  });
+
+  return orders;
+}
+
 export default {
   getAllOrders,
   getOrderById,
   createOrder,
   updateOrderById,
-  deleteOrderById
+  deleteOrderById,
+  getAllOrdersForClient
 };

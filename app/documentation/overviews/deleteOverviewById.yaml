@@ -1,6 +1,0 @@
-paths:
-  /api/overviews/{id}:
-    delete:
-      summary: Retrieve a list of all overviews.
-      tags:
-        - ReportOverviews
