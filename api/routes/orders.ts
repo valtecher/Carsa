@@ -5,14 +5,16 @@ import { validateRequestSchema } from '../middleware/validateRequestSchema';
 
 const router = Router();
 
-router.get('/list', ordersController.getAllOrders);
+// router.get('/list', ordersController.getAllOrders);
+
+router.get('/client/:clientId', ordersController.getOrdersForClientId);
 
 router.get('/:orderId', validateOrderId, validateRequestSchema, ordersController.getOrderById);
 
-router.post('/', validateCreateOrder, validateRequestSchema, ordersController.createOrder);
+// router.post('/', validateCreateOrder, validateRequestSchema, ordersController.createOrder);
 
-router.put('/:orderId', validateOrderId, validateUpdateOrder, validateRequestSchema, ordersController.updateOrderById);
+// router.put('/:orderId', validateOrderId, validateUpdateOrder, validateRequestSchema, ordersController.updateOrderById);
 
-router.delete('/:orderId', validateOrderId, validateRequestSchema, ordersController.deleteOrderById);
+// router.delete('/:orderId', validateOrderId, validateRequestSchema, ordersController.deleteOrderById);
 
 export default router;

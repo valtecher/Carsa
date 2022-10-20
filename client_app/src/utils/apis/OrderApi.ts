@@ -2,7 +2,7 @@ import axios from 'axios';
 import { manualConfiguration } from '../../pages/CarSelector/AddCarConfiguration/AddCarConfiguration';
 import { uuid } from '../helpers/uuid';
 import { CarType, dummyCar } from '../models/Car';
-import { orderType } from '../models/Order';
+import { OrderType } from '../models/Order';
 import { IConfiguration } from '../models/OrderWithConfiguration';
 import { IReport } from '../models/Report';
 
@@ -10,7 +10,7 @@ export const getOrderbyDetails = async (orderId: string) => {
   if(orderId === 'test') {
     const configuration: IConfiguration = {
       id: '#000123123123',
-      type: orderType.Package,
+      type: OrderType.Package,
       specs: {
         id: '#12312',
         brand: 'Volkswagen',
@@ -26,12 +26,12 @@ export const getOrderbyDetails = async (orderId: string) => {
           volume: '1700-'
         } 
       },
-      client: {
-        id: '#98970028',
-        name: 'Dawid',
-        surName: 'Milyi'
+      Client: {
+        person_id: '#98970028',
+        first_name: 'Dawid',
+        last_name: 'Milyi'
       }, 
-      cars: [
+      OrderCars: [
         dummyCar, dummyCar, dummyCar,dummyCar,dummyCar,dummyCar
       ]
     }
@@ -47,7 +47,7 @@ export const getOrderbyDetails = async (orderId: string) => {
 
 export const configuration: IConfiguration = {
   id: '#000123123123',
-  type: orderType.Package,
+  type: OrderType.Package,
   specs: {
     id: '#12312',
     brand: 'Volkswagen',
@@ -63,20 +63,20 @@ export const configuration: IConfiguration = {
       volume: '1700-'
     } 
   },
-  client: {
-    id: '#98970028',
-    name: 'Dawid',
-    surName: 'Milyi'
+  Client: {
+    person_id: '#98970028',
+    first_name: 'Dawid',
+    last_name: 'Milyi'
   }, 
-  cars: [
+  OrderCars: [
     dummyCar, dummyCar, dummyCar,dummyCar,dummyCar,dummyCar
   ]
 }
 
-export const getLastOrders = async () => {
-   
-    return { data: [configuration, configuration] }
-  }
+export const getLastOrders = async (client_id:string) => {  
+    const orders = await retrieveAllClientOrders(client_id);
+    return { ...orders }
+}
 
 
 export const addCarToConfiguration = async (car: manualConfiguration | CarType) => {
@@ -100,5 +100,5 @@ export const createOrder = async (dataSet:any) => {
 }
 
 export const retrieveAllClientOrders = async (clientId:string) => {
-  return axios.get('', { params: { clientId: uuid() } });
+  return axios.get(`${process.env.REACT_APP_API_URL}/orders/client/${clientId}`);
 }

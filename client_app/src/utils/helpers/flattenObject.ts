@@ -5,7 +5,7 @@ interface KeyValuePair {
 
 export const flattenObject = (obj:any) => {
   const flattened:any = {}
-
+  if(!obj) return;
   Object.keys(obj).forEach((key) => {
     const value = obj[key]
 
@@ -18,11 +18,7 @@ export const flattenObject = (obj:any) => {
   return flattened
 }
 
-export const createKeyValueArrayFromObject = (obj:any, bannedKeys:Array<any> = []): Array<KeyValuePair> => {
-  const arr: Array<KeyValuePair> = [];
-  Object.entries(obj).map((pair:any) => {
-    if(!bannedKeys.includes(pair[0]))
-        arr.push(pair)
-  })
-  return arr;
+export const createKeyValueArrayFromObject = (obj:any, bannedKeys:Array<any> = []): Array<any> => {
+  if(!obj) return []
+  return Object.entries(obj).filter(([key]:any) => !bannedKeys.includes(key))
 }

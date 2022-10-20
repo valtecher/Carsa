@@ -59,7 +59,7 @@ const EditCar = (props:IEditCarProps) => {
               <div className='editCar-header-info-section-subSection-info'>{ car?.year }</div>
             </div>
             <div className='editCar-header-info-section-subSection'>
-              <div className='editCar-header-info-section-subSection-smallinfo'>{car?.registrationPlate}</div>
+              <div className='editCar-header-info-section-subSection-smallinfo'>{car?.registrationNumber}</div>
               <div className='editCar-header-info-section-subSection-smallinfo'>{car?.vin}</div>
               { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={undefined} type={true} name={'Buy'}></Button>}
               { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={undefined} type={true} name={'Reject'}></Button>}
@@ -94,7 +94,6 @@ const EditCar = (props:IEditCarProps) => {
               <div>
                 <div className='carCard-expanded-specs-wrapper editCar-body-section-wrapper'>
                   { createKeyValueArrayFromObject(flattenObject(car || {}), ['state', 'id', 'images', 'mainImage', 'description', 'market', 'name', 'registrationPlate', 'model_id', 'vin']).map((item:any, index: number) => {
-                    
                     return(
                       <div key={index} className='carCard-expanded-specs-wrapper-item editCar-inputPair'>
                         <div className='carCard-expanded-specs-wrapper-item-key'>{ item[0] } </div> : {item[1] } 

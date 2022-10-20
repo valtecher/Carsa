@@ -33,8 +33,8 @@ function App() {
         <Route path='/register' element={<RegisterPage/>}/>
         
         <Route path='/carselector/dashboard'  element={<CarSelectorDashboard/>}/>
-        <Route path='/carselector/details/:id' element={<OrderWithConfigurationDetails/>}/>
-        <Route path='/carselector/add/configuration/:id' element={<AddCarConfiguration showHeader={true}/>}/>
+        <Route path='/order/details/:id' element={<OrderWithConfigurationDetails/>}/>
+        <Route path='/order/add/configuration/:id' element={<AddCarConfiguration showHeader={true}/>}/>
         
         <Route path='/technician/dashboard' element={<TechnicianDashboard/>}/>
         <Route path='/technician/report/add/:id' element={<CreateReport/>}/>

@@ -11,7 +11,7 @@ export interface CarType {
   brand:string, 
   model:string, 
   generation:string,
-  registrationPlate?:string, 
+  registrationNumber?:string, 
   vin?:string,
   price:number,
   type:string, 
@@ -45,7 +45,7 @@ export const dummyCar:CarType = {
   drive: "Front",
   year: "2014",
   gearBox: "DSG",
-  registrationPlate: 'KR4321MV',
+  registrationNumber: 'KR4321MV',
   Engine: {
     name: 'tsi', 
     volume: '2000', 
@@ -104,7 +104,7 @@ export const dummyCarWithImages:CarType = {
   drive: "Front",
   year: "2014",
   gearBox: "DSG",
-  registrationPlate: 'KR4321MV',
+  registrationNumber: 'KR4321MV',
   Engine: {
     name: 'tsi', 
     volume: '2000', 

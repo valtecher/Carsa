@@ -7,19 +7,21 @@ import SideMenu from '../../../components/SideMenu/SideMenu';
 import { AppState } from '../../../redux/store';
 import { configuration, retrieveAllClientOrders } from '../../../utils/apis/OrderApi';
 import { CarType, dummyCar } from '../../../utils/models/Car';
-import { orderType } from '../../../utils/models/Order';
+import { OrderType } from '../../../utils/models/Order';
 import { IConfiguration } from '../../../utils/models/OrderWithConfiguration';
-import { User } from '../../../utils/models/User';
 import './ClientOrders.scss'
 
 const ClientOrder = () => {
-  const clientId = useSelector((state:AppState) => (state.user.user as User)?.id) || 'test';
-  const [ orders, setOrders ] = useState([ configuration, configuration, configuration, dummyCar, dummyCar ]);
+  const clientId = useSelector((state:AppState) => state.user.user.client_id) || 'test';
+  const [ orders, setOrders ] = useState<any>();
 
   useEffect(() => {
     if(clientId){
       retrieveAllClientOrders(clientId).then((res:any) => {
-        setOrders(res);
+        res.data.forEach((order:any) => {
+          console.log(order.type === OrderType.Package, order);
+        })
+        setOrders(res.data);
       });
     }
     
@@ -30,15 +32,15 @@ const ClientOrder = () => {
       <Header/>
       <SideMenu/>
       <div className='clientOrders'>
-        { orders.map((order, index: number) => {
+        { orders?.map((order:any, index: number) => {
           return(
             <div key={index} className=''>
-            { order.type === orderType.Package ? <ConfigurationCard configuration={order as IConfiguration}/> : <CarCard car={order as CarType}/>} 
+            { order.type === OrderType.Package ? <ConfigurationCard configuration={order as IConfiguration}/> : <CarCard car={order?.car_order?.[0] as CarType}/>} 
             </div>
           )
         }) }
       </div>
-     
+    
     </div>
   )
 }

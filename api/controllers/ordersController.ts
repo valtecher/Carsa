@@ -21,6 +21,12 @@ const getOrderById = async (req: Request, res: Response) => {
     : res.status(StatusCodes.BAD_REQUEST).json({ message: result.message });
 };
 
+const getOrdersForClientId = async (req: Request, res: Response) => {
+  const clientId = req.params.clientId;
+  const orders = await orderHelpers.getAllOrdersForClient(clientId)
+  res.json(orders);
+} 
+
 const createOrder = async (req: Request, res: Response) => {
   const orderBody = req.body;
 
@@ -54,6 +60,7 @@ const deleteOrderById = async (req: Request, res: Response) => {
 
 export default {
   getAllOrders,
+  getOrdersForClientId,
   getOrderById,
   createOrder,
   updateOrderById,

@@ -10,6 +10,7 @@ interface ClientByEmail {
   email: string;
   phone: string;
   password?: string;
+  role?: string; 
 }
 
 const getClientByEmail = async (email: string): Promise<ClientByEmail> => {

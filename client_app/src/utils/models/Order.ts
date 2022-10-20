@@ -1,4 +1,4 @@
-export enum orderType {
+export enum OrderType {
   Package = 'Package',
-  Single = 'Single',
+  Car = 'Car',
 }

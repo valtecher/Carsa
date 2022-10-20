@@ -13,6 +13,8 @@ import PaymentCard from '../../../components/Cards/PaymentCard/PaymentCard';
 import SideMenu from '../../../components/SideMenu/SideMenu';
 import Button from '../../../components/common/button/Button';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../../redux/store';
 
 
 const ClientDashboard = () => {
@@ -20,19 +22,22 @@ const ClientDashboard = () => {
   const [ orders, setOrders ] = useState<Array<IConfiguration>>([])
   const [ payments, setPayments ] = useState<Array<IPayment>>([]);
   const [ cars, setCars ] = useState<Array<CarType>>([]);
+
+  const client_id = useSelector((state:AppState) => state.user.user.client_id );
+
   const navigate = useNavigate()
 
   useEffect(() => {
-    getLastOrders().then((res) => {
+    getLastOrders(client_id).then((res) => {
       setOrders(res.data);
     })
 
-    getLastCars().then((res) => {
-      setCars(res.data)
+    getLastCars(client_id).then((res:any) => {
+      setCars(res)
     })
 
-    getLastPayments('test').then((res) => {
-      setPayments(res.data);
+    getLastPayments(client_id).then((res) => {
+      setPayments(Object.values(res).flat() as any);
     })
   }, [])
 
@@ -56,7 +61,7 @@ const ClientDashboard = () => {
           </div>
           <div className='clientDashboard-subInfo'>Last Cars</div>
           <div  id='clientDashboard-car' className='clientDashboard-section'>
-            { cars.map((car) => {
+            { cars?.map((car) => {
               return(<div key={car.id}>
                 <CarCard car={car}  />
               </div>)
@@ -64,7 +69,7 @@ const ClientDashboard = () => {
           </div>
           <div className='clientDashboard-subInfo'>Last Payments</div>
           <div id='clientDashboard-payment' className='clientDashboard-section'>
-            { payments.map((payment) => {
+            { payments?.map((payment) => {
               return(
               <div className='' key={payment.id}>
                 <PaymentCard payment={payment}/>
