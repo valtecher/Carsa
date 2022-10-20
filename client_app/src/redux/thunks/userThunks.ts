@@ -7,19 +7,25 @@ import { Axios, AxiosResponse } from "axios";
 
 export const registerUserThunk = (formFields:RegisterForm) => async (dispatch:any) => {
   const user:any = await register(formFields);
-  const userToSave:User = {
-    first_name: user.data.data.first_name, 
-    last_name: user.data.data.last_name, 
-    email: user.data.data.email, 
-    password: user.data.data.password,
+  if(typeof user !== 'string' ){
+    console.log(user);
+    const userToSave:User = {
+      first_name: user.data.first_name, 
+      last_name: user.data.last_name, 
+      email: user.data.email, 
+      password: user.data.password,
+    }
+    dispatch(setUser(userToSave))
+  } else {
+    dispatch(loginFailed(user))
   }
-  dispatch(setUser(userToSave))
+  
 }
 
 export const loginUserThunk = (formFields:LoginForm) => async (dispatch:any) => {
   const user:AxiosResponse<User> | string = await login(formFields);
+  console.log(user);
   if(typeof user === 'string' ){
-    console.log('String is here');
     dispatch(loginFailed(user))
   } else { 
     dispatch(setUser(user.data))

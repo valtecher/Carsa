@@ -82,7 +82,7 @@ const CreateReport = () => {
               <textarea name='description' onChange={handleChange} value={pendingReport.description}></textarea>
             </div>
             <div className='createReport-wrapper-blotter-section'>
-              <Button outerFunction={addReport} type={false} name={'Add report'}></Button>
+              <Button onClick={addReport} type={false} name={'Add report'}></Button>
             </div>
           </div>
           <div className='createReport-wrapper-list'>

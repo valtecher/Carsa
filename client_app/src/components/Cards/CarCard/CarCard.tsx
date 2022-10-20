@@ -7,6 +7,9 @@ import { createKeyValueArrayFromObject, flattenObject } from '../../../utils/hel
 
 import Slider from "react-slick";
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../../redux/store';
+import moment from 'moment';
 
 export enum CarCardModes {
   NONE='NONE',
@@ -21,37 +24,39 @@ interface ICarCardProps {
   mode?: CarCardModes;
 }
 
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 2.1,
+  slidesToScroll: 1
+};
+
 const CarCard = (props:ICarCardProps) => {
 
   const navigate = useNavigate();
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 2.1,
-    slidesToScroll: 1
-  };
+  const user = useSelector((state:AppState) => state.user.user)
+ 
   const { car, defaultExpended, mode } = props
   const [ isExtended, setIsExtended ] = useState<boolean>(defaultExpended || false);
 
   const handleExtend = () => {
     setIsExtended(!isExtended);
   }
-
-
+  console.log(car)
   return(
     <div className={`${ isExtended? 'carCard-expanded':' carCard'}`} onClick={handleExtend}>
       <div className={`${ isExtended? 'carCard-expanded-info':' carCard-info'}`}>
-        <p className={`${ isExtended? 'carCard-expanded-info-brand':' carCard-info-brand'}`}>{ car.CarBrand.name }</p>
-        <p className={`${ isExtended? 'carCard-expanded-info-naming':' carCard-info-naming'}`}>{ car.CarModel.name }</p>
-        <p className={`${ isExtended? 'carCard-expanded-info-naming':' carCard-info-naming'}`}>{ car.CarGeneration.name }</p>
-        <p className={`${ isExtended? 'carCard-expanded-info-naming':' carCard-info-naming'}`}>{ car.year }</p>
-        <p className={`${ isExtended? 'carCard-expanded-info-naming carCard-expanded-info-naming-details':' carCard-info-naming carCard-info-naming-details'}`}>{ car?.registrationPlate || 'No registration plates' }</p>
-        <p className={`${ isExtended? 'carCard-expanded-info-naming carCard-expanded-info-naming-details':' carCard-info-naming carCard-info-naming-details'}`}>{ car?.vin || 'No vin'}</p>
+        <p className={`${ isExtended? 'carCard-expanded-info-brand':' carCard-info-brand'}`}>{ car?.CarBrand?.name }</p>
+        <p className={`${ isExtended? 'carCard-expanded-info-naming':' carCard-info-naming'}`}>{ car?.CarModel?.name }</p>
+        <p className={`${ isExtended? 'carCard-expanded-info-naming':' carCard-info-naming'}`}>{ car?.CarGeneration?.name }</p>
+        <p className={`${ isExtended? 'carCard-expanded-info-naming':' carCard-info-naming'}`}>{ car?.year }</p>
+        <p className={`${ isExtended? 'carCard-expanded-info-naming carCard-expanded-info-naming-details':' carCard-info-naming carCard-info-naming-details'}`}>{ car?.registrationNumber || 'No registration plates' }</p>
+        <p className={`${ isExtended? 'carCard-expanded-info-naming carCard-expanded-info-naming-details':' carCard-info-naming carCard-info-naming-details'}`}>{ car?.vin?.substring(0, 30) + '...' || 'No vin'}</p>
         <div className='carCard-expanded-info-naming-buttons'>
-          {(mode === CarCardModes.TECHNICIAN &&  isExtended) && <Button outerFunction={() => {  }} type={false} name={'Add report'} size={ButtonSize.SMALL}/>}
-          { isExtended && <Button outerFunction={() => { navigate(`/technician/report/add/${car.id || ''}`) }} type={false} name={'Edit'} size={ButtonSize.SMALL}/>}
-          { isExtended && <Button outerFunction={() => {}} type={false} name={'More'} size={ButtonSize.SMALL}/>}
+          {(user?.role !== 'Client' &&  isExtended) && <Button onClick={() => {  }} type={false} name={'Add report'} size={ButtonSize.SMALL}/>}
+          { user?.role !== 'Client' && isExtended && <Button onClick={() => { navigate(`/technician/report/add/${car.id || ''}`) }} type={false} name={'Edit'} size={ButtonSize.SMALL}/>}
+          { isExtended && <Button onClick={() => {}} type={false} name={'More'} size={ButtonSize.SMALL}/>}
         </div>
       </div>
       { !isExtended && <div className='carCard-separator'></div>}
@@ -81,10 +86,11 @@ const CarCard = (props:ICarCardProps) => {
       { isExtended && <div className='carCard-expanded-specs'>
         <div className='carCard-expanded-specs-header'>Specs</div>
         <div className='carCard-expanded-specs-wrapper'>
-            {  createKeyValueArrayFromObject(flattenObject(car), ['state', 'id', 'images', 'mainImage', 'description', 'market', 'name', 'registrationPlate', 'model_id', 'vin']).map((item:any, index: number) => {
+            {  createKeyValueArrayFromObject(flattenObject(car), ['state', 'id', 'images', 'mainImage', 'description', 'market', 'name', 'registrationPlate', 'model_id', 'vin', 'generation_id', 'location_id', 'engine_id', 'brand_id']).map((item:any, index: number) => {
+              console.log('Item', item)
               return(
                 <div key={index} className='carCard-expanded-specs-wrapper-item'>
-                   <div className='carCard-expanded-specs-wrapper-item-key'>{ item[0] } </div> : { item[1] } 
+                   <div className='carCard-expanded-specs-wrapper-item-key'>{ item[0].replaceAll('_', ' ') } </div> : { ['start_reservation'].includes(item[0]) ? moment(item[1]).format('MMM DD YYYY hh:mm') : item[1]  } 
                 </div>
               )
             })}

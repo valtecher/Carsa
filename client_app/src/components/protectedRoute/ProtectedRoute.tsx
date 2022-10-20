@@ -4,7 +4,7 @@ import { AppState } from "../../redux/store";
 
 const ProtectedRoute = () => {
   const isAuthenticated:boolean = useSelector((state:AppState) => state.user.isAuthenticated);
-  console.log(isAuthenticated)
+
   return(
     isAuthenticated ? <Outlet/> : <Navigate to='/login'></Navigate>
   );

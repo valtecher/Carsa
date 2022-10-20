@@ -5,6 +5,6 @@ export interface IConfiguration {
   id: string,
   type: string, 
   specs?: ISpecification,
-  client?: IClient,
-  cars?: Array<CarType>,
+  Client?: IClient,
+  OrderCars?: Array<CarType>,
 }

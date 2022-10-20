@@ -5,7 +5,7 @@ export enum ButtonSize {
   SMALL,
 }
 interface IProps {
-  outerFunction: any, 
+  onClick: any, 
   type: boolean,
   name: string,
   size?: ButtonSize,
@@ -13,7 +13,7 @@ interface IProps {
 }
 
 const Button = (props:IProps) => {
-  const {name, type, outerFunction, size,className} = props
+  const {name, type, onClick, size,className} = props
 
   const handleButtonSizes = (size:ButtonSize) => {
     switch(size){
@@ -23,7 +23,7 @@ const Button = (props:IProps) => {
   }
 
   const handleClick = () => {
-    outerFunction();
+    onClick();
   } 
 
   return(

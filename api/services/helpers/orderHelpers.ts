@@ -52,6 +52,7 @@ const retrieveOrder = async (order: RawOrderRecord, isExtended: boolean): Promis
           attributes: {
             exclude: ['createdAt', 'updatedAt']
           },
+          include: [db.CarBrand, db.CarModel, db.CarGeneration],
           raw: true,
           nest: true
         });
@@ -96,7 +97,9 @@ const getAllOrders = async ({ limit = Number.MAX_SAFE_INTEGER, offset = 0 }: { l
 };
 
 const getOrderById = async (orderId: string) => {
-  const order = await db.Order.findByPk(orderId, { raw: true, nest: true });
+  const order = await db.Order.findByPk(orderId, { raw: true, nest: true, include: [
+    {model: db.Car, as: 'car_order', include: [db.CarBrand, db.CarModel, db.CarGeneration]} 
+  ] });
 
   if (!order) {
     return { success: false, message: `Order with provided id doesn't exist` };
@@ -107,9 +110,19 @@ const getOrderById = async (orderId: string) => {
   if (extendedOrder.deletedAt === null) {
     delete extendedOrder.deletedAt;
   }
-
+  console.log(extendedOrder);
   return { success: true, order: extendedOrder };
 };
+
+const getAllOrdersByClientId = async (clientId:string) => {
+  const orders = await db.Order.findAll({
+    where: {
+      clientId: clientId
+    }
+  });
+
+  return orders;
+}
 
 const createOrder = async (orderBody: unknown) => {
   try {
@@ -183,10 +196,23 @@ const deleteOrderById = async (orderId: string) => {
   }
 };
 
+const getAllOrdersForClient = async (client_id:string) => {
+  const orders = await db.Order.findAll({
+    include: [{ model:  db.Payment }, {model: db.Car, as: 'car_order', include: [db.CarBrand, db.CarModel, db.CarGeneration]} , db.Configuration],
+    where: {
+      client_id: client_id
+    }
+
+  });
+
+  return orders;
+}
+
 export default {
   getAllOrders,
   getOrderById,
   createOrder,
   updateOrderById,
-  deleteOrderById
+  deleteOrderById,
+  getAllOrdersForClient
 };

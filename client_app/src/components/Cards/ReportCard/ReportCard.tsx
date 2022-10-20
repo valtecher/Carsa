@@ -37,13 +37,13 @@ const ReportCard = (props:IReportCard) => {
         <div className='reportCard-header'>
           <div className='reportCard-header-type'>{ report.type }</div>
           <div className='reportCard-header-actions'>
-           { editable?   <Button size={ButtonSize.SMALL} outerFunction={() => { 
+           { editable?   <Button size={ButtonSize.SMALL} onClick={() => { 
               setMode(!mode) 
               if(!mode){
                 handleSave();
               }
             }} type={false} name={mode ? 'Edit' : 'Save'} ></Button> : '' }
-            { ! mode ? <Button size={ButtonSize.SMALL} outerFunction={() => {
+            { ! mode ? <Button size={ButtonSize.SMALL} onClick={() => {
               setPendingReport(report)
               setMode(!mode)
             }} type={false} name={'Cancel'} ></Button> : ''}

@@ -7,6 +7,8 @@ const router = Router();
 
 router.get('/list', carsController.getAllCars);
 
+router.get('/getclientcars/:clientId', carsController.getClientCars)
+
 router.get('/:carId', validateCarId, validateRequestSchema, carsController.getCarById);
 
 router.post('/', validateCreateCar, validateRequestSchema, carsController.createCar);

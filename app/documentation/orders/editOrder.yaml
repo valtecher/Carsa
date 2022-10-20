@@ -1,6 +1,0 @@
-paths:
-  /api/orders:
-    put:
-      summary: Retrieve a list of all orders.
-      tags:
-        - Orders

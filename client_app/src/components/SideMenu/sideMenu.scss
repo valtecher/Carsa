@@ -1,0 +1,59 @@
+@import "../../variables.scss";
+
+.sideMenu {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 3%;
+  background-color: $base-card-color;
+ 
+  &-burger{ 
+    width: 20px;
+    margin: 20px auto;
+    cursor: pointer;
+
+  } 
+
+  &-items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
+    font-family: 'M plus 1p';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    text-transform: capitalize;
+    margin-top: 15vh;
+
+    &-block {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 50%;
+      margin-bottom: 20px;
+      cursor: pointer;
+      img{
+        margin-right: 25px;
+        width: 20px;
+        height: 17px;
+      }
+    }
+    
+  }
+}
+
+.menuExpanded {
+  width:15%;
+}
+
+.expandedBurger{
+  position: absolute;
+  right: 10px;
+
+}

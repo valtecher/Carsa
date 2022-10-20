@@ -42,9 +42,57 @@
           cursor: pointer;
         }
         &-submit{
-          margin-top: 50px;
+          color: tomato;
         }
       }
     }
   }
+}
+
+
+.styled-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  input {
+    line-height: 30px;
+    font-size: 12px;
+    border: 0;
+    height: 35px;
+    width: 30vw;
+    margin: 10px;
+    border-radius: 20px;
+  }
+
+  button {
+    border: 0;
+    border-radius: 20px;
+    height: 35px;
+    width: 100px;
+    margin-bottom: 10px;
+
+    &:hover{
+      cursor: pointer;
+      background-color: #30303030;
+    }
+  }
+}
+
+.form-error{
+  margin: 0;
+  color: tomato;
+  font-weight: 800;
+  font-size: 10px;
+  height: 35px;
+  position: absolute;
+  right: 2vw;
+  top: 22.5px;
+}
+
+.input-wrapper{
+  position: relative;
+  height: 55px;
+ 
+ 
 }

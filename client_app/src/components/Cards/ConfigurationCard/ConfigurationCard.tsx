@@ -4,6 +4,8 @@ import { IConfiguration } from '../../../utils/models/OrderWithConfiguration';
 import Button from '../../common/button/Button';
 import './configurationCard.scss';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../../redux/store';
 
 interface IConfigurationCardProps {
   configuration: IConfiguration
@@ -13,6 +15,7 @@ const ConfigurationCard = (props: IConfigurationCardProps) => {
   const { configuration } = props;
   const [specs, setSpecs ] = useState<any>();
   const navigate = useNavigate();
+  const user = useSelector((state:AppState) => state.user.user )
 
   useEffect(() => {
     setSpecs(Object.entries(flattenObject(configuration.specs) || {}))
@@ -22,7 +25,7 @@ const ConfigurationCard = (props: IConfigurationCardProps) => {
     <div className='configurationCard'>
       <div className='configurationCard-part'>
         <div className='configurationCard-type'>{ configuration.type }</div>
-        <div className='configurationCard-client'>{ configuration.client?.name } { configuration.client?.surName }</div>
+        <div className='configurationCard-client'>{ configuration.Client?.first_name } { configuration.Client?.last_name }</div>
         <div className='configurationCard-id'> { configuration.id } </div>
       </div>
       <div className='configurationCard-separator'></div>
@@ -39,8 +42,8 @@ const ConfigurationCard = (props: IConfigurationCardProps) => {
       </div>
       <div className='configurationCard-separator'></div>
       <div className='configurationCard-part'>
-        <Button outerFunction={() => { navigate(`/carselector/details/${configuration.id}`) }} name={'Details'} type={false} />
-        <Button outerFunction={() => { navigate('/carselector/add/configuration') }} name={'Add Car'} type={false} />
+        <Button onClick={() => { navigate(`/order/details/${configuration.id}`) }} name={'Details'} type={false} />
+        { user?.role !== 'Client' ? <Button onClick={() => { navigate('/order/add/configuration') }} name={'Add Car'} type={false} /> : '' }
       </div>
     </div>
   )

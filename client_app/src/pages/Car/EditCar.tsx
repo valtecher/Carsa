@@ -59,13 +59,13 @@ const EditCar = (props:IEditCarProps) => {
               <div className='editCar-header-info-section-subSection-info'>{ car?.year }</div>
             </div>
             <div className='editCar-header-info-section-subSection'>
-              <div className='editCar-header-info-section-subSection-smallinfo'>{car?.registrationPlate}</div>
+              <div className='editCar-header-info-section-subSection-smallinfo'>{car?.registrationNumber}</div>
               <div className='editCar-header-info-section-subSection-smallinfo'>{car?.vin}</div>
-              { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} outerFunction={undefined} type={true} name={'Buy'}></Button>}
-              { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} outerFunction={undefined} type={true} name={'Reject'}></Button>}
-              { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} outerFunction={() => {setMode(CarPageModes.EDIT)}} type={true} name={'Edit'}></Button>}
-              { !isInEditMode() ? '' : <Button size={ButtonSize.SMALL} outerFunction={undefined} type={true} name={'Add Vin'}></Button> }
-              { !isInEditMode() ? '' : <Button size={ButtonSize.SMALL} outerFunction={undefined} type={true} name={'Add Number plates'}></Button>}
+              { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={undefined} type={true} name={'Buy'}></Button>}
+              { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={undefined} type={true} name={'Reject'}></Button>}
+              { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={() => {setMode(CarPageModes.EDIT)}} type={true} name={'Edit'}></Button>}
+              { !isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={undefined} type={true} name={'Add Vin'}></Button> }
+              { !isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={undefined} type={true} name={'Add Number plates'}></Button>}
               
             </div>
           </div>
@@ -94,14 +94,13 @@ const EditCar = (props:IEditCarProps) => {
               <div>
                 <div className='carCard-expanded-specs-wrapper editCar-body-section-wrapper'>
                   { createKeyValueArrayFromObject(flattenObject(car || {}), ['state', 'id', 'images', 'mainImage', 'description', 'market', 'name', 'registrationPlate', 'model_id', 'vin']).map((item:any, index: number) => {
-                    
                     return(
                       <div key={index} className='carCard-expanded-specs-wrapper-item editCar-inputPair'>
                         <div className='carCard-expanded-specs-wrapper-item-key'>{ item[0] } </div> : {item[1] } 
                       </div>
                     )
                   })}
-                  <Button outerFunction={undefined} type={true} name={'Add spec'} ></Button>
+                  <Button onClick={undefined} type={true} name={'Add spec'} ></Button>
                 </div>
               </div>
             </div>
@@ -109,7 +108,7 @@ const EditCar = (props:IEditCarProps) => {
           </div>
 
             <div className='edit-body-section'>
-            { !isInEditMode()? '' :    <Button outerFunction={() => {setMode(CarPageModes.VIEW)}} type={true} name={'Save changes'} className='edit-body-section-center'></Button>}
+            { !isInEditMode()? '' :    <Button onClick={() => {setMode(CarPageModes.VIEW)}} type={true} name={'Save changes'} className='edit-body-section-center'></Button>}
           </div>
         </div>
       </div>

@@ -26,7 +26,6 @@ export const logout = async () => {
 }
 
 export const register = async (fields:RegisterFormFields) => {
-  console.log(fields);
   const user = await axios({
     method: 'post',
     url: `${process.env.REACT_APP_API_URL}/auth/register`,
@@ -35,8 +34,9 @@ export const register = async (fields:RegisterFormFields) => {
     data: {
      ...fields
     }
+  }).catch((e:any) => { 
+    return e.response.data?.errors?.[0]?.msg;
   });
-
   return user;
 }
 

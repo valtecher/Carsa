@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.scss';
 import HomePage from './pages/HomePage/HomePage';
 import {
@@ -14,11 +13,14 @@ import RegisterPage from './pages/Register/Register';
 import CarSelectorDashboard from './pages/CarSelector/Dashboard/CarSelectorDashboard';
 import OrderWithConfigurationDetails from './pages/CarSelector/OrderDetails/OrderWithConfigurationDetails';
 import AddCarConfiguration from './pages/CarSelector/AddCarConfiguration/AddCarConfiguration';
-import ClientDashboard from './pages/Client/Dashboard/ClientDashboard';
+import ClientDashboard from './pages/ClientPage/Dashboard/ClientDashboarsd';
 import ProtectedRoute from './components/protectedRoute/ProtectedRoute';
 import TechnicianDashboard from './pages/Technitian/Dashboard/TeachnitianDashboard';
 import CreateReport from './pages/Technitian/Reports/CreateReport/CreateReport';
 import EditCar from './pages/Car/EditCar';
+import CreateOrder from './pages/Order/CreateOrder';
+import ClientOrder from './pages/ClientPage/Orders/ClientOrders';
+import ClientPayments from './pages/ClientPage/Payments/ClientPayments';
 
 function App() {
   return (
@@ -31,16 +33,20 @@ function App() {
         <Route path='/register' element={<RegisterPage/>}/>
         
         <Route path='/carselector/dashboard'  element={<CarSelectorDashboard/>}/>
-        <Route path='/carselector/details/:id' element={<OrderWithConfigurationDetails/>}/>
-        <Route path='/carselector/add/configuration/:id' element={<AddCarConfiguration/>}/>
+        <Route path='/order/details/:id' element={<OrderWithConfigurationDetails/>}/>
+        <Route path='/order/add/configuration/:id' element={<AddCarConfiguration showHeader={true}/>}/>
         
         <Route path='/technician/dashboard' element={<TechnicianDashboard/>}/>
         <Route path='/technician/report/add/:id' element={<CreateReport/>}/>
         
         <Route path='/car/edit/:id' element={<EditCar/>} />
 
+
         <Route element={<ProtectedRoute/>}>
-          <Route path='/client/dashboard' element={<ClientDashboard/>}/>
+          <Route path='/client/dashboard' element={<ClientDashboard/>} />
+          <Route path='/client/orders' element={<ClientOrder/>} />
+          <Route path='client/payments' element={<ClientPayments/>} />
+          <Route path='/order/create' element={<CreateOrder/>}/>
         </Route>
         
         <Route path="*" element={<Navigate to="/home"/>} />

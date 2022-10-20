@@ -11,6 +11,7 @@ import { CarType } from '../../../utils/models/Car';
 import './addCarConfiguration.scss';
 
 export interface manualConfiguration {
+  
   type?: string,  
   brand?: string, 
   model?: string, 
@@ -34,7 +35,15 @@ export interface manualConfiguration {
 
 const mockBrands = [ { id: 1, label: 'Volkswagen', name: 'brand' } ]
 
-const AddCarConfiguration = () => {
+interface IAddCarConfigurationProps {
+  showHeader?:boolean;
+  mode?:boolean;
+  onSubmit?: (form:any) => void
+}
+
+const AddCarConfiguration = (props:IAddCarConfigurationProps) => {
+
+  const { showHeader, mode, onSubmit } = props;
 
   const navigate = useLocation();
   const [ link, setLink ] = useState<string>('')
@@ -51,8 +60,9 @@ const AddCarConfiguration = () => {
     })
   }
 
-  const handleDropdownChange = (e:any) => {
-    setManualConfiguration({ ...manualConfiguration, [e.name]: e.label  });
+  const handleDropdownChange = (e:any, placeholder:any) => {
+    console.log('Inside configurtion: ', e.name, placeholder);
+    setManualConfiguration({ ...manualConfiguration, [placeholder.replaceAll(' ', '_')]: e.label  });
   }
 
   const handleManualConfigurationChange = (e:any) => {
@@ -65,17 +75,24 @@ const AddCarConfiguration = () => {
 
   const handleSubmit = () => {
     const res:any = addCarToConfiguration(manualConfiguration ?? fetchedCar! );
+    if(onSubmit){
+      onSubmit(manualConfiguration ?? fetchedCar!);  
+    }
+    
     if(res) {
 
     }
 
   }
 
+  console.log('Testing: ', manualConfiguration || fetchedCar);
+
   return(
     <div className='carSelector-add'>
-      <div className='carSelector-add-header'>
-        <Header/>
-      </div>
+     
+     { showHeader ?  <div className='carSelector-add-header'>
+            <Header/> 
+      </div> : ''}
       <div className='carSelector-add-body'>
           <div className='carSelector-add-body-label'>Add Car</div>
           <div className='carSelector-add-body-wrapper'>
@@ -86,7 +103,7 @@ const AddCarConfiguration = () => {
                 Add Manually 
               </div>
               <div className='carSelector-add-body-manual-body'>
-                <DropDown placeholder='Body type' options={mockBrands}/>
+                <DropDown placeholder='Body type' options={mockBrands} setOuterOptions={handleDropdownChange}/>
                 <DropDown placeholder='Brand' options={mockBrands} setOuterOptions={handleDropdownChange}/>
                 <DropDown placeholder='Model' options={mockBrands} setOuterOptions={handleDropdownChange}/>
                 <DropDown placeholder='Generation' options={mockBrands} setOuterOptions={handleDropdownChange}/>
@@ -116,7 +133,7 @@ const AddCarConfiguration = () => {
             <div className='carSelector-add-body-paper-body'>
               <TextInput value={link} placeholder={'Enter link'} onChange={handleLinkChange}></TextInput>
               <div className='carSelector-add-body-paper-body-submit'>
-                <Button outerFunction={() => { handleFetchCarLink()}} name={'Fetch'} type={false}></Button>
+                <Button onClick={() => { handleFetchCarLink()}} name={'Fetch'} type={false}></Button>
               </div>
             </div>
           
@@ -125,8 +142,8 @@ const AddCarConfiguration = () => {
           </div>
       </div>
       <div className='carSelector-add-submit'>
-         { fetchedCar && <Button name={'Reset'} outerFunction={handleReset} type={true}/>} 
-          <Button name={'Submit'} outerFunction={handleSubmit} type={true}/>
+         { fetchedCar && <Button name={'Reset'} onClick={handleReset} type={true}/>} 
+         <Button name={'Submit'} onClick={handleSubmit} type={true}/> 
       </div>
     </div>
   )

@@ -1,0 +1,43 @@
+@import "../../../variables.scss";
+
+.paymentCard{
+  min-width: 400px;
+  max-width: 640px;
+  margin-top: 10px;
+  width: 95%;
+  height: 150px;
+  background-color: $base-card-color;
+  border-radius: 20px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  &-info {
+    font-family: 'M plus 1p';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 48px;
+    color: #fff;
+  }
+
+
+  &-mainInfo{
+    color: #fff;
+    font-family: 'M plus 1p';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 53px;
+  }
+  &-smallInfo{
+    color: #fff;
+    font-family: 'M plus 1p';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+  }
+}

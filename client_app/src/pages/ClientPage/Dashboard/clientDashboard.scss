@@ -1,0 +1,52 @@
+.clientDashboard{
+  position: absolute;
+  max-width: 1440px;
+  width: 90%;
+  left: 0;
+  right: 0;
+  margin: 10vh auto;
+
+  &-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  &-mainInfo{
+    font-family: 'M plus 1p';
+    font-style: bold;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    margin-top: 10px;
+  }
+
+  &-subInfo {
+    margin-top: 20px;
+    font-family: 'M plus 1p';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 38px;
+  }
+}
+
+#clientDashboard-payment{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+#clientDashboard-car{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap; 
+}

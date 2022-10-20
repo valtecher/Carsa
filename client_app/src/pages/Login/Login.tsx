@@ -12,6 +12,7 @@ import { checkUserCredentials } from '../../utils/apis/UserApi';
 import Cookies from "js-cookie"
 import { AppState } from '../../redux/store';
 import { useEffect } from 'react';
+import { useFormik } from 'formik';
 export interface FormError {
   hasError: boolean, 
   message: string
@@ -22,77 +23,46 @@ export interface FormState {
   password: string | null | FormError; 
 }
 
-const fieldNames:FormState = {
-  email: 'email',
-  password: 'password',
-}
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state: AppState) => state.user.isAuthenticated)
+  const userState = useSelector((state: AppState) => state.user);
   const navigate = useNavigate();
-
   
-  const defaultErrorState = {
-    email: null, 
-    password: null, 
+  const validate = (values:any) => {
+    const errors:any = {};
 
-  }
-  const [formFields, setFormFields] = useState<FormState>({ email: null,  password: null })
-  const [formFieldsErrors, setFormFieldsErrors] = useState<FormState>(defaultErrorState)
-
-  const loginError = useSelector((state: AppState) => state.user.error);
-
-  const onChange = (e:any) => {
-    setFormFields({...formFields, [e.target.name]: e.target.value})
-  }
-
-  const resetErrors = () => {
-    setFormFieldsErrors(defaultErrorState)
-  }
-
-  const validate = ():boolean => {
-    resetErrors();
-    let flag = true; 
-    const emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    
-    let localError:FormState = {...defaultErrorState}
-    if(formFields.email === '' || formFields.email == null){
-      localError = {...localError, email: { hasError: true, message: 'Email is required' }}
-      flag = false;
+    if(!values.password){
+      errors.password = 'Required';
     }
-
-    if ((!emailRegEx.test(formFields.email as string || '') && formFields.email !== null )) {
-      localError = {...localError,  email: { hasError: true, message: 'This is not email' }}
-      flag = false;
+  
+    if (!values.email) {
+      errors.email = 'Required';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      errors.email = 'Invalid email address';
     }
+  
+    return errors;
+  };
 
-    if(formFields.password == '' || formFields.password == null){
-      localError = {...localError, password: { hasError: true, message: 'Password is required' } }
-      flag = false;
-    }
-    
-    if((formFields.password as string)?.length <= 5 && (formFields.password as string)?.length > 0){
-      localError = {...localError, password: { hasError: true, message: 'Password cannot be shorter than 5 symbols' }  }
-      flag = false;
-    }
-
-    setFormFieldsErrors({...localError})
-    return flag;
-  }
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validate,
+    onSubmit: (values:any) => {
+      console.log('HERE', values);
+      dispatch(loginUserThunk(values));
+    },
+  });
 
   useEffect(() => {
-    if(isAuthenticated) navigate('/');
-  }, [isAuthenticated])
-
-  const submit = () => {
-    if(validate()){
-      dispatch(loginUserThunk(formFields));
-     
-    } else {
-      console.log('Error occurred on validation', formFieldsErrors);
+    if(isAuthenticated) {
+      navigate('/client/dashboard');
     }
-  }
+  }, [isAuthenticated])
 
   return(
     <div className='login'>
@@ -112,13 +82,39 @@ const LoginPage = () => {
                 <div className='login-wrapper-right-title-body'>Please login to continue</div>
             </div>
             <div className='login-wrapper-right-form'>
-              <TextInput onChange={onChange} name='email' value={formFields.email} error={formFieldsErrors.email} placeholder='e-mail'></TextInput>
-              <TextInput onChange={onChange} name='password' value={formFields.password} error={formFieldsErrors.password} placeholder='password'></TextInput>
+            <form className='styled-form' onSubmit={formik.handleSubmit}>
+            <div>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder='email'
+                onChange={formik.handleChange}
+                value={formik.values.email}
+              />
+               {formik.touched.email && formik.errors.email ? (
+                  <div className='form-error'>{formik.errors.email}</div>
+                ) : null}
+            </div>
+            <label htmlFor="email"> </label>
+            <div className='input-wrapper'>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder='Password'
+                onChange={formik.handleChange}
+                value={formik.values.password}
+              />
+                {formik.touched.password && formik.errors.password ? (
+                  <div className='form-error'>{formik.errors.password}</div>
+                ) : null}
+            </div>
+
+            <button type="submit">Log in</button>
+          </form>
               <div className='login-wrapper-right-form-link' onClick={() => { navigate('/register') }}>Have no account?</div>
-              <div className='login-wrapper-right-form-error'>{loginError}</div>
-              <div className='login-wrapper-right-form-submit'>
-                <Button type={false} name='Log in' outerFunction={submit}/>
-              </div>
+              <div className='login-wrapper-right-form-error'>{ userState.error}</div>
               <div className='login-wrapper-right-form-alternative'>
                 <p>or</p>
                 <div className='login-wrapper-right-form-alternative-media'>

@@ -1,6 +1,0 @@
-paths:
-  /api/locations/{id}:
-    get:
-      summary: Retrieve a location with specified id (if any).
-      tags:
-        - Locations

@@ -33,3 +33,12 @@ export const getCarById = async (carId:String) => {
     console.log('Something went wrong', e)
   })
 }
+
+export const getLastCars = async (clientId:string) => { 
+  return await axios.get(`${process.env.REACT_APP_API_URL}/cars/getclientcars/${clientId}`).then((res) => {
+    return res.data;
+  }).catch((e) => {
+    console.log('Something went wrong', e);
+  });
+
+}

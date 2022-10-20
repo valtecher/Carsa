@@ -1,6 +1,0 @@
-paths:
-  /api/locations:
-    post:
-      summary: Create a new location with provided data
-      tags:
-        - Locations
