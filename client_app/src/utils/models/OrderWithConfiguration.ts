@@ -4,7 +4,7 @@ import { CarType } from "./Car";
 export interface IConfiguration {
   id: string,
   type: string, 
-  specs?: ISpecification,
+  Configurations?: Array<ISpecification>,
   Client?: IClient,
   OrderCars?: Array<CarType>,
 }

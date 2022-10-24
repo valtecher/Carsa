@@ -11,7 +11,7 @@ export const getOrderbyDetails = async (orderId: string) => {
     const configuration: IConfiguration = {
       id: '#000123123123',
       type: OrderType.Package,
-      specs: {
+      Configurations: [{
         id: '#12312',
         brand: 'Volkswagen',
         model: 'Passat',
@@ -25,7 +25,7 @@ export const getOrderbyDetails = async (orderId: string) => {
           power: '150-', 
           volume: '1700-'
         } 
-      },
+      }],
       Client: {
         person_id: '#98970028',
         first_name: 'Dawid',
@@ -48,7 +48,7 @@ export const getOrderbyDetails = async (orderId: string) => {
 export const configuration: IConfiguration = {
   id: '#000123123123',
   type: OrderType.Package,
-  specs: {
+  Configurations: [{
     id: '#12312',
     brand: 'Volkswagen',
     model: 'Passat',
@@ -62,7 +62,7 @@ export const configuration: IConfiguration = {
       power: '150-', 
       volume: '1700-'
     } 
-  },
+  }],
   Client: {
     person_id: '#98970028',
     first_name: 'Dawid',

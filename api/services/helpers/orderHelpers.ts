@@ -14,15 +14,17 @@ const retrieveOrder = async (order: RawOrderRecord, isExtended: boolean): Promis
   extendedOrder.Client = clientData;
   delete extendedOrder.selector_id;
   delete extendedOrder.client_id;
-
+  console.log('HERERRREE');
   if (isExtended) {
+    console.log('extended', order.id);
     const orderPayments = await db.Payment.findAll({
       attributes: { exclude: ['order_id'] },
       where: {
         order_id: order.id
       }
     });
-
+    const allOrderConfs = await db.Configuration.findAll();
+    console.log('ALL configurations:', allOrderConfs);
     const orderConfigurations = await db.Configuration.findAll({
       where: {
         order_id: order.id
@@ -46,6 +48,8 @@ const retrieveOrder = async (order: RawOrderRecord, isExtended: boolean): Promis
       raw: true
     });
 
+
+    console.log(orderConfigurations);
     orderCars = await Promise.all(
       orderCars.map(async (car: { car_id: string; start_reservation: Date; status: string }) => {
         const carData = await db.Car.findByPk(car.car_id, {
@@ -110,7 +114,7 @@ const getOrderById = async (orderId: string) => {
   if (extendedOrder.deletedAt === null) {
     delete extendedOrder.deletedAt;
   }
-  console.log(extendedOrder);
+  
   return { success: true, order: extendedOrder };
 };
 

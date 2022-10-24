@@ -18,7 +18,7 @@ const ConfigurationCard = (props: IConfigurationCardProps) => {
   const user = useSelector((state:AppState) => state.user.user )
 
   useEffect(() => {
-    setSpecs(Object.entries(flattenObject(configuration.specs) || {}))
+    setSpecs(Object.entries(flattenObject(configuration.Configurations?.[0]) || {}))
   }, [])
 
   return(
