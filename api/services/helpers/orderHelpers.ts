@@ -24,7 +24,6 @@ const retrieveOrder = async (order: RawOrderRecord, isExtended: boolean): Promis
       }
     });
     const allOrderConfs = await db.Configuration.findAll();
-    console.log('ALL configurations:', allOrderConfs);
     const orderConfigurations = await db.Configuration.findAll({
       where: {
         order_id: order.id
@@ -49,7 +48,6 @@ const retrieveOrder = async (order: RawOrderRecord, isExtended: boolean): Promis
     });
 
 
-    console.log(orderConfigurations);
     orderCars = await Promise.all(
       orderCars.map(async (car: { car_id: string; start_reservation: Date; status: string }) => {
         const carData = await db.Car.findByPk(car.car_id, {
@@ -68,9 +66,8 @@ const retrieveOrder = async (order: RawOrderRecord, isExtended: boolean): Promis
         };
       })
     );
-
     extendedOrder.Payments = orderPayments;
-    extendedOrder.Configurations = orderConfigurations;
+    extendedOrder.Configuration = orderConfigurations;
     extendedOrder.OrderCars = orderCars;
   }
 
