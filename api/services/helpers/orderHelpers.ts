@@ -199,7 +199,7 @@ const deleteOrderById = async (orderId: string) => {
 
 const getAllOrdersForClient = async (client_id:string) => {
   const orders = await db.Order.findAll({
-    include: [{ model:  db.Payment }, {model: db.Car, as: 'car_order', include: [db.CarBrand, db.CarModel, db.CarGeneration]} , db.Configuration],
+    include: [{ model:  db.Payment }, {model: db.Car, as: 'car_order', include: [db.CarBrand, db.CarModel, db.CarGeneration, { model: db.ReportOverview, include: [ db.Report, db.Technician ] }]} , db.Configuration],
     where: {
       client_id: client_id
     }

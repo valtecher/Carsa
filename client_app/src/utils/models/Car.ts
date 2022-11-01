@@ -3,6 +3,7 @@ import { CarModelType } from "./CarModel";
 import { CarStateReport } from "./CarStateReport";
 import { CarGenerationType } from "./CraGeneration";
 import { EngineType } from "./Engine";
+import { IReportOverview } from "./ReportOverrview";
 
 export interface CarType {
   id?:string,
@@ -21,14 +22,16 @@ export interface CarType {
   color:string, 
   drive:string,
   year:string, 
+  images: Array<string>,
+  fuel_type: string,
+  state?: CarStateReport, 
   gearBox:string,
   Engine: EngineType,
   CarBrand: CarBrandType,
   CarModel: CarModelType, 
   CarGeneration: CarGenerationType,
-  images: Array<string>,
-  fuel_type: string,
-  state?: CarStateReport, 
+  ReportOverviews?: Array<IReportOverview>
+
 } 
 
 export const dummyCar:CarType = {

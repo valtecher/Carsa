@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import e, { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
 import clientHelper from '../services/helpers/clientHelpers';
@@ -6,6 +6,7 @@ import { verifyJWT, comparePasswords } from '../utils/authUtils';
 import { invalidateSession, generateAccessToken, generateRefreshToken } from '../services/helpers/authHelpers';
 import { ClientRegistrationBody } from '../DTOs/clientRegistrationBody';
 import { CreatedClient } from '../DTOs/createdClient';
+import employeeHelper from '../services/helpers/employeeHelper';
 
 const register = async (req: Request, res: Response) => {
     const clientBody: ClientRegistrationBody = req.body;
@@ -42,14 +43,19 @@ const login = async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
     const clientWithEmail = await clientHelper.getClientByEmail(email);
+    const employeeWithEmail = await employeeHelper.getEmployeeByEmail(email);
 
-    if (!clientWithEmail || !comparePasswords(password, clientWithEmail.password!)) {
+    if ((!clientWithEmail || !comparePasswords(password, clientWithEmail.password!)) && (!employeeWithEmail || !comparePasswords(password, employeeWithEmail.password!)  )) {
         return res.status(StatusCodes.BAD_REQUEST).json({ message: 'Incorrect email or password' });
     }
 
-    delete clientWithEmail.password;
 
-    req.session!.person_id = clientWithEmail.client_id;
+    delete clientWithEmail?.password;
+    delete employeeWithEmail?.password;
+
+    const user:any = clientWithEmail ?? employeeWithEmail;
+
+    req.session!.person_id = user.client_id ?? user.person_id;
     req.session!.email = email;
     req.session!.valid = true;
 
@@ -66,8 +72,8 @@ const login = async (req: Request, res: Response) => {
         maxAge: 1000 * 60 * 60 * 24 * 30,
         httpOnly: true,
     });
-    clientWithEmail.role = 'Client';
-    return res.json(clientWithEmail);
+    user.role = user.role || 'Client';
+    return res.json(user);
 };
 
 const logout = async (req: Request, res: Response) => {

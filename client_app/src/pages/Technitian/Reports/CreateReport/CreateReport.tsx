@@ -10,39 +10,23 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { IReport, IReportType } from '../../../../utils/models/Report';
 import ReportCard from '../../../../components/Cards/ReportCard/ReportCard';
-import { simpleValidateForm } from '../../../../utils/helpers/validateForm';
-import { addReportToConfiguration } from '../../../../utils/apis/OrderApi';
 
 
 const CreateReport = () => {
 
-  const [ reports, setReports ] = useState<Array<IReport>>([]);
   const params = useParams();
 
+  const [ reports, setReports ] = useState<Array<IReport>>([]);
+
   const [ pendingReport, setPendingReport ] = useState<IReport>({
-    carId: params.id, 
     type: IReportType.None,
-    description: '', 
-    grade: -1,
+    condition: 0,
+    details: '', 
+    overview_id: ''
   }); 
 
   const addReport = () => {
-    console.log(reports.some((report) => {
-      console.log(report.type, ' pending report type: ', pendingReport.type  , '  result: ', report.type === pendingReport.type)
-      return report.type === pendingReport.type}));
-
-    if(simpleValidateForm(pendingReport) && !(reports.some((report) => report.type === pendingReport.type))){
-        addReportToConfiguration(pendingReport);
-        setReports([...reports, pendingReport])
-        setPendingReport({
-          carId: params.id, 
-          type: IReportType.None,
-          description: '', 
-          grade: -1,
-        })
-    } else {
-      alert('Fill all the needed fields or such report type exists')
-    }
+    
   }
 
   const handleDropDownChange = (e:any) => {
@@ -50,17 +34,10 @@ const CreateReport = () => {
   }
 
   const handleChange = (e:any) => {
+    console.log(e.target.value, e.target.name);
     setPendingReport({...pendingReport, [e.target.name]: e.target.value})
   }
 
-
-  useEffect(() => {
-    getReportsByCarId(params.id|| '').then((res) => {
-      if(res){
-        setReports(res.data)
-      }
-    });
-  }, [])
 
   return(
     <div>
@@ -73,13 +50,13 @@ const CreateReport = () => {
                 <DropDown placeholder='Report type' setOuterOptions={handleDropDownChange} outerOption={{ key: 0, label: pendingReport.type}} options={Object.keys(IReportType).map((option, index:number) => {
                 return { id: index, label: option }
                })}/>
-              <TextInput name='grade' onChange={handleChange} className='createReport-wrapper-blotter-section-input' placeholder='Grade' value={pendingReport.grade === -1? '' : pendingReport.grade} ></TextInput>
+              <TextInput name='condition' onChange={handleChange} className='createReport-wrapper-blotter-section-input' placeholder='Grade' value={pendingReport.condition} ></TextInput>
             </div>
             <div className='createReport-wrapper-blotter-section createReport-wrapper-blotter-label'>
               <h3>Details</h3>
             </div>
             <div className='createReport-wrapper-blotter-section'>
-              <textarea name='description' onChange={handleChange} value={pendingReport.description}></textarea>
+              <textarea name='details' onChange={handleChange} value={pendingReport.details}></textarea>
             </div>
             <div className='createReport-wrapper-blotter-section'>
               <Button onClick={addReport} type={false} name={'Add report'}></Button>

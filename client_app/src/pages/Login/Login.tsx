@@ -26,7 +26,7 @@ export interface FormState {
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const isAuthenticated = useSelector((state: AppState) => state.user.isAuthenticated)
+  const user = useSelector((state: AppState) => state.user)
   const userState = useSelector((state: AppState) => state.user);
   const navigate = useNavigate();
   
@@ -53,16 +53,18 @@ const LoginPage = () => {
     },
     validate,
     onSubmit: (values:any) => {
-      console.log('HERE', values);
       dispatch(loginUserThunk(values));
     },
   });
 
   useEffect(() => {
-    if(isAuthenticated) {
+    if(user.isAuthenticated && user.user.role === 'Client') {
       navigate('/client/dashboard');
+    } 
+    if(user.isAuthenticated && user.user.role === 'Technician'){
+      navigate('/technician/dashboard');
     }
-  }, [isAuthenticated])
+  }, [user.isAuthenticated])
 
   return(
     <div className='login'>

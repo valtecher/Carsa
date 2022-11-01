@@ -2,14 +2,17 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../../components/header/Header';
 import './technicianDashboard.scss';
 import { useGeolocated } from "react-geolocated";
-import { getCarsByLocation } from '../../../utils/apis/CarsApi';
+import { getCarsByTechnicianId } from '../../../utils/apis/CarsApi';
 import { CarType } from '../../../utils/models/Car';
 import CarCard, { CarCardModes } from '../../../components/Cards/CarCard/CarCard';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../../redux/store';
 
 const TechnicianDashboard = () => {
  
   const navigate = useNavigate();
+  const technician = useSelector((state:AppState) => state.user.user)
   const { coords } = useGeolocated(
     {
       positionOptions: {
@@ -25,8 +28,9 @@ const TechnicianDashboard = () => {
 
   useEffect(() => {
     if(coords){ 
-      getCarsByLocation(coords).then((res) => {
-        setCars(res)
+      getCarsByTechnicianId(technician?.person_id).then((res) => {
+        console.log(res);
+        // setCars(res)
       })
     }
     

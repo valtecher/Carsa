@@ -51,11 +51,11 @@ const ReportCard = (props:IReportCard) => {
         </div>
         <div className='reportCard-body'>
           <div className='reportCard-body-section'>
-            { mode ?  <p>{ pendingReport.description }</p> :   <textarea name='description' onChange={handleChange} value={pendingReport.description}></textarea>} 
+            { mode ?  <p>{ pendingReport.type }</p> :   <textarea name='description' onChange={handleChange} value={pendingReport.details}></textarea>} 
           </div>
           <div className='reportCard-body-divider'></div>
           <div className='reportCard-body-section'>
-           { mode ? <Pie percentage={pendingReport.grade} color={'white'} label={''} /> : <TextInput name='grade' onChange={handleChange} className='reportCard-input' placeholder='Grade' value={pendingReport.grade} ></TextInput>} 
+           { mode ? <Pie percentage={pendingReport.condition} color={'white'} label={''} /> : <TextInput name='grade' onChange={handleChange} className='reportCard-input' placeholder='Grade' value={pendingReport.condition} ></TextInput>} 
           </div>
         </div>
     </div>

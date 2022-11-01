@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import carHelpers from '../services/helpers/carHelpers';
+import employeeHelper from '../services/helpers/employeeHelper';
 import orderHelpers from '../services/helpers/orderHelpers';
 
 const getAllCars = async (req: Request, res: Response) => {
@@ -9,6 +10,12 @@ const getAllCars = async (req: Request, res: Response) => {
   const cars = await carHelpers.getAllCars({ limit, offset });
   return res.json(cars);
 };
+
+const getCarsForTechnician = async (req: Request, res: Response ) => {
+  const technicianId = req.params.id;
+  console.log('Technician id: ', technicianId);
+  const technician = await employeeHelper.getTechnicianById(technicianId);
+}
 
 const getClientCars = async (req:Request, res:Response) => {
   const client_id = req.params.clientId;
@@ -60,9 +67,10 @@ const deleteCarById = async (req: Request, res: Response) => {
 };
 
 export default {
+  getCarById,
   getAllCars,
   getClientCars,
-  getCarById,
+  getCarsForTechnician,
   createCar,
   updateCarById,
   deleteCarById
