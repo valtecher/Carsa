@@ -1,5 +1,5 @@
 const uuid = require('uuid');
-const faker = require('faker');
+const {faker} = require('@faker-js/faker');
 const clients = require('./20211106085323-seed-client');
 const selectors = require('./20211106093024-seed-car-selector');
 

@@ -1,5 +1,5 @@
 const uuid = require('uuid');
-const faker = require('faker');
+const {faker} = require('@faker-js/faker');
 const overviews = require('./20211106170308-seed-report-overview');
 const types = require('./20211106165728-seed-report-type');
 

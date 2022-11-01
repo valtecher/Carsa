@@ -1,5 +1,5 @@
 const uuid = require('uuid');
-const faker = require('faker');
+const {faker} = require('@faker-js/faker');
 
 const names = [
   'TFSI',

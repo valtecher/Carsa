@@ -1,5 +1,5 @@
 const uuid = require('uuid');
-const faker = require('faker');
+const {faker} = require('@faker-js/faker');
 const generations = require('./20211105192344-seed-car-generation');
 const engines = require('./20211106100215-seed-engine');
 const locations = require('./20211105194523-seed-location');
@@ -20,7 +20,7 @@ for (let i = 0; i < 20; i++) {
     year: randomInteger(2005, 2020),
     drive: driveTypes[randomInteger(0, driveTypes.length - 1)],
     transmission: transmissionTypes[randomInteger(0, transmissionTypes.length - 1)],
-    market_name: faker.company.companyName(),
+    market_name: faker.company.name(),
     marketplace_link: faker.internet.url(),
     price: randomInteger(0, 500) * 100,
     brand_id: '165b6aa3-889e-4f7e-a343-166b1d0fecf1',
