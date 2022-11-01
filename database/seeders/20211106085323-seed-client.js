@@ -1,17 +1,15 @@
-const faker = require('faker');
+const {faker} = require('@faker-js/faker');
 const bcrypt = require('bcryptjs');
 const people = require('./20211106084607-seed-person');
 
 const clients = [];
 
 for (let i = 0; i < 10; i++) {
-  const userCard = faker.helpers.userCard();
-
   clients.push({
     person_id: people.people[i].id,
-    email: userCard.email,
+    email: faker.internet.email(),
     password: bcrypt.hashSync('qwerty123', 10),
-    phone: faker.phone.phoneNumber('+(48) ### ### ###'),
+    phone: faker.phone.number('+(48) ### ### ###'),
     creationDate: new Date()
   });
 }

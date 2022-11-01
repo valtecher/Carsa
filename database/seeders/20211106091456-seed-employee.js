@@ -1,4 +1,4 @@
-const faker = require('faker');
+const {faker} = require('@faker-js/faker');
 const bcrypt = require('bcryptjs');
 const people = require('./20211106084607-seed-person');
 

@@ -1,4 +1,4 @@
-const faker = require('faker');
+const {faker} = require('@faker-js/faker');
 const uuid = require('uuid');
 const brands = require('./20211105180820-seed-car-brand');
 const models = require('./20211105190655-seed-car-model');
