@@ -37,13 +37,16 @@ const CarCard = (props:ICarCardProps) => {
   const navigate = useNavigate();
   const user = useSelector((state:AppState) => state.user.user)
  
-  const { car, defaultExpended, mode } = props
+  const { car, defaultExpended } = props
   const [ isExtended, setIsExtended ] = useState<boolean>(defaultExpended || false);
 
-  const handleExtend = () => {
-    setIsExtended(!isExtended);
+  const handleExtend = (e:any) => {
+    
+    if(!e.target.classList.contains('light_button')){
+      setIsExtended(!isExtended);
+    }
+    
   }
-  console.log(car)
   return(
     <div className={`${ isExtended? 'carCard-expanded':' carCard'}`} onClick={handleExtend}>
       <div className={`${ isExtended? 'carCard-expanded-info':' carCard-info'}`}>
@@ -56,7 +59,9 @@ const CarCard = (props:ICarCardProps) => {
         <div className='carCard-expanded-info-naming-buttons'>
           {(user?.role !== 'Client' &&  isExtended) && <Button onClick={() => {  }} type={false} name={'Add report'} size={ButtonSize.SMALL}/>}
           { user?.role !== 'Client' && isExtended && <Button onClick={() => { navigate(`/technician/report/add/${car.id || ''}`) }} type={false} name={'Edit'} size={ButtonSize.SMALL}/>}
-          { isExtended && <Button onClick={() => {}} type={false} name={'More'} size={ButtonSize.SMALL}/>}
+          { isExtended && <Button onClick={() => { 
+            navigate('');
+          }} type={false} name={'More'} size={ButtonSize.SMALL}/>}
         </div>
       </div>
       { !isExtended && <div className='carCard-separator'></div>}
@@ -64,13 +69,11 @@ const CarCard = (props:ICarCardProps) => {
         <div className='carCard-expanded-gallery'>
           <Slider {...settings}>
             { car.images.map((image:string, index: number) => {
-
               return (
                 <div className='carCard-expanded-gallery-image' key={index} >
                   <img src={image} alt="car image" />
                 </div>
               )
-              
             }) }
             </Slider>
         </div> 
@@ -87,7 +90,6 @@ const CarCard = (props:ICarCardProps) => {
         <div className='carCard-expanded-specs-header'>Specs</div>
         <div className='carCard-expanded-specs-wrapper'>
             {  createKeyValueArrayFromObject(flattenObject(car), ['state', 'id', 'images', 'mainImage', 'description', 'market', 'name', 'registrationPlate', 'model_id', 'vin', 'generation_id', 'location_id', 'engine_id', 'brand_id']).map((item:any, index: number) => {
-              console.log('Item', item)
               return(
                 <div key={index} className='carCard-expanded-specs-wrapper-item'>
                    <div className='carCard-expanded-specs-wrapper-item-key'>{ item[0].replaceAll('_', ' ') } </div> : { ['start_reservation'].includes(item[0]) ? moment(item[1]).format('MMM DD YYYY hh:mm') : item[1]  } 

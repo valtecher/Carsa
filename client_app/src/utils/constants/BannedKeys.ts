@@ -1,0 +1,1 @@
+export const bannedKeys = ['brand_id', 'id', 'order_id', 'model_id', 'generation_id', 'location_id', 'deletedAt']

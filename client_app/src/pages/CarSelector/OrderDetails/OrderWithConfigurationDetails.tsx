@@ -10,6 +10,7 @@ import { CarType } from '../../../utils/models/Car';
 import CarCard from '../../../components/Cards/CarCard/CarCard';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../redux/store';
+import { ISpecification } from '../../../utils/models/Specification';
 
 const OrderWithConfigurationDetails =  (props:any) => {
   
@@ -26,7 +27,7 @@ const OrderWithConfigurationDetails =  (props:any) => {
         setOrderConfiguration(res.data);
       });
     } else {
-      setSpecs(createKeyValueArrayFromObject(flattenObject(orderConfiguration.specs), ['id']))
+      setSpecs(createKeyValueArrayFromObject(flattenObject((orderConfiguration.Configuration as Array<ISpecification>)?.[0]), ['id', 'order_id', 'deletedAt']))
     }
   }, [orderConfiguration])
 
@@ -49,7 +50,7 @@ const OrderWithConfigurationDetails =  (props:any) => {
                 <div className='orderWithConfigurationDetails-details-order-body'>
                   { [...specs || []].map((pair:any, index:number) => {
                     return <div key={index} className='keyValuePair'>
-                            { pair[0] } : { pair[1] }
+                            { pair[0]?.replaceAll('_', ' ') } : { pair[1] }
                           </div>
                   })}
                 </div>

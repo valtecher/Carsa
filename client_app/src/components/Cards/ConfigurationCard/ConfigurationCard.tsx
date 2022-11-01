@@ -6,6 +6,7 @@ import './configurationCard.scss';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../redux/store';
+import { bannedKeys } from '../../../utils/constants/BannedKeys';
 
 interface IConfigurationCardProps {
   configuration: IConfiguration
@@ -18,8 +19,8 @@ const ConfigurationCard = (props: IConfigurationCardProps) => {
   const user = useSelector((state:AppState) => state.user.user )
 
   useEffect(() => {
-    setSpecs(Object.entries(flattenObject(configuration.specs) || {}))
-  }, [])
+    setSpecs(Object.entries(flattenObject(configuration.Configuration) || {}))
+}, [])
 
   return(
     <div className='configurationCard'>
@@ -30,12 +31,11 @@ const ConfigurationCard = (props: IConfigurationCardProps) => {
       </div>
       <div className='configurationCard-separator'></div>
       <div className='configurationCard-part configurationCard-part-specs'>
-        { [...specs || []].map((specPair:Array<string>, index:number) => {
-          const bannedKeys:Array<string> = ['id']
-          const isKeyBanned:boolean = bannedKeys.some((element) => specPair[0] === element)
+        { [...specs || []].map(([key, value]:any, index:number) => {
+          const isKeyBanned:boolean = bannedKeys.some((element) => key === element)
           return(
           (isKeyBanned ? '' : <div key={index} className='configurationCard-specs'>
-                                { specPair[0] }: { specPair[1]} 
+                                { key?.replaceAll('_', ' ')  }: { value } 
                               </div>)  
           )
         }) }

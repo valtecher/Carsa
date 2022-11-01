@@ -20,5 +20,13 @@ export const flattenObject = (obj:any) => {
 
 export const createKeyValueArrayFromObject = (obj:any, bannedKeys:Array<any> = []): Array<any> => {
   if(!obj) return []
-  return Object.entries(obj).filter(([key]:any) => !bannedKeys.includes(key))
+  return Object.entries(obj).filter(([key]:any) => {
+    let isBannedKeyFoundAsSubstring:boolean = false
+    bannedKeys.forEach((bannedKey:string) => { 
+      if(bannedKey.includes(key) ){
+        isBannedKeyFoundAsSubstring = true;
+      }
+    })
+    return !isBannedKeyFoundAsSubstring
+  })
 }

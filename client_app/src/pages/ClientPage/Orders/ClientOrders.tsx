@@ -5,7 +5,7 @@ import ConfigurationCard from '../../../components/Cards/ConfigurationCard/Confi
 import Header from '../../../components/header/Header';
 import SideMenu from '../../../components/SideMenu/SideMenu';
 import { AppState } from '../../../redux/store';
-import { configuration, retrieveAllClientOrders } from '../../../utils/apis/OrderApi';
+import { retrieveAllClientOrders } from '../../../utils/apis/OrderApi';
 import { CarType, dummyCar } from '../../../utils/models/Car';
 import { OrderType } from '../../../utils/models/Order';
 import { IConfiguration } from '../../../utils/models/OrderWithConfiguration';

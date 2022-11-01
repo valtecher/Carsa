@@ -27,7 +27,7 @@ const Button = (props:IProps) => {
   } 
 
   return(
-    <div style={ handleButtonSizes(size || ButtonSize.NORMAL)} className={` ${ className } ${ type? 'button' : 'light_button'}`} onClick={handleClick}>
+    <div style={ handleButtonSizes(size || ButtonSize.NORMAL)} className={` ${ className ?? '' } ${ type? 'button' : 'light_button'}`} onClick={handleClick}>
       {name}
     </div>
   )
