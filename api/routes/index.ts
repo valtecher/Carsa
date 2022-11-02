@@ -8,6 +8,7 @@ import configurationsRouter from './configurations';
 import ordersRouter from './orders';
 import carsRouter from './cars';
 import paymentsRouter from './payments';
+import reportsRouter from './reports';
 
 
 // const swaggerUI = require('swagger-ui-express');
@@ -25,5 +26,6 @@ router.use('/api/configurations', configurationsRouter);
 
 router.use('/api/cars', carsRouter);
 router.use('/api/payments', paymentsRouter);
+router.use('/api/reports', reportsRouter)
 
 export default router;

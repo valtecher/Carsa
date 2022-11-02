@@ -13,7 +13,8 @@ const getAllCars = async ({ limit = Number.MAX_SAFE_INTEGER, offset = 0 }: { lim
       { model: db.CarModel, attributes: ['id', 'name'] },
       { model: db.CarGeneration, attributes: ['id', 'name', 'start_year', 'end_year'] },
       { model: db.Engine },
-      { model: db.Location }
+      { model: db.Location },
+      {model: db.ReportOverview }
     ],
     limit,
     offset
@@ -32,7 +33,8 @@ const getCarById = async (carId: string) => {
       { model: db.CarModel, attributes: ['id', 'name'] },
       { model: db.CarGeneration, attributes: ['id', 'name', 'start_year', 'end_year'] },
       { model: db.Engine },
-      { model: db.Location }
+      { model: db.Location },
+      { model: db.ReportOverview }
     ]
   });
 
@@ -44,6 +46,11 @@ const getCarById = async (carId: string) => {
 
   return { success: true, car };
 };
+
+const getAllCarsByLocationState = async (location) => {
+  const cars = await getAllCars({});
+  return cars.filter((car) => car.Location.state === location);
+}
 
 const createCar = async (carBody: unknown) => {
   try {
@@ -110,6 +117,7 @@ const deleteCarById = async (carId: string) => {
 export default {
   getAllCars,
   getCarById,
+  getAllCarsByLocationState,
   createCar,
   updateCarById,
   deleteCarById

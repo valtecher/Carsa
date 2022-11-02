@@ -14,9 +14,7 @@ const retrieveOrder = async (order: RawOrderRecord, isExtended: boolean): Promis
   extendedOrder.Client = clientData;
   delete extendedOrder.selector_id;
   delete extendedOrder.client_id;
-  console.log('HERERRREE');
   if (isExtended) {
-    console.log('extended', order.id);
     const orderPayments = await db.Payment.findAll({
       attributes: { exclude: ['order_id'] },
       where: {

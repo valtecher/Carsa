@@ -18,9 +18,6 @@ const ClientOrder = () => {
   useEffect(() => {
     if(clientId){
       retrieveAllClientOrders(clientId).then((res:any) => {
-        res.data.forEach((order:any) => {
-          console.log(order.type === OrderType.Package, order);
-        })
         setOrders(res.data);
       });
     }

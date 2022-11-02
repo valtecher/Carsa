@@ -3,6 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import carHelpers from '../services/helpers/carHelpers';
 import employeeHelper from '../services/helpers/employeeHelper';
 import orderHelpers from '../services/helpers/orderHelpers';
+import reportHelpers from '../services/helpers/reportHelpers';
 
 const getAllCars = async (req: Request, res: Response) => {
   const limit = Number(req.query.limit) || undefined;
@@ -13,8 +14,9 @@ const getAllCars = async (req: Request, res: Response) => {
 
 const getCarsForTechnician = async (req: Request, res: Response ) => {
   const technicianId = req.params.id;
-  console.log('Technician id: ', technicianId);
   const technician = await employeeHelper.getTechnicianById(technicianId);
+  const cars = await carHelpers.getAllCarsByLocationState(technician.Location.state)
+  res.json({cars: [...cars]});
 }
 
 const getClientCars = async (req:Request, res:Response) => {

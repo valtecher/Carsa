@@ -61,7 +61,6 @@ const AddCarConfiguration = (props:IAddCarConfigurationProps) => {
   }
 
   const handleDropdownChange = (e:any, placeholder:any) => {
-    console.log('Inside configurtion: ', e.name, placeholder);
     setManualConfiguration({ ...manualConfiguration, [placeholder.replaceAll(' ', '_')]: e.label  });
   }
 

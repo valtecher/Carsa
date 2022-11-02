@@ -1,5 +1,10 @@
 import sequelize from 'sequelize';
+import { IReport } from '../../../client_app/src/utils/models/Report';
 import db from '../../../database/models';
+
+const getAllReports = async () => {
+  return await db.ReportOverview.findAll();
+}
 
 const getRecentCarReports = async (carId: string) => {
   const latestReportOverview = await db.ReportOverview.findOne({
@@ -28,6 +33,12 @@ const getRecentCarReports = async (carId: string) => {
   return { success: true, reports };
 };
 
+const createOrUpdateReports = (reports:Array<IReport>) => {
+  
+}
+
 export default {
-  getRecentCarReports
+  getAllReports,
+  getRecentCarReports,
+  createOrUpdateReports,
 };

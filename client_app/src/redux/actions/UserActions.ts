@@ -18,7 +18,6 @@ export const logoutUser = () => {
 }
 
 export const loginFailed = (error: string) => {
-  console.log(error);
   return { 
       type: LOGIN_FAILED, 
       error

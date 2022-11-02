@@ -66,7 +66,6 @@ const ConfigurePaymentStep = ({ sum , submit}: IConfigurePaymentStepProps) => {
 
     }
     if(Object.values(errorState).every((el) => el === '')) {
-      console.log('inside no error');
       submit(formFields);
     }
   }

@@ -1,12 +1,12 @@
 import axios from "axios"
-import { dummyCarWithImages } from "../models/Car"
+import { CarType, dummyCarWithImages } from "../models/Car"
 
 export const getCarsByTechnicianId = async (technicianId:string) => {
-  axios.get(`${process.env.REACT_APP_API_URL}/cars/techniciancars/${technicianId}`).then((res) =>{
-    return res.data
+  return axios.get(`${process.env.REACT_APP_API_URL}/cars/techniciancars/${technicianId}`).then((res) =>{
+    return res.data.cars
   }).catch((e) => {
     console.log('Something went wrong', e);
-  } );
+  });
 }
 
 export const getReportsByCarId = async  (carId:string) => {
