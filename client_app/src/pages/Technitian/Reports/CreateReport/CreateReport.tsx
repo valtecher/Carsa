@@ -10,19 +10,23 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { IReport, IReportType } from '../../../../utils/models/Report';
 import ReportCard from '../../../../components/Cards/ReportCard/ReportCard';
-import { report } from 'process';
 import { uuid } from '../../../../utils/helpers/uuid';
 import { createReports } from '../../../../utils/apis/ReportApi';
+import { AppState } from '../../../../redux/store';
+import { useSelector } from 'react-redux';
 
 
 const CreateReport = () => {
   const params = useParams();
+  const user = useSelector((state:AppState) => state.user.user);
+
   const [ reports, setReports ] = useState<Array<IReport>>([]);
   const [ pendingReport, setPendingReport ] = useState<IReport>({
     type: IReportType.None,
     condition: 0,
     details: '', 
-    overview_id: ''
+    overview_id: '',
+    type_id: ''
   }); 
 
   const addReport = () => {
@@ -52,7 +56,12 @@ const CreateReport = () => {
 
   const handleReportsSave = () => {
     console.log(reports)
-    createReports({ reports })
+    if(reports.length === 0){
+      alert('You have not added reports')
+    }
+
+    console.log(user);
+    createReports({ carId: params.carId, technicianId: user.person_id, reports })
   }
 
 

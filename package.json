@@ -9,7 +9,9 @@
   },
   "scripts": {
     "heroku-postbuild": "cd client_app && npm install && npm run build",
-    "start": "tsnd --respawn index.ts",
+    "server": "tsnd --respawn index.ts",
+    "client": "npm run start --prefix client_app",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "migrate": "npx sequelize-cli db:migrate",
     "undo-migration": "npx sequelize-cli db:migrate:undo",
     "seed": "npx sequelize-cli db:seed:all --seeders-path database/seeders --config config/db.js --debug",

@@ -16,11 +16,7 @@ export const getReportsByCarId = async  (carId:string) => {
 }
 
 export const getCarById = async (carId:String) => {
-
-  if(carId === 'test') {
-    return dummyCarWithImages;
-  }
-  axios.get('', { params: { carId } }).then((res) => {
+  return await axios.get(`${process.env.REACT_APP_API_URL}/cars/${carId}`).then((res) => {
     return res.data;
   }).catch((e) => {
     console.log('Something went wrong', e)

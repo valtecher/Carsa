@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import fs from 'fs';
 import path from 'path';
-import { TokenPayload } from '../DTOs/tokenPayload';
+import { TokenPayload } from '../../DTOs/tokenPayload';
 
 const privateKey = fs.readFileSync(path.resolve(process.cwd(), 'private.pem'));
 const publicKey = fs.readFileSync(path.resolve(process.cwd(), 'public.pem'));

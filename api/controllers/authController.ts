@@ -2,7 +2,7 @@ import e, { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
 import clientHelper from '../services/helpers/clientHelpers';
-import { verifyJWT, comparePasswords } from '../utils/authUtils';
+import { verifyJWT, comparePasswords } from '../services/utils/authUtils';
 import { invalidateSession, generateAccessToken, generateRefreshToken } from '../services/helpers/authHelpers';
 import { ClientRegistrationBody } from '../DTOs/clientRegistrationBody';
 import { CreatedClient } from '../DTOs/createdClient';

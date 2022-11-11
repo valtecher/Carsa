@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { updateReport } from '../../../utils/apis/ReportApi';
 import { IReport } from '../../../utils/models/Report';
 import Pie from '../../CarStateScore/CarStateScore';
 import Button, { ButtonSize } from '../../common/button/Button';
@@ -28,13 +29,13 @@ const ReportCard = (props:IReportCardProps) => {
   }
 
   const handleSave = () => {
-    console.log('Saving report');
+    updateReport(pendingReport)
   }
 
   return (
     <div className='reportCard'>
         <div className='reportCard-header'>
-          <div className='reportCard-header-type'>{ report.type }</div>
+          <div className='reportCard-header-type'>{ report.type ?? report?.ReportType?.name}</div>
           <div className='reportCard-header-actions'>
            { editable?   <Button size={ButtonSize.SMALL} onClick={() => { 
               setMode(!mode) 
@@ -55,7 +56,7 @@ const ReportCard = (props:IReportCardProps) => {
         </div>
         <div className='reportCard-body'>
           <div className='reportCard-body-section'>
-            { mode ?  <p>{ pendingReport.details }</p> :   <textarea name='details' onChange={handleChange} value={pendingReport.details}></textarea>} 
+            { mode ?  <p>{ pendingReport.details }</p> : <textarea name='details' onChange={handleChange} value={pendingReport.details}></textarea>} 
           </div>
           <div className='reportCard-body-divider'></div>
           <div className='reportCard-body-section'>

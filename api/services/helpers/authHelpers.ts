@@ -1,5 +1,5 @@
 import { promisify } from 'util';
-import { signJWT } from '../../utils/authUtils';
+import { signJWT } from '../utils/authUtils';
 import { sessionStore } from '../../middleware/session';
 import Logger from '../../../logger';
 

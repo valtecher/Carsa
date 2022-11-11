@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import { signJWT, verifyJWT } from "../utils/authUtils";
+import { signJWT, verifyJWT } from "../services/utils/authUtils";
 import { isSessionValid } from '../services/helpers/authHelpers';
 
 export const requireAuthentication = async (req: Request, res: Response, next: NextFunction) => {

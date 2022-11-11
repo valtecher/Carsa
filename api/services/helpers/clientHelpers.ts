@@ -1,6 +1,6 @@
 import sequelize, { Op } from 'sequelize';
 import db from '../../../database/models';
-import { hashPassword } from '../../utils/authUtils';
+import { hashPassword } from '../utils/authUtils';
 import { CreatedClient } from '../../DTOs/createdClient';
 
 interface ClientByEmail {

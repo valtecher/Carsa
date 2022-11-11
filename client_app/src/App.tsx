@@ -37,7 +37,7 @@ function App() {
         <Route path='/order/add/configuration/:id' element={<AddCarConfiguration showHeader={true}/>}/>
         
         <Route path='/technician/dashboard' element={<TechnicianDashboard/>}/>
-        <Route path='/technician/report/add/:id' element={<CreateReport/>}/>
+        <Route path='/technician/report/add/:id/:carId' element={<CreateReport/>}/>
         
         <Route path='/car/edit/:id' element={<EditCar/>} />
 
