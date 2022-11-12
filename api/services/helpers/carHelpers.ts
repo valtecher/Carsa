@@ -2,6 +2,8 @@ import { Transaction } from 'sequelize';
 import Logger from '../../../logger';
 import db from '../../../database/models';
 import reportHelpers from './reportHelpers';
+import { updateLocation } from './locationHelper';
+import { updateEngine } from './engineHelpers';
 
 const getAllCars = async ({ limit = Number.MAX_SAFE_INTEGER, offset = 0 }: { limit?: number; offset?: number }) => {
   const cars = await db.Car.findAll({
@@ -64,7 +66,7 @@ const createCar = async (carBody: unknown) => {
   }
 };
 
-const updateCarById = async (carId: string, carBody: unknown) => {
+const updateCarById = async (carId: string, carBody: any) => {
   try {
     const carToUpdate = await db.Car.findByPk(carId);
 
@@ -77,6 +79,14 @@ const updateCarById = async (carId: string, carBody: unknown) => {
 
     await carToUpdate.update(carBody);
     const updatedCar = (await getCarById(carId)).car;
+
+    if(carBody.Location){
+      updateLocation(carBody.Location);
+    }
+
+    if( carBody.Engine) {
+      updateEngine(carBody.Engine);
+    }
 
     return { success: true, car: updatedCar };
   } catch (err) {

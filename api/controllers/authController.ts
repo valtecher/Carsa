@@ -43,7 +43,10 @@ const login = async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
     const clientWithEmail = await clientHelper.getClientByEmail(email);
+    console.log(clientWithEmail);
     const employeeWithEmail = await employeeHelper.getEmployeeByEmail(email);
+
+   
 
     if ((!clientWithEmail || !comparePasswords(password, clientWithEmail.password!)) && (!employeeWithEmail || !comparePasswords(password, employeeWithEmail.password!)  )) {
         return res.status(StatusCodes.BAD_REQUEST).json({ message: 'Incorrect email or password' });

@@ -54,7 +54,6 @@ const updateCarById = async (req: Request, res: Response) => {
   const carBody = req.body;
 
   const result = await carHelpers.updateCarById(carId, carBody);
-
   return result.success ? res.json(result.car) : res.status(StatusCodes.BAD_REQUEST).json({ message: result.message });
 };
 

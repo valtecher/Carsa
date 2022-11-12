@@ -43,9 +43,12 @@ const getEmployeeByEmail = async (email:string) => {
   }).catch((e:any) =>{ 
     console.log('Error occurred', e);
   });
-  const position = await getEmployeesPosition(employee.person_id)
 
-  employee.role = position
+  if ( employee ) {
+    const position = await getEmployeesPosition(employee.person_id);
+    employee.role = position;
+  }
+  
   return employee;
 }
 

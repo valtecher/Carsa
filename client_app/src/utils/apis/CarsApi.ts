@@ -29,5 +29,12 @@ export const getLastCars = async (clientId:string) => {
   }).catch((e) => {
     console.log('Something went wrong', e);
   });
-
 }
+
+export const updateCar = async (car:CarType) => {
+  return await axios.put(`${process.env.REACT_APP_API_URL}/cars/${car.id}`, { ...car }).then((res) => {
+    return res.data;
+  }).catch((e) => {
+    console.log('Something went wrong', e);
+  });;
+} 

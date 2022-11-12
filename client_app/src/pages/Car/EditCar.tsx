@@ -3,13 +3,14 @@ import Header from '../../components/header/Header';
 import Carousel from '../../components/carousel/Carousel';
 import { CarType } from '../../utils/models/Car';
 import { useEffect, useState } from 'react';
-import { getCarById, getReportsByCarId } from '../../utils/apis/CarsApi';
+import { getCarById, getReportsByCarId, updateCar } from '../../utils/apis/CarsApi';
 import { useParams } from 'react-router-dom';
 import Button, { ButtonSize } from '../../components/common/button/Button';
 import { IReport } from '../../utils/models/Report';
 import ReportCard from '../../components/Cards/ReportCard/ReportCard';
 import { createKeyValueArrayFromObject, flattenObject } from '../../utils/helpers/flattenObject';
 import styled from 'styled-components';
+import { findPath } from '../../utils/helpers/findPath';
 
 const StyledSpecs = styled.div`
   input {
@@ -29,6 +30,8 @@ export enum CarPageModes {
   EDIT = 'EDIT'
 }
 
+const bannedKeys = ['state', 'id', 'images', 'mainImage', 'description', 'market', 'name', 'registrationPlate', 'model_id', 'vin', 'ReportOverviews', 'Reports', 'updatedAt', 'createdAt', 'marketplace_link'];
+
 const EditCar = (props:IEditCarProps) => {
   
   const params = useParams();
@@ -37,8 +40,9 @@ const EditCar = (props:IEditCarProps) => {
   const [ mode, setMode ] = useState<CarPageModes>(CarPageModes.VIEW);
   
   const [isAddingSpec, setIsAddingSpec] = useState<boolean>(false);
-  const [ pendingSpecName, setPendingSpecName ] = useState<any>()
-  const [ pendingSpecValue, setPendingSpecValue ] = useState<any>()
+  const [ pendingVin, setPendingVin ] = useState<string>('');
+  const [ pendingNumber, setPendingNumber ] = useState<string>('');
+
 
   const isInEditMode = ():boolean => {
     return mode === CarPageModes.EDIT
@@ -50,6 +54,27 @@ const EditCar = (props:IEditCarProps) => {
       setReports(res.ReportOverviews?.[0]?.Reports)
     });
   }, [])
+
+  const handleSpecEdit = (e:any) => {
+    const path = findPath(car, e.target.name);
+    let updatedCar:any = {...car!}
+    if(updatedCar[path]) {
+      updatedCar[`${path}`][`${e.target.name}`] = e.target.value;
+    } else {
+      updatedCar = { ...updatedCar, [e.target.name]: e.target.value}
+    }
+
+    setCar(updatedCar)
+    updateCar(updatedCar);
+  }
+
+  const handleCarSave = () => {
+    setMode(CarPageModes.VIEW)
+    if (car) {
+          updateCar(car).then((res) => {
+      })
+    }
+  }
 
   return(
     <div>
@@ -71,11 +96,22 @@ const EditCar = (props:IEditCarProps) => {
             <div className='editCar-header-info-section-subSection'>
               <div className='editCar-header-info-section-subSection-smallinfo'>{car?.registrationNumber}</div>
               <div className='editCar-header-info-section-subSection-smallinfo'>{car?.vin}</div>
+              
               { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={undefined} type={true} name={'Buy'}></Button>}
               { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={undefined} type={true} name={'Reject'}></Button>}
               { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={() => {setMode(CarPageModes.EDIT)}} type={true} name={'Edit'}></Button>}
-              { !isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={undefined} type={true} name={'Add Vin'}></Button> }
-              { !isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={undefined} type={true} name={'Add Number plates'}></Button>}
+              { isAddingSpec && (<input name='vin' placeholder='vin' value={pendingVin} onChange={(e:any) => {
+                setPendingVin(e.target.value);
+              }}></input>) }
+              { (isInEditMode() && !car?.vin) && <Button size={ButtonSize.SMALL} onClick={() => {
+                setIsAddingSpec(!isAddingSpec);
+                if(isAddingSpec && car) {
+                  updateCar({...car, vin: pendingVin || ''}).then((res) => {
+                    setCar(res);
+                  })
+                }
+              }} type={true} name={isAddingSpec ? 'Save Vin' : 'Add Vin'}/>}
+              { (isInEditMode() && !car?.registrationNumber) && <Button size={ButtonSize.SMALL} onClick={undefined} type={true} name={'Add Number plates'}/>}
               
             </div>
           </div>
@@ -103,33 +139,23 @@ const EditCar = (props:IEditCarProps) => {
               <div className='editCar-header-info-main'>Specs</div>
               <div>
                 <div className='carCard-expanded-specs-wrapper editCar-body-section-wrapper'>
-                  { createKeyValueArrayFromObject(flattenObject(car || {}), ['state', 'id', 'images', 'mainImage', 'description', 'market', 'name', 'registrationPlate', 'model_id', 'vin', 'ReportOverviews', 'Reports']).map((item:any, index: number) => {
-                    return(
-                      <div key={index} className='carCard-expanded-specs-wrapper-item editCar-inputPair'>
-                        <div className='carCard-expanded-specs-wrapper-item-key'>{ item[0] } </div> : {item[1] } 
-                      </div>
+                  { createKeyValueArrayFromObject(flattenObject(car || {}), bannedKeys).map((item:any, index: number) => {
+                    const [ key, value ] = item;
+                    if( isInEditMode() ) {
+                      return(
+                        <StyledSpecs key={index}>
+                         { key.replaceAll('_', ' ') }  : <input name={key} value={value} onChange={handleSpecEdit}></input>
+                        </StyledSpecs>
                       )
-                  })}
-                  { isAddingSpec && (
-                    <StyledSpecs>
-                      <input name='pendingSpecName' placeholder='Add car spec name' value={pendingSpecName} onChange={(e:any)=> {
-                        setPendingSpecName(e.target.value)
-                      }}></input> 
-                      :
-                      <input name='pendingSpecValue' placeholder='Add car spec value' value={pendingSpecValue} onChange={(e:any)=> {
-                        setPendingSpecValue(e.target.value)
-                      }}></input>
-                    </StyledSpecs>
-                  ) }
-                  <Button onClick={() => {
-                    if(isAddingSpec && car){
-                      car[`${pendingSpecName}`] = pendingSpecValue;
+                    } else {
+                      return(
+                        <div key={index} className='carCard-expanded-specs-wrapper-item editCar-inputPair'>
+                          <div className='carCard-expanded-specs-wrapper-item-key'>{ item[0].replaceAll('_', ' ') } </div> : {item[1] } 
+                        </div>
+                        )  
                     }
-                    console.log(car);
-
-                    setIsAddingSpec(!isAddingSpec);
                     
-                  }} type={true} name={ isAddingSpec ? 'Save spec' : 'Add spec'} ></Button>
+                  })}
                 </div>
               </div>
             </div>
@@ -137,9 +163,7 @@ const EditCar = (props:IEditCarProps) => {
           </div>
 
             <div className='edit-body-section'>
-            { !isInEditMode()? '' :    <Button onClick={() => {
-                setMode(CarPageModes.VIEW)
-              }} type={true} name={'Save changes'} className='edit-body-section-center'></Button>}
+            { !isInEditMode()? '' : <Button onClick={handleCarSave} type={true} name={'Save changes'} className='edit-body-section-center'></Button>}
           </div>
         </div>
       </div>
