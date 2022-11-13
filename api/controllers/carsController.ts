@@ -3,7 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import carHelpers from '../services/helpers/carHelpers';
 import employeeHelper from '../services/helpers/employeeHelper';
 import orderHelpers from '../services/helpers/orderHelpers';
-import reportHelpers from '../services/helpers/reportHelpers';
+import { scrapOtoCar } from '../services/utils/scrapper';
 
 const getAllCars = async (req: Request, res: Response) => {
   const limit = Number(req.query.limit) || undefined;
@@ -67,6 +67,12 @@ const deleteCarById = async (req: Request, res: Response) => {
     : res.status(StatusCodes.BAD_REQUEST).json({ message: result.message });
 };
 
+const scrapCar = async (req:Request, res:Response) => {
+  const scrapLink = req.query.link ;  
+  const scrappedCar = await scrapOtoCar(scrapLink?.toString() || '');
+  res.json(scrappedCar);
+}
+
 export default {
   getCarById,
   getAllCars,
@@ -74,5 +80,6 @@ export default {
   getCarsForTechnician,
   createCar,
   updateCarById,
-  deleteCarById
+  deleteCarById,
+  scrapCar
 };

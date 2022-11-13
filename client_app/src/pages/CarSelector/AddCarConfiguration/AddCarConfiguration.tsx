@@ -56,7 +56,7 @@ const AddCarConfiguration = (props:IAddCarConfigurationProps) => {
 
   const handleFetchCarLink = async () => {
     fetchCarByLink(link).then(( res ) => {
-      setFetchedCar(res);
+      // setFetchedCar(res);
     })
   }
 

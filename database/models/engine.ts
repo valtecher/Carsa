@@ -39,7 +39,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
         allowNull: true,
         validate: {
           min: 0.5,
-          max: 10
+          max: 10000
         }
       },
       power: {
