@@ -20,11 +20,12 @@ const getAllTechnicians = async () => {
 }
 
 const getTechnicianById = async (technicianId:string) => {
-  return await db.Technician.findByPk(technicianId) 
+  return await db.Technician.findByPk(technicianId, {
+    include: [db.Location]
+  }) 
 }
 
 const getEmployeeByEmail = async (email:string) => {
-  console.log(email);
   const employee = await db.Employee.findOne({
     include: [
       db.Person
@@ -42,9 +43,12 @@ const getEmployeeByEmail = async (email:string) => {
   }).catch((e:any) =>{ 
     console.log('Error occurred', e);
   });
-  const position = await getEmployeesPosition(employee.person_id)
 
-  employee.role = position
+  if ( employee ) {
+    const position = await getEmployeesPosition(employee.person_id);
+    employee.role = position;
+  }
+  
   return employee;
 }
 

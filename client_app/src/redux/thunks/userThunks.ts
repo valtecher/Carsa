@@ -8,7 +8,6 @@ import { Axios, AxiosResponse } from "axios";
 export const registerUserThunk = (formFields:RegisterForm) => async (dispatch:any) => {
   const user:any = await register(formFields);
   if(typeof user !== 'string' ){
-    console.log(user);
     const userToSave:User = {
       first_name: user.data.first_name, 
       last_name: user.data.last_name, 
@@ -24,7 +23,6 @@ export const registerUserThunk = (formFields:RegisterForm) => async (dispatch:an
 
 export const loginUserThunk = (formFields:LoginForm) => async (dispatch:any) => {
   const user:AxiosResponse<User> | string = await login(formFields);
-  console.log(user);
   if(typeof user === 'string' ){
     dispatch(loginFailed(user))
   } else { 

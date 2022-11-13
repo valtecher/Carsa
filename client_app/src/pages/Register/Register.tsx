@@ -68,7 +68,6 @@ const RegisterPage = () => {
   });
 
   const submit = () => {
-      console.log('Submit');
       dispatch(registerUserThunk(formik.values));
   }
 

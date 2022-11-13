@@ -2,7 +2,7 @@ import e, { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
 import clientHelper from '../services/helpers/clientHelpers';
-import { verifyJWT, comparePasswords } from '../utils/authUtils';
+import { verifyJWT, comparePasswords } from '../services/utils/authUtils';
 import { invalidateSession, generateAccessToken, generateRefreshToken } from '../services/helpers/authHelpers';
 import { ClientRegistrationBody } from '../DTOs/clientRegistrationBody';
 import { CreatedClient } from '../DTOs/createdClient';
@@ -43,7 +43,10 @@ const login = async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
     const clientWithEmail = await clientHelper.getClientByEmail(email);
+    console.log(clientWithEmail);
     const employeeWithEmail = await employeeHelper.getEmployeeByEmail(email);
+
+   
 
     if ((!clientWithEmail || !comparePasswords(password, clientWithEmail.password!)) && (!employeeWithEmail || !comparePasswords(password, employeeWithEmail.password!)  )) {
         return res.status(StatusCodes.BAD_REQUEST).json({ message: 'Incorrect email or password' });

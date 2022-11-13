@@ -29,8 +29,7 @@ const TechnicianDashboard = () => {
   useEffect(() => {
     if(coords){ 
       getCarsByTechnicianId(technician?.person_id).then((res) => {
-        console.log(res);
-        // setCars(res)
+        setCars(res)
       })
     }
     
@@ -42,7 +41,7 @@ const TechnicianDashboard = () => {
       <div className='technicianDashboard'>
         <h1>Cars to check</h1>
         <div className='technicianDashboard-content'>
-            { cars.map((car) => {
+            { [...cars || []]?.map((car) => {
               return(
                 <CarCard mode={CarCardModes.TECHNICIAN} car={car}/>
               )

@@ -4,13 +4,13 @@ import logo from '../../images/Common/carsa_logo.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../redux/store';
 import { setOpenedLink } from '../../redux/actions/AppActions';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { logoutUserThunk } from '../../redux/thunks/userThunks';
 
 const Header = () => {
 
     const dispatch = useDispatch();
-    const isAuthenticatedFromStore = useSelector((state:AppState) => state.user.isAuthenticated);
+    const user = useSelector((state:AppState) => state.user);
     const selectedLink = useSelector((appState:AppState) => appState.app.openedLink)
     const { pathname } = useLocation();
     
@@ -30,9 +30,9 @@ const Header = () => {
       <div onClick={() => {handleLinkChange('offers')}} className={`homeheader-wrapper ${selectedLink === 'offers'? 'selectedLink' : ''}`}>
         <Link to='/offers'>Offers</Link>
       </div>
-        { isAuthenticatedFromStore?  
+        { user.isAuthenticated?  
           <div onClick={() => {handleLinkChange('dashboard')}} className={`homeheader-wrapper ${selectedLink === 'dashboard'? 'selectedLink' : ''}`}>
-            <Link to='/client/dashboard'>Dashboard</Link>
+            <Link to={`/${user.user.role}/dashboard`}>Dashboard</Link>
           </div> : '' 
         }
       <div className={`homeheader-wrapper `}>
@@ -42,7 +42,7 @@ const Header = () => {
         <Link to='/about'>Contact</Link>
       </div>
       <div onClick={() => {handleLinkChange('login')}} className={`homeheader-wrapper ${selectedLink === 'login' || selectedLink === 'logout' ? 'selectedLink' : ''}`}>
-          {isAuthenticatedFromStore?
+          {user.isAuthenticated?
                   <Link className='header-wrapper-link'  to='/' onClick={() => {
                     dispatch(logoutUserThunk())
                   }}>Log Out</Link>

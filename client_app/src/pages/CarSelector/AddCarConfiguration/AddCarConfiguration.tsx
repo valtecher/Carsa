@@ -56,12 +56,12 @@ const AddCarConfiguration = (props:IAddCarConfigurationProps) => {
 
   const handleFetchCarLink = async () => {
     fetchCarByLink(link).then(( res ) => {
+      console.log(res);
       setFetchedCar(res);
     })
   }
 
   const handleDropdownChange = (e:any, placeholder:any) => {
-    console.log('Inside configurtion: ', e.name, placeholder);
     setManualConfiguration({ ...manualConfiguration, [placeholder.replaceAll(' ', '_')]: e.label  });
   }
 

@@ -78,13 +78,6 @@ module.exports = (sequelize: any, DataTypes: any) => {
       vin: {
         type: DataTypes.STRING(17),
         allowNull: true,
-        validate: {
-          validateVIN: function (value: string) {
-            if (!new RegExp('[A-HJ-NPR-Z0-9]{17}', 'i').test(value)) {
-              throw new Error('Provided VIN number is not valid');
-            }
-          }
-        }
       },
       registrationNumber: {
         type: DataTypes.STRING(15),

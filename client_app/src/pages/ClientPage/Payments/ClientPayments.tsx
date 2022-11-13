@@ -25,7 +25,6 @@ const ClientPayments = () => {
   useEffect(() => {
       axios.get(`${process.env.REACT_APP_API_URL}/payments/client/${userID}`).then((res) => {
         if(res.data){
-          console.log(Object.values(res.data).flat());
           setPayments(Object.values(res.data).flat() as any);
         }
       })

@@ -30,7 +30,8 @@ export interface CarType {
   CarBrand: CarBrandType,
   CarModel: CarModelType, 
   CarGeneration: CarGenerationType,
-  ReportOverviews?: Array<IReportOverview>
+  ReportOverviews?: Array<IReportOverview>,
+  [key: string]: any
 
 } 
 

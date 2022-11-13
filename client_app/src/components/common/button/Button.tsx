@@ -23,7 +23,7 @@ const Button = (props:IProps) => {
   }
 
   const handleClick = () => {
-    onClick();
+    onClick?.();
   } 
 
   return(

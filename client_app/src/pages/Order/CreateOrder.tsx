@@ -41,7 +41,6 @@ const CreateOrder = () => {
 
 
   const handleSubmit = (paymentForm: paymentFormFields) => {
-    console.log(paymentForm, selectedOptions);
     createOrder({ ...selectedOptions, paymentForm }).then((res:any) => {
       navigate('/home');
     })

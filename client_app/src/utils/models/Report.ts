@@ -13,4 +13,6 @@ export interface IReport {
   details: string,
   overview_id: string, 
   type: IReportType,
+  type_id: string,
+  ReportType?: {id: string, name: string}
 }

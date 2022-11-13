@@ -7,6 +7,8 @@ const router = Router();
 
 router.get('/list', carsController.getAllCars);
 
+router.get('/scrap', carsController.scrapCar)
+
 router.get('/getclientcars/:clientId', carsController.getClientCars)
 
 router.get('/techniciancars/:id', carsController.getCarsForTechnician)
@@ -15,8 +17,9 @@ router.get('/:carId', validateCarId, validateRequestSchema, carsController.getCa
 
 router.post('/', validateCreateCar, validateRequestSchema, carsController.createCar);
 
-router.put('/:carId', validateCarId, validateUpdateCar, validateRequestSchema, carsController.updateCarById);
+router.put('/:carId', validateCarId, carsController.updateCarById);
 
 router.delete('/:carId', validateCarId, validateRequestSchema, carsController.deleteCarById);
+
 
 export default router;

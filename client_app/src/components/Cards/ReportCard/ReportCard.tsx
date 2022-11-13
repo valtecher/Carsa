@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import { updateReport } from '../../../utils/apis/ReportApi';
 import { IReport } from '../../../utils/models/Report';
 import Pie from '../../CarStateScore/CarStateScore';
 import Button, { ButtonSize } from '../../common/button/Button';
 import TextInput from '../../common/input/TextInput';
 import './reportCard.scss'
 
-interface IReportCard {
+interface IReportCardProps {
   report: IReport,
   editable?: boolean,
   size?: ReportCardSize, 
+  onDelete?: (report:IReport) => void
 }
 
 export enum ReportCardSize {
@@ -16,7 +18,7 @@ export enum ReportCardSize {
   FW = 'FULLWIDTH'
 }
 
-const ReportCard = (props:IReportCard) => {
+const ReportCard = (props:IReportCardProps) => {
   const { report, editable } = props;
 
   const [mode, setMode] = useState<boolean>(true)
@@ -27,15 +29,13 @@ const ReportCard = (props:IReportCard) => {
   }
 
   const handleSave = () => {
-    console.log(pendingReport);
-    console.log('Saving report');
-
+    updateReport(pendingReport)
   }
 
   return (
     <div className='reportCard'>
         <div className='reportCard-header'>
-          <div className='reportCard-header-type'>{ report.type }</div>
+          <div className='reportCard-header-type'>{ report.type ?? report?.ReportType?.name}</div>
           <div className='reportCard-header-actions'>
            { editable?   <Button size={ButtonSize.SMALL} onClick={() => { 
               setMode(!mode) 
@@ -44,6 +44,11 @@ const ReportCard = (props:IReportCard) => {
               }
             }} type={false} name={mode ? 'Edit' : 'Save'} ></Button> : '' }
             { ! mode ? <Button size={ButtonSize.SMALL} onClick={() => {
+              props?.onDelete?.(pendingReport)
+              setMode(!mode)
+            }} type={false} name={'Delete'} ></Button> : ''}
+             { ! mode ? <Button size={ButtonSize.SMALL} onClick={() => {
+              
               setPendingReport(report)
               setMode(!mode)
             }} type={false} name={'Cancel'} ></Button> : ''}
@@ -51,11 +56,11 @@ const ReportCard = (props:IReportCard) => {
         </div>
         <div className='reportCard-body'>
           <div className='reportCard-body-section'>
-            { mode ?  <p>{ pendingReport.type }</p> :   <textarea name='description' onChange={handleChange} value={pendingReport.details}></textarea>} 
+            { mode ?  <p>{ pendingReport.details }</p> : <textarea name='details' onChange={handleChange} value={pendingReport.details}></textarea>} 
           </div>
           <div className='reportCard-body-divider'></div>
           <div className='reportCard-body-section'>
-           { mode ? <Pie percentage={pendingReport.condition} color={'white'} label={''} /> : <TextInput name='grade' onChange={handleChange} className='reportCard-input' placeholder='Grade' value={pendingReport.condition} ></TextInput>} 
+           { mode ? <Pie percentage={pendingReport.condition} color={'white'} label={''} /> : <TextInput name='condition' onChange={handleChange} className='reportCard-input' placeholder='Condition' value={pendingReport.condition} ></TextInput>} 
           </div>
         </div>
     </div>
