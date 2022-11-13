@@ -89,11 +89,11 @@ export const scrapOtoCar = async (link:string) => {
 
       const engine = await findEngineByCharacteristics(result['Moc'], result['Pojemność skokowa'], result['Rodzaj paliwa'], result['Wersja'])
       const carGeneration = await findCarName(result['Marka pojazdu'], result['Model pojazdu'], result['Generacja'], generationPeriod?.split('-')?.[0], generationPeriod?.split('-')?.[1])
-     
-
-
-      car!['engine_id'] = engine.id
+    
+      car!['Engine'] = engine
       car!['CarGeneration'] = carGeneration;
+      car!['CarModel'] = carGeneration?.CarModel;
+      car!['CarBrand'] = carGeneration?.CarModel?.CarBrand;
 
       console.log('CAR: ------ : - -: ', car);
       return car

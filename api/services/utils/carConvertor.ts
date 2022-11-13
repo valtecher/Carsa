@@ -18,25 +18,28 @@ export const convertScrappedDataToCar = (scrappedCar:any, link:string): any => {
   } else {
     transmission = 'Auto'
   } 
-  
-  const car: any = {
 
-    color: scrappedCar.Kolor,
-    mileage: scrappedCar.Przebieg,
-    year: scrappedCar['Rok produkcji'],
-    drive,
-    transmission,
-    market_name: "Otomoto",
-    marketplace_link: link,
-    price: scrappedCar.price,
-    type,
-    generation_id: "",
-    engine_id: "",
-    location_id: scrappedCar.location,
-    registrationPlate: scrappedCar['Numer rejestracyjny pojazdu'],
+  const carToReturn = {
+    mainImage: scrappedCar.images?.[0],
     images: scrappedCar.images,
-
+    description: '',
+    brand: '', 
+    model:'', 
+    generation:'',
+    registrationNumber: scrappedCar['Numer rejestracyjny pojazdu'], 
+    vin: scrappedCar['VIN'],
+    price: scrappedCar.price,
+    type, 
+    market: 'OTOMOTO',
+    link: link, 
+    mileage: scrappedCar.Przebieg,
+    color: scrappedCar.Kolor, 
+    drive,
+    year: scrappedCar['Rok produkcji'], 
+    fuel_type: scrappedCar['Rodzaj paliwa'],
+    gearBox: transmission,
   }
 
-  return car;
+  return carToReturn;
 }
+
