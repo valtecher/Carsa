@@ -1,10 +1,29 @@
 .createOrder{
   position: absolute;
+  display: flex;
+  justify-content: center;
   margin: 10vh auto;
   width: 95%;
   max-width: 1440px;
   left: 0;
   right: 0;
+  &-body {
+    display: flex;
+    justify-content: center;
+    input {
+      margin: 10px 0;
+      width: 70%;
+      border: 0;
+      height: 30px;
+      border-radius: 10px;
+    }
+  }
+
+  &-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
   &-mainInfo {
     font-family: 'M plus 1p';
     font-style: normal;

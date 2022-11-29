@@ -18,24 +18,24 @@ export const getLastOrders = async (client_id:string) => {
 }
 
 
-export const addCarToConfiguration = async (car: manualConfiguration | CarType) => {
-  return axios.post('', { body: car }).then((res) => { return res;  }).catch((e) => {console.log(e);})
+export const addCarToConfiguration = async (car: manualConfiguration | CarType | null | undefined) => {
+  return axios.post('', { body: car }).then((res) => { return res;  }).catch((e) => {console.error(e);})
 }
 
 export const addReportToConfiguration = async (report:any) => {
   return axios.post('', { report }).then((res) => {return res.data}).catch((e) => {
-    console.log('something went wrong:', e)
+    console.error('something went wrong:', e)
   });
 }
 
 export const editReport = async (updatedReport:any) => {
   return axios.put('', { report: updatedReport }).then((res) => {return res.data}).catch((e) => {
-    console.log('Something went wrong: ', e)
+    console.error('Something went wrong: ', e)
   });
 }
 
 export const createOrder = async (dataSet:any) => {
-  return axios.post('', {...dataSet})
+  return axios.post(`${process.env.REACT_APP_API_URL}/orders`, {...dataSet})
 }
 
 export const retrieveAllClientOrders = async (clientId:string) => {

@@ -11,7 +11,7 @@ router.get('/client/:clientId', ordersController.getOrdersForClientId);
 
 router.get('/:orderId', validateOrderId, validateRequestSchema, ordersController.getOrderById);
 
-// router.post('/', validateCreateOrder, validateRequestSchema, ordersController.createOrder);
+router.post('/',  ordersController.createOrder);
 
 // router.put('/:orderId', validateOrderId, validateUpdateOrder, validateRequestSchema, ordersController.updateOrderById);
 

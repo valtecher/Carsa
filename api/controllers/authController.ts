@@ -43,7 +43,6 @@ const login = async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
     const clientWithEmail = await clientHelper.getClientByEmail(email);
-    console.log(clientWithEmail);
     const employeeWithEmail = await employeeHelper.getEmployeeByEmail(email);
 
    

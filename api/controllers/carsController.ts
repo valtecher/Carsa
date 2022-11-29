@@ -1,9 +1,33 @@
-import { Request, Response } from 'express';
+import e, { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import carHelpers from '../services/helpers/carHelpers';
 import employeeHelper from '../services/helpers/employeeHelper';
 import orderHelpers from '../services/helpers/orderHelpers';
 import { scrapOtoCar } from '../services/utils/scrapper';
+
+const getAllBrands = async (req:Request, res:Response) => {
+  res.json(await carHelpers.getAllBrands())
+}
+
+const getAllModels = async (req:Request, res:Response) => {
+  const brandName = req.query.name;
+  const brand = await carHelpers.getBrandByName(brandName as string || '');
+  if (brand) {
+    const models = await carHelpers.getAllModels(brand[0].id);
+    res.json(models)
+  } else {
+    res.json({status: 'failed'})
+  }
+  
+  
+}
+
+const getAllGeneratioins = async (req:Request, res:Response) => {
+  const modelName = req.query.name; 
+  const model = await carHelpers.getModelByName(modelName as string || '')
+  const generations = await carHelpers.getAllGenerations(model[0].id || '');
+  res.json(generations)
+}
 
 const getAllCars = async (req: Request, res: Response) => {
   const limit = Number(req.query.limit) || undefined;
@@ -37,24 +61,24 @@ const getCarById = async (req: Request, res: Response) => {
   const carId = req.params.carId;
 
   const result = await carHelpers.getCarById(carId);
-
   return result.success ? res.json(result.car) : res.status(StatusCodes.BAD_REQUEST).json({ message: result.message });
 };
 
 const createCar = async (req: Request, res: Response) => {
   const carBody = req.body;
-
   const result = await carHelpers.createCar(carBody);
-
   return result.success ? res.json(result.car) : res.status(StatusCodes.BAD_REQUEST).json({ message: result.message });
+
 };
 
 const updateCarById = async (req: Request, res: Response) => {
+  
   const carId = req.params.carId;
   const carBody = req.body;
-
   const result = await carHelpers.updateCarById(carId, carBody);
+  
   return result.success ? res.json(result.car) : res.status(StatusCodes.BAD_REQUEST).json({ message: result.message });
+
 };
 
 const deleteCarById = async (req: Request, res: Response) => {
@@ -78,6 +102,11 @@ export default {
   getAllCars,
   getClientCars,
   getCarsForTechnician,
+
+  getAllBrands, 
+  getAllModels, 
+  getAllGeneratioins,
+
   createCar,
   updateCarById,
   deleteCarById,

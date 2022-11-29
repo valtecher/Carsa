@@ -8,3 +8,7 @@ export const getClientPaymentsHelper = async (client_id:string) => {
   })
   return payments;
 }
+export const addPayment = async (payment:any) => {
+  const paymentSaved = await db.Payment.create(payment)
+  return paymentSaved;
+}

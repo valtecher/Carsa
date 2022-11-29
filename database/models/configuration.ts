@@ -128,14 +128,14 @@ module.exports = (sequelize: any, DataTypes: any) => {
         }
       },
       engine_volume_from: {
-        type: DataTypes.DECIMAL(4, 2),
+        type: DataTypes.DECIMAL(4),
         allowNull: true,
         validate: {
           min: 0
         }
       },
       engine_volume_until: {
-        type: DataTypes.DECIMAL(4, 2),
+        type: DataTypes.DECIMAL(4),
         allowNull: true,
         validate: {
           customValidator(value) {

@@ -49,10 +49,7 @@ const getRecentCarReports = async (carId: string) => {
 };
 
 const createOrUpdateReports = async (request:{carId: string, technicianId: string; reports: Array<IReport>}) => {
-  console.log('HERE: ', request);  
   if (request?.reports?.[0]?.overview_id) {    
-    console.log('HERE: ', request);  
-
       let reportOverview:ReportOverviewType = await getReportOverviewById(request?.reports?.[0]?.overview_id)
       
       if(!reportOverview) {
@@ -92,14 +89,12 @@ export const createReport = async (report:IReport) => {
     const reportTypes = await getReportTypes();
     report.type_id = reportTypes.find((reportType) => reportType.name.toLowerCase() === report.type.toLowerCase())?.id;
     return await db.Report.create(report).catch((e) => {
-      console.log(e)
+      console.error(e)
     });
 
 }
 
 export const updateSingleReport = async (report:IReport) => {
-  console.log('Recieved report ',report);
-  console.log(report.id);
   return await db.Report.update(report, { 
     where: {
       id: report.id

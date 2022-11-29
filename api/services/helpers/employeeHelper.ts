@@ -41,7 +41,7 @@ const getEmployeeByEmail = async (email:string) => {
     raw: true,
     nest: true,
   }).catch((e:any) =>{ 
-    console.log('Error occurred', e);
+    console.error('Error occurred', e);
   });
 
   if ( employee ) {

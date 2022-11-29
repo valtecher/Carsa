@@ -65,7 +65,6 @@ const CarCard = (props:ICarCardProps) => {
           { user?.role !== 'Client' && isExtended && <Button onClick={() => { navigate(`/car/edit/${car?.id}`) }} type={false} name={'Edit'} size={ButtonSize.SMALL}/>}
           
           { isExtended && <Button onClick={() => { 
-            console.log(car.id);
             // navigate(`/car/edit/${car?.id}`);
           }} type={false} name={'More'} size={ButtonSize.SMALL}/>}
         </div>

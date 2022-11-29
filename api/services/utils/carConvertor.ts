@@ -1,13 +1,11 @@
 export const convertScrappedDataToCar = (scrappedCar:any, link:string): any => {
 
-  console.log('Scrapped car: ', scrappedCar);
-
   let drive; 
   let transmission;
   let type = scrappedCar['Typ nadwozia']; 
-  if(scrappedCar['Napęd'].toString().toLowerCase() === 'Naprzedniakola'.toLowerCase()) {
+  if(scrappedCar['Napęd']?.toString()?.toLowerCase() === 'Naprzedniakola'.toLowerCase()) {
     drive = 'Front'
-  } if (scrappedCar['Napęd'].toString().toLowerCase() === 'Natylnekola'.toLowerCase()) {
+  } if (scrappedCar['Napęd']?.toString()?.toLowerCase() === 'Natylnekola'.toLowerCase()) {
     drive = 'Rear'
   } else {
     drive = 'All'
@@ -35,9 +33,10 @@ export const convertScrappedDataToCar = (scrappedCar:any, link:string): any => {
     mileage: scrappedCar.Przebieg,
     color: scrappedCar.Kolor, 
     drive,
+    location: scrappedCar['location'],
     year: scrappedCar['Rok produkcji'], 
     fuel_type: scrappedCar['Rodzaj paliwa'],
-    gearBox: transmission,
+    transmission,
   }
 
   return carToReturn;

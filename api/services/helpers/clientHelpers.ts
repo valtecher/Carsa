@@ -30,7 +30,7 @@ const getClientByEmail = async (email: string): Promise<ClientByEmail> => {
     raw: true,
     nest: true,
   }).catch((e:any) =>{ 
-    console.log('Error occurred', e);
+    console.error('Error occurred', e);
   });
 
   return client;

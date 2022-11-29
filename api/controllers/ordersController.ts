@@ -1,3 +1,4 @@
+import { Console } from 'console';
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import orderHelpers from '../services/helpers/orderHelpers';
@@ -29,12 +30,22 @@ const getOrdersForClientId = async (req: Request, res: Response) => {
 
 const createOrder = async (req: Request, res: Response) => {
   const orderBody = req.body;
+  console.log(orderBody);
 
-  const result = await orderHelpers.createOrder(orderBody);
+  let result:any; 
+  if (orderBody.type === 'Configuration') {
+    console.log('CONFIGURATION: :::  :: :');
+    result = await orderHelpers.createOrderWithConfiguration(orderBody);
+  } else {
+    console.log('CAR ORDER :: : :: : _ __ __ _------')
+    result = await orderHelpers.createOrderWithCar(orderBody);
+  }
 
-  return result.success
-    ? res.json(result.order)
-    : res.status(StatusCodes.BAD_REQUEST).json({ message: result.message });
+  
+
+  return result?.success
+    ? res.json({order: result.order, message: StatusCodes.CREATED})
+    : res.status(StatusCodes.BAD_REQUEST).json({ message: result?.message });
 };
 
 const updateOrderById = async (req: Request, res: Response) => {

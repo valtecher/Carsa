@@ -1,6 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
 import { convertScrappedDataToCar } from './carConvertor'
 import { findCarName, findEngineByCharacteristics  } from '../helpers/carHelpers'
+import { getLocationByState } from '../helpers/locationHelper';
 const puppeteer = require('puppeteer');
 
 
@@ -15,7 +16,7 @@ export const scrapOtoCar = async (link:string) => {
       try{
         // await page.click('#onetrust-accept-btn-handler');
       } catch(err){
-        console.log('no such btn')      
+        console.error('no such btn')      
       }
       
 
@@ -24,8 +25,6 @@ export const scrapOtoCar = async (link:string) => {
               return el.textContent;
           });
       });
-
-    //   console.log(labels);
 
       const photos:any =  await page.evaluate(() => {
           let images = Array.from(document.querySelectorAll('.offer-photos-thumbs__item img')).map((el:any) => {
@@ -41,8 +40,6 @@ export const scrapOtoCar = async (link:string) => {
           });
       });
 
-    //   console.log(values)
-
       const location = await page.evaluate(() => {
           return Array.from(document.getElementsByClassName('seller-card__links__link--address')).map((el:any) => {
               return el.textContent
@@ -54,8 +51,6 @@ export const scrapOtoCar = async (link:string) => {
               return el.textContent
           });
       })
-
-    //   console.log(price)
 
       const equipment = await page.evaluate(() => {
         return Array.from(document.getElementsByClassName('offer-features__item')).map((el:any) => {
@@ -69,7 +64,6 @@ export const scrapOtoCar = async (link:string) => {
       }
 
       await browser.close();
-      console.log('res: ', result)
       
       if(Object.entries(result).length === 0){
           return { Error: 'Something went wrong' }
@@ -82,20 +76,24 @@ export const scrapOtoCar = async (link:string) => {
       });
 
       const bracketsRegExp = /\((.*)\)/; 
-
-      console.log('RESULT : ------ : ---- :', result);
       let car = convertScrappedDataToCar(result, link);
       const generationPeriod = (result['Generacja'] || '').match(bracketsRegExp)?.[1];
 
       const engine = await findEngineByCharacteristics(result['Moc'], result['Pojemność skokowa'], result['Rodzaj paliwa'], result['Wersja'])
-      const carGeneration = await findCarName(result['Marka pojazdu'], result['Model pojazdu'], result['Generacja'], generationPeriod?.split('-')?.[0], generationPeriod?.split('-')?.[1])
-    
-      car!['Engine'] = engine
+      const carGeneration = await findCarName(result['Marka pojazdu'], result['Model pojazdu'], result['Generacja'], generationPeriod?.split('-')?.[0], generationPeriod?.split('-')?.[1]);
+      const locationToFind = await getLocationByState(car.location);
+      car!['Engine'] = engine;
       car!['CarGeneration'] = carGeneration;
       car!['CarModel'] = carGeneration?.CarModel;
       car!['CarBrand'] = carGeneration?.CarModel?.CarBrand;
+      car.brand_id = carGeneration?.CarModel?.brand_id;
+      car.model_id = carGeneration?.CarModel?.id;
+      car.generation_id = carGeneration?.id;
+      car.engine_id = engine?.id;
+      car.location_id = locationToFind?.id;
+      car.price = car.price.replaceAll('PLN', '');
+      car.mileage = car.mileage.replaceAll('km', '');
 
-      console.log('CAR: ------ : - -: ', car);
       return car
   } else {
       return { Error: 'No link found' }

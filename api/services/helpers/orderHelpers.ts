@@ -3,6 +3,12 @@ import { RawOrderRecord } from '../../DTOs/rawOrderRecord';
 import Logger from '../../../logger';
 import db from '../../../database/models';
 import userHelpers from './userHelpers';
+import { addPayment } from './paymentsHelper';
+import carHelpers from './carHelpers';
+import { createCarOrderLink } from './car_orderHelpers';
+import { uuid } from '../../../client_app/src/utils/helpers/uuid';
+import moment from 'moment';
+import configurationHelpers from './configurationHelpers';
 
 const retrieveOrder = async (order: RawOrderRecord, isExtended: boolean): Promise<Record<string, unknown>> => {
   const selectorData = order.selector_id ? await userHelpers.getSelectorDataById(order.selector_id) : null;
@@ -123,17 +129,70 @@ const getAllOrdersByClientId = async (clientId:string) => {
   return orders;
 }
 
-const createOrder = async (orderBody: unknown) => {
+const createOrderWithCar = async (orderBody: any) => {
   try {
-    const newOrderId = (await db.Order.create(orderBody)).id;
+    const newOrderId = (await db.Order.create(orderBody.order)).id;
     const order = (await getOrderById(newOrderId)).order;
+    const paymentBody = { amount: orderBody.order.sum,  order_id: newOrderId}
+    const carBody = { ...orderBody?.car }
 
-    return { success: true, order };
+    const addedPayemnt = await addPayment({...paymentBody});
+    
+    const foundCar = await carHelpers.getCarByDetails(carBody);
+    if(foundCar.length === 0) {
+      const addedCar = await carHelpers.createCar(carBody);
+      const car_order_link = createCarOrderLink(addedCar!?.car!?.id, newOrderId)
+      return { success: true, order, addedPayemnt, addedCar, car_order_link };
+    } else {
+      const car_order_link = createCarOrderLink(foundCar[0]!?.id, newOrderId)
+      return { success: true, order, addedPayemnt, foundCar, car_order_link };
+    }
+    
   } catch (err) {
     Logger.warn(err);
     return { success: false, message: 'Something went wrong' };
   }
 };
+
+const createOrderWithConfiguration = async (orderBody:any) => {
+  const newOrderBody = {
+    id: uuid(),
+    client_id: orderBody.userId,
+    status: 'Paid', 
+    type: 'Configuration',
+    date: moment().toISOString(),
+    sum: orderBody.sum,
+  }
+
+  const newOrder = await db.Order.create(newOrderBody); 
+  const paymentBody = { amount: orderBody.sum,  order_id: newOrder.id}
+  const addedPayemnt = await addPayment({...paymentBody});
+  let brand:any = null;
+  let model:any = null;
+  let generation:any = null;
+
+  if(orderBody.configuration?.Brand){
+    brand = await carHelpers.getBrandByName(orderBody.configuration?.Brand);
+  }
+  if(orderBody.configuration?.Model){
+    model = await carHelpers.getModelByName(orderBody.configuration?.Model);
+  }
+  
+  if(orderBody.configuration?.Generation) {
+    generation = await carHelpers.getModelByName(orderBody.configuration?.Generation);
+  }
+   
+  const configuration = await configurationHelpers.createConfiguration({...orderBody.configuration, 
+    order_id: newOrder.id, 
+    transmission: orderBody.configuration?.Gearbox, 
+    type: orderBody.configuration?.Body_type, 
+    generation_id: generation?.[0]?.id,
+    model_id: model?.[0]?.id, 
+    brand_id: brand?.[0]?.id 
+  });
+
+  return { success: true, order: newOrder, payment: addedPayemnt, configuration }
+}
 
 const updateOrderById = async (orderId: string, orderBody: unknown) => {
   try {
@@ -210,7 +269,8 @@ const getAllOrdersForClient = async (client_id:string) => {
 export default {
   getAllOrders,
   getOrderById,
-  createOrder,
+  createOrderWithCar,
+  createOrderWithConfiguration,
   updateOrderById,
   deleteOrderById,
   getAllOrdersForClient

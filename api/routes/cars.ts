@@ -5,6 +5,12 @@ import { validateRequestSchema } from '../middleware/validateRequestSchema';
 
 const router = Router();
 
+router.get('/brands', carsController.getAllBrands);
+
+router.get('/models', carsController.getAllModels);
+
+router.get('/generations', carsController.getAllGeneratioins);
+
 router.get('/list', carsController.getAllCars);
 
 router.get('/scrap', carsController.scrapCar)

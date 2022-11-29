@@ -55,12 +55,10 @@ const CreateReport = () => {
   }
 
   const handleReportsSave = () => {
-    console.log(reports)
     if(reports.length === 0){
       alert('You have not added reports')
     }
 
-    console.log(user);
     createReports({ carId: params.carId, technicianId: user.person_id, reports })
   }
 
