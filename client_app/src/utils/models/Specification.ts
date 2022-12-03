@@ -11,5 +11,17 @@ export interface ISpecification {
   color?: Array<string> | string, 
   gearbox?: string,
   price: string, 
+  CarBrand: {
+    id: string,
+    name: string,
+  },
+  CarModel: {
+    id: string,
+    name: string,
+  },
+  CarGeneration: {
+    id: string,
+    name: string,
+  }
   
 }

@@ -13,6 +13,8 @@ router.get('/:orderId', validateOrderId, validateRequestSchema, ordersController
 
 router.post('/',  ordersController.createOrder);
 
+router.post('/car', ordersController.addCarToOrder);
+
 // router.put('/:orderId', validateOrderId, validateUpdateOrder, validateRequestSchema, ordersController.updateOrderById);
 
 // router.delete('/:orderId', validateOrderId, validateRequestSchema, ordersController.deleteOrderById);

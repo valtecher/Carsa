@@ -23,17 +23,12 @@ const TechnicianDashboard = () => {
 
   const [ cars, setCars ] = useState<Array<CarType>>([]); 
 
-
-
-
   useEffect(() => {
-    if(coords){ 
       getCarsByTechnicianId(technician?.person_id).then((res) => {
         setCars(res)
       })
-    }
     
-  }, [coords])
+  }, [])
 
   return(
     <div>

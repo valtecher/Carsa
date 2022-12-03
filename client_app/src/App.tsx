@@ -21,6 +21,7 @@ import EditCar from './pages/Car/EditCar';
 import CreateOrder from './pages/Order/CreateOrder';
 import ClientOrder from './pages/ClientPage/Orders/ClientOrders';
 import ClientPayments from './pages/ClientPage/Payments/ClientPayments';
+import CarSelectorAddCar from './pages/CarSelector/CarSelectorAddCar';
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
         <Route path='/register' element={<RegisterPage/>}/>
         
         <Route path='/carselector/dashboard'  element={<CarSelectorDashboard/>}/>
+        <Route path='/carselector/car/add/:configurationId' element={<CarSelectorAddCar/>} />
+
         <Route path='/order/details/:id' element={<OrderWithConfigurationDetails/>}/>
         <Route path='/order/add/configuration/:id' element={<AddCarConfiguration showHeader={true}/>}/>
         

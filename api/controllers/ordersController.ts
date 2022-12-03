@@ -1,6 +1,9 @@
 import { Console } from 'console';
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
+import carHelpers from '../services/helpers/carHelpers';
+import car_orderHelpers from '../services/helpers/car_orderHelpers';
+import configurationHelpers from '../services/helpers/configurationHelpers';
 import orderHelpers from '../services/helpers/orderHelpers';
 
 const getAllOrders = async (req: Request, res: Response) => {
@@ -30,14 +33,11 @@ const getOrdersForClientId = async (req: Request, res: Response) => {
 
 const createOrder = async (req: Request, res: Response) => {
   const orderBody = req.body;
-  console.log(orderBody);
 
   let result:any; 
   if (orderBody.type === 'Configuration') {
-    console.log('CONFIGURATION: :::  :: :');
     result = await orderHelpers.createOrderWithConfiguration(orderBody);
   } else {
-    console.log('CAR ORDER :: : :: : _ __ __ _------')
     result = await orderHelpers.createOrderWithCar(orderBody);
   }
 
@@ -69,11 +69,20 @@ const deleteOrderById = async (req: Request, res: Response) => {
     : res.status(StatusCodes.BAD_REQUEST).json({ message: result.message });
 };
 
+const addCarToOrder = async (req:Request, res:Response) => {
+  const body = req.body;
+  const configuration = await configurationHelpers.getConfigurationById(body.configuration_id)
+  const car = await carHelpers.createCar(body?.car)
+  const carOrderLink = await car_orderHelpers.createCarOrderLink(car?.car.id, configuration?.configuration?.order_id);
+  res.json({configuration, car, carOrderLink})
+}
+
 export default {
   getAllOrders,
   getOrdersForClientId,
   getOrderById,
   createOrder,
+  addCarToOrder,
   updateOrderById,
   deleteOrderById
 };

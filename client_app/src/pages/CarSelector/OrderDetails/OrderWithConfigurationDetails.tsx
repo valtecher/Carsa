@@ -27,7 +27,7 @@ const OrderWithConfigurationDetails =  (props:any) => {
         setOrderConfiguration(res.data);
       });
     } else {
-      setSpecs(createKeyValueArrayFromObject(flattenObject((orderConfiguration.Configuration as Array<ISpecification>)?.[0]), ['id', 'order_id', 'deletedAt']))
+      setSpecs(createKeyValueArrayFromObject(flattenObject((orderConfiguration.Configuration)), ['id', 'order_id', 'deletedAt']))
     }
   }, [orderConfiguration])
 

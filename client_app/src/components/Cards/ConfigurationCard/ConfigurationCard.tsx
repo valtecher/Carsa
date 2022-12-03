@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react'
 import { flattenObject } from '../../../utils/helpers/flattenObject';
-import { IConfiguration } from '../../../utils/models/OrderWithConfiguration';
-import Button from '../../common/button/Button';
-import './configurationCard.scss';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../redux/store';
 import { bannedKeys } from '../../../utils/constants/BannedKeys';
+import Button from '../../common/button/Button';
+import './configurationCard.scss';
+import { IConfiguration } from '../../../utils/models/OrderWithConfiguration';
 
 interface IConfigurationCardProps {
-  configuration: IConfiguration
+  configuration: any
 }
 
 const ConfigurationCard = (props: IConfigurationCardProps) => {
@@ -25,7 +25,7 @@ const ConfigurationCard = (props: IConfigurationCardProps) => {
   return(
     <div className='configurationCard'>
       <div className='configurationCard-part'>
-        <div className='configurationCard-type'>{ configuration.type }</div>
+        <div className='configurationCard-type'>{ configuration?.type  } { configuration.Configuration?.CarBrand?.name } { configuration.Configuration?.CarModel?.name } { configuration.Configuration?.CarGeneration?.name }</div>
         <div className='configurationCard-client'>{ configuration.Client?.first_name } { configuration.Client?.last_name }</div>
         <div className='configurationCard-id'> { configuration.id } </div>
       </div>
@@ -42,8 +42,8 @@ const ConfigurationCard = (props: IConfigurationCardProps) => {
       </div>
       <div className='configurationCard-separator'></div>
       <div className='configurationCard-part'>
-        <Button onClick={() => { navigate(`/order/details/${configuration.id}`) }} name={'Details'} type={false} />
-        { user?.role !== 'Client' ? <Button onClick={() => { navigate('/order/add/configuration') }} name={'Add Car'} type={false} /> : '' }
+        {user?.role !== 'CarSelector' ? <Button onClick={() => { navigate(`/order/details/${configuration.id}`) }} name={'Details'} type={false} /> : '' }
+        { user?.role !== 'Client' ? <Button onClick={() => { navigate(`/carselector/car/add/${configuration.Configuration?.id}`) }} name={'Add Car'} type={false} /> : '' }
       </div>
     </div>
   )

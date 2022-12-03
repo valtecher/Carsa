@@ -7,6 +7,7 @@ import { registerUserThunk } from '../../redux/thunks/userThunks'
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../redux/store';
 import { useFormik } from 'formik';
+import { useEffect } from 'react';
 
 interface FormError {
   hasError: boolean, 
@@ -26,6 +27,7 @@ const RegisterPage = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector((state: AppState) => state.user)
   const isAuthenticated = useSelector((state: AppState) => state.user.isAuthenticated);
   const userState = useSelector((state: AppState) => state.user);
 
@@ -70,6 +72,12 @@ const RegisterPage = () => {
   const submit = () => {
       dispatch(registerUserThunk(formik.values));
   }
+
+  useEffect(() => {
+    if(user.isAuthenticated && user.user.role === 'Client') {
+      navigate('/client/dashboard');
+    } 
+  }, [user.isAuthenticated])
 
   return(
     <div className='register'>

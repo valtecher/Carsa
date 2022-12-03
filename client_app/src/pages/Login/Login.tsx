@@ -64,6 +64,10 @@ const LoginPage = () => {
     if(user.isAuthenticated && user.user.role === 'Technician'){
       navigate('/technician/dashboard');
     }
+
+    if(user.isAuthenticated && user.user.role === 'CarSelector') {
+      navigate('/car/dashboard');
+    }
   }, [user.isAuthenticated])
 
   return(

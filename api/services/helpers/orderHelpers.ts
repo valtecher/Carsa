@@ -5,7 +5,7 @@ import db from '../../../database/models';
 import userHelpers from './userHelpers';
 import { addPayment } from './paymentsHelper';
 import carHelpers from './carHelpers';
-import { createCarOrderLink } from './car_orderHelpers';
+import car_OrderHelper from './car_orderHelpers';
 import { uuid } from '../../../client_app/src/utils/helpers/uuid';
 import moment from 'moment';
 import configurationHelpers from './configurationHelpers';
@@ -141,10 +141,10 @@ const createOrderWithCar = async (orderBody: any) => {
     const foundCar = await carHelpers.getCarByDetails(carBody);
     if(foundCar.length === 0) {
       const addedCar = await carHelpers.createCar(carBody);
-      const car_order_link = createCarOrderLink(addedCar!?.car!?.id, newOrderId)
+      const car_order_link = car_OrderHelper.createCarOrderLink(addedCar!?.car!?.id, newOrderId)
       return { success: true, order, addedPayemnt, addedCar, car_order_link };
     } else {
-      const car_order_link = createCarOrderLink(foundCar[0]!?.id, newOrderId)
+      const car_order_link = car_OrderHelper.createCarOrderLink(foundCar[0]!?.id, newOrderId)
       return { success: true, order, addedPayemnt, foundCar, car_order_link };
     }
     

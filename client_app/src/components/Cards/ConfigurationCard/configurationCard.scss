@@ -15,15 +15,23 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  
   &-part {
 
     margin-right: 10px;
     display: flex;
-    justify-content: space;
+    justify-content: space-between;
     flex-direction: column;
     flex-wrap: wrap;
+    
+
+    &:first-child {
+      flex-grow: 5;
+      flex-basis: 10%;
+    }
 
     &-specs{
+      overflow-x: scroll;
       width: 60%;
       min-width: 250px;
       max-width: 650px;
@@ -35,7 +43,7 @@
     font-family: $base-font-family;
     font-style: normal;
     font-weight: 800;
-    font-size: 36px;
+    font-size: 24px;
     line-height: 53px;
     text-transform: capitalize;
   }
