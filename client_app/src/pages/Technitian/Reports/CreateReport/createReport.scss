@@ -6,6 +6,12 @@
   right: 0;
   left: 0;
   width: 95%;
+
+  &-header{
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+  }
   &-wrapper{
     display: flex;
     flex-direction: row;

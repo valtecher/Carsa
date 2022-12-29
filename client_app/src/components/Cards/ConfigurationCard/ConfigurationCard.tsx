@@ -6,7 +6,6 @@ import { AppState } from '../../../redux/store';
 import { bannedKeys } from '../../../utils/constants/BannedKeys';
 import Button from '../../common/button/Button';
 import './configurationCard.scss';
-import { IConfiguration } from '../../../utils/models/OrderWithConfiguration';
 
 interface IConfigurationCardProps {
   configuration: any
@@ -19,7 +18,7 @@ const ConfigurationCard = (props: IConfigurationCardProps) => {
   const user = useSelector((state:AppState) => state.user.user )
 
   useEffect(() => {
-    setSpecs(Object.entries(flattenObject(configuration.Configuration) || {}))
+    setSpecs(Object.entries(flattenObject(configuration.Configuration) || configuration?.car_order?.[0] || {}))
 }, [])
 
   return(

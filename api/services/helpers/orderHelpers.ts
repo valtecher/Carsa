@@ -9,6 +9,7 @@ import car_OrderHelper from './car_orderHelpers';
 import { uuid } from '../../../client_app/src/utils/helpers/uuid';
 import moment from 'moment';
 import configurationHelpers from './configurationHelpers';
+import sequelize from 'sequelize';
 
 const retrieveOrder = async (order: RawOrderRecord, isExtended: boolean): Promise<Record<string, unknown>> => {
   const selectorData = order.selector_id ? await userHelpers.getSelectorDataById(order.selector_id) : null;
@@ -39,7 +40,7 @@ const retrieveOrder = async (order: RawOrderRecord, isExtended: boolean): Promis
         { model: db.CarBrand },
         { model: db.CarModel, attributes: { exclude: ['brand_id'] } },
         { model: db.CarGeneration, attributes: { exclude: ['model_id'] } },
-        { model: db.Location }
+        { model: db.Location },
       ]
     });
 
@@ -58,7 +59,7 @@ const retrieveOrder = async (order: RawOrderRecord, isExtended: boolean): Promis
           attributes: {
             exclude: ['createdAt', 'updatedAt']
           },
-          include: [db.CarBrand, db.CarModel, db.CarGeneration],
+          include: [db.CarBrand, db.CarModel, db.CarGeneration,   { model: db.ReportOverview, include: [ { model: db.Report, include: [ db.ReportType ] } ] }],
           raw: true,
           nest: true
         });
@@ -103,7 +104,7 @@ const getAllOrders = async ({ limit = Number.MAX_SAFE_INTEGER, offset = 0 }: { l
 
 const getOrderById = async (orderId: string) => {
   const order = await db.Order.findByPk(orderId, { raw: true, nest: true, include: [
-    {model: db.Car, as: 'car_order', include: [db.CarBrand, db.CarModel, db.CarGeneration]} 
+    {model: db.Car, as: 'car_order', include: [db.CarBrand, db.CarModel, db.CarGeneration, { model: db.ReportOverview, include: [db.Report] }]} 
   ] });
 
   if (!order) {
@@ -258,7 +259,10 @@ const getAllOrdersForClient = async (client_id:string) => {
   const orders = await db.Order.findAll({
     include: [{ model:  db.Payment }, {model: db.Car, as: 'car_order', include: [db.CarBrand, db.CarModel, db.CarGeneration, { model: db.ReportOverview, include: [ db.Report, db.Technician ] }]} , db.Configuration],
     where: {
-      client_id: client_id
+      client_id: client_id,
+      status: {
+          [sequelize.Op.not]: 'Finished'
+      }
     }
 
   });

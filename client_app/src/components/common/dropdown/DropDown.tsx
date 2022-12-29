@@ -9,12 +9,15 @@ interface Props {
 }
 
 const DropDown = (props:Props) => {
-  const { options, outerOption, setOuterOptions, placeholder,  } = props;
+  const { options, outerOption, setOuterOptions, placeholder } = props;
   const [ selectedOption, setSelectedOption ] = useState<string>(placeholder?  `Choose  ${placeholder}` : 'Choose option');
   const [ isOpened, setIsOpened ] = useState<boolean>(false); 
   
   const handleClick = () => {
-    setIsOpened(!isOpened)
+    if (options.length > 0) {
+      setIsOpened(!isOpened)
+    }
+    
   }
 
   const handleItemSelect = (item:{ id:number, label: string, name: string }) => {
@@ -33,7 +36,7 @@ const DropDown = (props:Props) => {
   }, [options])
 
   return(
-    <div className='dropdown'>
+    <div className={`dropdown ${ options.length > 0 ? '' : 'inactive-dropdown' }`}>
       <div className='dropdown-input' onClick={handleClick}>
         <p>{outerOption?.[placeholder]? outerOption?.[placeholder] : selectedOption }</p>
         <span className="material-icons dropdown-input-arrow">

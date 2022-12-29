@@ -44,7 +44,6 @@ const ClientDashboard = () => {
   return(
     <div>
         <Header/>
-        <SideMenu/>
         <div className='clientDashboard'>
          
          <div className='clientDashboard-header'>
@@ -53,8 +52,8 @@ const ClientDashboard = () => {
         </div> 
           <div className='clientDashboard-subInfo'>Last Orders</div>
           <div className='clientDashboard-section'>
-            { orders.map((order) => {
-              return(<div>
+            { orders.map((order, index:number) => {
+              return(<div key={index}>
                 <ConfigurationCard configuration={order} />
               </div>)
             }) }

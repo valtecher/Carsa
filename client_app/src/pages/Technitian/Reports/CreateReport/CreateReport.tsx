@@ -1,26 +1,25 @@
-import React from 'react';
 import './createReport.scss'
 import Header from "../../../../components/header/Header";
 import DropDown from '../../../../components/common/dropdown/DropDown';
 import TextInput from '../../../../components/common/input/TextInput';
 import Button from '../../../../components/common/button/Button';
-import { useEffect } from 'react';
-import { getReportsByCarId } from '../../../../utils/apis/CarsApi';
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { IReport, IReportType } from '../../../../utils/models/Report';
 import ReportCard from '../../../../components/Cards/ReportCard/ReportCard';
 import { uuid } from '../../../../utils/helpers/uuid';
-import { createReports } from '../../../../utils/apis/ReportApi';
+import { createReports, getExistingReportsForCar } from '../../../../utils/apis/ReportApi';
 import { AppState } from '../../../../redux/store';
 import { useSelector } from 'react-redux';
 
 
 const CreateReport = () => {
   const params = useParams();
+  const navigate = useNavigate();
   const user = useSelector((state:AppState) => state.user.user);
 
   const [ reports, setReports ] = useState<Array<IReport>>([]);
+  const [serverReports, setServerReports] = useState<Array<IReport>>([])
   const [ pendingReport, setPendingReport ] = useState<IReport>({
     type: IReportType.None,
     condition: 0,
@@ -59,18 +58,32 @@ const CreateReport = () => {
       alert('You have not added reports')
     }
 
-    createReports({ carId: params.carId, technicianId: user.person_id, reports })
+    console.log(reports);
+    createReports({ carId: params.carId, technicianId: user.person_id, reports }).then((res) => {
+      console.log(res);
+    }).catch((e) => { alert(e) })
   }
+
+  useEffect(() => {
+    getExistingReportsForCar(params.carId || '').then((res) => {
+      setServerReports([...res.data.reports])
+    })
+  }, [])
 
 
   return(
     <div>
       <Header/>
       <div className="createReport">
-        <h1>Add report</h1> 
-        <Button onClick={() => {
-          handleReportsSave();
-        }} type={false} name={'Save'}></Button>
+        <div className='createReport-header'>
+          <h1>Add report</h1> 
+          <Button onClick={() => {
+            handleReportsSave();
+          }} type={true} name={'Save'}></Button>
+            <Button onClick={() => {
+              navigate(`/${user?.role}/dashboard`);
+          }} type={true} name={'Back'}></Button>
+        </div>
         <div  className='createReport-wrapper'>
           <div className='createReport-wrapper-blotter'>
             <div className='createReport-wrapper-blotter-section'>
@@ -90,7 +103,7 @@ const CreateReport = () => {
             </div>
           </div>
           <div className='createReport-wrapper-list'>
-            { reports.map((report, index: number) => {
+            { [...reports, ...serverReports].map((report, index: number) => {
               return(
                 <div key={report.id || index}>
                   <ReportCard report={report} editable={true} onDelete={handleReportDelete}/>

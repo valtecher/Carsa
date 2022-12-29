@@ -9,6 +9,8 @@ import Button from '../../components/common/button/Button';
 import { PackageType } from './Steps/ChooseOrderTypeStep';
 import { fetchCarByLink } from '../../utils/apis/CarScapperApi';
 import { useSelector } from 'react-redux';
+import { CarType } from '../../utils/models/Car';
+import CarCard, { CarCardModes } from '../../components/Cards/CarCard/CarCard';
 
 
 
@@ -17,6 +19,8 @@ const CreateOrder = () => {
   const navigate = useNavigate();
   const userId = useSelector((appState:any) => appState.user.user.Person.id)
   const [ carLink, setCarLink ] = useState<string>('');
+  const [car, setCar] = useState<CarType>();
+  const [loading, setLoading] = useState<boolean>(false)
   const [ order, setOrder ] = useState<any>({
     type: '',
     sum: 0, 
@@ -52,7 +56,7 @@ const CreateOrder = () => {
           </div>
         ) }
 
-        { order.sum === 200 && (
+        { order.sum === 200 && !car && (
           <SimpleCard>
             <div className='createOrder-header'>Fetch Car By link</div>
             <div className='createOrder-body'>
@@ -64,16 +68,33 @@ const CreateOrder = () => {
               <Button onClick={() => {
                 setOrder({sum: 0, type: '', status: 'Initial', car: null, configuration: null})
               }} type={false} name={'Back'}></Button>  
-              <Button onClick={() => {
+              {!car && (<Button onClick={() => {
+                setLoading(true);
                 fetchCarByLink(carLink).then((car) => {
-                  createOrder({ order, car, userId, sum: 200 }).then((res) => {
-                    navigate('/client/dashboard')
-                   })
+                  setCar(car);
+                  if(car) {
+                    setLoading(false);
+                  }
+                  
                 })
-              }} type={false} name={'Submit'}></Button>  
+              }} type={false} name={ loading ? 'Loading' : 'Fetch' }></Button>)}  
           </div>
           </SimpleCard>
-        )}
+        )} 
+        {
+          order.sum === 200 && car && (
+            <SimpleCard>
+              <CarCard mode={CarCardModes.NOACTION} car={car}></CarCard>
+              <Button onClick={() => {
+                  if(car) {
+                    createOrder({ order, car, userId, sum: 200 }).then((res) => {
+                      navigate('/client/dashboard')
+                     })
+                  }
+              }} type={false} name='Submit'></Button>
+            </SimpleCard>
+          ) 
+        }
 
         { order.sum === 800 && (
           <SimpleCard>

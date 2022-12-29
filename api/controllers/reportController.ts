@@ -1,8 +1,12 @@
 import { Request, Response } from 'express';
-import { IReport } from '../../client_app/src/utils/models/Report';
-import { ReportType} from '../../types/report';
 import reportHelpers from '../services/helpers/reportHelpers';
 
+
+const getAllReportForCar = async (req:Request, res:Response) => {
+  const car_id = req.params.car_id;
+  const reports = await reportHelpers.getRecentCarReports(car_id);
+  res.json(reports)
+}
 
 const saveAndUpdateReports = async (req:Request, res:Response) => {
   const reports = req.body;
@@ -21,6 +25,7 @@ const updateSingleReport = async (req:Request, res: Response) => {
 }
 
 export default {
+  getAllReportForCar,
   saveAndUpdateReports,
   updateSingleReport
 }

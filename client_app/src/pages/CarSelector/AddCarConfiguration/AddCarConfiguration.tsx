@@ -4,7 +4,7 @@ import Button from '../../../components/common/button/Button';
 import DropDown from '../../../components/common/dropdown/DropDown';
 import TextInput from '../../../components/common/input/TextInput';
 import Header from '../../../components/header/Header';
-import { loadAllModelsForBrand, loadAllGenerationsForModel, loadBrands } from '../../../utils/apis/CarsApi';
+import { getAllModelsForBrand, getAllGenerationsForModel, getAllBrands } from '../../../utils/apis/CarsApi';
 import { uuid } from '../../../utils/helpers/uuid';
 import { CarBrandType } from '../../../utils/models/CarBrand';
 import { CarModelType } from '../../../utils/models/CarModel';
@@ -61,7 +61,7 @@ const AddCarConfiguration = (props:IAddCarConfigurationProps) => {
   }
 
   useEffect(() => {
-    loadBrands().then((brands:any) => {
+    getAllBrands().then((brands:any) => {
       setBrands(brands?.map((brand:CarBrandType) => {
         return {
           id: uuid(),
@@ -75,7 +75,7 @@ const AddCarConfiguration = (props:IAddCarConfigurationProps) => {
 
   useEffect(() => {
     if (manualConfiguration?.Brand) {
-      loadAllModelsForBrand(manualConfiguration.Brand || '').then((models) => {
+      getAllModelsForBrand(manualConfiguration.Brand || '').then((models) => {
         setModels(models?.map((model:CarModelType) => {
           return {
             id: uuid(),
@@ -87,7 +87,7 @@ const AddCarConfiguration = (props:IAddCarConfigurationProps) => {
     }
 
     if (manualConfiguration?.Model) {
-      loadAllGenerationsForModel(manualConfiguration.Model || '').then((generations) => {
+      getAllGenerationsForModel(manualConfiguration.Model || '').then((generations) => {
         setGenerations(generations?.map((generation:CarModelType) => {
           return {
             id: uuid(),

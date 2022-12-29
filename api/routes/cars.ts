@@ -13,6 +13,8 @@ router.get('/generations', carsController.getAllGeneratioins);
 
 router.get('/list', carsController.getAllCars);
 
+router.get('/rejected', carsController.getAllRejectedCars)
+
 router.get('/scrap', carsController.scrapCar)
 
 router.get('/getclientcars/:clientId', carsController.getClientCars)
@@ -20,6 +22,10 @@ router.get('/getclientcars/:clientId', carsController.getClientCars)
 router.get('/techniciancars/:id', carsController.getCarsForTechnician)
 
 router.get('/:carId', validateCarId, validateRequestSchema, carsController.getCarById);
+
+router.get('/buy/:carId', carsController.buyCar);
+
+router.get('/reject/:carId', carsController.rejectCar);
 
 router.post('/', validateCreateCar, validateRequestSchema, carsController.createCar);
 

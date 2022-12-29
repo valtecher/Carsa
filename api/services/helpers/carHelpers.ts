@@ -303,10 +303,59 @@ const getAllGenerations = async (model_id) => {
   })
 }
 
+const buyCar = async (car_id:string) => {
+  const car_order = await db.Car_Order.findOne({ 
+    where: {
+      car_id
+    }
+   });
+   const order = await db.Order.findByPk(car_order.order_id);
+   
+   await car_order.update({...car_order, status: 'Bought'});
+   await order.update({...order, status: 'Finished'});
+
+} 
+
+const rejectCar = async (car_id: string ) => {
+  const car_order = await db.Car_Order.findOne({ 
+    where: {
+      car_id
+    }
+   });
+   await car_order.update({...car_order, status: 'Rejected'});
+}
+
+const getRejectedCars = async () => {
+  const car_order = await db.Car_Order.findAll(); 
+  const car_order_ids = car_order.map((car_order) => car_order.car_id);
+  console.log(car_order_ids);
+
+  const rejectedCars = await db.Car.findAll({
+    where: {
+      id: car_order_ids
+    },
+    attributes: {
+      exclude: ['brand_id', 'model_id', 'generation_id', 'engine_id', 'generation_id']
+    },
+    include: [
+      { model: db.CarBrand },
+      { model: db.CarModel, attributes: ['id', 'name'] },
+      { model: db.CarGeneration, attributes: ['id', 'name', 'start_year', 'end_year'] },
+      { model: db.Engine },
+      { model: db.Location },
+      {model: db.ReportOverview }
+    ],
+  })
+
+
+  return rejectedCars;
+}
+
 export default {
   getAllCars,
   getCarById,
   getCarByDetails,
+  getRejectedCars,
   getAllCarsByLocationState,
 
   getAllBrands,
@@ -316,6 +365,8 @@ export default {
   getModelByName,
   getGenerationByName, 
 
+  buyCar,
+  rejectCar,
 
   createCar,
   updateCarById,

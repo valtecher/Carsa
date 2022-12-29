@@ -97,11 +97,34 @@ const scrapCar = async (req:Request, res:Response) => {
   res.json(scrappedCar);
 }
 
+const buyCar = async (req:Request, res:Response) => {
+  const car_id = req.params.carId; 
+  await carHelpers.buyCar(car_id)
+  res.json({ success: true })
+}
+
+const rejectCar = async (req:Request, res:Response) => {
+  const car_id = req.params.carId;
+
+  res.json({ success: true })
+}
+
+
+const getAllRejectedCars = async (req:Request, res:Response) => {
+  const rejectedCars = await carHelpers.getRejectedCars();
+  res.json({success: true, rejectedCars});
+}
+
 export default {
   getCarById,
   getAllCars,
   getClientCars,
+  getAllRejectedCars,
   getCarsForTechnician,
+  
+
+  buyCar, 
+  rejectCar,
 
   getAllBrands, 
   getAllModels, 

@@ -1,5 +1,5 @@
 import axios from "axios"
-import { CarType, dummyCarWithImages } from "../models/Car"
+import { CarType } from "../models/Car"
 
 export const getCarsByTechnicianId = async (technicianId:string) => {
   return axios.get(`${process.env.REACT_APP_API_URL}/cars/techniciancars/${technicianId}`).then((res) =>{
@@ -31,28 +31,42 @@ export const getLastCars = async (clientId:string) => {
   });
 }
 
-export const updateCar = async (car:CarType) => {
-  return await axios.put(`${process.env.REACT_APP_API_URL}/cars/${car.id}`, { ...car }).then((res) => {
-    return res.data;
-  }).catch((e) => {
-    console.error('Something went wrong', e);
-  });;
-} 
-
-export const loadBrands = async () => {
+export const getAllBrands = async () => {
   return await axios.get(`${process.env.REACT_APP_API_URL}/cars/brands`).then((res) => {
     return res.data;
   })
 }
 
-export const loadAllModelsForBrand = async (brand: string) => {
+export const getAllModelsForBrand = async (brand: string) => {
   return await axios.get(`${process.env.REACT_APP_API_URL}/cars/models`, {params: { name: brand }}).then((res) => {
     return res.data;
   })
 }
 
-export const loadAllGenerationsForModel = async (model: string) => {
+export const getAllGenerationsForModel = async (model: string) => {
   return await axios.get(`${process.env.REACT_APP_API_URL}/cars/generations`, { params: { name: model } }).then((res) => {
     return res.data;
   })
 }
+
+export const getRejectedCars = async () => {
+  return await axios.get(`${process.env.REACT_APP_API_URL}/cars/rejected`).then((res) => {
+    return res.data
+  }).catch((e) => e)
+}
+
+export const buyCar = async (carid:string) => {
+  return await axios.get(`${process.env.REACT_APP_API_URL}/cars/buy/${carid}`);
+}
+
+export const rejectCar = async (carid: string) => {
+  return await axios.get(`${process.env.REACT_APP_API_URL}/cars/reject/${carid}`);
+}
+
+export const updateCar = async (car:CarType) => {
+  return await axios.put(`${process.env.REACT_APP_API_URL}/cars/${car.id}`, { ...car }).then((res) => {
+    return res.data;
+  }).catch((e) => {
+    console.error('Something went wrong', e);
+  });
+} 

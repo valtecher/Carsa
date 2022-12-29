@@ -3,7 +3,7 @@ import Header from '../../components/header/Header';
 import Carousel from '../../components/carousel/Carousel';
 import { CarType } from '../../utils/models/Car';
 import { useEffect, useState } from 'react';
-import { getCarById, getReportsByCarId, updateCar } from '../../utils/apis/CarsApi';
+import { buyCar, getCarById, getReportsByCarId, rejectCar, updateCar } from '../../utils/apis/CarsApi';
 import { useParams } from 'react-router-dom';
 import Button, { ButtonSize } from '../../components/common/button/Button';
 import { IReport } from '../../utils/models/Report';
@@ -11,6 +11,8 @@ import ReportCard from '../../components/Cards/ReportCard/ReportCard';
 import { createKeyValueArrayFromObject, flattenObject } from '../../utils/helpers/flattenObject';
 import styled from 'styled-components';
 import { findPath } from '../../utils/helpers/findPath';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../redux/store';
 
 const StyledSpecs = styled.div`
   input {
@@ -35,14 +37,14 @@ const bannedKeys = ['state', 'id', 'images', 'mainImage', 'description', 'market
 const EditCar = (props:IEditCarProps) => {
   
   const params = useParams();
+  const userRole = useSelector((state:AppState) => state.user.user.role )
+
   const [ car, setCar ] = useState<CarType>()
   const [reports, setReports] = useState<Array<IReport>>();
   const [ mode, setMode ] = useState<CarPageModes>(CarPageModes.VIEW);
   
   const [isAddingSpec, setIsAddingSpec] = useState<boolean>(false);
   const [ pendingVin, setPendingVin ] = useState<string>('');
-  const [ pendingNumber, setPendingNumber ] = useState<string>('');
-
 
   const isInEditMode = ():boolean => {
     return mode === CarPageModes.EDIT
@@ -76,6 +78,14 @@ const EditCar = (props:IEditCarProps) => {
     }
   }
 
+  const handleBuy = () => {
+    buyCar(car?.id || '');
+  }
+
+  const handleReject = () => {
+    rejectCar(car?.id || '');
+  }
+
   return(
     <div>
       <Header/>
@@ -97,9 +107,9 @@ const EditCar = (props:IEditCarProps) => {
               <div className='editCar-header-info-section-subSection-smallinfo'>{car?.registrationNumber}</div>
               <div className='editCar-header-info-section-subSection-smallinfo'>{car?.vin}</div>
               
-              { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={undefined} type={true} name={'Buy'}></Button>}
-              { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={undefined} type={true} name={'Reject'}></Button>}
-              { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={() => {setMode(CarPageModes.EDIT)}} type={true} name={'Edit'}></Button>}
+              { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={handleBuy} type={true} name={'Buy'}></Button>}
+              { isInEditMode() ? '' : <Button size={ButtonSize.SMALL} onClick={handleReject} type={true} name={'Reject'}></Button>}
+              { userRole !== 'Client' && isInEditMode() ? <Button size={ButtonSize.SMALL} onClick={() => {setMode(CarPageModes.EDIT)}} type={true} name={'Edit'}></Button> : ''}
               { isAddingSpec && (<input name='vin' placeholder='vin' value={pendingVin} onChange={(e:any) => {
                 setPendingVin(e.target.value);
               }}></input>) }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CarType } from '../../../utils/models/Car';
 import  Pie from '../../../components/CarStateScore/CarStateScore';
 import './carCard.scss'
@@ -11,11 +11,15 @@ import { useSelector } from 'react-redux';
 import { AppState } from '../../../redux/store';
 import moment from 'moment';
 import { uuid } from '../../../utils/helpers/uuid';
+import { getExistingReportsForCar } from '../../../utils/apis/ReportApi';
+import { IReport } from '../../../utils/models/Report';
+import { report } from 'process';
 
 export enum CarCardModes {
   NONE='NONE',
   CLIENT='CLIENT',
   TECHNICIAN='TECHNICIAN', 
+  NOACTION='NOACTION'
 
 }
 
@@ -39,6 +43,8 @@ const CarCard = (props:ICarCardProps) => {
   const user = useSelector((state:AppState) => state.user.user)
  
   const { car, defaultExpended } = props
+  const [ reports, setReports ] = useState<Array<IReport>>([]);
+  const [ avg, setAvg ] = useState<number>(0);
   const [ isExtended, setIsExtended ] = useState<boolean>(defaultExpended || false);
 
   const handleExtend = (e:any) => {
@@ -47,7 +53,16 @@ const CarCard = (props:ICarCardProps) => {
     }
   }
 
-
+  useEffect(() => {
+    getExistingReportsForCar(car.id || '').then((res) => {
+      setReports(res.data.reports)
+      const percents:Array<number> = res.data.reports.map((report:IReport) => report.condition);
+      const avg = percents.reduce((acc, number) => {
+        return acc + number;
+      }, 0) / res.data.reports.length;
+      setAvg(avg)
+    });
+  }, [])
 
   return(
     <div className={`${ isExtended? 'carCard-expanded':' carCard'}`} onClick={handleExtend}>
@@ -63,10 +78,7 @@ const CarCard = (props:ICarCardProps) => {
             navigate(`/technician/report/add/${props?.car?.ReportOverviews?.[0]?.id ?? uuid() }/${car.id}`)
            }} type={false} name={'Add report'} size={ButtonSize.SMALL}/>}
           { user?.role !== 'Client' && isExtended && <Button onClick={() => { navigate(`/car/edit/${car?.id}`) }} type={false} name={'Edit'} size={ButtonSize.SMALL}/>}
-          
-          { isExtended && <Button onClick={() => { 
-            // navigate(`/car/edit/${car?.id}`);
-          }} type={false} name={'More'} size={ButtonSize.SMALL}/>}
+          {user?.role === 'Client' && isExtended && props.mode !== CarCardModes.NOACTION && <Button onClick={() => { navigate(`/car/edit/${car?.id}`) }} type={false} name={'Details'} size={ButtonSize.SMALL}/>}
         </div>
       </div>
       { !isExtended && <div className='carCard-separator'></div>}
@@ -84,12 +96,13 @@ const CarCard = (props:ICarCardProps) => {
         </div> 
       }
       <div className={`${ isExtended? 'carCard-expanded-state':' carCard-state'}`}>
-         { !isExtended && <Pie id='carCard-expanded-state-overall' percentage={90} color={'white'} label={''} ></Pie>} 
-         { isExtended && <Pie percentage={90} color={'white'} label={'Interior'} ></Pie>} 
-         { isExtended && <Pie percentage={90} color={'white'} label={'Exterior'} ></Pie>} 
-         { isExtended && <Pie percentage={90} color={'white'} label={'Engine'} ></Pie>} 
-         { isExtended && <Pie percentage={90} color={'white'} label={'Gearbox'} ></Pie>} 
-         { isExtended && <Pie percentage={90} color={'white'} label={'Suspension'} ></Pie>} 
+         { !isExtended && <Pie id='carCard-expanded-state-overall' percentage={avg} color={'white'} label={''} ></Pie>} 
+         { isExtended && reports.map((report:IReport) => {
+          return(
+              <Pie key={report?.id || Date.now()} percentage={report.condition} color={'white'} label={report.type} ></Pie>
+          )
+         }) }
+
       </div>
       { isExtended && <div className='carCard-expanded-specs'>
         <div className='carCard-expanded-specs-header'>Specs</div>

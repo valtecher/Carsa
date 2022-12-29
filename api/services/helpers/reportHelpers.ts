@@ -88,6 +88,7 @@ export const createReportOverview = async (reportOverview:ReportOverviewType) =>
 export const createReport = async (report:IReport) => {
     const reportTypes = await getReportTypes();
     report.type_id = reportTypes.find((reportType) => reportType.name.toLowerCase() === report.type.toLowerCase())?.id;
+    console.log(report);
     return await db.Report.create(report).catch((e) => {
       console.error(e)
     });

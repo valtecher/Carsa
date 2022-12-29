@@ -42,7 +42,7 @@ const OrderWithConfigurationDetails =  (props:any) => {
             <div className='orderWithConfigurationDetails-details'>
               <div className='orderWithConfigurationDetails-details-order'>
                 <div className='orderWithConfigurationDetails-details-header'>
-                    Order Configuration
+                    { orderConfiguration?.type === 'Configuration' ? 'Order Configuration' : 'Single Car' }
                     <div className='orderWithConfigurationDetails-details-header-label'>
                       #{orderConfiguration?.id}
                     </div>
@@ -67,14 +67,18 @@ const OrderWithConfigurationDetails =  (props:any) => {
                 </div>
               </div>
             </div>
+
             <div className='orderWithConfigurationDetails-cars'>
                   <div className='orderWithConfigurationDetails-cars-header'>
                     Cars
                   </div>
                   <div className='orderWithConfigurationDetails-cars-items'>
-                      { orderConfiguration?.OrderCars?.length === 0 ? 'No cars in this order' : orderConfiguration?.OrderCars?.map((car:CarType) => {
+                      { orderConfiguration?.OrderCars?.length === 0 ? 'No cars in this order' : orderConfiguration?.OrderCars?.map((car:CarType, index:number) => {
                         return(
-                          <CarCard car={car}/>
+                          <div key={index}>
+                            <CarCard car={car}/>
+                          </div>
+                          
                         )
                       }) }
                   </div>
